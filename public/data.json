@@ -1,0 +1,327 @@
+{
+    "code": 1,
+    "message": "ok",
+    "update": 1504848575,
+    "data": {
+        "settings": [{
+                "key": "url",
+                "value": "http://f1982.com"
+            },
+            {
+                "key": "static-url",
+                "value": "http://static.f1982.com"
+            },
+            {
+                "key": "last-update",
+                "value": "2017.9"
+            },
+            {
+                "key": "copyright",
+                "value": "f1982.com 2017"
+            }
+        ],
+        "sections": [{
+                "id": 1,
+                "name": "home",
+                "type": "home",
+                "tag": null,
+                "language": "en",
+                "title": "Andy's Singularity",
+                "content": "HI I'm Andy Cao. I live in Beijing China with my wife and cute daughter and two cats. I’m a full stack developer, and I hope I can coding everyday. I like running, workout, and making stuffs. I am a Senior R&D Manager work in China Network Television Company.",
+                "comment": "Love to create and change, no matter how small the beginning, no matter how difficult it is."
+            },
+            {
+                "id": 2,
+                "name": "about",
+                "type": "about",
+                "tag": null,
+                "language": "en",
+                "title": "About me",
+                "content": null,
+                "comment": null
+            },
+            {
+                "id": 5,
+                "name": "copyright",
+                "type": "",
+                "tag": null,
+                "language": "en",
+                "title": "copyright 2017 f1982",
+                "content": null,
+                "comment": null
+            }
+        ],
+        "projects": [{
+                "id": 1,
+                "type": "game",
+                "state": "release",
+                "cover": "p01-small.jpg",
+                "start-time": "Apr 2001",
+                "end-time": "Mar 2001",
+                "images": "p01-large.jpg",
+                "tech": "coocs2d-x,json",
+                "link": "http://www.f1982.com",
+                "video": "http://www.youtube.com",
+                "language": "en",
+                "title": "Crunching",
+                "description": "Crunching is a simple game",
+                "quote": "It's a very good game"
+            },
+            {
+                "id": 2,
+                "type": "game",
+                "state": "release",
+                "cover": "p02-small.jpg",
+                "start-time": 2002,
+                "images": "p02-large.jpg",
+                "tech": "Flash,XML",
+                "link": "http://www.f1982.com",
+                "video": "http://www.youtube.com",
+                "language": "en",
+                "title": "Endless Nails",
+                "description": "a game about nails",
+                "quote": "c ool"
+            },
+            {
+                "id": 3,
+                "type": "game",
+                "state": "release",
+                "cover": "p03-small.jpg",
+                "start-time": 2002,
+                "images": "p03-large.jpg",
+                "tech": "Flash,XML",
+                "link": "http://www.f1982.com",
+                "video": "http://www.youtube.com",
+                "language": "en",
+                "title": "Endless Nails",
+                "description": "a game about nails",
+                "quote": "c ool"
+            },
+            {
+                "id": 4,
+                "type": "game",
+                "state": "release",
+                "cover": "p04-small.jpg",
+                "start-time": 2002,
+                "images": "p04-large.jpg",
+                "tech": "Flash,XML",
+                "link": "http://www.f1982.com",
+                "video": "http://www.youtube.com",
+                "language": "en",
+                "title": "Endless Nails",
+                "description": "a game about nails",
+                "quote": "c ool"
+            }
+        ],
+        "devices": {
+            "rc": [{
+                    "id": 1,
+                    "name": "devo-10",
+                    "type": "rc",
+                    "start-time": 2003,
+                    "cover": "transmitter.jpg",
+                    "images": "1.jpg,2.jpg",
+                    "tag": null,
+                    "language": "en",
+                    "title": "Walker Devo 10 Transmitter",
+                    "description": "My first RC transmitter"
+                },
+                {
+                    "id": 2,
+                    "name": "fatshark-v3",
+                    "type": "rc",
+                    "start-time": 2007,
+                    "cover": "fatshark.jpg",
+                    "images": "2.jpg,3.jpg",
+                    "tag": null,
+                    "language": "en",
+                    "title": "Fatshark FPV Goggles",
+                    "description": null
+                }
+            ],
+            "computer": []
+        },
+        "timelines": {
+            "life": [{
+                    "id": 3,
+                    "type": "life",
+                    "start-time": 1992,
+                    "cover": null,
+                    "images": "middle school",
+                    "tag": null,
+                    "language": "en",
+                    "title": "Middle School",
+                    "description": "Went middle school at Fushun ",
+                    "comment": null
+                },
+                {
+                    "id": 2,
+                    "type": "life",
+                    "start-time": 1988,
+                    "cover": null,
+                    "images": "start learn",
+                    "tag": null,
+                    "language": "en",
+                    "title": "Goto School",
+                    "description": "start goto school in the small valliage",
+                    "comment": null
+                },
+                {
+                    "id": 1,
+                    "type": "life",
+                    "start-time": 1982,
+                    "cover": null,
+                    "images": "born.jpg",
+                    "tag": null,
+                    "language": "en",
+                    "title": "I was Born ",
+                    "description": "at China North A Small Valliage",
+                    "comment": null
+                }
+            ]
+        },
+        "skill": {
+            "design": [{
+                    "skill_id": 1,
+                    "type": "design",
+                    "name": "PS",
+                    "level": 5
+                },
+                {
+                    "skill_id": 2,
+                    "type": "design",
+                    "name": "AI",
+                    "level": 3
+                },
+                {
+                    "skill_id": 3,
+                    "type": "design",
+                    "name": "Flash",
+                    "level": 9
+                },
+                {
+                    "skill_id": 4,
+                    "type": "design",
+                    "name": "Axure",
+                    "level": 4
+                }
+            ],
+            "ios": [{
+                    "skill_id": 5,
+                    "type": "iOS",
+                    "name": "Objective-C",
+                    "level": 7
+                },
+                {
+                    "skill_id": 6,
+                    "type": "iOS",
+                    "name": "Xcode",
+                    "level": 7
+                },
+                {
+                    "skill_id": 7,
+                    "type": "iOS",
+                    "name": "Swift",
+                    "level": 2
+                },
+                {
+                    "skill_id": 8,
+                    "type": "iOS",
+                    "name": "Storyboard",
+                    "level": 4
+                }
+            ]
+        },
+        "sns": [{
+                "id": 1,
+                "name": "Instagram",
+                "type": "outside",
+                "logo": "icon-facebook",
+                "link": "https://www.instagram.com/iandycao/",
+                "alt": "Andy's Instagram",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 2,
+                "name": "Facebook",
+                "type": "outside",
+                "logo": "icon-facebook",
+                "link": "https://www.facebook.com/andycao1982",
+                "alt": "Andy's Facebook Homepage",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 3,
+                "name": "Youtube",
+                "type": "outside",
+                "logo": "icon-youtube",
+                "link": "https://www.youtube.com/c/AndyCaoisme",
+                "alt": "Andy's Youtube Channel",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 4,
+                "name": "LinkedIn\n",
+                "type": "both",
+                "logo": "icon-linkedin",
+                "link": "https://www.linkedin.com/in/andyisme/",
+                "alt": "Andy's LinkedIn Page",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 5,
+                "name": "Twitter",
+                "type": "outside",
+                "logo": "icon-twitter",
+                "link": "https://twitter.com/enjoywound",
+                "alt": "Andy's Twitter",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 6,
+                "name": "Flickr",
+                "type": "outside",
+                "logo": "icon-flickr",
+                "link": "https://www.flickr.com/photos/ad1982/",
+                "alt": null,
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 7,
+                "name": "微博",
+                "type": "inside",
+                "logo": "icon-weibo",
+                "link": "http://www.weibo.com/enjoywound",
+                "alt": null,
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 8,
+                "name": "SoundCloud",
+                "type": "outside",
+                "logo": "icon-soundcloud",
+                "link": "https://soundcloud.com/andy-cao-925715105",
+                "alt": null,
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 9,
+                "name": "豆瓣",
+                "type": "inside",
+                "logo": "icon-douban",
+                "link": "https://www.douban.com/people/f1982/",
+                "alt": null,
+                "tag": null,
+                "hidden": 0
+            }
+        ]
+    }
+}
