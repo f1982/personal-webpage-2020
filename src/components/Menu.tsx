@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { FaBeer, FaAddressBook } from 'react-icons/fa';
 
 export interface MIData {
-    name: string, link: string, index: number
+    name: string, link?: string, index: number
 }
 
 export interface MenuProps {
@@ -33,6 +33,7 @@ const MenuItemA = styled.a`
     display: block;
     color: #FFF;
     padding: 8px 16px;
+    font-weight: 600;
     text-align: center;
     text-decoration: none;
     &:hover {
@@ -72,7 +73,11 @@ const Menu = (props: MenuProps) => {
                 menuData.map((item) => {
                     return (
                         <MenuItem key={item.name}>
-                            <MenuItemA onClick={buttonHandler}>{item.name}</MenuItemA>
+                            {
+                                item.link
+                                    ? <MenuItemA href={item.link}>{item.name}</MenuItemA>
+                                    : <MenuItemA onClick={buttonHandler}>{item.name}</MenuItemA>
+                            }
                         </MenuItem>
                     );
                 })

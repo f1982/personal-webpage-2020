@@ -56,8 +56,8 @@
                 "type": "game",
                 "state": "release",
                 "cover": "p01-small.jpg",
-                "start-time": "Apr 2001",
-                "end-time": "Mar 2001",
+                "start": "Apr 2001",
+                "end": "Mar 2001",
                 "images": "p01-large.jpg",
                 "tech": "coocs2d-x,json",
                 "link": "http://www.f1982.com",
@@ -71,8 +71,9 @@
                 "id": 2,
                 "type": "game",
                 "state": "release",
-                "cover": "p02-small.jpg",
-                "start-time": 2002,
+                "cover": "https://cdn.dribbble.com/users/4502908/screenshots/9055832/media/1b7d2d927b5f46bb3c27388775454cd3.png",
+                "start": 2002,
+                "end": "Mar 2001",
                 "images": "p02-large.jpg",
                 "tech": "Flash,XML",
                 "link": "http://www.f1982.com",
@@ -86,8 +87,8 @@
                 "id": 3,
                 "type": "game",
                 "state": "release",
-                "cover": "p03-small.jpg",
-                "start-time": 2002,
+                "cover": "https://cdn.dribbble.com/users/4502908/screenshots/9055832/media/1b7d2d927b5f46bb3c27388775454cd3.png",
+                "start": 2002,
                 "images": "p03-large.jpg",
                 "tech": "Flash,XML",
                 "link": "http://www.f1982.com",
@@ -102,7 +103,7 @@
                 "type": "game",
                 "state": "release",
                 "cover": "p04-small.jpg",
-                "start-time": 2002,
+                "start": 2002,
                 "images": "p04-large.jpg",
                 "tech": "Flash,XML",
                 "link": "http://www.f1982.com",
@@ -118,7 +119,7 @@
                     "id": 1,
                     "name": "devo-10",
                     "type": "rc",
-                    "start-time": 2003,
+                    "start": 2003,
                     "cover": "transmitter.jpg",
                     "images": "1.jpg,2.jpg",
                     "tag": null,
@@ -130,7 +131,7 @@
                     "id": 2,
                     "name": "fatshark-v3",
                     "type": "rc",
-                    "start-time": 2007,
+                    "start": 2007,
                     "cover": "fatshark.jpg",
                     "images": "2.jpg,3.jpg",
                     "tag": null,
@@ -145,7 +146,7 @@
             "life": [{
                     "id": 3,
                     "type": "life",
-                    "start-time": 1992,
+                    "start": 1992,
                     "cover": null,
                     "images": "middle school",
                     "tag": null,
@@ -157,7 +158,7 @@
                 {
                     "id": 2,
                     "type": "life",
-                    "start-time": 1988,
+                    "start": 1988,
                     "cover": null,
                     "images": "start learn",
                     "tag": null,
@@ -169,7 +170,7 @@
                 {
                     "id": 1,
                     "type": "life",
-                    "start-time": 1982,
+                    "start": 1982,
                     "cover": null,
                     "images": "born.jpg",
                     "tag": null,
@@ -177,6 +178,69 @@
                     "title": "I was Born ",
                     "description": "at China North A Small Valliage",
                     "comment": null
+                }
+            ],
+            "experience": [{
+                    "id": 1,
+                    "type": "experience",
+                    "start": "Apr 2012",
+                    "end": "Oct 2019",
+                    "position": "Senior Software Engineer  & Senior Research Controller",
+                    "company": "cctv.com",
+                    "desc": [
+                        "Actively participated in UGC website and SPA project design, architecture and development",
+                        "Engaged in video app project of mobile native building, publishing and maintaining",
+                        "Participated in idea, design, prototyping, architecture and development of online causal games",
+                        "Collaborated with development team, product owner, design team and QA team in identifying website and application problems, testing methods and best solutions.",
+                        "Worked with backend team to optimize API data structure and reduce bandwidth requests"
+                    ],
+                    "hidden":0
+                },
+                {
+                    "id": 2,
+                    "type": "experience",
+                    "start": "Dec 2010",
+                    "end": "Apr 2012",
+                    "position": "Senior Software Engineer & Team Leader",
+                    "company": "Augmentum, Inc",
+                    "desc": [
+                        "Designed, architected and implemented large-scale commercial website project with core member of development team",
+                        "Architected, implemented multi-functional video player (HTML5 version and Flash version) and upload component",
+                        "Engaged in Facebook online game project HotTickets and Showstopper Basketball targeting U.S. market",
+                        "Collaborated with customers to understand requirement, test ideas, and refine workflows",
+                        "Responsible for the development team training, code review and task management"
+                    ],
+                    "hidden":0
+                },
+                {
+                    "id": 3,
+                    "type": "experience",
+                    "start": "Mar 2008",
+                    "end": "Dec 2010",
+                    "position": "Co-Founder & Senior Software Engineer",
+                    "company": "Yatio",
+                    "desc": [
+                        "Designed, architected commercial video website for SMEs and implemented the core modules",
+                        "Architected and developed online customer service products which include live broadcast, online whiteboard and chatting features",
+                        "Engaged in backend API design and optimization",
+                        "Built live stream services base on RED5 open source project",
+                        "Responsible for recruitment and management of development team"
+                    ],
+                    "hidden":0
+                }, {
+                    "id": 4,
+                    "type": "experience",
+                    "start": "Jul 2005",
+                    "end": "Mar 2008",
+                    "position": "Software Engineer",
+                    "company": "China National Software & Service Co., Ltd.",
+                    "desc": [
+                        "Implemented and maintained online monitoring system for warehouse which included data presentation, animation and visual effect",
+                        "Communicated with product owner and design team for building better workflow and product ideas",
+                        "Participated software system installation, deployment and debugging",
+                        "Engaged with customers to understand requirements, test ideas, and refine workflows"
+                    ],
+                    "hidden":0
                 }
             ]
         },
@@ -232,96 +296,119 @@
                 }
             ]
         },
-        "sns": [{
-                "id": 1,
-                "name": "Instagram",
-                "type": "outside",
-                "logo": "icon-facebook",
-                "link": "https://www.instagram.com/iandycao/",
-                "alt": "Andy's Instagram",
-                "tag": null,
-                "hidden": 0
-            },
-            {
-                "id": 2,
-                "name": "Facebook",
-                "type": "outside",
-                "logo": "icon-facebook",
-                "link": "https://www.facebook.com/andycao1982",
-                "alt": "Andy's Facebook Homepage",
-                "tag": null,
-                "hidden": 0
-            },
-            {
-                "id": 3,
-                "name": "Youtube",
-                "type": "outside",
-                "logo": "icon-youtube",
-                "link": "https://www.youtube.com/c/AndyCaoisme",
-                "alt": "Andy's Youtube Channel",
-                "tag": null,
-                "hidden": 0
-            },
-            {
-                "id": 4,
-                "name": "LinkedIn\n",
-                "type": "both",
-                "logo": "icon-linkedin",
-                "link": "https://www.linkedin.com/in/andyisme/",
-                "alt": "Andy's LinkedIn Page",
-                "tag": null,
-                "hidden": 0
-            },
-            {
-                "id": 5,
-                "name": "Twitter",
-                "type": "outside",
-                "logo": "icon-twitter",
-                "link": "https://twitter.com/enjoywound",
-                "alt": "Andy's Twitter",
-                "tag": null,
-                "hidden": 0
-            },
-            {
-                "id": 6,
-                "name": "Flickr",
-                "type": "outside",
-                "logo": "icon-flickr",
-                "link": "https://www.flickr.com/photos/ad1982/",
-                "alt": null,
-                "tag": null,
-                "hidden": 0
-            },
-            {
-                "id": 7,
-                "name": "微博",
-                "type": "inside",
-                "logo": "icon-weibo",
-                "link": "http://www.weibo.com/enjoywound",
-                "alt": null,
-                "tag": null,
-                "hidden": 0
-            },
-            {
-                "id": 8,
-                "name": "SoundCloud",
-                "type": "outside",
-                "logo": "icon-soundcloud",
-                "link": "https://soundcloud.com/andy-cao-925715105",
-                "alt": null,
-                "tag": null,
-                "hidden": 0
-            },
-            {
-                "id": 9,
-                "name": "豆瓣",
-                "type": "inside",
-                "logo": "icon-douban",
-                "link": "https://www.douban.com/people/f1982/",
-                "alt": null,
-                "tag": null,
-                "hidden": 0
-            }
-        ]
+        "links": {
+            "sns": [{
+                    "id": 1,
+                    "name": "Instagram",
+                    "type": "outside",
+                    "logo": "icon-facebook",
+                    "link": "https://www.instagram.com/iandycao/",
+                    "alt": "Andy's Instagram",
+                    "tag": null,
+                    "hidden": 0
+                },
+                {
+                    "id": 2,
+                    "name": "Facebook",
+                    "type": "outside",
+                    "logo": "icon-facebook",
+                    "link": "https://www.facebook.com/andycao1982",
+                    "alt": "Andy's Facebook Homepage",
+                    "tag": null,
+                    "hidden": 0
+                },
+                {
+                    "id": 3,
+                    "name": "Youtube",
+                    "type": "outside",
+                    "logo": "icon-youtube",
+                    "link": "https://www.youtube.com/c/AndyCaoisme",
+                    "alt": "Andy's Youtube Channel",
+                    "tag": null,
+                    "hidden": 0
+                },
+                {
+                    "id": 4,
+                    "name": "LinkedIn\n",
+                    "type": "both",
+                    "logo": "icon-linkedin",
+                    "link": "https://www.linkedin.com/in/andyisme/",
+                    "alt": "Andy's LinkedIn Page",
+                    "tag": null,
+                    "hidden": 0
+                },
+                {
+                    "id": 5,
+                    "name": "Twitter",
+                    "type": "outside",
+                    "logo": "icon-twitter",
+                    "link": "https://twitter.com/enjoywound",
+                    "alt": "Andy's Twitter",
+                    "tag": null,
+                    "hidden": 0
+                },
+                {
+                    "id": 6,
+                    "name": "Flickr",
+                    "type": "outside",
+                    "logo": "icon-flickr",
+                    "link": "https://www.flickr.com/photos/ad1982/",
+                    "alt": null,
+                    "tag": null,
+                    "hidden": 0
+                },
+                {
+                    "id": 7,
+                    "name": "微博",
+                    "type": "inside",
+                    "logo": "icon-weibo",
+                    "link": "http://www.weibo.com/enjoywound",
+                    "alt": null,
+                    "tag": null,
+                    "hidden": 0
+                },
+                {
+                    "id": 8,
+                    "name": "SoundCloud",
+                    "type": "outside",
+                    "logo": "icon-soundcloud",
+                    "link": "https://soundcloud.com/andy-cao-925715105",
+                    "alt": null,
+                    "tag": null,
+                    "hidden": 0
+                },
+                {
+                    "id": 9,
+                    "name": "豆瓣",
+                    "type": "inside",
+                    "logo": "icon-douban",
+                    "link": "https://www.douban.com/people/f1982/",
+                    "alt": null,
+                    "tag": null,
+                    "hidden": 0
+                }
+            ],
+            "friends": [{
+                    "id": 1,
+                    "name": "Tiger",
+                    "type": "outside",
+                    "logo": "icon-facebook",
+                    "link": "https://www.instagram.com/iandycao/",
+                    "alt": "Andy's Instagram",
+                    "tag": null,
+                    "hidden": 0
+                },
+                {
+                    "id": 1,
+                    "name": "Feng",
+                    "type": "outside",
+                    "logo": "icon-facebook",
+                    "link": "https://www.instagram.com/iandycao/",
+                    "alt": "Andy's Instagram",
+                    "tag": null,
+                    "hidden": 0
+                }
+            ]
+        }
     }
 }

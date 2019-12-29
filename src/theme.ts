@@ -11,7 +11,7 @@ const myTheme: DefaultTheme = {
 
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Padauk:400|Poppins:400');
+    @import url('https://fonts.googleapis.com/css?family=OpenSans:400|Lora:400');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
   html {
@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     background-color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lora', sans-serif;
     font-weight: 400;
     line-height: 1.45;
     color: #333;
@@ -29,8 +29,8 @@ const GlobalStyle = createGlobalStyle`
   p {margin-bottom: 1.25em;}
     h1, h2, h3, h4, h5 {
     margin: 2.75rem 0 1rem;
-    font-family: 'Padauk', sans-serif;
-    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
     line-height: 1.15;
     }
 
