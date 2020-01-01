@@ -122,8 +122,8 @@ const ProjectItem = (props: SProp) => {
     return (
         <Wrapper ref={wrapperRef} 
             background={props.itemData.cover}  
-            onMouseMove={mouseMoveHandler}
-            onMouseOut={mouseOutHandler}
+            // onMouseMove={mouseMoveHandler}
+            // onMouseOut={mouseOutHandler}
             onMouseDown={touchEndHandler}
             onTouchEnd={touchEndHandler}>
 

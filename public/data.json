@@ -58,7 +58,7 @@
                 "cover": "p01-small.jpg",
                 "start": "Apr 2001",
                 "end": "Mar 2001",
-                "images": "p01-large.jpg",
+                "images": ["p01-large.jpg"],
                 "tech": "coocs2d-x,json",
                 "link": "http://www.f1982.com",
                 "video": "http://www.youtube.com",
@@ -69,19 +69,20 @@
             },
             {
                 "id": 2,
-                "type": "game",
+                "type": "app",
                 "state": "release",
                 "cover": "https://cdn.dribbble.com/users/4502908/screenshots/9055832/media/1b7d2d927b5f46bb3c27388775454cd3.png",
-                "start": 2002,
+                "start": "Mar 2000",
                 "end": "Mar 2001",
-                "images": "p02-large.jpg",
-                "tech": "Flash,XML",
-                "link": "http://www.f1982.com",
-                "video": "http://www.youtube.com",
-                "language": "en",
-                "title": "Endless Nails",
-                "description": "a game about nails",
-                "quote": "c ool"
+                "images": ["p02-large.jpg", "p02-large.jpg"],
+                "tech": "Objective-C, ffmpeg, php",
+                "link": "https://apps.apple.com/app/id331259725",
+                "video": "",
+                "language": "zh-CN",
+                "title": "央视影音",
+                "responsibility": "One of the project manager, responsible for product architecture, technical selection and development team management.",
+                "description": "央视影音 is the most authoritative video client to watch CCTV(China Central Television) and dozens of Chinese local TV programs on the Internet. It has more than 300 million users and it is still growing.",
+                "quote": "cool"
             },
             {
                 "id": 3,
@@ -89,7 +90,7 @@
                 "state": "release",
                 "cover": "https://cdn.dribbble.com/users/4502908/screenshots/9055832/media/1b7d2d927b5f46bb3c27388775454cd3.png",
                 "start": 2002,
-                "images": "p03-large.jpg",
+                "images": ["p03-large.jpg"],
                 "tech": "Flash,XML",
                 "link": "http://www.f1982.com",
                 "video": "http://www.youtube.com",
@@ -104,7 +105,7 @@
                 "state": "release",
                 "cover": "p04-small.jpg",
                 "start": 2002,
-                "images": "p04-large.jpg",
+                "images": ["p04-large.jpg"],
                 "tech": "Flash,XML",
                 "link": "http://www.f1982.com",
                 "video": "http://www.youtube.com",
@@ -194,7 +195,7 @@
                         "Collaborated with development team, product owner, design team and QA team in identifying website and application problems, testing methods and best solutions.",
                         "Worked with backend team to optimize API data structure and reduce bandwidth requests"
                     ],
-                    "hidden":0
+                    "hidden": 0
                 },
                 {
                     "id": 2,
@@ -210,7 +211,7 @@
                         "Collaborated with customers to understand requirement, test ideas, and refine workflows",
                         "Responsible for the development team training, code review and task management"
                     ],
-                    "hidden":0
+                    "hidden": 0
                 },
                 {
                     "id": 3,
@@ -226,7 +227,7 @@
                         "Built live stream services base on RED5 open source project",
                         "Responsible for recruitment and management of development team"
                     ],
-                    "hidden":0
+                    "hidden": 0
                 }, {
                     "id": 4,
                     "type": "experience",
@@ -240,7 +241,7 @@
                         "Participated software system installation, deployment and debugging",
                         "Engaged with customers to understand requirements, test ideas, and refine workflows"
                     ],
-                    "hidden":0
+                    "hidden": 0
                 }
             ]
         },

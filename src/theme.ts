@@ -53,7 +53,6 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 
-
 export {
     myTheme,
     GlobalStyle

@@ -1,3 +1,10 @@
+export interface MenuItemObject {
+  name: string,
+  link?: string,
+  index: number
+}
+
+
 export interface TimelineObject {
   id: number;
   type: string;
@@ -19,12 +26,13 @@ export interface ProjectObject {
   cover: string;
   start: string;
   end: string;
-  images: string;
+  images: Array<string>;
   tech: string;
   link: string;
   video: string;
   language: string;
   title: string;
+  responsibility: string;
   description: string;
   quote: string;
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ProjectObject } from '../interfaces'
 
-const Wrapper = styled.div`
+const Mask = styled.div`
     position: fixed;
     width: 100%;
     height: 100%;
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     background-color: rgba(0,0,0, 0.5);
 `
 
-const Inner = styled.div`
+const Wrapper = styled.div`
     position: absolute;
     left: 25%;
     right: 25%;
@@ -25,16 +25,31 @@ const Inner = styled.div`
     border-radius: 1rem;
     box-shadow: ${props => props.theme.shadow};
 `
+
+const Frame = styled.div`
+    position: relative;
+    width: 100%;
+    height: 100%;
+`
+
+const Border = styled.div`
+    padding: 1rem;
+`
+
+const CloseButton = styled.button`
+    position: absolute;
+    right: 0px;
+    top: 0px;
+`;
+
 interface PopupProps {
     id: string,
-    itemData?: ProjectObject,
+    content: any,
     closeHandler?: Function
 }
 
 const Popup = (props: PopupProps) => {
-
     const [close, setClose] = React.useState(false);
-
     const buttonHandler = (event: React.MouseEvent) => {
         // console.log('button click');
         if (props.closeHandler) {
@@ -42,12 +57,16 @@ const Popup = (props: PopupProps) => {
         }
     }
     return (
-        <Wrapper>
-            <Inner>
-                <h1>{props.itemData && props.itemData.title}</h1>
-                <button onClick={buttonHandler}>close me</button>
-            </Inner>
-        </Wrapper>
+        <Mask>
+            <Wrapper>
+                <Frame>
+                    <CloseButton onClick={buttonHandler}>close me</CloseButton>
+                    <Border>
+                        {props.content}
+                    </Border>
+                </Frame>
+            </Wrapper>
+        </Mask>
     )
 }
 

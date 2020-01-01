@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-
-import { FaBeer, FaAddressBook } from 'react-icons/fa';
-
-export interface MIData {
-    name: string, link?: string, index: number
-}
+import { MenuItemObject } from '../interfaces'
 
 export interface MenuProps {
-    data?: Array<MIData>
+    data?: Array<MenuItemObject>
 }
 
 const TopNav = styled.ul`
@@ -24,8 +19,10 @@ const TopNav = styled.ul`
 
 const MenuItem = styled.li`
     float: left;
+    display: block;
     @media screen and (max-width: 600px) {
-        float: none;
+        /* float: none; */
+        display: none;
     }
 `
 
@@ -42,10 +39,18 @@ const MenuItemA = styled.a`
     }
 `
 
+const RightMenuItem = styled.li`
+    float: right;
+    display: none;
+    @media screen and (max-width: 600px){
+        display: block;
+    }
+`
+
 const Menu = (props: MenuProps) => {
     console.log('MenuProps', props);
 
-    const [menuData, setMenuData] = useState<MIData[]>([]);
+    const [menuData, setMenuData] = useState<MenuItemObject[]>([]);
 
 
     useEffect(() => {
@@ -82,6 +87,9 @@ const Menu = (props: MenuProps) => {
                     );
                 })
             }
+            <RightMenuItem>
+                <MenuItemA>Right</MenuItemA>
+            </RightMenuItem>
         </TopNav>
     )
 
