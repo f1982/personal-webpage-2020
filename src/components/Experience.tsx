@@ -7,15 +7,14 @@ interface ExperienceProp {
     data?: Array<TimelineObject>
 }
 const Experience = (props: any) => {
-
-    
-    
     return (
         <>
             <h3>Experience</h3>
             {
                 props.data && props.data.map((item: TimelineObject) => {
-                    return (<TimelineItem id="a" key={item.id} itemData={item}></TimelineItem>);
+                    return (
+                        item.hidden ? null : <TimelineItem id="a" key={item.id} itemData={item}></TimelineItem>
+                    );
                 })
             }
         </>

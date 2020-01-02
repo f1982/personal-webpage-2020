@@ -1,29 +1,11 @@
 import React, { createRef } from 'react'
 import styled from 'styled-components'
-import {ProjectObject} from '../interfaces'
+import { TechnologyStackItem } from './TechnologyStack'
+import { ProjectObject } from '../interfaces'
 
-interface TIProps {
-    name?: string
-}
 
-const SkillItem = styled.span`
-    padding: 2px;
-    margin: 3px;
-    border: 1px solid #ffcc33;
-    background-color: #ffcc66;
-    color: #fff;
-    border-radius: 3px;
-`
-//
-const TechSkillItem = (props: any) => {
-    return (
-        <SkillItem>{props.name}</SkillItem>
-    )
-}
-
-interface SProp {
+interface ProjectItemProp {
     name?: string,
-    background: string,
     itemData: ProjectObject,
     callback: Function;
 }
@@ -33,12 +15,22 @@ const ProjectImg = styled.img`
     height: 100%;
 `;
 
-const ProjectName = styled.h3`
-`;
-const TechStacks = styled.div``;
-const TechItem = styled.span``
+const ProjectName = styled.h5`
+    position: absolute;
+    width: 100%;
+    margin:1rem auto;
+    /* left: 50%; */
+    bottom: 0;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+    /* box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.8); */
+    transition: opacity 0.6s, color .5s;
+    will-change: opacity, color;
+`
+const TechItem = styled.span`
+`
 const LinkButton = styled.button`
-   
 `
 
 const SkillContainer = styled.div`
@@ -48,38 +40,40 @@ const SkillContainer = styled.div`
     flex-wrap: wrap;
 `
 
-interface WrapperPropType {
-    test?:string,
-    background:string
-}
 const Wrapper = styled.div`
+    position:relative;
+    box-sizing: border-box;
     width: 300px;
     height: 200px;
     padding: 0px;
-    margin: 10px;
-    /* background-image: url("https://cdn.dribbble.com/users/4502908/screenshots/9055832/media/1b7d2d927b5f46bb3c27388775454cd3.png"); */
-    
-    background-image: url("${(props:WrapperPropType) => props.background}");
+    margin: 2rem;
+    border: 15px solid white;
+    background-color: #EEE;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow: ${props => props.theme.shadow};
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.6s, border .5s;
+    will-change: transform;
+    
     &:hover {
-        /* padding: 20px; */
-        /* border: 1px solid #ff0000; */
-        ${TechStacks} {
-            color: #ff0000;
+        /* border: 10px solid #fff; */
+        box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
+        ${ProjectName} {
+            opacity:1;
+            color: #fff;
         }
     }   
 `
+
 /**
  * Project item
  * 
  * @param props 
  */
-const ProjectItem = (props: SProp) => {
-    let skills = ['asp', 'c++', 'XCode', 'php', 'java', 'js', 'ts']
-    const wrapperRef = React.createRef<HTMLDivElement>();
+const ProjectItem = (props: ProjectItemProp) => {
+
+    const titleRef = React.createRef<HTMLDivElement>();
 
     /**
      * Mouse event handler
@@ -120,24 +114,24 @@ const ProjectItem = (props: SProp) => {
     }
     //render
     return (
-        <Wrapper ref={wrapperRef} 
-            background={props.itemData.cover}  
+        <Wrapper
             // onMouseMove={mouseMoveHandler}
             // onMouseOut={mouseOutHandler}
             onMouseDown={touchEndHandler}
-            onTouchEnd={touchEndHandler}>
+            onTouchEnd={touchEndHandler}
+            style={{
+                backgroundImage: `url("${props.itemData.cover}")`
+            }}
+        >
 
-            <ProjectName>{props.itemData.title}</ProjectName>
-            {/* <img src={props.itemData.cover}></img> */}
-            <TechStacks>{props.itemData.tech}</TechStacks>
-            <LinkButton>{props.itemData.description}</LinkButton>
-            <SkillContainer>
+            <ProjectName ref={titleRef}>{props.itemData.title}</ProjectName>
+            {/* <SkillContainer>
                 {
-                    skills.map((item: string) => {
-                        return <TechSkillItem key={item} name={item}></TechSkillItem>
+                    props.itemData.tech.split(',').map((item: string, index: number) => {
+                        return <TechnologyStackItem key={index} technology={item}></TechnologyStackItem>
                     })
                 }
-            </SkillContainer>
+            </SkillContainer> */}
         </Wrapper>
     )
 }

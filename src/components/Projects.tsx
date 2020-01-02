@@ -46,7 +46,7 @@ const Projects = (props: ProjectProp) => {
             <ProjectsContainer id="projects">
                 {props.data && props.data.map((item: ProjectObject) => {
                     return (
-                        <ProjectItem name={item.title} background="https://imageurl.jpg" key={item.id} itemData={item} callback={tapProjectHandler}></ProjectItem>
+                        <ProjectItem name={item.title} key={item.id} itemData={item} callback={tapProjectHandler}></ProjectItem>
                     )
                 })}
             </ProjectsContainer>

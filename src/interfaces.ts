@@ -13,6 +13,7 @@ export interface TimelineObject {
   position: string;
   company: string;
   desc: string[];
+  hidden: boolean;
   description: string;
 }
 
@@ -21,6 +22,9 @@ export interface TimelineObject {
  */
 export interface ProjectObject {
   id: number;
+  title: string;
+  responsibility: string;
+  description: string;
   type: string;
   state: string;
   cover: string;
@@ -28,11 +32,9 @@ export interface ProjectObject {
   end: string;
   images: Array<string>;
   tech: string;
-  link: string;
-  video: string;
+  link?: string;
+  github?: string;
+  video?: string;
   language: string;
-  title: string;
-  responsibility: string;
-  description: string;
-  quote: string;
+  quote?: string;
 }

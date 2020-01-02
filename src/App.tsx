@@ -8,12 +8,17 @@ import { Header } from './components/Header'
 import { Summary } from './components/Summary'
 import { Projects } from './components/Projects'
 import { Menu } from './components/Menu'
-
-//for tests
-import { startMobXTest } from './tests/MobXTests'
 import { Experience } from "./components/Experience";
 
-startMobXTest();
+//for tests
+// import { startMobXTest } from './tests/MobXTests'
+import { SpringTest } from './tests/SpringTest'
+// import {
+//   Slider,
+//   ImageSlide
+// } from './components/ImageSlide'
+
+// startMobXTest();
 
 const menuData: MenuItemObject[] = [
   { name: 'Home', link: '', index: 0 },
@@ -37,7 +42,7 @@ const App = () => {
 
 
   React.useEffect(() => {
-    axios.get('data.json')
+    axios.get('static/data.json')
       .then(function (response) {
         // handle success
         // console.log(response.data.data);
@@ -57,23 +62,6 @@ const App = () => {
     };
   }, []);
 
-
-
-
-
-  // The currently selected example component that should be rendered
-  //   const ExampleComponent = EXAMPLES[example];
-
-  // A list of buttons for all examples to render
-  //   const exampleButtons = EXAMPLE_NAMES.map(name => (
-  // <button></button>
-
-  // const projects2 = ['a', 'b', 'cc', 'ddd', 'eee', 'fff', 'ggg', 'hhh', 'dfsdfdf'];
-
-
-
-
-
   return (
     <>
       <ThemeProvider theme={myTheme}>
@@ -83,7 +71,9 @@ const App = () => {
             <p>loading</p>
             :
             <div>
+              <SpringTest />
               <Menu data={menuData}></Menu>
+              <Projects data={dataSource.projects}></Projects>
               <div id="header">
                 <Header name='Andy123' position='Developer'></Header>
               </div>
@@ -91,7 +81,6 @@ const App = () => {
               <Summary></Summary>
 
               <Experience data={dataSource.timelines['experience']}></Experience>
-              <Projects data={dataSource.projects}></Projects>
               <GlobalStyle />
             </div>
 

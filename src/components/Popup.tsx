@@ -1,8 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSpring, animated } from 'react-spring'
+import { FaWindowClose } from 'react-icons/fa';
 import { ProjectObject } from '../interfaces'
 
-const Mask = styled.div`
+
+const FRAME_MARGIN = "10%";
+
+const Mask = styled(animated.div)`
     position: fixed;
     width: 100%;
     height: 100%;
@@ -16,13 +21,13 @@ const Mask = styled.div`
 
 const Wrapper = styled.div`
     position: absolute;
-    left: 25%;
-    right: 25%;
-    top: 25%;
-    bottom: 25%;
+    left: ${FRAME_MARGIN};
+    right: ${FRAME_MARGIN};
+    top: ${FRAME_MARGIN};
+    bottom: ${FRAME_MARGIN};
     margin: auto;
     background: white;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     box-shadow: ${props => props.theme.shadow};
 `
 
@@ -30,43 +35,58 @@ const Frame = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
+    /* overflow: scroll;
+    white-space: nowrap; */
 `
 
 const Border = styled.div`
-    padding: 1rem;
+    padding: 2rem;
 `
 
-const CloseButton = styled.button`
+//icons
+const WindowCloseIcon = styled(FaWindowClose)`
+    color: #ffcc00;
+    vertical-align: middle;
+    margin-right: 4px;
+`
+
+const WindowCloseLink = styled.a`
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 1rem;
+    top: 1rem;
 `;
 
 interface PopupProps {
     id: string,
-    content: any,
+    content: JSX.Element,
     closeHandler?: Function
 }
 
 const Popup = (props: PopupProps) => {
     const [close, setClose] = React.useState(false);
+
+    const sprops = useSpring({ opacity: 1, from: { opacity: 0 } })
+
     const buttonHandler = (event: React.MouseEvent) => {
-        // console.log('button click');
         if (props.closeHandler) {
             props.closeHandler();
         }
     }
     return (
-        <Mask>
-            <Wrapper>
-                <Frame>
-                    <CloseButton onClick={buttonHandler}>close me</CloseButton>
-                    <Border>
-                        {props.content}
-                    </Border>
-                </Frame>
-            </Wrapper>
-        </Mask>
+        // <animated.div style={sprops}>
+            <Mask style={sprops}>
+                <Wrapper>
+                    <Frame>
+                        <WindowCloseLink onClick={buttonHandler}>
+                            <WindowCloseIcon size="40" />
+                        </WindowCloseLink>
+                        <Border>
+                            {props.content}
+                        </Border>
+                    </Frame>
+                </Wrapper>
+            </Mask>
+        // </animated.div>
     )
 }
 
