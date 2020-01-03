@@ -2,17 +2,18 @@ import * as React from "react";
 import styled, { ThemeProvider } from 'styled-components'
 import axios from 'axios';
 import { TimelineObject, ProjectObject, MenuItemObject } from './interfaces'
-
+import { FaWindowMaximize} from 'react-icons/fa'
 import { GlobalStyle, myTheme } from './theme'
 import { Header } from './components/Header'
 import { Summary } from './components/Summary'
 import { Projects } from './components/Projects'
 import { Menu } from './components/Menu'
 import { Experience } from "./components/Experience";
+import { Links } from "./components/Links";
 
 //for tests
 // import { startMobXTest } from './tests/MobXTests'
-import { SpringTest } from './tests/SpringTest'
+// import { SpringTest } from './tests/SpringTest'
 // import {
 //   Slider,
 //   ImageSlide
@@ -71,7 +72,8 @@ const App = () => {
             <p>loading</p>
             :
             <div>
-              <SpringTest />
+              {/* <LinkItem link="dd" title="aaa" alt="this is alt" icon={<FaWindowMaximize/>} /> */}
+              <Links category="SNS" data={dataSource['links']['sns']} />
               <Menu data={menuData}></Menu>
               <Projects data={dataSource.projects}></Projects>
               <div id="header">

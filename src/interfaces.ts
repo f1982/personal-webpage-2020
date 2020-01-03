@@ -38,3 +38,14 @@ export interface ProjectObject {
   language: string;
   quote?: string;
 }
+
+export interface LinkObject {
+  id:     number;
+  name:   string;
+  type:   string;
+  icon:   string;
+  link:   string;
+  alt?:    string;
+  tag?:    string;
+  hidden: boolean;
+}

@@ -65,7 +65,7 @@ interface PopupProps {
 const Popup = (props: PopupProps) => {
     const [close, setClose] = React.useState(false);
 
-    const sprops = useSpring({ opacity: 1, from: { opacity: 0 } })
+    const sprops = useSpring({ opacity: 1, from: { opacity: 0 }, config: { duration: 200 } })
 
     const buttonHandler = (event: React.MouseEvent) => {
         if (props.closeHandler) {
@@ -74,18 +74,18 @@ const Popup = (props: PopupProps) => {
     }
     return (
         // <animated.div style={sprops}>
-            <Mask style={sprops}>
-                <Wrapper>
-                    <Frame>
-                        <WindowCloseLink onClick={buttonHandler}>
-                            <WindowCloseIcon size="40" />
-                        </WindowCloseLink>
-                        <Border>
-                            {props.content}
-                        </Border>
-                    </Frame>
-                </Wrapper>
-            </Mask>
+        <Mask style={sprops}>
+            <Wrapper>
+                <Frame>
+                    <WindowCloseLink onClick={buttonHandler}>
+                        <WindowCloseIcon size="40" />
+                    </WindowCloseLink>
+                    <Border>
+                        {props.content}
+                    </Border>
+                </Frame>
+            </Wrapper>
+        </Mask>
         // </animated.div>
     )
 }

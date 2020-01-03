@@ -1,23 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
-import {FaArrowRight,FaArrowLeft, FaArrowCircleRight, FaArrowCircleLeft} from 'react-icons/fa'
+import { useSpring, animated } from 'react-spring'
+import {
+    FaArrowRight,
+    FaArrowLeft,
+    FaArrowCircleRight,
+    FaArrowCircleLeft
+} from 'react-icons/fa'
 
 const Slide = styled.div`
 
 `
 
-const SlideImage = styled.div`
+const SlideImage = styled(animated.div)`
     display: inline-block;
     width: 100%;
     height: 100%;
     background-size: contain;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-image: url("${(props: { image: string }) => props.image}");
 `
 
 const Slider = (props: { image: string }) => {
-    return <SlideImage style={{ color: `#ffcc00` }} image={props.image}></SlideImage>
+    return (
+        <SlideImage style={{
+            backgroundImage:`url("${props.image}")`
+        }} >
+        </SlideImage>
+    );
 }
 
 const SliderWrapper = styled.div`
@@ -100,8 +110,8 @@ const ImageSlide = (props: ImageSlideProp) => {
                     })
                 }
             </SliderContainer>
-            <LeftArrow onClick={goPrevious}><FaArrowCircleLeft size="48" color="#666" style={{ transform: `translateY(-50%)`}} /></LeftArrow>
-            <RightArrow onClick={goNext}><FaArrowCircleRight size="48" color="#666" style={{ transform: `translateY(-50%)`}} /></RightArrow>
+            <LeftArrow onClick={goPrevious}><FaArrowCircleLeft size="48" color="#666" style={{ transform: `translateY(-50%)` }} /></LeftArrow>
+            <RightArrow onClick={goNext}><FaArrowCircleRight size="48" color="#666" style={{ transform: `translateY(-50%)` }} /></RightArrow>
             <DisplayInfo>{current}</DisplayInfo>
         </SliderWrapper>
     );

@@ -27,6 +27,9 @@ const GlobalStyle = createGlobalStyle`
     color: #333;
   }
 
+  a {
+    color: #333;
+  }
   p {
     margin-bottom: 1.25em;
   }
@@ -54,6 +57,10 @@ const GlobalStyle = createGlobalStyle`
   small, 
     .text_small {font-size: 0.75em;}
     .empty-line {line-height: 2rem;}
+
+  .react-icons {
+    vertical-align: middle;
+  }
 `
 
 export {
