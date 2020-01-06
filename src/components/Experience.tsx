@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TimelineObject, ProjectObject } from '../interfaces';
+import { TimelineObject, ProjectObject } from '../types/interfaces';
 import { TimelineItem } from './TimelineItem';
 
 interface ExperienceProp {

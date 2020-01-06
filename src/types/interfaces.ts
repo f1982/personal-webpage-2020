@@ -1,9 +1,8 @@
 export interface MenuItemObject {
-  name: string,
-  link?: string,
-  index: number
+  name: string;
+  link?: string;
+  index: number;
 }
-
 
 export interface TimelineObject {
   id: number;
@@ -40,12 +39,18 @@ export interface ProjectObject {
 }
 
 export interface LinkObject {
-  id:     number;
-  name:   string;
-  type:   string;
-  icon:   string;
-  link:   string;
-  alt?:    string;
-  tag?:    string;
+  id: number;
+  name: string;
+  type: string;
+  icon: string;
+  link: string;
+  alt?: string;
+  tag?: string;
+  hidden: boolean;
+}
+
+export interface SkillObject {
+  name: string;
+  level: number;
   hidden: boolean;
 }

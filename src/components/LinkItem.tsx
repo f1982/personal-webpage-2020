@@ -8,6 +8,9 @@ const Wrapper = styled.a`
     background-color: ${props => props.theme.colors.secondary};
     border-radius: 0.5rem;
     text-decoration: none;
+    &:hover{
+        background-color: #eee;
+    }
 `
 interface LinkItemProp {
     title: string,
