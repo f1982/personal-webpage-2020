@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import axios from "axios";
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route } from "react-router-dom";
 import {
   TimelineObject,
   ProjectObject,
   MenuItemObject
 } from "./types/interfaces";
-import { FaWindowMaximize } from "react-icons/fa";
+
 import { GlobalStyle, myTheme } from "./theme";
+import routes from "./pages";
+import Layout from "./layouts/default";
+
+import { FaWindowMaximize } from "react-icons/fa";
 import { Header } from "./components/Header";
 import { Summary } from "./components/Summary";
 import { Projects } from "./components/Projects";
@@ -16,8 +20,6 @@ import { Menu } from "./components/Menu";
 import { Experience } from "./components/Experience";
 import { Links } from "./components/Links";
 import { Skills } from "./components/Skills";
-import Layout from "./layouts/default";
-import routes from './pages'
 
 const menuData: MenuItemObject[] = [
   { name: "Home", link: "", index: 0 },
@@ -63,37 +65,33 @@ const App = () => {
         {dataSource === null ? (
           <p>loading</p>
         ) : (
-          <Layout>
-            {routes.map(route => (
-              <Route
-                key={route.path}
-                path={route.path}
-                exact={route.exact}
-                component={route.component}
-              />
-            ))}
+          <>
+            <Layout>
+              {routes.map(route => (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.component}
+                />
+              ))}
+            </Layout>
+            <Skills
+              category="Program Language"
+              data={dataSource["skill"]["program"]}
+            />
+            <Links category="SNS" data={dataSource["links"]["sns"]} />
+            <Links category="Friends" data={dataSource["links"]["friends"]} />
+            <Menu data={menuData}></Menu>
+            <Projects data={dataSource.projects}></Projects>
+            <div id="header">
+              <Header name="Andy123" position="Developer"></Header>
+            </div>
+            <h3>Summary</h3>
+            <Summary></Summary>
 
-            {/* <>
-              <Skills
-                category="Program Language"
-                data={dataSource["skill"]["program"]}
-              />
-              <Links category="SNS" data={dataSource["links"]["sns"]} />
-              <Links category="Friends" data={dataSource["links"]["friends"]} />
-              <Menu data={menuData}></Menu>
-              <Projects data={dataSource.projects}></Projects>
-              <div id="header">
-                <Header name="Andy123" position="Developer"></Header>
-              </div>
-              <h3>Summary</h3>
-              <Summary></Summary>
-
-              <Experience
-                data={dataSource.timelines["experience"]}
-              ></Experience>
-              <GlobalStyle />
-            </> */}
-          </Layout>
+            <Experience data={dataSource.timelines["experience"]}></Experience>
+          </>
         )}
       </ThemeProvider>
     </Router>
