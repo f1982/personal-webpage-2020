@@ -3,7 +3,8 @@
     "message": "ok",
     "update": 1504848575,
     "data": {
-        "settings": [{
+        "settings": [
+            {
                 "key": "url",
                 "value": "http://f1982.com"
             },
@@ -20,7 +21,8 @@
                 "value": "f1982.com 2017"
             }
         ],
-        "sections": [{
+        "sections": [
+            {
                 "id": 1,
                 "name": "home",
                 "type": "home",
@@ -51,7 +53,8 @@
                 "comment": null
             }
         ],
-        "projects": [{
+        "projects": [
+            {
                 "id": 1,
                 "title": "趣夺夺 / Quduoduo",
                 "description": "Multi-player real-time online competitive games, users can layout football players and start a competition. You can exchange points by battles and get corresponding prizes.",
@@ -61,7 +64,8 @@
                 "cover": "/static/images/projects/showstopper-basketball.jpg",
                 "start": "Apr 2001",
                 "end": "Mar 2001",
-                "images": ["/static/images/projects/bfq.png",
+                "images": [
+                    "/static/images/projects/bfq.png",
                     "/static/images/projects/cbq.png",
                     "/static/images/projects/ddd.png",
                     "/static/images/projects/douwang.jpg",
@@ -217,7 +221,8 @@
                 "video": "",
                 "language": "en",
                 "quote": ""
-            }, {
+            },
+            {
                 "id": 9,
                 "title": "Pew Pew Pew",
                 "description": "An indie game which illustrates a story of a web developer who dive in web world and save his inspiration.",
@@ -234,7 +239,8 @@
                 "video": "",
                 "language": "en",
                 "quote": ""
-            }, {
+            },
+            {
                 "id": 10,
                 "title": "Showstopper Basketball",
                 "description": "Flash 3D basketball game, in this game you can manage your team, upgrade your players, and dunk on your opponents all from Facebook.",
@@ -251,7 +257,8 @@
                 "video": "https://www.youtube.com/watch?v=c2oflYQPsmM",
                 "language": "en",
                 "quote": ""
-            }, {
+            },
+            {
                 "id": 11,
                 "title": "Online Customer Service System",
                 "description": "This online customer service system includes live broadcast, online whiteboard and chatting features.",
@@ -271,7 +278,8 @@
             }
         ],
         "devices": {
-            "rc": [{
+            "rc": [
+                {
                     "id": 1,
                     "name": "devo-10",
                     "title": "Walker Devo 10 Transmitter",
@@ -299,7 +307,8 @@
             "computer": []
         },
         "timelines": {
-            "life": [{
+            "life": [
+                {
                     "id": 3,
                     "type": "life",
                     "start": 1992,
@@ -348,7 +357,8 @@
                     "comment": null
                 }
             ],
-            "experience": [{
+            "experience": [
+                {
                     "id": 1,
                     "type": "experience",
                     "start": "Apr 2012",
@@ -395,7 +405,8 @@
                         "Responsible for recruitment and management of development team"
                     ],
                     "hidden": 1
-                }, {
+                },
+                {
                     "id": 4,
                     "type": "experience",
                     "start": "Jul 2005",
@@ -413,7 +424,8 @@
             ]
         },
         "skill": {
-            "software": [{
+            "software": [
+                {
                     "id": 1,
                     "name": "Linux",
                     "level": 5,
@@ -438,7 +450,8 @@
                     "hidden": false
                 }
             ],
-            "program": [{
+            "program": [
+                {
                     "id": 5,
                     "name": "Objective-C",
                     "level": 4,
@@ -481,7 +494,8 @@
                     "hidden": false
                 }
             ],
-            "frameworks": [{
+            "frameworks": [
+                {
                     "id": 1,
                     "name": "ReactJS",
                     "level": 4,
@@ -512,7 +526,8 @@
                     "hidden": false
                 }
             ],
-            "database": [{
+            "database": [
+                {
                     "id": 1,
                     "name": "PostgreSQL",
                     "level": 4,
@@ -533,7 +548,8 @@
             ]
         },
         "links": {
-            "sns": [{
+            "sns": [
+                {
                     "id": 1,
                     "name": "Instagram",
                     "type": "outside",
@@ -624,7 +640,8 @@
                     "hidden": 0
                 }
             ],
-            "friends": [{
+            "friends": [
+                {
                     "id": 1,
                     "name": "Tiger",
                     "type": "outside",
