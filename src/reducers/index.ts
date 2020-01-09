@@ -18,12 +18,49 @@ const counter = (state: number = 10, action: Action) => {
     }
 };
 
-type ProjectReducerType = 'loading' | 'loaded';
+type ProjectActionTypes = 'loading' | 'works_fetch_done' | 'works_fetch_error';
 
-const projects = (state: Array<any>=[], action: { type: ProjectReducerType; payload: Array<any> }) => {
+interface WorksState {
+    apiLoadingState: string;
+    currentCategory: string;
+    items: Array<any>;
+}
+
+const initialWorksState: WorksState = {
+    apiLoadingState: 'notyet',
+    currentCategory: 'default',
+    items: []
+};
+const projects = (
+    state = {
+        apiLoadingState: 'notyet',
+        currentCategory: 'default',
+        items: []
+    },
+    action: {
+        type: ProjectActionTypes;
+        payload: Array<any>;
+        msg: '';
+    }
+) => {
+    console.log('projects state', state);
     switch (action.type) {
         case 'loading':
-            return [...state];
+            return {
+                ...state,
+                apiLoadingState: 'loading'
+            };
+        case 'works_fetch_done':
+            console.log('works_fetch_done');
+            return {
+                ...state,
+                items: action.payload
+            };
+        case 'works_fetch_error':
+            return {
+                ...state,
+                apiLoadingState: action.msg
+            };
         default:
             return state;
     }

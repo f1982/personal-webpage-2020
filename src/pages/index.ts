@@ -9,5 +9,10 @@ export default [
     title: 'About',
     path: '/about',
     component: require('./about/').default
+  },
+  {
+    title: 'Works',
+    path: '/works',
+    component: require('./works/').default
   }
 ]

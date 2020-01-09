@@ -3,12 +3,15 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-import counter from './reducers/index';
+import reducer from './reducers/index';
 import Counter from './comps/Counter';
+import thunk from 'redux-thunk';
 
-const store = createStore(counter);
+const middleWare = [thunk];
+
+const store = createStore(reducer, applyMiddleware(...middleWare));
 
 // (async () => {
 //   console.log("render");
@@ -32,5 +35,3 @@ const render = () => {
 };
 
 render();
-
-store.subscribe(render);

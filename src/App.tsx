@@ -43,19 +43,13 @@ const App = (props: any) => {
         <Router basename={process.env.PUBLIC_URL}>
             <ThemeProvider theme={myTheme}>
                 {dataSource === null ? (
-                    <p>loading</p>
+                    <Layout>
+                        {routes.map(route => (
+                            <Route key={route.path} path={route.path} exact={route.exact} component={route.component} />
+                        ))}
+                    </Layout>
                 ) : (
                     <>
-                        <Layout>
-                            {routes.map(route => (
-                                <Route
-                                    key={route.path}
-                                    path={route.path}
-                                    exact={route.exact}
-                                    component={route.component}
-                                />
-                            ))}
-                        </Layout>
                         <Skills category='Program Language' data={dataSource['skill']['program']} />
                         <Links category='SNS' data={dataSource['links']['sns']} />
                         <Links category='Friends' data={dataSource['links']['friends']} />
@@ -75,14 +69,15 @@ const App = (props: any) => {
     );
 };
 
-//This function is used to connect the props property to reducer 
+//This function is used to connect the props property to reducer
 //这里用来确定当前视图是否关联某个 reducer 里的 state(就是数值)
 //通常应试是只关联自己关注的那个 state
-const mapStatesToProps = (state: any) => {
-    const { counter,projects } = state;
+const mapStatesToProps = (rootState: any) => {
+    const { counter, projects } = rootState;
     return {
         counter,
         projects
     };
 };
-export default connect(mapStatesToProps)(App);
+// export default connect(mapStatesToProps)(App);
+export default App;
