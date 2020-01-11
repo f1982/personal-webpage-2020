@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import aboutReducer from './about.reducer';
+import worksReducer from './works.reducer';
 
 type Actions = 'reset' | 'increment' | 'decrement';
 
@@ -18,55 +20,8 @@ const counter = (state: number = 10, action: Action) => {
     }
 };
 
-type ProjectActionTypes = 'loading' | 'works_fetch_done' | 'works_fetch_error';
-
-interface WorksState {
-    apiLoadingState: string;
-    currentCategory: string;
-    items: Array<any>;
-}
-
-const initialWorksState: WorksState = {
-    apiLoadingState: 'notyet',
-    currentCategory: 'default',
-    items: []
-};
-const projects = (
-    state = {
-        apiLoadingState: 'notyet',
-        currentCategory: 'default',
-        items: []
-    },
-    action: {
-        type: ProjectActionTypes;
-        payload: Array<any>;
-        msg: '';
-    }
-) => {
-    console.log('projects state', state);
-    switch (action.type) {
-        case 'loading':
-            return {
-                ...state,
-                apiLoadingState: 'loading'
-            };
-        case 'works_fetch_done':
-            console.log('works_fetch_done');
-            return {
-                ...state,
-                items: action.payload
-            };
-        case 'works_fetch_error':
-            return {
-                ...state,
-                apiLoadingState: action.msg
-            };
-        default:
-            return state;
-    }
-};
-
 export default combineReducers({
     counter,
-    projects
+    aboutReducer,
+    worksReducer
 });

@@ -1,7 +1,7 @@
 import React, { createRef } from "react";
 import styled from "styled-components";
 import { TechnologyStackItem } from "./TechnologyStack";
-import { ProjectObject } from "../types/interfaces";
+import { ProjectObject } from "../../../types/interfaces";
 
 interface ProjectItemProp {
   name?: string;

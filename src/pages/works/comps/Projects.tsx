@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Popup } from "./Popup";
-import { ProjectObject } from "../types/interfaces";
+import { Popup } from "../../../comps/Popup";
+import { ProjectObject } from "../../../types/interfaces";
 import { ProjectItem } from "./ProjectItem";
 import { ProjectDetail } from "./ProjectDetail";
 

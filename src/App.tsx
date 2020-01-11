@@ -10,9 +10,7 @@ import routes from './pages';
 import Layout from './layouts/default';
 
 import { FaWindowMaximize } from 'react-icons/fa';
-import { Header } from './comps/Header';
-import { Summary } from './comps/Summary';
-import { Projects } from './comps/Projects';
+
 import { Menu } from './comps/Menu';
 import { Experience } from './comps/Experience';
 import { Links } from './comps/Links';
@@ -54,13 +52,6 @@ const App = (props: any) => {
                         <Links category='SNS' data={dataSource['links']['sns']} />
                         <Links category='Friends' data={dataSource['links']['friends']} />
                         <Menu data={menuData}></Menu>
-                        <Projects data={dataSource.projects}></Projects>
-                        <div id='header'>
-                            <Header name='Andy123' position='Developer'></Header>
-                        </div>
-                        <h3>Summary</h3>
-                        <Summary></Summary>
-
                         <Experience data={dataSource.timelines['experience']}></Experience>
                     </>
                 )}
