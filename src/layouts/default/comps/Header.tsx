@@ -2,24 +2,31 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import routes from '../../../pages';
+import SingleButton from '../../../comps/SingleButton';
+const Wrapper = styled.div`
+    padding-top: 4rem;
+    padding-right: 4rem;
+    text-align: right;
+`;
+const NavBar = styled.div`
+    display: inline-block;
+`;
+const NavButton = styled(NavLink)`
+    padding: 10px;
+`;
 
 const Header = () => (
-    <div>
-        <h2>header</h2>
-        <div className='navbar-start'>
-            {routes.map((route,index) => (
-                <div key={route.path}>
-                    <NavLink
-                        exact={route.exact}
-                        to={route.path}
-                        className='navbar-item'
-                        activeClassName='has-text-link'>
-                        {route.title}
-                    </NavLink> | 
-                </div>
+    <Wrapper>
+        <NavBar>
+            {routes.map((route, index) => (
+                <NavButton key={route.path} exact={route.exact} to={route.path}>
+                    {route.title}
+                </NavButton>
             ))}
-        </div>
-    </div>
+        </NavBar>
+        <span style={{ width: `1rem`, padding: `1rem` }}></span>
+        <SingleButton>Resume</SingleButton>
+    </Wrapper>
 );
 
 export default Header;

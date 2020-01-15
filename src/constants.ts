@@ -5,3 +5,7 @@ export const LOADED_ERROR_WORKS: string = 'loadedErrorWorks';
 export type LOADING_WORKS = typeof LOADING_WORKS
 export type LOADED_WORKS = typeof LOADED_WORKS
 export type LOADED_ERROR_WORKS = typeof LOADED_ERROR_WORKS
+
+
+export const HOME_DATA_LOADED: string = 'HOME_DATA_LOADED';
+export type HOME_DATA_LOADED = typeof HOME_DATA_LOADED

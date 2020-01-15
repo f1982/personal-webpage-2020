@@ -1,37 +1,125 @@
 {
-    "status_code":0,
-    "status_msg":"ok",
-    "last_update":"",
+    "status_code": 0,
+    "status_msg": "ok",
+    "last_update": "",
     "data": {
-        "a": {
-            "id": 1,
-            "name": "home",
-            "type": "home",
-            "tag": null,
-            "language": "en",
-            "title": "Andy's Singularity",
-            "content": "HI I'm Andy Cao. I live in Beijing China with my wife and cute daughter and two cats. I’m a full stack developer, and I hope I can coding everyday. I like running, workout, and making stuffs. I am a Senior R&D Manager work in China Network Television Company.",
-            "comment": "Love to create and change, no matter how small the beginning, no matter how difficult it is."
-        },
-        "b": {
-            "id": 2,
-            "name": "about",
-            "type": "about",
-            "tag": null,
-            "language": "en",
-            "title": "About me",
-            "content": null,
-            "comment": null
-        },
-        "c": {
-            "id": 5,
-            "name": "copyright",
-            "type": "",
-            "tag": null,
-            "language": "en",
-            "title": "copyright 2017 f1982",
-            "content": null,
-            "comment": null
+        "summary": "15+ years experience specializing in the front-end, mobile apps and casual game development. Able to effectively self-manage during independent projects as well as collaborate in a team setting. The video app which I deeply participated in has obtained over 100 million downloads. The registrations of personal websites has exceeded 2000 per day and the downloads of the games that designed and developed by myself independently has exceeded 1 million times. Super nerd with macOS, Linux and enjoy to automate and optimize the development process and productive workflow. Interest in problem-solving, learning new technologies and tools.",
+        "timelines": {
+            "life": [
+                {
+                    "id": 3,
+                    "type": "life",
+                    "start": 1992,
+                    "cover": null,
+                    "images": "middle school",
+                    "tag": null,
+                    "language": "en",
+                    "title": "Middle School",
+                    "description": "Went middle school at Fushun ",
+                    "comment": null
+                },
+                {
+                    "id": 2,
+                    "type": "life",
+                    "start": 1988,
+                    "cover": null,
+                    "images": "start learn",
+                    "tag": null,
+                    "language": "en",
+                    "title": "Goto School",
+                    "description": "start goto school in the small valliage",
+                    "comment": null
+                },
+                {
+                    "id": 1,
+                    "type": "life",
+                    "start": 1982,
+                    "cover": null,
+                    "images": "born.jpg",
+                    "tag": null,
+                    "language": "en",
+                    "title": "I was Born ",
+                    "description": "at China North A Small Valliage",
+                    "comment": null
+                },
+                {
+                    "id": 1,
+                    "type": "life",
+                    "start": 20200917,
+                    "cover": null,
+                    "images": "born.jpg",
+                    "tag": null,
+                    "language": "en",
+                    "title": "Move to New Zealand",
+                    "description": "Move to New Zealand with my wife and daughter",
+                    "comment": null
+                }
+            ],
+            "works": [
+                {
+                    "id": 1,
+                    "type": "experience",
+                    "start": "Apr 2012",
+                    "end": "Oct 2019",
+                    "position": "Senior Software Engineer  & Senior Research Controller",
+                    "company": "cctv.com",
+                    "desc": [
+                        "Actively participated in UGC website and SPA project design, architecture and development",
+                        "Engaged in video app project of mobile native building, publishing and maintaining",
+                        "Participated in idea, design, prototyping, architecture and development of online causal games",
+                        "Collaborated with development team, product owner, design team and QA team in identifying website and application problems, testing methods and best solutions.",
+                        "Worked with backend team to optimize API data structure and reduce bandwidth requests"
+                    ],
+                    "hidden": 0
+                },
+                {
+                    "id": 2,
+                    "type": "experience",
+                    "start": "Dec 2010",
+                    "end": "Apr 2012",
+                    "position": "Senior Software Engineer & Team Leader",
+                    "company": "Augmentum, Inc",
+                    "desc": [
+                        "Designed, architected and implemented large-scale commercial website project with core member of development team",
+                        "Architected, implemented multi-functional video player (HTML5 version and Flash version) and upload component",
+                        "Engaged in Facebook online game project HotTickets and Showstopper Basketball targeting U.S. market",
+                        "Collaborated with customers to understand requirement, test ideas, and refine workflows",
+                        "Responsible for the development team training, code review and task management"
+                    ],
+                    "hidden": 0
+                },
+                {
+                    "id": 3,
+                    "type": "experience",
+                    "start": "Mar 2008",
+                    "end": "Dec 2010",
+                    "position": "Co-Founder & Senior Software Engineer",
+                    "company": "Yatio",
+                    "desc": [
+                        "Designed, architected commercial video website for SMEs and implemented the core modules",
+                        "Architected and developed online customer service products which include live broadcast, online whiteboard and chatting features",
+                        "Engaged in backend API design and optimization",
+                        "Built live stream services base on RED5 open source project",
+                        "Responsible for recruitment and management of development team"
+                    ],
+                    "hidden": 1
+                },
+                {
+                    "id": 4,
+                    "type": "experience",
+                    "start": "Jul 2005",
+                    "end": "Mar 2008",
+                    "position": "Software Engineer",
+                    "company": "China National Software & Service Co., Ltd.",
+                    "desc": [
+                        "Implemented and maintained online monitoring system for warehouse which included data presentation, animation and visual effect",
+                        "Communicated with product owner and design team for building better workflow and product ideas",
+                        "Participated software system installation, deployment and debugging",
+                        "Engaged with customers to understand requirements, test ideas, and refine workflows"
+                    ],
+                    "hidden": 0
+                }
+            ]
         }
     }
 }

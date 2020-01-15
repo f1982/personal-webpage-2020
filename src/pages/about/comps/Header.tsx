@@ -21,15 +21,16 @@ const UserAvatar = styled.img`
     vertical-align: middle;
 `;
 const UserName = styled.h3`
-    color: ${props => props.theme.colors.main};
+    /* color: ${props => props.theme.colors.main}; */
     padding-top: 1rem;
     margin: 0;
 `;
-const UserPosition = styled.h4`
-    color: ${props => props.theme.colors.secondary};
+const UserPosition = styled.h5`
+    /* color: ${props => props.theme.colors.secondary}; */
     padding: 0;
     /* margin-bottom: 0 0 1rem 0; */
-    margin: 0;
+    margin-top: 1rem;
+    color: #999;
 `;
 const InfoItem = styled.span`
     margin-right: 10px;
@@ -39,7 +40,8 @@ const InfoItem = styled.span`
 const InfoItemText = styled.small`
     line-height: 1.2rem;
     vertical-align: middle;
-    color: ${props => props.theme.colors.secondary};
+    font-size: 16px;
+    /* color: ${props => props.theme.colors.secondary}; */
 `;
 
 //icons

@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
 import axios from 'axios';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { TimelineObject, ProjectObject, MenuItemObject } from './types/interfaces';
 
-import { GlobalStyle, myTheme } from './theme';
 import routes from './pages';
 import Layout from './layouts/default';
-
-import { FaWindowMaximize } from 'react-icons/fa';
 
 import { Menu } from './comps/Menu';
 import { Experience } from './comps/Experience';
@@ -39,23 +35,21 @@ const App = (props: any) => {
 
     return (
         <Router basename={process.env.PUBLIC_URL}>
-            <ThemeProvider theme={myTheme}>
-                {dataSource === null ? (
-                    <Layout>
-                        {routes.map(route => (
-                            <Route key={route.path} path={route.path} exact={route.exact} component={route.component} />
-                        ))}
-                    </Layout>
-                ) : (
-                    <>
-                        <Skills category='Program Language' data={dataSource['skill']['program']} />
-                        <Links category='SNS' data={dataSource['links']['sns']} />
-                        <Links category='Friends' data={dataSource['links']['friends']} />
-                        <Menu data={menuData}></Menu>
-                        <Experience data={dataSource.timelines['experience']}></Experience>
-                    </>
-                )}
-            </ThemeProvider>
+            {dataSource === null ? (
+                <Layout>
+                    {routes.map(route => (
+                        <Route key={route.path} path={route.path} exact={route.exact} component={route.component} />
+                    ))}
+                </Layout>
+            ) : (
+                <>
+                    <Skills category='Program Language' data={dataSource['skill']['program']} />
+                    <Links category='SNS' data={dataSource['links']['sns']} />
+                    <Links category='Friends' data={dataSource['links']['friends']} />
+                    <Menu data={menuData}></Menu>
+                    <Experience data={dataSource.timelines['experience']}></Experience>
+                </>
+            )}
         </Router>
     );
 };

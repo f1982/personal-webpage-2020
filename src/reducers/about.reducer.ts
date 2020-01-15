@@ -7,10 +7,7 @@ interface AboutState {
     myName: string;
     myPosition: string;
     summary: string;
-    timeline: {
-        experience: [];
-        journey: [];
-    };
+    timelines: any;
 }
 
 /**
@@ -20,10 +17,7 @@ const initialState: AboutState = {
     myName: 'noname',
     myPosition: 'noposition',
     summary: '',
-    timeline: {
-        experience: [],
-        journey: []
-    }
+    timelines: {}
 };
 
 /**
@@ -32,11 +26,13 @@ const initialState: AboutState = {
  * @param action reducer action
  */
 const aboutReducer = (state: AboutState = initialState, action: AboutAction) => {
+    console.log('action', action);
     switch (action.type) {
-        case 'loading':
-            return { ...state };
         case LOADED_ABOUT:
-            return { ...state, timeline: action.payload };
+            const { timelines ,summary} = action.payload;
+            return { ...state,
+                summary: summary, 
+                timelines: timelines };
         default:
             return state;
     }

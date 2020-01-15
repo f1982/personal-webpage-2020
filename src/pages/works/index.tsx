@@ -1,14 +1,25 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import TitleImage from '../../comps/TitleImage';
 
-import { loadProjects  } from './../../actions/works.action';
-import { Projects } from './comps/Projects';
+import { loadProjects } from './../../actions/works.action';
+import { Projects } from '../../comps/Projects';
+import SubMenu from '../../comps/SubMenu';
+
+const SpaceBar = styled.div`
+    height: 2rem;
+`
 interface WorksProp {}
 
 const Works = (props: any) => {
     console.log('Works props', props);
     const { dispatch } = props;
+    const categoryMenuItems = [
+        { id: 1, title: 'All', active: true },
+        { id: 2, title: 'Mobile Apps' },
+        { id: 3, title: 'Games' }
+    ];
     useEffect(() => {
         //load api
         console.log('props.items', props.items);
@@ -18,8 +29,14 @@ const Works = (props: any) => {
     useEffect(() => {
         console.log('apiLoadingState changed');
     }, [props.apiLoadingState]);
+
+    const imageURL = process.env.PUBLIC_URL + 'static/images/project_title.png';
+
     return (
         <>
+            <TitleImage title='Projects' subtitle='My Passions & I Love.' backgroundImageURL={imageURL}></TitleImage>
+            <SubMenu items={categoryMenuItems} />
+            <SpaceBar></SpaceBar>
             <Projects data={props.items}></Projects>
         </>
     );
@@ -32,7 +49,6 @@ const Works = (props: any) => {
  * @param rootState
  */
 const mapStatesToProps = (rootState: any) => {
-    console.log('rootState', rootState);
     const { items, apiLoadingState, currentCategory } = rootState.worksReducer;
     return {
         apiLoadingState,

@@ -3,7 +3,7 @@ import notify from '../utils/notify';
 import { LOADED_WORKS, LOADING_WORKS, LOADED_ERROR_WORKS } from '../constants';
 import ajax from '../utils/ajax';
 
-const API_URL='raw/de5a5e318fc29a239771ed9f431b7c8132b7b643/projects.json'
+const API_URL = 'projects.json';
 /**
  * Action Types
  */

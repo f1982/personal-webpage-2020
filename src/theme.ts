@@ -1,14 +1,13 @@
-import { DefaultTheme, createGlobalStyle } from 'styled-components'
+import { DefaultTheme, createGlobalStyle } from 'styled-components';
 
 const myTheme: DefaultTheme = {
-  borderRadius: '5px',
-  shadow: '0 19px 38px rgba(0, 0, 0, 0.30),0 15px 12px rgba(0, 0, 0, 0.22);',
-  colors: {
-    main: 'cyan',
-    secondary: 'magenta',
-  },
-}
-
+    borderRadius: '5px',
+    shadow: '0 19px 38px rgba(0, 0, 0, 0.30),0 15px 12px rgba(0, 0, 0, 0.22);',
+    colors: {
+        main: 'cyan',
+        secondary: 'magenta'
+    }
+};
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=OpenSans:400|Lora:400');
@@ -27,12 +26,19 @@ const GlobalStyle = createGlobalStyle`
     color: #333;
   }
 
-  a {
+  a ,a:link ,a:active ,a:visited { 
     color: #333;
+    text-decoration: none;
+  }
+  a:hover{
+      color: #666;
+      font-weight:bold;
+    text-decoration: none;
   }
   p {
     margin-bottom: 1.25em;
   }
+  
 
   h1, h2, h3, h4, h5 {
     margin: 2.75rem 0 1rem;
@@ -61,9 +67,6 @@ const GlobalStyle = createGlobalStyle`
   .react-icons {
     vertical-align: middle;
   }
-`
+`;
 
-export {
-  myTheme,
-  GlobalStyle
-}
+export { myTheme, GlobalStyle };

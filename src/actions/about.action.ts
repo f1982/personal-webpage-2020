@@ -9,7 +9,7 @@ export type LOADED_ABOUT = typeof LOADED_ABOUT;
 
 type AboutActionTypes = LOAD_ABOUT | LOADED_ABOUT;
 
-const API_URL='raw/55c42da48087751804f53d0b38f7464d55f0d9d9/about.json'
+const API_URL='about.json'
 /**
  * About action
  */
@@ -23,7 +23,7 @@ const loadAbout = async (dispatch: Dispatch) => {
         url: API_URL
     });
     const { data } = responseData;
-    // console.log('data', data);
+    console.log('data', data);
     const act: AboutAction = { type: LOADED_ABOUT, payload: data };
     dispatch(act);
 };
