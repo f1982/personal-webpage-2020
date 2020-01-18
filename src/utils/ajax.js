@@ -4,14 +4,17 @@ import notify from './notify';
 // import reloadApp from './reloadApp'
 import 'nprogress/nprogress.css';
 
-// import store from '~/store/';
+const baseUrl =
+    process.env.NODE_ENV === 'development'
+        ? process.env.REACT_APP_API_BASE_URL_TEST
+        : process.env.REACT_APP_API_BASE_URL;
 
 /**
  * @param  {object} req - https://github.com/axios/axios#request-config
  * @return {Promise<any>}
  */
 export default function ajax(req) {
-    req.baseURL = process.env.REACT_APP_API_BASE_URL;
+    req.baseURL = baseUrl;
 
     // https://developers.themoviedb.org/3/getting-started/authentication
     req.params = {
