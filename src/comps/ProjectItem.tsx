@@ -9,19 +9,21 @@ interface ProjectItemProp {
     callback: Function;
 }
 
-const ProjectImg = styled.img`
+const Overlay = styled.div`
     width: 100%;
     height: 100%;
+    background-color: #000;
+    opacity:0;
 `;
 
 const ProjectName = styled.h5`
     position: absolute;
     width: 100%;
     margin: 1rem auto;
-    /* left: 50%; */
-    bottom: 0;
+    top: 10%;
     text-align: center;
     opacity: 0;
+    color: #fff;
 
     /* box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.8); */
     transition: opacity 0.6s, color 0.5s;
@@ -41,7 +43,7 @@ const Wrapper = styled.div`
     position: relative;
     box-sizing: border-box;
     width: 300px;
-    height: 200px;
+    height: 400px;
     padding: 0px;
     margin: 2rem;
     /* border: 15px solid white; */
@@ -49,7 +51,7 @@ const Wrapper = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3); */
     transition: box-shadow 0.6s, border 0.5s;
     will-change: transform;
 
@@ -57,10 +59,13 @@ const Wrapper = styled.div`
         /* border: 10px solid #fff; */
 
         box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
-        ${ProjectName} {
+        ${Overlay} {
+            opacity: 0.8;
+            /* color: #fff;
+            text-shadow: 0px 2px #666; */
+        }
+        ${ProjectName}{
             opacity: 1;
-            color: #fff;
-            text-shadow: 0px 2px #666;
         }
     }
 `;
@@ -120,7 +125,11 @@ const ProjectItem = (props: ProjectItemProp) => {
             style={{
                 backgroundImage: `url("${props.itemData.cover}")`
             }}>
+            <Overlay>
+                
+            </Overlay>
             <ProjectName ref={titleRef}>{props.itemData.title}</ProjectName>
+
             {/* <SkillContainer>
                 {
                     props.itemData.tech.split(',').map((item: string, index: number) => {
