@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
   }
   p {
     margin-bottom: 1.25em;
+    color: #666;
   }
   
 

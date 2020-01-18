@@ -21,7 +21,7 @@ interface LinkItemProp {
 
 const LinkItem = (props: LinkItemProp) => {
     return (
-        <Wrapper href={props.link} title={props.alt}>
+        <Wrapper href={props.link} title={props.alt} target="_blank">
             {props.icon} {props.title}
         </Wrapper>
     )

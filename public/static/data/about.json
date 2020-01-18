@@ -7,52 +7,138 @@
         "timelines": {
             "life": [
                 {
-                    "id": 3,
-                    "type": "life",
-                    "start": 1992,
-                    "cover": null,
-                    "images": "middle school",
-                    "tag": null,
-                    "language": "en",
-                    "title": "Middle School",
-                    "description": "Went middle school at Fushun ",
-                    "comment": null
+                    "id": 1,
+                    "start": "1982",
+                    "end": "",
+                    "title": "I was born in Liaoning Tieling",
+                    "description": "",
+                    "cover": "",
+                    "images": []
                 },
                 {
                     "id": 2,
-                    "type": "life",
-                    "start": 1988,
-                    "cover": null,
-                    "images": "start learn",
-                    "tag": null,
-                    "language": "en",
-                    "title": "Goto School",
-                    "description": "start goto school in the small valliage",
-                    "comment": null
+                    "start": "1987",
+                    "end": "1990",
+                    "title": "Study at Shangtai primary school",
+                    "description": "",
+                    "cover": "",
+                    "images": []
                 },
                 {
-                    "id": 1,
-                    "type": "life",
-                    "start": 1982,
-                    "cover": null,
-                    "images": "born.jpg",
-                    "tag": null,
-                    "language": "en",
-                    "title": "I was Born ",
-                    "description": "at China North A Small Valliage",
-                    "comment": null
+                    "id": 3,
+                    "start": "1990",
+                    "end": "1993",
+                    "title": "Study at Shijia primary school",
+                    "description": "",
+                    "cover": "",
+                    "images": []
                 },
                 {
-                    "id": 1,
-                    "type": "life",
-                    "start": 20200917,
-                    "cover": null,
-                    "images": "born.jpg",
-                    "tag": null,
-                    "language": "en",
-                    "title": "Move to New Zealand",
-                    "description": "Move to New Zealand with my wife and daughter",
-                    "comment": null
+                    "id": 3,
+                    "start": "1993",
+                    "end": "1995",
+                    "title": "Study at WJJ middle school",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "1995",
+                    "end": "1996",
+                    "title": "Study at Liqianghu middle school",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "1997",
+                    "end": "1999",
+                    "title": "Study at Tielingxian high school",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "2001",
+                    "end": "2005",
+                    "title": "Study at HAUST",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "2005",
+                    "end": "",
+                    "title": "Came to Beijing and started to work",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "2005",
+                    "end": "",
+                    "title": "Met my girl friend who called Cindy",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "2008",
+                    "end": "",
+                    "title": "Engaged with Cindy",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "April 2014",
+                    "end": "",
+                    "title": "Upload my first video to Youtube",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "June 2014",
+                    "end": "",
+                    "title": "Started my RC Hobby",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },{
+                    "id": 3,
+                    "start": "August 2017",
+                    "end": "",
+                    "title": "Had my gall bladder surgery at RENMIN hospital",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "2016",
+                    "end": "",
+                    "title": "Had a baby girl named Zoe",
+                    "description": "",
+                    "cover": "",
+                    "images": []
+                },
+                {
+                    "id": 3,
+                    "start": "2019",
+                    "end": "",
+                    "title": "Came to Auckland New Zealand",
+                    "description": "",
+                    "cover": "",
+                    "images": []
                 }
             ],
             "works": [
@@ -61,7 +147,7 @@
                     "type": "experience",
                     "start": "Apr 2012",
                     "end": "Oct 2019",
-                    "position": "Senior Software Engineer  & Senior Research Controller",
+                    "position": ["Senior Software Engineer", "Senior Research Controller"],
                     "company": "cctv.com",
                     "desc": [
                         "Actively participated in UGC website and SPA project design, architecture and development",
@@ -77,7 +163,7 @@
                     "type": "experience",
                     "start": "Dec 2010",
                     "end": "Apr 2012",
-                    "position": "Senior Software Engineer & Team Leader",
+                    "position": ["Senior Software Engineer", "Team Leader"],
                     "company": "Augmentum, Inc",
                     "desc": [
                         "Designed, architected and implemented large-scale commercial website project with core member of development team",
@@ -93,7 +179,7 @@
                     "type": "experience",
                     "start": "Mar 2008",
                     "end": "Dec 2010",
-                    "position": "Co-Founder & Senior Software Engineer",
+                    "position": ["Co-Founder", "Senior Software Engineer"],
                     "company": "Yatio",
                     "desc": [
                         "Designed, architected commercial video website for SMEs and implemented the core modules",
@@ -109,7 +195,7 @@
                     "type": "experience",
                     "start": "Jul 2005",
                     "end": "Mar 2008",
-                    "position": "Software Engineer",
+                    "position": ["Software Engineer"],
                     "company": "China National Software & Service Co., Ltd.",
                     "desc": [
                         "Implemented and maintained online monitoring system for warehouse which included data presentation, animation and visual effect",

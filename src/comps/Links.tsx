@@ -1,79 +1,73 @@
-import React from "react";
-import styled from "styled-components";
-import { LinkObject } from "../types/interfaces";
-import { LinkItem } from "./LinkItem";
-import { IconContext } from "react-icons";
+import React from 'react';
+import styled from 'styled-components';
+import { LinkObject } from '../types/interfaces';
+import { LinkItem } from './LinkItem';
+import { IconContext } from 'react-icons';
 import {
-  FaYoutube,
-  FaTwitter,
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaLinkedinIn,
-  FaFlickr,
-  FaWeibo,
-  FaDochub,
-  FaSoundcloud
-} from "react-icons/fa";
+    FaYoutube,
+    FaTwitter,
+    FaFacebook,
+    FaInstagram,
+    FaLinkedin,
+    FaLinkedinIn,
+    FaFlickr,
+    FaWeibo,
+    FaDochub,
+    FaSoundcloud
+} from 'react-icons/fa';
+import LinkItemSimple from './LinkItemSimple';
 
 interface LinksProp {
-  data: LinkObject[];
-  category: string;
-  introduce?: string;
+    data: LinkObject[];
+    category: string;
+    introduce?: string;
 }
 
 const LinkContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+    display: flex;
+    margin: 4rem auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
 `;
 const iconMap: { [key: string]: JSX.Element } = {};
-iconMap["youtube"] = <FaYoutube />;
-iconMap["twitter"] = <FaTwitter />;
-iconMap["facebook"] = <FaFacebook />;
-iconMap["linkedin"] = <FaLinkedin />;
-iconMap["instagram"] = <FaInstagram />;
-iconMap["flickr"] = <FaFlickr />;
-iconMap["weibo"] = <FaWeibo />;
-iconMap["soundcloud"] = <FaSoundcloud />;
-iconMap["douban"] = <FaDochub />;
+iconMap['youtube'] = <FaYoutube />;
+iconMap['twitter'] = <FaTwitter />;
+iconMap['facebook'] = <FaFacebook />;
+iconMap['linkedin'] = <FaLinkedin />;
+iconMap['instagram'] = <FaInstagram />;
+iconMap['flickr'] = <FaFlickr />;
+iconMap['weibo'] = <FaWeibo />;
+iconMap['soundcloud'] = <FaSoundcloud />;
+iconMap['douban'] = <FaDochub />;
 
 const Links = (props: LinksProp) => {
-  return (
-    <>
-      {props.data.length < 1 ? (
-        <div>no data</div>
-      ) : (
-        <div>
-          <h5>{props.category}</h5>
-          <LinkContainer>
+    const { data } = props;
+    return (
+        <LinkContainer>
             <IconContext.Provider
-              value={{
-                color: "#fff",
-                size: "50",
-                style: { verticalAlign: "middle" }
-              }}
-            >
-              {props.data.map((item: LinkObject, index: number) => {
-                const { name, alt, link, icon } = item;
-                console.log("icon", icon);
-                const iconElement: JSX.Element = iconMap[icon.toLowerCase()];
-                return (
-                  <LinkItem
-                    key={index}
-                    title={name}
-                    icon={iconElement}
-                    link={link}
-                    alt={alt}
-                  ></LinkItem>
-                );
-              })}
+                value={{
+                    color: '#666',
+                    size: '50',
+                    style: { verticalAlign: 'middle' }
+                }}>
+                {data.map((item: LinkObject, index: number) => {
+                    const { name, alt, link, icon } = item;
+                    console.log('icon', icon);
+                    const iconElement: JSX.Element = iconMap[icon.toLowerCase()];
+                    return (
+                        <LinkItemSimple
+                            key={index}
+                            title={name}
+                            icon={iconElement}
+                            link={link}
+                            alt={alt}></LinkItemSimple>
+                    );
+                })}
             </IconContext.Provider>
-          </LinkContainer>
-        </div>
-      )}
-    </>
-  );
+        </LinkContainer>
+    );
 };
 
 export { Links };

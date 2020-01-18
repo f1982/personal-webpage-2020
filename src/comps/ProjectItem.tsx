@@ -22,7 +22,7 @@ const ProjectName = styled.h5`
     bottom: 0;
     text-align: center;
     opacity: 0;
-    
+
     /* box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.8); */
     transition: opacity 0.6s, color 0.5s;
     will-change: opacity, color;
@@ -55,7 +55,7 @@ const Wrapper = styled.div`
 
     &:hover {
         /* border: 10px solid #fff; */
-        
+
         box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
         ${ProjectName} {
             opacity: 1;

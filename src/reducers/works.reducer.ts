@@ -42,6 +42,11 @@ export default (state: WorksState = initialWorksState, action: FetchWorksAction)
                 ...state,
                 apiLoadingState: action.msg
             };
+        case 'change_category':
+            return {
+                ...state,
+                // currentCategory: action.category
+            };
         default:
             return state;
     }

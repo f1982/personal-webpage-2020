@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { TimelineObject } from '../types/interfaces';
 
+import TimeBubble from './TimeBubble';
+
 interface TimelineItemProps {
     itemData: TimelineObject;
     id: string;
@@ -11,23 +13,29 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    /* justify-content: center; */
+    align-items: center;
 `;
 const DateColumn = styled.div`
-    flex-shrink: 1;
-    width: 20%;
-    padding-top: 50px;
-    padding-right: 50px;
+    /* flex-shrink: 1; */
+    /* flex: 1; */
+    padding-right: 2rem;
     text-align: right;
+    width: 380px;
+    height: 100%;
     display: inline-block;
+    justify-content: space-between;
 `;
 const ContentColumn = styled.div`
-    flex-shrink: 0;
-    width: 80%;
+    /* flex-shrink: 0; */
+    flex: 1;
+    width: 100%;
     display: inline-block;
     & h5 {
         margin: 0 0;
     }
     & ul {
+        width: 100%;
         & li {
             font-weight: 800;
             margin: 2px 5px;
@@ -37,25 +45,40 @@ const ContentColumn = styled.div`
     }
 `;
 
+const VerticalBar = styled.div`
+    display: inline-block;
+    height: 160px;
+    border-radius: 1rem;
+    width: 0.6rem;
+    background-color: #77b1f6;
+`;
+
 const TimelineItem = (props: TimelineItemProps) => {
     let { id, itemData } = props;
+
+    const dateString = itemData.start + ' - ' + itemData.end;
     return (
         <Wrapper>
             <DateColumn>
-                {itemData.start}
-                <br />
-                {itemData.end}
-            </DateColumn>
-            <ContentColumn>
-                <div style={{ paddingLeft: `2rem` }}>
-                    <h5>{itemData.company}</h5>
-                    <p><strong>{itemData.position}</strong></p>
+                <div>
+                    <TimeBubble direction='right'>{dateString}</TimeBubble>
                 </div>
-                <ul>
-                    {itemData.desc &&
-                        itemData.desc.map((desc, index) => {
-                            return <li key={index}>{desc}</li>;
+                <h5>{itemData.company}</h5>
+                <div>
+                    <p>
+                        {itemData.position.map((item: any) => {
+                            return item + ', ';
                         })}
+                    </p>
+                </div>
+            </DateColumn>
+            <VerticalBar />
+            <ContentColumn>
+                <div style={{ paddingLeft: `2rem` }}></div>
+                <ul>
+                    {itemData.desc.map((desc, index) => {
+                        return <li key={index}>{desc}</li>;
+                    })}
                 </ul>
             </ContentColumn>
         </Wrapper>

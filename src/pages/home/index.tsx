@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom';
 
 import HiThere from '../../../src/assets/hi.png';
 import { loadHomeData } from '../../actions/home.action';
+import { Helmet } from 'react-helmet';
+import { RootState } from '../../reducers';
+import { Links } from '../../comps/Links';
 const SectionRow = styled.div`
     display: flex;
     flex-flow: row nowrap;
-    margin: 2rem 3rem;
+    margin: 3.8rem 2rem;
 `;
 
 const IntroLeft = styled.div`
@@ -81,6 +84,10 @@ const Home = (props: any) => {
 
     return (
         <>
+            <Helmet>
+                <title>Home</title>
+            </Helmet>
+            {/* <div>settings: {JSON.stringify(props.sns)}</div> */}
             <SectionRow>
                 <IntroLeft>
                     <div>
@@ -113,13 +120,13 @@ const Home = (props: any) => {
                     <div>
                         <h5>What I Do?</h5>
                     </div>
-                    <div>{props.whatIDo}</div>
+                    <div><p>{props.whatIDo}</p></div>
                 </VerticalContainer>
                 <VerticalContainer>
                     <div>
                         <h5>Who I Like?</h5>
                     </div>
-                    <div>{props.whatILike}</div>
+                    <div><p>{props.whatILike}</p></div>
                 </VerticalContainer>
             </SectionRow>
             <HighlightProject
@@ -128,6 +135,8 @@ const Home = (props: any) => {
                     console.log('more project callback');
                 }}
             />
+            
+            <Links data={props.sns} category='all'></Links>
         </>
     );
 };
@@ -138,12 +147,16 @@ const Home = (props: any) => {
  *
  * @param rootState
  */
-const mapStatesToProps = (rootState: any) => {
-    const { highlightProjects, whatIDo, whatILike } = rootState.homeReducer;
+const mapStatesToProps = (rootState: RootState) => {
+    const { highlightProjects, whatIDo, whatILike, sns } = rootState.homeReducer;
+    //这里是可以跨越 reducer 取数据的， 同样可以集成到 props 里
+    const { settings } = rootState.appReducer;
     return {
         highlightProjects,
         whatIDo,
-        whatILike
+        whatILike,
+        settings,
+        sns
     };
 };
 

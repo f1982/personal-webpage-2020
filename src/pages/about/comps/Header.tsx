@@ -14,37 +14,37 @@ const UserContainer = styled.div`
     text-align: center;
     margin-bottom: 2rem;
 `;
+
 const UserAvatar = styled.img`
     width: 200px;
     height: 200px;
     border-radius: 50%;
     vertical-align: middle;
 `;
+
 const UserName = styled.h3`
-    /* color: ${props => props.theme.colors.main}; */
     padding-top: 1rem;
     margin: 0;
 `;
+
 const UserPosition = styled.h5`
-    /* color: ${props => props.theme.colors.secondary}; */
     padding: 0;
-    /* margin-bottom: 0 0 1rem 0; */
     margin-top: 1rem;
     color: #999;
 `;
+
 const InfoItem = styled.span`
     margin-right: 10px;
     line-height: 1.2rem;
     vertical-align: middle;
 `;
+
 const InfoItemText = styled.small`
     line-height: 1.2rem;
     vertical-align: middle;
     font-size: 16px;
-    /* color: ${props => props.theme.colors.secondary}; */
 `;
 
-//icons
 const EnvelopeOpenText = styled(FaEnvelopeOpenText)`
     color: #ffcc00;
     vertical-align: middle;
@@ -56,6 +56,7 @@ const MobileAlt = styled(FaMobileAlt)`
     vertical-align: middle;
     margin-right: 4px;
 `;
+
 const At = styled(FaAt)`
     color: #ffcc00;
     vertical-align: middle;

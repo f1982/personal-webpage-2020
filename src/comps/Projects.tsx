@@ -1,66 +1,72 @@
-import React from "react";
-import styled from "styled-components";
-import { Popup } from "./Popup";
-import { ProjectObject } from "../types/interfaces";
-import { ProjectItem } from "./ProjectItem";
-import { ProjectDetail } from "./ProjectDetail";
+import React from 'react';
+import styled from 'styled-components';
+import { Popup } from './Popup';
+import { ProjectObject } from '../types/interfaces';
+import { ProjectItem } from './ProjectItem';
+import { ProjectDetail } from './ProjectDetail';
 
 const ProjectsContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap; 
-  justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 `;
 
 interface ProjectProp {
-  data: Array<ProjectObject>;
+    category: string;
+    data: Array<ProjectObject>;
 }
 
 const Projects = (props: ProjectProp) => {
-  const [popupClosed, setPopupClosed] = React.useState(true);
+    console.log('projects props', props);
 
-  //Only popupClosed variable change, this callback will be fired
-  React.useEffect(() => {
-    console.log("popupClosed changed...");
-  }, [popupClosed]);
+    let { data: items, category } = props;
+    const [popupClosed, setPopupClosed] = React.useState(true);
 
-  const [showedProject, setShowedProject] = React.useState<any>(null);
+    const [showedProject, setShowedProject] = React.useState<any>(null);
+    //Only popupClosed variable change, this callback will be fired
+    React.useEffect(() => {
+        console.log('popupClosed changed...');
+    }, [popupClosed]);
 
-  const closePopupHandler = (event: React.MouseEvent) => {
-    console.log("close popup");
-    setShowedProject(null);
-  };
+    const closePopupHandler = (event: React.MouseEvent) => {
+        console.log('close popup');
+        setShowedProject(null);
+    };
 
-  const tapProjectHandler = (item: ProjectObject) => {
-    console.log("project item tapped", item);
-    setShowedProject(item);
-  };
+    const tapProjectHandler = (item: ProjectObject) => {
+        setShowedProject(item);
+    };
 
-  return (
-    <>
-      {/* <h3>Projects</h3> */}
-      <ProjectsContainer id="projects">
-        {props.data &&
-          props.data.map((item: ProjectObject) => {
-            return (
-              <ProjectItem
-                name={item.title}
-                key={item.id}
-                itemData={item}
-                callback={tapProjectHandler}
-              ></ProjectItem>
-            );
-          })}
-      </ProjectsContainer>
-      {showedProject !== null ? (
-        <Popup
-          id="test"
-          content={<ProjectDetail itemData={showedProject} />}
-          closeHandler={closePopupHandler}
-        ></Popup>
-      ) : null}
-    </>
-  );
+    let filtered: Array<ProjectObject>;
+    if (category !== '' && category !== 'all') {
+        filtered = items.filter(item => item.type === category);
+    } else {
+        filtered = items;
+    }
+    console.log('filtered', filtered);
+
+    return (
+        <>
+            <ProjectsContainer id='projects'>
+                {filtered.map((item: ProjectObject) => {
+                    return (
+                        <ProjectItem
+                            name={item.title}
+                            key={item.id}
+                            itemData={item}
+                            callback={tapProjectHandler}></ProjectItem>
+                    );
+                })}
+            </ProjectsContainer>
+            {showedProject !== null ? (
+                <Popup
+                    id='test'
+                    content={<ProjectDetail itemData={showedProject} />}
+                    closeHandler={closePopupHandler}></Popup>
+            ) : null}
+        </>
+    );
 };
 
-export { Projects };
+export default Projects;

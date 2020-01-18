@@ -1,13 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { GlobalStyle, myTheme } from './theme';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
 
-import { StoreProvider } from './store';
-
-import Counter from './comps/Counter';
+import StoreProvider from './store';
 
 const render = () => {
     ReactDOM.render(

@@ -1,32 +1,112 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
+import { NavLink } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 import routes from '../../../pages';
-import SingleButton from '../../../comps/SingleButton';
+
 const Wrapper = styled.div`
     padding-top: 4rem;
     padding-right: 4rem;
     text-align: right;
 `;
-const NavBar = styled.div`
-    display: inline-block;
-`;
-const NavButton = styled(NavLink)`
-    padding: 10px;
+
+const NavBar = styled(animated.header)`
+    ul {
+        display: inline-block;
+        list-style-type: none;
+        overflow: auto;
+        & li {
+            padding: 10px;
+            float: left;
+            @media screen and (max-width: 600px) {
+                float: none;
+            }
+        }
+    }
 `;
 
-const Header = () => (
-    <Wrapper>
-        <NavBar>
-            {routes.map((route, index) => (
-                <NavButton key={route.path} exact={route.exact} to={route.path}>
-                    {route.title}
-                </NavButton>
-            ))}
-        </NavBar>
-        <span style={{ width: `1rem`, padding: `1rem` }}></span>
-        <SingleButton>Resume</SingleButton>
-    </Wrapper>
-);
+const NavButton = styled(NavLink)`
+    &:hover {
+        /* background-color: #666; */
+        text-decoration: line-through;
+    }
+`;
+
+const RightMenuItem = styled.a`
+    height: 50px;
+    display: none;
+    @media screen and (max-width: 600px) {
+        display: block;
+    }
+`;
+
+interface HeaderPropType {
+    menuCollapse?: boolean;
+}
+
+const initialProps: HeaderPropType = {
+    menuCollapse: false
+};
+
+const Header = (props: HeaderPropType = initialProps) => {
+    const [isCollapsed, setIsCollapsed] = useState(true);
+    const [springProps, set] = useSpring(() => ({ opacity: 0, display: `none` }));
+
+    // Update spring with new props
+    set({
+        opacity: isCollapsed === false ? 1 : 0,
+        display: isCollapsed === false ? `inline-block` : `none`
+    });
+
+    /**
+     * 监控窗口变化，如果窗口大于 600px 显示顶部导航
+     */
+    useLayoutEffect(() => {
+        function updateSize() {
+            if (window.innerWidth > 600 && isCollapsed === true) {
+                setIsCollapsed(false);
+            } else if (window.innerWidth <= 600) {
+                setIsCollapsed(true);
+            }
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+
+    /**
+     * 切换显示菜单状态
+     */
+    const toggle = () => {
+        setIsCollapsed(!isCollapsed);
+        console.log('isCollapsed', isCollapsed);
+    };
+
+    /**
+     * Views
+     */
+    return (
+        <Wrapper>
+            <RightMenuItem onClick={toggle}>
+                <FaBars size='48' color='#ccc' />
+            </RightMenuItem>
+            <NavBar style={springProps}>
+                <ul>
+                    {routes.map((route, index) => (
+                        <li key={index}>
+                            <NavButton exact={route.exact} to={route.path}>
+                                {route.title}
+                            </NavButton>
+                        </li>
+                    ))}
+                    <li>
+                        <a>Resume</a>
+                    </li>
+                </ul>
+            </NavBar>
+        </Wrapper>
+    );
+};
 
 export default Header;

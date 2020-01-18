@@ -9,9 +9,11 @@ const Wrapper = styled.div`
     padding-right: 4rem;
     text-align: right;
 `;
+
 const NavBar = styled.div`
     display: inline-block;
 `;
+
 const NavButton = styled.button`
     height: 45px;
     padding: 0 2rem;
@@ -71,19 +73,36 @@ const ActiveNavButton = styled.button`
     }
 `;
 
-
-const SubMenu = (props: any) => (
-    <Wrapper>
-        <NavBar>
-            {props.items.map((item: any, index: number) =>
-                item.active ? (
-                    <ActiveNavButton key={index}>{item.title}</ActiveNavButton>
-                ) : (
-                    <NavButton key={index}>{item.title}</NavButton>
-                )
-            )}
-        </NavBar>
-    </Wrapper>
-);
+const SubMenu = (props: any) => {
+    const [currentActive, setCurrentActive] = React.useState(1);
+    const activeItem = (id: number) => {
+        const currentItem: any = props.items.find((item: any) => {
+            return item.id == id;
+        });
+        // currentItem.active = true;
+        setCurrentActive(currentItem.id);
+        props.callback ? props.callback(currentItem) : null;
+    };
+    return (
+        <Wrapper>
+            <NavBar>
+                {props.items.map((item: any, index: number) =>
+                    item.id === currentActive ? (
+                        <ActiveNavButton key={index}>{item.title}</ActiveNavButton>
+                    ) : (
+                        <NavButton
+                            key={index}
+                            onClick={() => {
+                                console.log(item);
+                                activeItem(item.id);
+                            }}>
+                            {item.title}
+                        </NavButton>
+                    )
+                )}
+            </NavBar>
+        </Wrapper>
+    );
+};
 
 export default SubMenu;

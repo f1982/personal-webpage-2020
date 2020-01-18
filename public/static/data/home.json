@@ -80,6 +80,98 @@
                 "language": "en",
                 "quote": ""
             }
+        ],
+        "sns": [
+            {
+                "id": 1,
+                "name": "Instagram",
+                "type": "outside",
+                "icon": "instagram",
+                "link": "https://www.instagram.com/iandycao/",
+                "alt": "Andy's Instagram",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 2,
+                "name": "Facebook",
+                "type": "outside",
+                "icon": "facebook",
+                "link": "https://www.facebook.com/andycao1982",
+                "alt": "Andy's Facebook Homepage",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 3,
+                "name": "Youtube",
+                "type": "outside",
+                "icon": "youtube",
+                "link": "https://www.youtube.com/c/AndyCaoisme",
+                "alt": "Andy's Youtube Channel",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 4,
+                "name": "LinkedIn",
+                "type": "both",
+                "icon": "linkedin",
+                "link": "https://www.linkedin.com/in/andyisme/",
+                "alt": "Andy's LinkedIn Page",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 5,
+                "name": "Twitter",
+                "type": "outside",
+                "icon": "twitter",
+                "link": "https://twitter.com/enjoywound",
+                "alt": "Andy's Twitter",
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 6,
+                "name": "Flickr",
+                "type": "outside",
+                "icon": "flickr",
+                "link": "https://www.flickr.com/photos/ad1982/",
+                "alt": null,
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 7,
+                "name": "微博",
+                "type": "inside",
+                "icon": "weibo",
+                "link": "http://www.weibo.com/enjoywound",
+                "alt": null,
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 8,
+                "name": "SoundCloud",
+                "type": "outside",
+                "icon": "soundcloud",
+                "link": "https://soundcloud.com/andy-cao-925715105",
+                "alt": null,
+                "tag": null,
+                "hidden": 0
+            },
+            {
+                "id": 9,
+                "name": "豆瓣",
+                "type": "inside",
+                "icon": "douban",
+                "link": "https://www.douban.com/people/f1982/",
+                "alt": null,
+                "tag": null,
+                "hidden": 0
+            }
         ]
     }
 }

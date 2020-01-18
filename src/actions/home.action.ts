@@ -1,9 +1,10 @@
 import { Dispatch } from 'redux';
 import notify from '../utils/notify';
-import { HOME_DATA_LOADED } from '../constants';
+import { HOME_DATA_LOADED, LINKS_DATA_LOADED } from '../constants';
 import ajax from '../utils/ajax';
 
-const API_URL = 'home.json';
+const HOME_API_URL = 'home.json';
+const LINKS_API_URL = 'links.json';
 /**
  * Action Types
  */
@@ -19,14 +20,36 @@ export interface FetchHomeDataAction {
     payload: any;
 }
 
+/**
+ * Load home page data
+ *
+ * @param dispatch
+ */
 const loadHomeData = async (dispatch: Dispatch) => {
     const responseData = await ajax({
-        url: API_URL,
+        url: HOME_API_URL,
         params: { category: 'flash', page: 1 }
     });
 
     dispatch({
         type: HOME_DATA_LOADED,
+        payload: responseData.data
+    });
+};
+
+/**
+ * Load links data
+ *
+ * @param dispatch
+ */
+const loadLinksData = async (dispatch: Dispatch) => {
+    const responseData = await ajax({
+        url: LINKS_API_URL,
+        params: {}
+    });
+
+    dispatch({
+        type: LINKS_DATA_LOADED,
         payload: responseData.data
     });
 };

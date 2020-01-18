@@ -9,7 +9,7 @@ export interface TimelineObject {
   type: string;
   start: string;
   end: string;
-  position: string;
+  position: string[];
   company: string;
   desc: string[];
   hidden: boolean;
