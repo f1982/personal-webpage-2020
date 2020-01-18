@@ -31,7 +31,7 @@ const Works = (props: any) => {
         console.log('apiLoadingState changed');
     }, [props.apiLoadingState]);
 
-    const imageURL = process.env.PUBLIC_URL + 'static/images/project_title.png';
+    const imageURL = process.env.PUBLIC_URL + 'static/images/projects_img_bar.jpg';
 
     return (
         <>

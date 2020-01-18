@@ -6,10 +6,14 @@ import { ProjectItem } from './ProjectItem';
 import { ProjectDetail } from './ProjectDetail';
 
 const ProjectsContainer = styled.div`
-    width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
+    margin: 1rem auto;
+    /* @media screen and (max-width: 600px) {
+        width: 760px;
+        background-color:#eee;
+    } */
 `;
 
 interface ProjectProp {

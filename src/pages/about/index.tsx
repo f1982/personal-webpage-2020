@@ -20,7 +20,7 @@ const About = (props: any) => {
         { id: 2, title: 'Work Experience', active: true },
         { id: 1, title: 'Life Experience' },
     ];
-    const imageURL = process.env.PUBLIC_URL + 'static/images/about_title.png';
+    const imageURL = process.env.PUBLIC_URL + 'static/images/about_img_bar.jpg';
 
     return (
         <>

@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import ReactPlayer from 'react-player';
 import SingleButton from '../../comps/SingleButton';
 import HighlightProject from './comps/HighlightProject';
 import { Link } from 'react-router-dom';
-
-import HiThere from '../../../src/assets/hi.png';
 import { loadHomeData } from '../../actions/home.action';
 import { Helmet } from 'react-helmet';
 import { RootState } from '../../reducers';
 import { Links } from '../../comps/Links';
+import ShowcaseBox from './comps/ShowcaseBox';
+
 const SectionRow = styled.div`
     display: flex;
     flex-flow: row nowrap;
@@ -35,35 +36,6 @@ const IntroRight = styled.div`
     text-align: center;
 `;
 
-const RightImageFrame = styled.div`
-    display: inline-block;
-    margin: 1rem auto;
-    background-color: #ccc;
-    width: 760px;
-    height: 460px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    &:hover {
-        box-shadow: 0px 36px 20px rgba(0, 0, 0, 0.1);
-        transform: translateY(10px);
-    }
-`;
-
-const MyImage = styled.div`
-    /* border: 1px solid #ff0000; */
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: left;
-`;
-
 const VerticalContainer = styled.div`
     display: flex;
     flex-flow: column;
@@ -76,7 +48,7 @@ const Home = (props: any) => {
 
     const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
     const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
-    const mainImageURL = process.env.PUBLIC_URL + 'static/images/intro_main_pic.png';
+    const mainImageURL = process.env.PUBLIC_URL + 'static/images/home_showcase_base.jpg';
 
     useEffect(() => {
         props.dispatch(loadHomeData);
@@ -87,7 +59,6 @@ const Home = (props: any) => {
             <Helmet>
                 <title>Home</title>
             </Helmet>
-            {/* <div>settings: {JSON.stringify(props.sns)}</div> */}
             <SectionRow>
                 <IntroLeft>
                     <div>
@@ -109,9 +80,7 @@ const Home = (props: any) => {
                     style={{
                         backgroundImage: `url(${bgImageURL})`
                     }}>
-                    <RightImageFrame>
-                        <MyImage style={{ backgroundImage: `url(${mainImageURL})` }}></MyImage>
-                    </RightImageFrame>
+                    <ShowcaseBox></ShowcaseBox>
                 </IntroRight>
             </SectionRow>
 
@@ -120,13 +89,17 @@ const Home = (props: any) => {
                     <div>
                         <h5>What I Do?</h5>
                     </div>
-                    <div><p>{props.whatIDo}</p></div>
+                    <div>
+                        <p>{props.whatIDo}</p>
+                    </div>
                 </VerticalContainer>
                 <VerticalContainer>
                     <div>
                         <h5>Who I Like?</h5>
                     </div>
-                    <div><p>{props.whatILike}</p></div>
+                    <div>
+                        <p>{props.whatILike}</p>
+                    </div>
                 </VerticalContainer>
             </SectionRow>
             <HighlightProject
@@ -135,7 +108,7 @@ const Home = (props: any) => {
                     console.log('more project callback');
                 }}
             />
-            
+
             <Links data={props.sns} category='all'></Links>
         </>
     );
@@ -150,12 +123,10 @@ const Home = (props: any) => {
 const mapStatesToProps = (rootState: RootState) => {
     const { highlightProjects, whatIDo, whatILike, sns } = rootState.homeReducer;
     //这里是可以跨越 reducer 取数据的， 同样可以集成到 props 里
-    const { settings } = rootState.appReducer;
     return {
         highlightProjects,
         whatIDo,
         whatILike,
-        settings,
         sns
     };
 };
