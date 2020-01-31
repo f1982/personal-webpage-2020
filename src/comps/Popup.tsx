@@ -56,7 +56,8 @@ const WindowCloseIcon = styled(FaWindowClose)`
     margin-right: 4px;
 `;
 
-const WindowCloseLink = styled.a`
+const CloseButtonContainer = styled.div`
+    display: inline
     position: absolute;
     right: 1rem;
     top: 1rem;
@@ -65,12 +66,22 @@ const WindowCloseLink = styled.a`
 interface PopupProps {
     id: string;
     content: JSX.Element;
+    closeButton?: JSX.Element;
     closeHandler?: Function;
 }
+
+// const defaultPopupProps: PopupProps = {
+//     id:'',
+//     content: null,
+//     closeButton: null,
+//     closeHandler: null
+// };
 
 const showDuration = 200;
 
 const Popup = (popupProps: PopupProps) => {
+    console.log('popupProps', popupProps);
+    console.log('popupProps.closeButton:', popupProps.closeButton);
     const [close, setClose] = React.useState(false);
 
     // const [props, set] = useSpring({ opacity: 1, from: { opacity: 0 }, config: { duration: 200 } })
@@ -96,9 +107,15 @@ const Popup = (popupProps: PopupProps) => {
         <Mask style={props}>
             <Wrapper>
                 <Frame>
-                    <WindowCloseLink onClick={buttonHandler}>
-                        <WindowCloseIcon size='40' />
-                    </WindowCloseLink>
+                    <CloseButtonContainer>
+                        <a onClick={buttonHandler}>
+                            {popupProps.closeButton === undefined ? (
+                                <WindowCloseIcon size='40' />
+                            ) : (
+                                popupProps.closeButton
+                            )}
+                        </a>
+                    </CloseButtonContainer>
                     <Border>{popupProps.content}</Border>
                 </Frame>
             </Wrapper>

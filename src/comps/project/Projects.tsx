@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Popup } from './Popup';
-import { ProjectObject } from '../types/interfaces';
+import { Popup } from '../Popup';
+import { ProjectObject } from '../../types/interfaces';
 import { ProjectItem } from './ProjectItem';
 import { ProjectDetail } from './ProjectDetail';
+import ProjectCloseButton from './ProjectCloseButton'
 
 const ProjectsContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    width: 100%;
     margin: 1rem auto;
-    /* @media screen and (max-width: 600px) {
-        width: 760px;
-        background-color:#eee;
-    } */
+    @media screen and (min-width: 1200px) {
+        width: 1200px;
+    }
 `;
 
 interface ProjectProp {
@@ -48,7 +49,6 @@ const Projects = (props: ProjectProp) => {
     } else {
         filtered = items;
     }
-    console.log('filtered', filtered);
 
     return (
         <>
@@ -67,6 +67,7 @@ const Projects = (props: ProjectProp) => {
                 <Popup
                     id='test'
                     content={<ProjectDetail itemData={showedProject} />}
+                    closeButton={<ProjectCloseButton></ProjectCloseButton>}
                     closeHandler={closePopupHandler}></Popup>
             ) : null}
         </>

@@ -1,33 +1,47 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaCalendarTimes, FaStackExchange, FaChartArea } from 'react-icons/fa';
-import { ProjectObject } from '../types/interfaces';
+import { FaCalendarTimes, FaStackOverflow, FaChartArea } from 'react-icons/fa';
+import { ProjectObject } from '../../types/interfaces';
 import { TechnologyStackItem } from './TechnologyStack';
-import { ImageSlide } from './ImageSlide';
+import { ImageSlide } from '../ImageSlide';
 
-interface ProjectDetailProp {
-    itemData: ProjectObject;
-}
-
+const Wrapper = styled.div`
+    text-align: left;
+`;
 const IconBase = styled.i`
     vertical-align: middle;
 `;
 
-const StackExchange = styled(FaStackExchange)`
+const StackExchangeIcon = styled(FaStackOverflow)`
     vertical-align: middle;
+`;
+const StackRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 `;
 
 const ChartArea = styled(FaChartArea)`
     vertical-align: middle;
 `;
 
+interface ProjectDetailProp {
+    itemData: ProjectObject;
+}
+
 const ProjectDetail = (props: ProjectDetailProp) => {
     return (
-        <>
-            <h4>{props.itemData.title}</h4>
+        <Wrapper>
+            <h2>{props.itemData.title}</h2>
             <div>
                 <FaCalendarTimes /> <span>{props.itemData.start}</span> - <span>{props.itemData.end}</span>
             </div>
+            <StackRow>
+                <StackExchangeIcon size='28' />
+                {props.itemData.tech.split(',').map((item, index) => {
+                    return <TechnologyStackItem key={index} technology={item} />;
+                })}
+            </StackRow>
             <div>
                 <h5>
                     <ChartArea /> Description
@@ -39,12 +53,7 @@ const ProjectDetail = (props: ProjectDetailProp) => {
             {/* Tech stack simple way to show */}
             {/* <div>{props.itemData.tech}</div> */}
             {/* Tech stack duplicated way to show */}
-            <div>
-                <StackExchange />
-                {props.itemData.tech.split(',').map((item, index) => {
-                    return <TechnologyStackItem key={index} technology={item} />;
-                })}
-            </div>
+
             {/* <ImageSlide width='100%' height='300px' images={props.itemData.images}></ImageSlide>
             {props.itemData.link ? (
                 <div>
@@ -53,7 +62,7 @@ const ProjectDetail = (props: ProjectDetailProp) => {
                     </a>{' '}
                 </div>
             ) : null} */}
-        </>
+        </Wrapper>
     );
 };
 

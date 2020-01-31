@@ -6,7 +6,7 @@ export interface MenuProps {
     data?: Array<MenuItemObject>;
 }
 
-const TopNav = styled.ul`
+const Wrapper = styled.ul`
     background-color: #333;
     overflow: hidden;
     list-style-type: none;
@@ -67,7 +67,7 @@ const Menu = (props: MenuProps) => {
     };
 
     return (
-        <TopNav>
+        <Wrapper>
             {menuData.length > 0 &&
                 menuData.map(item => {
                     return (
@@ -83,7 +83,7 @@ const Menu = (props: MenuProps) => {
             <RightMenuItem>
                 <MenuItemA>Right</MenuItemA>
             </RightMenuItem>
-        </TopNav>
+        </Wrapper>
     );
 };
 

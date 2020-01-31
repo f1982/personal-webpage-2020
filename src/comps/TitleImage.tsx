@@ -11,13 +11,14 @@ const Wrapper = styled.div`
     background-position: left;
 
     @media screen and (max-width: 600px) {
+        padding: 2rem;
         background-size: auto 100%;
     }
 `;
 
 const Subtitle = styled.p`
-    width: 50%;
-    opacity: 0.6;
+    color: #fff;
+    opacity: .8;
 `;
 
 export interface TitleImageProp {

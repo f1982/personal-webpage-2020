@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import TitleImage from '../../comps/TitleImage';
 
 import { loadProjects } from './../../actions/works.action';
-import Projects from '../../comps/Projects';
+import Projects from '../../comps/project/Projects';
 import SubMenu from '../../comps/SubMenu';
 
 const SpaceBar = styled.div`

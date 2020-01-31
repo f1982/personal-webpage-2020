@@ -10,6 +10,7 @@ export type LOADED_ABOUT = typeof LOADED_ABOUT;
 type AboutActionTypes = LOAD_ABOUT | LOADED_ABOUT;
 
 const API_URL='about.json'
+
 /**
  * About action
  */
@@ -27,4 +28,5 @@ const loadAbout = async (dispatch: Dispatch) => {
     const act: AboutAction = { type: LOADED_ABOUT, payload: data };
     dispatch(act);
 };
+
 export { loadAbout };

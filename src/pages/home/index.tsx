@@ -13,14 +13,21 @@ import ShowcaseBox from './comps/ShowcaseBox';
 
 const SectionRow = styled.div`
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row;
     margin: 3.8rem 2rem;
+    @media screen and (max-width: 750px) {
+        flex-flow: column;
+        margin: 1rem;
+    }
 `;
 
 const IntroLeft = styled.div`
     display: flex;
     flex-flow: column;
     width: 300px;
+    @media screen and (max-width: 750px) {
+        width: 100%;
+    }
 `;
 
 const HiImage = styled.image`
@@ -28,12 +35,18 @@ const HiImage = styled.image`
 `;
 
 const IntroRight = styled.div`
+    margin-left: 1rem;
     flex: 1;
     flex-shrink: 0;
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: right;
     text-align: center;
+    @media screen and (max-width: 750px) {
+        margin-left: 0rem;
+        width: 100%;
+        height: 300px;
+    }
 `;
 
 const VerticalContainer = styled.div`

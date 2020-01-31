@@ -9,9 +9,9 @@ const CaseHeight:number = 460
 const Wrapper = styled.div`
     display: inline-block;
     margin: 1rem auto;
-    background-color: #ccc;
-    width: ${CaseWidth}px;
-    height: ${CaseHeight}px;
+    /* background-color: #ccc; */
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -30,7 +30,7 @@ const MyImage = styled.div`
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
     background-position: left;
 `;
 
@@ -44,9 +44,9 @@ const ShowcaseBox = (props: any) => {
     const mainImageURL = process.env.PUBLIC_URL + 'static/images/home_showcase_base.jpg';
     return (
         <Wrapper>
-            <ReactPlayer url='https://www.youtube.com/watch?v=8Vw3RryITv0' width="760px" height="460px"></ReactPlayer>
+            {/* <ReactPlayer url='https://www.youtube.com/watch?v=8Vw3RryITv0' width="760px" height="460px"></ReactPlayer> */}
 
-            {/* <MyImage style={{ backgroundImage: `url(${mainImageURL})` }}></MyImage> */}
+            <MyImage style={{ backgroundImage: `url(${mainImageURL})` }}></MyImage>
         </Wrapper>
     );
 };

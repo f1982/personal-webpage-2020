@@ -16,8 +16,8 @@ const NavBar = styled.div`
 
 const NavButton = styled.button`
     height: 45px;
-    padding: 0 2rem;
-    margin-right: 1rem;
+    padding: 0 1rem;
+    margin-right: 0.5rem;
     font-size: 1.2rem;
     /* text-transform: uppercase; */
     letter-spacing: 2.5px;
@@ -46,8 +46,8 @@ const NavButton = styled.button`
 
 const ActiveNavButton = styled.button`
     height: 45px;
-    padding: 0 2rem;
-    margin-right: 1rem;
+    padding: 0 1rem;
+    margin-right: 0.5rem;
     font-size: 1.2rem;
     letter-spacing: 2.5px;
     font-weight: 500;

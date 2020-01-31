@@ -9,7 +9,7 @@ const Wrapper = styled(animated.div)`
   border: 2px solid #ffcc00;
   margin: 0 0.5rem;
   padding: 0.1rem;
-  background-color: ${props => props.theme.colors.secondary};
+  background-color: #fff;
   border-radius: 50%;
   text-decoration: none;
   vertical-align: middle;
@@ -32,6 +32,8 @@ const ActiveBorder = styled(animated.div)`
     linear-gradient(50deg, #a2ecfb 50%, transparent 50%);
 `;
 const Circle = styled(animated.div)``;
+export const TitleSpan = styled.span``;
+const LevelSpan = styled.span``;
 
 interface SkillItemProp {
   title: string;
@@ -60,8 +62,8 @@ const SkillItem = (skillProps: SkillItemProp) => {
     >
       <ActiveBorder>
         <Circle>
-          <span>{skillProps.title}</span>
-          <span>{skillProps.level}</span>
+          <TitleSpan id='title'>{skillProps.title}</TitleSpan>
+          <LevelSpan>{skillProps.level}</LevelSpan>
         </Circle>
       </ActiveBorder>
     </Wrapper>
@@ -69,3 +71,4 @@ const SkillItem = (skillProps: SkillItemProp) => {
 };
 
 export { SkillItem };
+// export default SkillItem;

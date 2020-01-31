@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 import styled from 'styled-components';
 import { TechnologyStackItem } from './TechnologyStack';
-import { ProjectObject } from '../types/interfaces';
+import { ProjectObject } from '../../types/interfaces';
 
 interface ProjectItemProp {
     name?: string;
@@ -13,7 +13,7 @@ const Overlay = styled.div`
     width: 100%;
     height: 100%;
     background-color: #000;
-    opacity:0;
+    opacity: 0;
 `;
 
 const ProjectName = styled.h5`
@@ -24,20 +24,10 @@ const ProjectName = styled.h5`
     text-align: center;
     opacity: 0;
     color: #fff;
-
-    /* box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.8); */
-    transition: opacity 0.6s, color 0.5s;
+    transition: opacity 0.6s;
     will-change: opacity, color;
 `;
 const TechItem = styled.span``;
-const LinkButton = styled.button``;
-
-const SkillContainer = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-`;
 
 const Wrapper = styled.div`
     position: relative;
@@ -51,7 +41,7 @@ const Wrapper = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    /* box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0px 20px 30px -5px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.6s, border 0.5s;
     will-change: transform;
 
@@ -64,7 +54,7 @@ const Wrapper = styled.div`
             /* color: #fff;
             text-shadow: 0px 2px #666; */
         }
-        ${ProjectName}{
+        ${ProjectName} {
             opacity: 1;
         }
     }
@@ -76,8 +66,6 @@ const Wrapper = styled.div`
  * @param props
  */
 const ProjectItem = (props: ProjectItemProp) => {
-    const titleRef = React.createRef<HTMLDivElement>();
-
     /**
      * Mouse event handler
      *
@@ -115,28 +103,16 @@ const ProjectItem = (props: ProjectItemProp) => {
             props.callback(props.itemData);
         }
     };
-    //render
+
     return (
         <Wrapper
-            // onMouseMove={mouseMoveHandler}
-            // onMouseOut={mouseOutHandler}
             onMouseDown={touchEndHandler}
             onTouchEnd={touchEndHandler}
             style={{
                 backgroundImage: `url("${props.itemData.cover}")`
             }}>
-            <Overlay>
-                
-            </Overlay>
-            <ProjectName ref={titleRef}>{props.itemData.title}</ProjectName>
-
-            {/* <SkillContainer>
-                {
-                    props.itemData.tech.split(',').map((item: string, index: number) => {
-                        return <TechnologyStackItem key={index} technology={item}></TechnologyStackItem>
-                    })
-                }
-            </SkillContainer> */}
+            <Overlay></Overlay>
+            <ProjectName>{props.itemData.title}</ProjectName>
         </Wrapper>
     );
 };

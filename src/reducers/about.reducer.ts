@@ -22,6 +22,7 @@ const initialState: AboutState = {
 
 /**
  * About reducer
+ * 
  * @param state reducer state
  * @param action reducer action
  */
@@ -39,3 +40,4 @@ const aboutReducer = (state: AboutState = initialState, action: AboutAction) => 
 };
 
 export default aboutReducer;
+export {initialState}

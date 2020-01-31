@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import SingleButton from '../../../comps/SingleButton';
-import Projects from '../../../comps/Projects';
+import Projects from '../../../comps/project/Projects';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-    margin: 2rem auto;
+    margin: 1rem auto;
     text-align: center;
 `;
 const Intro = styled.div`

@@ -9,9 +9,13 @@ const Wrapper = styled.div`
     padding-top: 4rem;
     padding-right: 4rem;
     text-align: right;
+    @media screen and (max-width: 600px) {
+        padding-top: 1rem;
+        padding-right: 1rem;
+    }
 `;
 
-const NavBar = styled(animated.header)`
+const NavMenu = styled(animated.header)`
     ul {
         display: inline-block;
         list-style-type: none;
@@ -91,7 +95,7 @@ const Header = (props: HeaderPropType = initialProps) => {
             <RightMenuItem onClick={toggle}>
                 <FaBars size='48' color='#ccc' />
             </RightMenuItem>
-            <NavBar style={springProps}>
+            <NavMenu style={springProps}>
                 <ul>
                     {routes.map((route, index) => (
                         <li key={index}>
@@ -104,7 +108,7 @@ const Header = (props: HeaderPropType = initialProps) => {
                         <a>Resume</a>
                     </li>
                 </ul>
-            </NavBar>
+            </NavMenu>
         </Wrapper>
     );
 };

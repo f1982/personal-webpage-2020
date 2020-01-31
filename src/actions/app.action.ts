@@ -12,12 +12,8 @@ const loadAppData = async (dispatch: Dispatch) => {
     const responseData: any = await ajax({
         url: APP_API_URL
     });
-    console.log('app action responseData', responseData.data);
 
-    // const { data } = responseData;
     const { settings, links } = responseData.data;
-    console.log('links', links);
-    console.log('settings', settings);
 
     const act: AppActionType = {
         type: 'app_data_loaded',
