@@ -1,5 +1,6 @@
 {
   "name": "andy-personal-webpage",
+  "homepage": "https://andycao.netlify.com/",
   "version": "0.1.0",
   "description": "Andy's personal webpage which made by ReactJS and Typescript",
   "license": "MIT",
