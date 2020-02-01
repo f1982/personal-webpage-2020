@@ -10,7 +10,7 @@ const InnterButton = styled.button`
     letter-spacing: 2.5px;
     font-weight: 500;
     color: #eee;
-    background-color: #50E3C2;
+    background-color: #50e3c2;
     border: none;
     border-radius: 45px;
     box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.1);
@@ -34,7 +34,7 @@ const SingleButton = (props: ButtonProp) => {
         <Wrapper>
             <InnterButton
                 onClick={() => {
-                    props.callback ? props.callback() : null;
+                    void(props.callback ? props.callback() : null);
                 }}>
                 {props.children}
             </InnterButton>

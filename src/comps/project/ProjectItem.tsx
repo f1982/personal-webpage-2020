@@ -1,6 +1,6 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { TechnologyStackItem } from './TechnologyStack';
+// import { TechnologyStackItem } from './TechnologyStack';
 import { ProjectObject } from '../../types/interfaces';
 
 interface ProjectItemProp {

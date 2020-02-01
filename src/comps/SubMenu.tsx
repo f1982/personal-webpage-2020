@@ -81,7 +81,7 @@ const SubMenu = (props: any) => {
         });
         // currentItem.active = true;
         setCurrentActive(currentItem.id);
-        props.callback ? props.callback(currentItem) : null;
+        void(props.callback ? props.callback(currentItem) : null);
     };
     return (
         <Wrapper>
