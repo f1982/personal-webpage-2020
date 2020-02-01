@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import ReactPlayer from 'react-player';
 import SingleButton from '../../comps/SingleButton';
 import HighlightProject from './comps/HighlightProject';
 import { Link } from 'react-router-dom';
-import { loadHomeData } from '../../actions/home.action';
 import { Helmet } from 'react-helmet';
-import { RootState } from '../../reducers';
 import { Links } from '../../comps/Links';
 import ShowcaseBox from './comps/ShowcaseBox';
 
@@ -64,7 +61,7 @@ const Home = (props: any) => {
     const mainImageURL = process.env.PUBLIC_URL + 'static/images/home_showcase_base.jpg';
 
     useEffect(() => {
-        props.dispatch(loadHomeData);
+        props.syncHome();
     }, []);
 
     return (
@@ -116,7 +113,7 @@ const Home = (props: any) => {
                 </VerticalContainer>
             </SectionRow>
             <HighlightProject
-                projects={props.highlightProjects}
+                projects={props.projects}
                 moreProjectCallback={() => {
                     console.log('more project callback');
                 }}
@@ -127,21 +124,4 @@ const Home = (props: any) => {
     );
 };
 
-/**
- *  从 RootState 里提取出来这个 Component 需要用的变量
- *  这里的 State 就是数据（状态）的意思，不要混淆
- *
- * @param rootState
- */
-const mapStatesToProps = (rootState: RootState) => {
-    const { highlightProjects, whatIDo, whatILike, sns } = rootState.homeReducer;
-    //这里是可以跨越 reducer 取数据的， 同样可以集成到 props 里
-    return {
-        highlightProjects,
-        whatIDo,
-        whatILike,
-        sns
-    };
-};
-
-export default connect(mapStatesToProps)(Home);
+export default Home;

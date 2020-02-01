@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import routes from './pages';
 import Layout from './layouts/default';
-import { RootState } from './reducers';
 
 interface IAppProp {}
 const App = (props: any) => {
@@ -24,7 +23,6 @@ const App = (props: any) => {
                 <meta name='description' content='A Opensource Website by React.js' />
             </Helmet>
             <Layout>
-                <p>{JSON.stringify(props.a)}</p>
                 {routes.map(route => (
                     <Route key={route.path} path={route.path} exact={route.exact} component={route.component} />
                 ))}
@@ -40,12 +38,12 @@ const App = (props: any) => {
  * @param rootState
  */
 const mapStatesToProps = (rootState: any) => ({
-    a:rootState.appConfig.settings
-})
+    a: rootState.appConfig.settings
+});
 
 /**
  * 映射方法，这样 app view 里用 prop 就可以直接调用了
- * @param dispatch 
+ * @param dispatch
  */
 const mapDispatchToProps = (dispatch: any) => ({
     syncAppConfig: dispatch.appConfig.syncConfig

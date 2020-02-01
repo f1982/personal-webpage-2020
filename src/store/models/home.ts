@@ -11,7 +11,7 @@ const LINKS_API_URL = 'links.json';
 interface HomeState {
     whatIDo: string;
     whatILike: string;
-    highlightProjects: Array<ProjectObject>;
+    projects: Array<ProjectObject>;
     sns: Array<LinkObject>;
 }
 
@@ -19,7 +19,7 @@ const home = createModel({
     state: {
         whatIDo: '',
         whatILike: '',
-        highlightProjects: [],
+        projects: [],
         sns: []
     },
     reducers: {
@@ -27,8 +27,9 @@ const home = createModel({
             return links;
         },
         updateHome: (old: any, home: any) => {
-            const { whatILike, whatIDo, projects, sns } = home;
-            return { ...old, whatIDo: whatIDo, whatILike: whatILike, highlightProjects: projects, sns: sns };
+            // const { whatILike, whatIDo, projects, sns } = home;
+            // return { ...old, whatIDo: whatIDo, whatILike: whatILike, highlightProjects: projects, sns: sns };
+            return home;
         }
     },
 
@@ -46,6 +47,7 @@ const home = createModel({
                 url: HOME_API_URL
             });
             const { data } = response;
+            console.log('response', response);
             this.updateLinks(data);
         }
     }

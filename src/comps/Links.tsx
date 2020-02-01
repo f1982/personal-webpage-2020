@@ -54,7 +54,6 @@ const Links = (props: LinksProp) => {
                 }}>
                 {data.map((item: LinkObject, index: number) => {
                     const { name, alt, link, icon } = item;
-                    console.log('icon', icon);
                     const iconElement: JSX.Element = iconMap[icon.toLowerCase()];
                     return (
                         <LinkItemSimple

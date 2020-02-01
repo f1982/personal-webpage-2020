@@ -7,8 +7,7 @@ import { connect } from 'react-redux';
  * @param rootState
  */
 const mapStatesToProps = (rootState: any) => {
-    const { highlightProjects, whatIDo, whatILike, sns } = rootState.home;
-    //这里是可以跨越 reducer 取数据的， 同样可以集成到 props 里
+    const { projects, whatIDo, whatILike, sns } = rootState.home;
     return rootState.home;
 };
 

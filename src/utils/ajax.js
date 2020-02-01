@@ -32,7 +32,7 @@ export default function ajax(req) {
              * https://github.com/axios/axios#response-schema
              * */
             .then(res => {
-                console.log('res', res);
+                // console.log('res', res);
                 Nprogress.done();
                 return res.data;
             })
@@ -41,12 +41,12 @@ export default function ajax(req) {
              * https://github.com/axios/axios#handling-errors
              * */
             .catch(err => {
-                console.log('error');
-                console.log('err', err);
+                // console.log('error');
+                // console.log('err', err);
                 if (err.response) {
                     const res = err.response;
                     const resData = res.data;
-                    console.log('resData', resData);
+                    // console.log('resData', resData);
                     notify(
                         typeof resData === 'string' ? resData : `[${resData.status_code}] ${resData.status_message}`
                     );
