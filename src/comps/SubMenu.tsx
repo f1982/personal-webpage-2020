@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
-import routes from '../pages';
-import SingleButton from './SingleButton';
 
 const Wrapper = styled.div`
     padding-top: 4rem;
@@ -77,11 +74,11 @@ const SubMenu = (props: any) => {
     const [currentActive, setCurrentActive] = React.useState(1);
     const activeItem = (id: number) => {
         const currentItem: any = props.items.find((item: any) => {
-            return item.id == id;
+            return item.id === id;
         });
         // currentItem.active = true;
         setCurrentActive(currentItem.id);
-        void(props.callback ? props.callback(currentItem) : null);
+        void (props.callback ? props.callback(currentItem) : null);
     };
     return (
         <Wrapper>

@@ -1,14 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import { TimelineObject, ProjectObject } from '../types/interfaces';
+import { TimelineObject } from '../types/interfaces';
 import { TimelineItem } from './TimelineItem';
-
-const SpaceBar = styled.div`
-    height: 2rem;
-`;
-interface ExperienceProp {
-    data?: Array<TimelineObject>;
-}
 
 const Experience = (props: any) => {
     return (

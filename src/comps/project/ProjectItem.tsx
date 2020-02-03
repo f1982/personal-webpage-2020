@@ -33,7 +33,7 @@ const Wrapper = styled.div`
     position: relative;
     box-sizing: border-box;
     width: 300px;
-    height: 500px;
+    height: 200px;
     padding: 0px;
     margin: 2rem;
     /* border: 15px solid white; */
@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow: 0px 20px 30px -5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 20px 30px -5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.6s, border 0.5s;
     will-change: transform;
 

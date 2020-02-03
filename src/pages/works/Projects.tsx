@@ -8,9 +8,9 @@ import SubMenu from '../../comps/SubMenu';
 const SpaceBar = styled.div`
     height: 2rem;
 `;
-interface WorksProp {}
 
 const Works = (props: any) => {
+    const { syncProjects } = props;
     const [currentProjectCategory, setCurrentProjectCategory] = useState('all');
     const categoryMenuItems = [
         { id: 1, title: 'all', active: true },
@@ -18,8 +18,8 @@ const Works = (props: any) => {
         { id: 3, title: 'game' }
     ];
     useEffect(() => {
-        props.syncProjects();
-    }, []);
+        syncProjects();
+    }, [syncProjects]);
 
     useEffect(() => {
         console.log('apiLoadingState changed');

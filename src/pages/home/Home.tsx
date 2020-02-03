@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import ReactPlayer from 'react-player';
 import SingleButton from '../../comps/SingleButton';
 import HighlightProject from './comps/HighlightProject';
 import { Link } from 'react-router-dom';
@@ -27,10 +26,6 @@ const IntroLeft = styled.div`
     }
 `;
 
-const HiImage = styled.image`
-    width: 300px;
-`;
-
 const IntroRight = styled.div`
     margin-left: 1rem;
     flex: 1;
@@ -54,15 +49,13 @@ const VerticalContainer = styled.div`
 `;
 
 const Home = (props: any) => {
-    const buttonHandler = () => {};
-
+    const { syncHome } = props;
     const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
     const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
-    const mainImageURL = process.env.PUBLIC_URL + 'static/images/home_showcase_base.jpg';
 
     useEffect(() => {
-        props.syncHome();
-    }, []);
+        syncHome();
+    }, [syncHome]);
 
     return (
         <>
@@ -75,7 +68,7 @@ const Home = (props: any) => {
                         <h4>Hi there,</h4>
                     </div>
                     <div>
-                        <img style={{ width: `300px` }} src={hiImageURL} />
+                        <img style={{ width: `300px` }} src={hiImageURL} alt='Hi I am Andy' />
                     </div>
                     <div>
                         <h5>Software Developer</h5>
@@ -93,7 +86,6 @@ const Home = (props: any) => {
                     <ShowcaseBox></ShowcaseBox>
                 </IntroRight>
             </SectionRow>
-
             <SectionRow>
                 <VerticalContainer>
                     <div>
@@ -118,7 +110,6 @@ const Home = (props: any) => {
                     console.log('more project callback');
                 }}
             />
-
             <Links data={props.sns} category='all'></Links>
         </>
     );

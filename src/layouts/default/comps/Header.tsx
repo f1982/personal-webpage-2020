@@ -32,7 +32,6 @@ const NavMenu = styled(animated.header)`
 
 const NavButton = styled(NavLink)`
     &:hover {
-        /* background-color: #666; */
         text-decoration: line-through;
     }
 `;
@@ -84,7 +83,6 @@ const Header = (props: HeaderPropType = initialProps) => {
      */
     const toggle = () => {
         setIsCollapsed(!isCollapsed);
-        console.log('isCollapsed', isCollapsed);
     };
 
     /**

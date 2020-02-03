@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import { createModel } from '@rematch/core';
 import ajax from '../../utils/ajax';
 
@@ -25,14 +24,9 @@ const initialState: AboutState = {
 };
 
 const about = createModel({
-    state: {
-        myName: 'noname',
-        myPosition: 'noposition',
-        summary: '',
-        timelines: []
-    },
+    state: initialState,
     reducers: {
-        updateInfo(stateOld: AboutState,state:AboutState) {
+        updateInfo(stateOld: AboutState, state: AboutState) {
             // const { timelines, summary } = payload;
             // return { ...state, summary: summary, timelines: timelines };
             return state;

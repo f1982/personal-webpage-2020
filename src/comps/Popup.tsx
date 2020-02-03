@@ -70,30 +70,17 @@ interface PopupProps {
     closeHandler?: Function;
 }
 
-// const defaultPopupProps: PopupProps = {
-//     id:'',
-//     content: null,
-//     closeButton: null,
-//     closeHandler: null
-// };
-
 const showDuration = 200;
 
 const Popup = (popupProps: PopupProps) => {
     console.log('popupProps', popupProps);
     console.log('popupProps.closeButton:', popupProps.closeButton);
-    const [close, setClose] = React.useState(false);
 
-    // const [props, set] = useSpring({ opacity: 1, from: { opacity: 0 }, config: { duration: 200 } })
     const [props, set] = useSpring(() => ({
         opacity: 1,
         from: { opacity: 0 },
         config: { duration: showDuration }
     }));
-    // set({ opacity: 1 })
-    // React.useEffect(() => {
-    //     set({ opacity: 1 })
-    // }, []);
 
     const buttonHandler = (event: React.MouseEvent) => {
         set({ opacity: 0 });
@@ -108,13 +95,13 @@ const Popup = (popupProps: PopupProps) => {
             <Wrapper>
                 <Frame>
                     <CloseButtonContainer>
-                        <a onClick={buttonHandler}>
+                        <button onClick={buttonHandler}>
                             {popupProps.closeButton === undefined ? (
                                 <WindowCloseIcon size='40' />
                             ) : (
                                 popupProps.closeButton
                             )}
-                        </a>
+                        </button>
                     </CloseButtonContainer>
                     <Border>{popupProps.content}</Border>
                 </Frame>

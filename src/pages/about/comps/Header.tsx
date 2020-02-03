@@ -1,7 +1,6 @@
 import * as React from 'react';
-import styled, { createGlobalStyle, css } from 'styled-components';
-import { FaAddressBook, FaEnvelopeOpenText, FaMobileAlt, FaAt } from 'react-icons/fa';
-import { GlobalStyle, myTheme } from '../../../theme';
+import styled from 'styled-components';
+import { FaEnvelopeOpenText, FaMobileAlt, FaAt } from 'react-icons/fa';
 import Avatar from '../../../assets/avatar-pixel.jpg';
 
 interface SProps {

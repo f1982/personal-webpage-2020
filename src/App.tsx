@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { HashRouter as Router, Route } from 'react-router-dom';
@@ -7,15 +7,10 @@ import Layout from './layouts/default';
 
 interface IAppProp {}
 const App = (props: any) => {
-    const [loadState, setLoadState] = useState('loading');
-
-    /**
-     * Load app data
-     */
+    const { syncAppConfig } = props;
     useEffect(() => {
-        // props.dispatch(loadAppData);
-        props.syncAppConfig();
-    }, []);
+        syncAppConfig();
+    }, [syncAppConfig]);
 
     return (
         <Router basename={process.env.PUBLIC_URL}>

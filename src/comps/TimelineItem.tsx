@@ -54,7 +54,7 @@ const VerticalBar = styled.div`
 `;
 
 const TimelineItem = (props: TimelineItemProps) => {
-    let { id, itemData } = props;
+    let { itemData } = props;
 
     const dateString = itemData.start + ' - ' + itemData.end;
     return (

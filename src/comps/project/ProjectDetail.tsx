@@ -3,18 +3,15 @@ import styled from 'styled-components';
 import { FaCalendarTimes, FaStackOverflow, FaChartArea } from 'react-icons/fa';
 import { ProjectObject } from '../../types/interfaces';
 import { TechnologyStackItem } from './TechnologyStack';
-import { ImageSlide } from '../ImageSlide';
 
 const Wrapper = styled.div`
     text-align: left;
-`;
-const IconBase = styled.i`
-    vertical-align: middle;
 `;
 
 const StackExchangeIcon = styled(FaStackOverflow)`
     vertical-align: middle;
 `;
+
 const StackRow = styled.div`
     display: flex;
     flex-direction: row;

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
  * @param rootState
  */
 const mapStatesToProps = (rootState: any) => {
-    const { projects, whatIDo, whatILike, sns } = rootState.home;
+    // const { projects, whatIDo, whatILike, sns } = rootState.home;
     return rootState.home;
 };
 

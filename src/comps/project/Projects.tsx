@@ -4,7 +4,7 @@ import { Popup } from '../Popup';
 import { ProjectObject } from '../../types/interfaces';
 import { ProjectItem } from './ProjectItem';
 import { ProjectDetail } from './ProjectDetail';
-import ProjectCloseButton from './ProjectCloseButton'
+import ProjectCloseButton from './ProjectCloseButton';
 
 const ProjectsContainer = styled.div`
     display: flex;
@@ -26,13 +26,8 @@ const Projects = (props: ProjectProp) => {
     console.log('projects props', props);
 
     let { data: items, category } = props;
-    const [popupClosed, setPopupClosed] = React.useState(true);
 
     const [showedProject, setShowedProject] = React.useState<any>(null);
-    //Only popupClosed variable change, this callback will be fired
-    React.useEffect(() => {
-        console.log('popupClosed changed...');
-    }, [popupClosed]);
 
     const closePopupHandler = (event: React.MouseEvent) => {
         console.log('close popup');

@@ -10,9 +10,10 @@ const Wrapper = styled.div`
     padding: 2rem;
 `;
 const About = (props: any) => {
+    const { syncInfo } = props;
     useEffect(() => {
-        props.syncInfo();
-    }, []);
+        syncInfo();
+    }, [syncInfo]);
 
     const timelineMenuItems = [
         { id: 2, title: 'Work Experience', active: true },

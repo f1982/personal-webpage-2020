@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -18,7 +17,7 @@ const Wrapper = styled.div`
 
 const Subtitle = styled.p`
     color: #fff;
-    opacity: .8;
+    opacity: 0.8;
 `;
 
 export interface TitleImageProp {

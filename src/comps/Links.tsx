@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { LinkObject } from '../types/interfaces';
-import { LinkItem } from './LinkItem';
 import { IconContext } from 'react-icons';
 import {
     FaYoutube,
@@ -9,7 +8,6 @@ import {
     FaFacebook,
     FaInstagram,
     FaLinkedin,
-    FaLinkedinIn,
     FaFlickr,
     FaWeibo,
     FaDochub,
