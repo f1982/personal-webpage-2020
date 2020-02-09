@@ -5,10 +5,12 @@ import { Summary } from './comps/Summary';
 import TitleImage from '../../comps/TitleImage';
 import SubMenu from '../../comps/SubMenu';
 import { Experience } from '../../comps/Experience';
+import { Helmet } from 'react-helmet';
 
 const Wrapper = styled.div`
     padding: 2rem;
 `;
+
 const About = (props: any) => {
     const { syncInfo } = props;
     useEffect(() => {
@@ -23,6 +25,9 @@ const About = (props: any) => {
 
     return (
         <>
+            <Helmet>
+                <title>About</title>
+            </Helmet>
             <TitleImage
                 title='About'
                 subtitle='I live in Auckland New Zealand with my wife and 3 years old daughter. I love pour over coffee, I have a cat named Little Black.'

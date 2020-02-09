@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    padding-top: 4rem;
+    padding-top: 2rem;
     padding-right: 4rem;
     text-align: right;
 `;

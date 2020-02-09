@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import TitleImage from '../../comps/TitleImage';
-
-import Projects from '../../comps/project/Projects';
+import ProjectList from '../../comps/project/Projects';
 import SubMenu from '../../comps/SubMenu';
+import { Helmet } from 'react-helmet';
 
 const SpaceBar = styled.div`
     height: 2rem;
 `;
 
-const Works = (props: any) => {
+const Projects = (props: any) => {
     const { syncProjects } = props;
     const [currentProjectCategory, setCurrentProjectCategory] = useState('all');
     const categoryMenuItems = [
@@ -29,6 +29,9 @@ const Works = (props: any) => {
 
     return (
         <>
+            <Helmet>
+                <title>Projects</title>
+            </Helmet>
             <TitleImage title='Projects' subtitle='My Passions & I Love.' backgroundImageURL={imageURL}></TitleImage>
             <SubMenu
                 items={categoryMenuItems}
@@ -38,9 +41,9 @@ const Works = (props: any) => {
                 }}
             />
             <SpaceBar></SpaceBar>
-            <Projects data={props.items} category={currentProjectCategory}></Projects>
+            <ProjectList data={props.items} category={currentProjectCategory}></ProjectList>
         </>
     );
 };
 
-export default Works;
+export default Projects;

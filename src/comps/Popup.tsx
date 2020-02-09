@@ -57,10 +57,14 @@ const WindowCloseIcon = styled(FaWindowClose)`
 `;
 
 const CloseButtonContainer = styled.div`
-    display: inline
+    display: inline;
     position: absolute;
     right: 1rem;
     top: 1rem;
+`;
+
+const CloseButton = styled.div`
+    background-color: rgb(0, 0, 0, 0);
 `;
 
 interface PopupProps {
@@ -95,13 +99,13 @@ const Popup = (popupProps: PopupProps) => {
             <Wrapper>
                 <Frame>
                     <CloseButtonContainer>
-                        <button onClick={buttonHandler}>
+                        <CloseButton onClick={buttonHandler}>
                             {popupProps.closeButton === undefined ? (
                                 <WindowCloseIcon size='40' />
                             ) : (
                                 popupProps.closeButton
                             )}
-                        </button>
+                        </CloseButton>
                     </CloseButtonContainer>
                     <Border>{popupProps.content}</Border>
                 </Frame>

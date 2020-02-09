@@ -6,7 +6,7 @@ import { FaBars } from 'react-icons/fa';
 import routes from '../../../pages';
 
 const Wrapper = styled.div`
-    padding-top: 4rem;
+    padding-top: 1rem;
     padding-right: 4rem;
     text-align: right;
     @media screen and (max-width: 600px) {

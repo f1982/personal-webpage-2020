@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Links } from '../../comps/Links';
 import ShowcaseBox from './comps/ShowcaseBox';
+import ContactForm from '../../comps/ContactForm';
 
 const SectionRow = styled.div`
     display: flex;
@@ -86,6 +87,10 @@ const Home = (props: any) => {
                     <ShowcaseBox></ShowcaseBox>
                 </IntroRight>
             </SectionRow>
+            <SectionRow>
+                <ContactForm />
+            </SectionRow>
+
             <SectionRow>
                 <VerticalContainer>
                     <div>
