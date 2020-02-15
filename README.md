@@ -1,6 +1,4 @@
-
-  A personal webpage which is made by [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/)
-
+A personal webpage which is made by [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/)
 
 ## Installation
 
@@ -21,8 +19,12 @@ $ npm install
 
 ## Docs
 
-## Contributing
+Design Reference:
 
+-   http://www.templatemonsterpreview.com/demo/67683.html
+-   https://www.templatemonster.com/demo/57820.html
+
+## Contributing
 
 ## People
 
@@ -30,4 +32,4 @@ Thanks for the supports of my wife and daughter.
 
 ## License
 
-  [MIT](LICENSE)
+[MIT](LICENSE)

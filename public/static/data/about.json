@@ -11,7 +11,8 @@
                     "start": "1982",
                     "end": "",
                     "title": "I was born in Liaoning Tieling",
-                    "description": "",
+                    "subtitle": "this is subtitle",
+                    "description": "Velit ut provident eaque est ea ut quaerat. Ut dolor rerum saepe alias iure debitis quam optio placeat. Optio et facere aperiam qui consectetur explicabo qui quia. Ipsam ut consequatur nostrum aut cupiditate.",
                     "cover": "",
                     "images": []
                 },
@@ -20,7 +21,8 @@
                     "start": "1987",
                     "end": "1990",
                     "title": "Study at Shangtai primary school",
-                    "description": "",
+                    "subtitle": "this is subtitle",
+                    "description": "Velit ut provident eaque est ea ut quaerat. Ut dolor rerum saepe alias iure debitis quam optio placeat. Optio et facere aperiam qui consectetur explicabo qui quia. Ipsam ut consequatur nostrum aut cupiditate.Velit ut provident eaque est ea ut quaerat. Ut dolor rerum saepe alias iure debitis quam optio placeat. Optio et facere aperiam qui consectetur explicabo qui quia. Ipsam ut consequatur nostrum aut cupiditate.",
                     "cover": "",
                     "images": []
                 },
@@ -29,6 +31,7 @@
                     "start": "1990",
                     "end": "1993",
                     "title": "Study at Shijia primary school",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -38,6 +41,7 @@
                     "start": "1993",
                     "end": "1995",
                     "title": "Study at WJJ middle school",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -47,6 +51,7 @@
                     "start": "1995",
                     "end": "1996",
                     "title": "Study at Liqianghu middle school",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -56,6 +61,7 @@
                     "start": "1997",
                     "end": "1999",
                     "title": "Study at Tielingxian high school",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -65,6 +71,7 @@
                     "start": "2001",
                     "end": "2005",
                     "title": "Study at HAUST",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -74,6 +81,7 @@
                     "start": "2005",
                     "end": "",
                     "title": "Came to Beijing and started to work",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -83,6 +91,7 @@
                     "start": "2005",
                     "end": "",
                     "title": "Met my girl friend who called Cindy",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -92,6 +101,7 @@
                     "start": "2008",
                     "end": "",
                     "title": "Engaged with Cindy",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -101,23 +111,27 @@
                     "start": "April 2014",
                     "end": "",
                     "title": "Upload my first video to Youtube",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
                 },
                 {
                     "id": 3,
-                    "start": "June 2014",
+                    "start": "2014",
                     "end": "",
                     "title": "Started my RC Hobby",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
-                },{
+                },
+                {
                     "id": 3,
-                    "start": "August 2017",
+                    "start": "2017",
                     "end": "",
                     "title": "Had my gall bladder surgery at RENMIN hospital",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -127,6 +141,7 @@
                     "start": "2016",
                     "end": "",
                     "title": "Had a baby girl named Zoe",
+                    "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
                     "images": []
@@ -136,7 +151,7 @@
                     "start": "2019",
                     "end": "",
                     "title": "Came to Auckland New Zealand",
-                    "description": "",
+                    "description": "Velit ut provident eaque est ea ut quaerat. Ut dolor rerum saepe alias iure debitis quam optio placeat. Optio et facere aperiam qui consectetur explicabo qui quia. Ipsam ut consequatur nostrum aut cupiditate.",
                     "cover": "",
                     "images": []
                 }

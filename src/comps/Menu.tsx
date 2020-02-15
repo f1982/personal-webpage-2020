@@ -13,14 +13,14 @@ const Wrapper = styled.ul`
     margin: 0 auto;
     padding: 0;
     margin-bottom: 2rem;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 1200px) {
     }
 `;
 
 const MenuItem = styled.li`
     float: left;
     display: block;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 1200px) {
         /* float: none; */
         display: none;
     }
@@ -42,7 +42,7 @@ const MenuItemA = styled.a`
 const RightMenuItem = styled.li`
     float: right;
     display: none;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 1200px) {
         display: block;
     }
 `;

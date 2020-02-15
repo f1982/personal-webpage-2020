@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import { Header } from './comps/Header';
 import { Summary } from './comps/Summary';
 import TitleImage from '../../comps/TitleImage';
 import SubMenu from '../../comps/SubMenu';
 import { Experience } from '../../comps/Experience';
-import { Helmet } from 'react-helmet';
+import TimelineLife from '../../comps/TimelineLife';
 
 const Wrapper = styled.div`
     padding: 2rem;
@@ -45,9 +46,11 @@ const About = (props: any) => {
                 {/* <div>{props.summary}</div> */}
 
                 <SubMenu items={timelineMenuItems} />
+
                 <div style={{ padding: `3rem` }}>
                     <h3 style={{ textAlign: `center` }}>Experience</h3>
-                    <Experience data={props.timelines.works}></Experience>
+                    <TimelineLife data={props.timelines.life} />
+                    <Experience data={props.timelines.works} />
                 </div>
             </Wrapper>
         </>
