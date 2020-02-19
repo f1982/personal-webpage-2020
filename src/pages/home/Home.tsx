@@ -8,10 +8,14 @@ import { Links } from '../../comps/Links';
 import ShowcaseBox from './comps/ShowcaseBox';
 import ContactForm from '../../comps/ContactForm';
 
+const Wrapper = styled.div`
+    text-align: center;
+`;
 const SectionRow = styled.div`
     display: flex;
+    width: 1200px;
     flex-flow: row;
-    margin: 3.8rem 2rem;
+    margin: 3rem auto;
     @media screen and (max-width: 750px) {
         flex-flow: column;
         margin: 1rem;
@@ -45,8 +49,9 @@ const IntroRight = styled.div`
 const VerticalContainer = styled.div`
     display: flex;
     flex-flow: column;
-    flex: 1;
+    /* flex: 1; */
     padding: 1rem;
+    text-align: left;
 `;
 
 const Home = (props: any) => {
@@ -59,7 +64,7 @@ const Home = (props: any) => {
     }, [syncHome]);
 
     return (
-        <>
+        <Wrapper>
             <Helmet>
                 <title>Home</title>
             </Helmet>
@@ -88,10 +93,6 @@ const Home = (props: any) => {
                 </IntroRight>
             </SectionRow>
             <SectionRow>
-                <ContactForm />
-            </SectionRow>
-
-            <SectionRow>
                 <VerticalContainer>
                     <div>
                         <h5>What I Do?</h5>
@@ -116,7 +117,10 @@ const Home = (props: any) => {
                 }}
             />
             <Links data={props.sns} category='all'></Links>
-        </>
+            <SectionRow>
+                <ContactForm />
+            </SectionRow>
+        </Wrapper>
     );
 };
 

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import routes from '../../../pages';
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
     padding-top: 1rem;
     padding-right: 4rem;
     text-align: right;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     }
 `;
 
-const NavMenu = styled(animated.header)`
+const NavMenu = styled(animated.nav)`
     ul {
         display: inline-block;
         list-style-type: none;

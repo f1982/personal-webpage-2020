@@ -9,11 +9,15 @@ import ProjectCloseButton from './ProjectCloseButton';
 const ProjectsContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     margin: 1rem auto;
     @media screen and (min-width: 1200px) {
         width: 1200px;
+    }
+    > * {
+        margin: 2em 0;
+        height: 250px;
     }
 `;
 

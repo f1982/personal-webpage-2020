@@ -3,18 +3,17 @@ import styled from 'styled-components';
 import Header from './comps/Header';
 import Footer from './comps/Footer';
 
-const MainContainer = styled.div`
-    padding: 1rem 0;
-`;
+const Wrapper = styled.div``;
+const MainContainer = styled.div``;
 interface LayoutProp {
     children: any;
 }
 const DefaultLayout = (props: LayoutProp) => (
-    <div>
+    <>
         <Header />
         <MainContainer>{props.children}</MainContainer>
         <Footer />
-    </div>
+    </>
 );
 
 export default DefaultLayout;

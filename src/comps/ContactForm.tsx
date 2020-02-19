@@ -1,37 +1,70 @@
-import { InjectedFormikProps, withFormik } from 'formik';
+import { InjectedFormikProps, withFormik, ErrorMessage } from 'formik';
 import styled from 'styled-components';
 import * as React from 'react';
 import * as Yup from 'yup';
 
 const FMForm = styled.form`
-    width: 300px;
+    width: 80%;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+`;
+
+const FMLabel = styled.label`
+    width: 100%;
+    text-align: left;
+    line-height: 1.5;
+`;
+
+const FMInputWrapper = styled.div`
+    width: 100%;
+    margin-bottom: 1rem;
+`;
+const FMInputWrapperHalf = styled(FMInputWrapper)`
+    width: 46%;
 `;
 
 const FMInput = styled.input`
-    width: 300px;
-    height: 35px;
+    width: 100%;
     border: 1px solid #ccc;
     background-color: #fff;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333333;
+    line-height: 1.2;
+    padding: 0.6rem 0.8rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    ::placeholder {
+        color: #ccc;
+    }
 `;
 
 const FMTextarea = styled.textarea`
-    width: 300px;
+    width: 100%;
     height: 235px;
+    font-size: 1.5rem;
     border: 1px solid #ccc;
     background-color: #fff;
-    margin-bottom: 1rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+`;
+
+const FMError = styled(ErrorMessage)`
+    color: #ffcc00;
+    text-align: left;
 `;
 
 const FMButton = styled.button`
     width: 300px;
-    height: 35px;
+    height: 50px;
     background-color: #5995ef;
     color: #fff;
+    border: 0px;
+    font-size: 1rem;
     border-radius: 3px;
     &:disabled {
         background-color: #ccc;
@@ -39,14 +72,16 @@ const FMButton = styled.button`
 `;
 
 interface FormValues {
-    userName: string;
+    firstName: string;
+    lastName: string;
     email: string;
     subject: string;
     content: string;
 }
 
 interface FormProps {
-    userName?: string;
+    firstName?: string;
+    lastName?: string;
     email?: string;
     subject?: string;
     content?: string;
@@ -54,17 +89,37 @@ interface FormProps {
 
 const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = props => (
     <FMForm onSubmit={props.handleSubmit}>
-        <label>Your Name</label>
-        <FMInput id='userName' type='text' onChange={props.handleChange} value={props.values.userName} />
-        {props.touched.userName && props.errors.userName && <div>{props.errors.userName}</div>}
-        <label>Your Email</label>
-        <FMInput id='email' type='text' onChange={props.handleChange} value={props.values.email} />
-        {props.touched.email && props.errors.email && <div>{props.errors.email}</div>}
-        <label>Your Project</label>
-        <FMInput id='subject' type='text' onChange={props.handleChange} value={props.values.subject} />
-        {props.touched.subject && props.errors.subject && <div>{props.errors.subject}</div>}
-        <FMTextarea id='content' onChange={props.handleChange} value={props.values.content} />
-        {props.touched.content && props.errors.content && <div>{props.errors.content}</div>}
+        <FMLabel htmlFor='firstName'>Your Name</FMLabel>
+        <FMInputWrapperHalf>
+            <FMInput
+                id='firstName'
+                type='text'
+                onChange={props.handleChange}
+                value={props.values.firstName}
+                placeholder='Frist Name'
+            />
+            <FMError component='div' name='firstName' />
+        </FMInputWrapperHalf>
+        <FMInputWrapperHalf>
+            <FMInput
+                id='lastName'
+                type='text'
+                onChange={props.handleChange}
+                value={props.values.lastName}
+                placeholder='Last Name'
+            />
+            <FMError component='div' name='lastName' />
+        </FMInputWrapperHalf>
+        <FMLabel htmlFor='email'>Your Email</FMLabel>
+        <FMInputWrapper>
+            <FMInput id='email' type='text' onChange={props.handleChange} value={props.values.email} />
+            <FMError component='div' name='email' />
+        </FMInputWrapper>
+        <FMLabel htmlFor='content'>Your Project</FMLabel>
+        <FMInputWrapper>
+            <FMTextarea id='content' onChange={props.handleChange} value={props.values.content} />
+            <FMError component='div' name='content' />
+        </FMInputWrapper>
         <FMButton type='submit' disabled={props.isSubmitting}>
             Submit
         </FMButton>
@@ -72,14 +127,18 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = props =
 );
 
 const UserSearchForm = withFormik<FormProps, FormValues>({
-    mapPropsToValues: () => ({ userName: 'abc', email: 'aa', subject: '', content: '' }),
+    mapPropsToValues: () => ({ firstName: '', lastName: '', email: '', subject: '', content: '' }),
     validationSchema: Yup.object().shape({
-        userName: Yup.string()
+        firstName: Yup.string()
+            .max(16, 'Please input 16 characters or less')
+            .required('Please input userName name'),
+        lastName: Yup.string()
             .max(16, 'Please input 16 characters or less')
             .required('Please input userName name'),
         email: Yup.string()
             .max(8, 'Pls input less than 8 characters')
-            .required('pls input email'),
+            .email('must be a email address')
+            .required('email can not be empty'),
         subject: Yup.string()
             .min(5, 'pls input at least 4 characters')
             .max(30, 'Pls input less than 30 characters')
@@ -98,110 +157,3 @@ const UserSearchForm = withFormik<FormProps, FormValues>({
 })(InnerForm);
 
 export default UserSearchForm;
-
-// import React from 'react';
-// import styled from 'styled-components';
-// import * as Yup from 'yup';
-// import { withFormik, FormikProps, FormikErrors, Form, Field, InjectedFormikProps } from 'formik';
-
-// const FMForm = styled.form`
-//     width: 300px;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-// `;
-
-// const FMInput = styled(Field)`
-//     width: 300px;
-//     height: 35px;
-//     border: 1px solid #ccc;
-//     background-color: #fff;
-// `;
-
-// const Button = styled.button`
-//     width: 300px;
-//     height: 35px;
-//     background-color: #5995ef;
-//     color: #fff;
-//     border-radius: 3px;
-// `;
-
-// // Shape of form values
-// interface FormValues {
-//     email: string;
-//     password: string;
-// }
-
-// interface OtherProps {
-//     message: string;
-// }
-
-// // Aside: You may see InjectedFormikProps<OtherProps, FormValues> instead of what comes below in older code.. InjectedFormikProps was artifact of when Formik only exported a HoC. It is also less flexible as it MUST wrap all props (it passes them through).
-// const InnerForm: React.SFC<InjectedFormikProps<OtherProps, FormValues>> = (
-//     props: OtherProps & FormikProps<FormValues>
-// ) => {
-//     const { touched, errors, isSubmitting, message, handleSubmit } = props;
-//     return (
-//         <FMForm
-//             onSubmit={() => {
-//                 console.log('hello world');
-//                 handleSubmit();
-//             }}>
-//             <h1>{message}</h1>
-//             <FMInput type='email' name='email' placeholder='tes' />
-//             {touched.email && errors.email && <div>{errors.email}</div>}
-
-//             <FMInput type='password' name='password' />
-//             {touched.password && errors.password && <div>{errors.password}</div>}
-
-//             <Button type='submit' disabled={isSubmitting}>
-//                 Submit
-//             </Button>
-//         </FMForm>
-//     );
-// };
-
-// // The type of props MyForm receives
-// interface MyFormProps {
-//     initialEmail?: string;
-//     message: string; // if this passed all the way through you might do this or make a union type
-// }
-
-// // Wrap our form with the using withFormik HoC
-// const MyForm = withFormik<MyFormProps, FormValues>({
-//     // Transform outer props into form values
-//     // 初始值
-//     mapPropsToValues: props => {
-//         return {
-//             email: props.initialEmail || '001sd@126.com',
-//             password: '111'
-//         };
-//     },
-
-//     // Add a custom validation function (this can be async too!)
-//     validate: (values: FormValues) => {
-//         let errors = { email: '' };
-//         if (!values.email) {
-//             errors.email = 'Required';
-//         }
-//         return errors;
-//     },
-//     handleSubmit: (values, { setSubmitting }) => {
-//         console.log('handleSubmit');
-//         setTimeout(() => {
-//             alert(JSON.stringify(values, null, 2));
-//             setSubmitting(false);
-//         }, 1000);
-//     }
-// })(InnerForm);
-
-// // Use <MyForm /> wherevs
-// const Basic = () => (
-//     <div>
-//         <h1>My App</h1>
-//         <p>This can be anywhere in your application</p>
-//         <MyForm message='Sign up' />
-//     </div>
-// );
-
-// export default Basic;

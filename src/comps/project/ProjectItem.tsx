@@ -32,11 +32,9 @@ const TechItem = styled.span``;
 const Wrapper = styled.div`
     position: relative;
     box-sizing: border-box;
-    width: 300px;
-    height: 200px;
+    width: 30%;
+    height: auto;
     padding: 0px;
-    margin: 2rem;
-    /* border: 15px solid white; */
     background-color: #eee;
     background-repeat: no-repeat;
     background-position: center;
@@ -44,10 +42,7 @@ const Wrapper = styled.div`
     box-shadow: 0px 20px 30px -5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.6s, border 0.5s;
     will-change: transform;
-
     &:hover {
-        /* border: 10px solid #fff; */
-
         box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
         ${Overlay} {
             opacity: 0.8;
@@ -57,6 +52,14 @@ const Wrapper = styled.div`
         ${ProjectName} {
             opacity: 1;
         }
+    }
+    @media only screen and (max-width: 700px) {
+        width: 48%;
+        margin: 1rem 0;
+    }
+
+    @media only screen and (max-width: 500px) {
+        width: 100%;
     }
 `;
 
