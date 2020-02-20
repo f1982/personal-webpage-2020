@@ -108,9 +108,7 @@ const Header = (props: HeaderPropType = initialProps) => {
                         </a>
                     </li>
                     <li>
-                        <a href='#' target='_blank'>
-                            Resume
-                        </a>
+                        <a href='#'>Resume</a>
                     </li>
                 </ul>
             </NavMenu>

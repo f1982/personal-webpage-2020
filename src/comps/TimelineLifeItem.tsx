@@ -72,7 +72,7 @@ const TimelineItem = (props: LifeItemProp) => {
                     <MiddleVertical style={{ textAlign: 'left' }}>
                         <h1>{start}</h1>
                     </MiddleVertical>
-                    <RightVertical>1</RightVertical>
+                    <RightVertical></RightVertical>
                 </LeftWrapper>
             ) : (
                 <RightWrapper>
@@ -84,7 +84,7 @@ const TimelineItem = (props: LifeItemProp) => {
                     <MiddleVertical style={{ textAlign: 'right' }}>
                         <h1>{start}</h1>
                     </MiddleVertical>
-                    <RightVertical>1</RightVertical>
+                    <RightVertical></RightVertical>
                 </RightWrapper>
             )}
         </>
