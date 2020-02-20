@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 const TSItem = styled.span`
     font-family: 'Roboto', sans-serif;
-    margin: 0.5rem 0.2rem;
-    padding: 0.3rem;
+    padding: 0.2rem;
     color: #fff;
     background-color: #1e87f0;
     border-radius: 0.5rem;

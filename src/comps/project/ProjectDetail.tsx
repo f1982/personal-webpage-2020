@@ -14,8 +14,11 @@ const StackExchangeIcon = styled(FaStackOverflow)`
 
 const StackRow = styled.div`
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+`;
+const StackRowItem = styled(TechnologyStackItem)`
+    flex-grow: 1;
+    background-color: #ffcc00;
 `;
 
 const ChartArea = styled(FaChartArea)`
@@ -29,14 +32,14 @@ interface ProjectDetailProp {
 const ProjectDetail = (props: ProjectDetailProp) => {
     return (
         <Wrapper>
-            <h2>{props.itemData.title}</h2>
+            <h3>{props.itemData.title}</h3>
             <div>
                 <FaCalendarTimes /> <span>{props.itemData.start}</span> - <span>{props.itemData.end}</span>
             </div>
             <StackRow>
-                <StackExchangeIcon size='28' />
+                {/* <StackExchangeIcon size='28' /> */}
                 {props.itemData.tech.split(',').map((item, index) => {
-                    return <TechnologyStackItem key={index} technology={item} />;
+                    return <StackRowItem key={index} technology={item} />;
                 })}
             </StackRow>
             <div>

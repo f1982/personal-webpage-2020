@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SingleButton from '../../comps/SingleButton';
 import HighlightProject from './comps/HighlightProject';
@@ -7,9 +7,11 @@ import { Helmet } from 'react-helmet';
 import { Links } from '../../comps/Links';
 import ShowcaseBox from './comps/ShowcaseBox';
 import ContactForm from '../../comps/ContactForm';
+import DoAndLike from '../../pages/home/comps/DoAndLike';
+import '../../assets/styles/home-css-animate.css';
 
 const Wrapper = styled.div`
-    text-align: center;
+    /* text-align: center; */
 `;
 const SectionRow = styled.div`
     display: flex;
@@ -19,6 +21,14 @@ const SectionRow = styled.div`
     @media screen and (max-width: 750px) {
         flex-flow: column;
         margin: 1rem;
+    }
+`;
+const Row = styled.div`
+    width: 1200px;
+    margin: 1rem auto;
+    /* 小于 1200px 就 100% */
+    @media screen and (max-width: 1200px) {
+        width: 100%;
     }
 `;
 
@@ -46,21 +56,30 @@ const IntroRight = styled.div`
     }
 `;
 
-const VerticalContainer = styled.div`
-    display: flex;
-    flex-flow: column;
-    /* flex: 1; */
-    padding: 1rem;
-    text-align: left;
-`;
+const showStyle = styled.div``;
 
 const Home = (props: any) => {
     const { syncHome } = props;
     const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
     const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
 
+    const [className, setClassName] = useState('hidden');
+    const handleScroll = () => {
+        // console.log('scrollTop:', document.documentElement.scrollTop);
+        if (document.documentElement.scrollTop > 25) {
+            setClassName('show');
+        } else {
+            setClassName('hidden');
+        }
+    };
     useEffect(() => {
         syncHome();
+
+        // window.onscroll = () => handleScroll();
+
+        return () => {
+            window.onscroll = null;
+        };
     }, [syncHome]);
 
     return (
@@ -92,24 +111,10 @@ const Home = (props: any) => {
                     <ShowcaseBox></ShowcaseBox>
                 </IntroRight>
             </SectionRow>
-            <SectionRow>
-                <VerticalContainer>
-                    <div>
-                        <h5>What I Do?</h5>
-                    </div>
-                    <div>
-                        <p>{props.whatIDo}</p>
-                    </div>
-                </VerticalContainer>
-                <VerticalContainer>
-                    <div>
-                        <h5>Who I Like?</h5>
-                    </div>
-                    <div>
-                        <p>{props.whatILike}</p>
-                    </div>
-                </VerticalContainer>
-            </SectionRow>
+
+            <Row>
+                <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
+            </Row>
             <HighlightProject
                 projects={props.projects}
                 moreProjectCallback={() => {
@@ -117,9 +122,9 @@ const Home = (props: any) => {
                 }}
             />
             <Links data={props.sns} category='all'></Links>
-            <SectionRow>
+            <Row>
                 <ContactForm />
-            </SectionRow>
+            </Row>
         </Wrapper>
     );
 };

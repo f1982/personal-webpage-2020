@@ -1,0 +1,23 @@
+.hidden {
+    /* display: block;
+    left: 0;
+    opacity: 1;
+    animation: slide-in 1s backwards; */
+}
+
+.show {
+    display: block;
+    left: -30em;
+    opacity: 0;
+    animation: slide-in 1s forwards;
+}
+@keyframes slide-in {
+    0% {
+        left: -30em;
+        opacity: 0;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}

@@ -1,4 +1,4 @@
-A personal webpage which is made by [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/)
+A personal website which is made by [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/)
 
 ## Installation
 
@@ -15,14 +15,25 @@ Installation is done using the
 $ npm install
 ```
 
+## Run
+
+```bash
+$ npm start
+```
+
+## Deploy
+
+Using [Netlify](https://netlify.com/) for hosting static files.
+
 ## Features
 
+-   Home
+-   Projects
+-   About
+-   Timeline of Work
+-   Timeline of Life
+
 ## Docs
-
-Design Reference:
-
--   http://www.templatemonsterpreview.com/demo/67683.html
--   https://www.templatemonster.com/demo/57820.html
 
 ## Contributing
 

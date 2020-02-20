@@ -4,14 +4,12 @@ import * as React from 'react';
 import * as Yup from 'yup';
 
 const FMForm = styled.form`
-    width: 80%;
-    position: relative;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* flex-direction: column; */
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
 `;
 
 const FMLabel = styled.label`
@@ -136,7 +134,7 @@ const UserSearchForm = withFormik<FormProps, FormValues>({
             .max(16, 'Please input 16 characters or less')
             .required('Please input userName name'),
         email: Yup.string()
-            .max(8, 'Pls input less than 8 characters')
+            .max(50, 'Pls input less than 50 characters')
             .email('must be a email address')
             .required('email can not be empty'),
         subject: Yup.string()
