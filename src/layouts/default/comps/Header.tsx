@@ -76,7 +76,7 @@ const Header = (props: HeaderPropType = initialProps) => {
         window.addEventListener('resize', updateSize);
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
-    }, []);
+    }, [isCollapsed]);
 
     /**
      * 切换显示菜单状态
@@ -103,7 +103,7 @@ const Header = (props: HeaderPropType = initialProps) => {
                         </li>
                     ))}
                     <li>
-                        <a href='http://blog.f1982.com' target='_blank'>
+                        <a href='http://blog.f1982.com' target='_blank' rel='noopener noreferrer'>
                             Blog
                         </a>
                     </li>

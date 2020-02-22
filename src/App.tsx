@@ -7,10 +7,15 @@ import Layout from './layouts/default';
 
 interface IAppProp {}
 const App = (props: any) => {
-    const { syncAppConfig } = props;
+    const { syncAppConfig, settings } = props;
+
     useEffect(() => {
         syncAppConfig();
     }, [syncAppConfig]);
+
+    useEffect(() => {
+        console.log('a loaded', settings);
+    }, [settings]);
 
     return (
         <Router basename={process.env.PUBLIC_URL}>
@@ -33,7 +38,7 @@ const App = (props: any) => {
  * @param rootState
  */
 const mapStatesToProps = (rootState: any) => ({
-    a: rootState.appConfig.settings
+    settings: rootState.appConfig.settings
 });
 
 /**

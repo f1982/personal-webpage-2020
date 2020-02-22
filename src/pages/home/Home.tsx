@@ -56,30 +56,27 @@ const IntroRight = styled.div`
     }
 `;
 
-const showStyle = styled.div``;
-
 const Home = (props: any) => {
     const { syncHome } = props;
     const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
     const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
 
-    const [className, setClassName] = useState('hidden');
-    const handleScroll = () => {
-        // console.log('scrollTop:', document.documentElement.scrollTop);
-        if (document.documentElement.scrollTop > 25) {
-            setClassName('show');
-        } else {
-            setClassName('hidden');
-        }
-    };
+    // const [className, setClassName] = useState('hidden');
+    // const handleScroll = () => {
+    //     // console.log('scrollTop:', document.documentElement.scrollTop);
+    //     if (document.documentElement.scrollTop > 25) {
+    //         setClassName('show');
+    //     } else {
+    //         setClassName('hidden');
+    //     }
+    // };
+
     useEffect(() => {
         syncHome();
-
         // window.onscroll = () => handleScroll();
-
-        return () => {
-            window.onscroll = null;
-        };
+        // return () => {
+        //     window.onscroll = null;
+        // };
     }, [syncHome]);
 
     return (

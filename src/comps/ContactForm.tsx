@@ -2,6 +2,7 @@ import { InjectedFormikProps, withFormik, ErrorMessage } from 'formik';
 import styled from 'styled-components';
 import * as React from 'react';
 import * as Yup from 'yup';
+import { useState } from 'react';
 
 const FMForm = styled.form`
     width: 100%;
@@ -85,44 +86,55 @@ interface FormProps {
     content?: string;
 }
 
-const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = props => (
-    <FMForm onSubmit={props.handleSubmit}>
-        <FMLabel htmlFor='firstName'>Your Name</FMLabel>
-        <FMInputWrapperHalf>
-            <FMInput
-                id='firstName'
-                type='text'
-                onChange={props.handleChange}
-                value={props.values.firstName}
-                placeholder='Frist Name'
-            />
-            <FMError component='div' name='firstName' />
-        </FMInputWrapperHalf>
-        <FMInputWrapperHalf>
-            <FMInput
-                id='lastName'
-                type='text'
-                onChange={props.handleChange}
-                value={props.values.lastName}
-                placeholder='Last Name'
-            />
-            <FMError component='div' name='lastName' />
-        </FMInputWrapperHalf>
-        <FMLabel htmlFor='email'>Your Email</FMLabel>
-        <FMInputWrapper>
-            <FMInput id='email' type='text' onChange={props.handleChange} value={props.values.email} />
-            <FMError component='div' name='email' />
-        </FMInputWrapper>
-        <FMLabel htmlFor='content'>Your Project</FMLabel>
-        <FMInputWrapper>
-            <FMTextarea id='content' onChange={props.handleChange} value={props.values.content} />
-            <FMError component='div' name='content' />
-        </FMInputWrapper>
-        <FMButton type='submit' disabled={props.isSubmitting}>
-            Submit
-        </FMButton>
-    </FMForm>
-);
+const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (props: any) => {
+    const [submitted, setSubmitted] = useState(false);
+
+    // console.log(props.form.status);
+    return (
+        <>
+            {submitted === false ? (
+                <FMForm onSubmit={props.handleSubmit}>
+                    <FMLabel htmlFor='firstName'>Your Name</FMLabel>
+                    <FMInputWrapperHalf>
+                        <FMInput
+                            id='firstName'
+                            type='text'
+                            onChange={props.handleChange}
+                            value={props.values.firstName}
+                            placeholder='Frist Name'
+                        />
+                        <FMError component='div' name='firstName' />
+                    </FMInputWrapperHalf>
+                    <FMInputWrapperHalf>
+                        <FMInput
+                            id='lastName'
+                            type='text'
+                            onChange={props.handleChange}
+                            value={props.values.lastName}
+                            placeholder='Last Name'
+                        />
+                        <FMError component='div' name='lastName' />
+                    </FMInputWrapperHalf>
+                    <FMLabel htmlFor='email'>Your Email</FMLabel>
+                    <FMInputWrapper>
+                        <FMInput id='email' type='text' onChange={props.handleChange} value={props.values.email} />
+                        <FMError component='div' name='email' />
+                    </FMInputWrapper>
+                    <FMLabel htmlFor='content'>Your Project</FMLabel>
+                    <FMInputWrapper>
+                        <FMTextarea id='content' onChange={props.handleChange} value={props.values.content} />
+                        <FMError component='div' name='content' />
+                    </FMInputWrapper>
+                    <FMButton type='submit' disabled={props.isSubmitting}>
+                        Submit
+                    </FMButton>
+                </FMForm>
+            ) : (
+                <p>Thank you for you feedback!</p>
+            )}
+        </>
+    );
+};
 
 const UserSearchForm = withFormik<FormProps, FormValues>({
     mapPropsToValues: () => ({ firstName: '', lastName: '', email: '', subject: '', content: '' }),
@@ -137,18 +149,15 @@ const UserSearchForm = withFormik<FormProps, FormValues>({
             .max(50, 'Pls input less than 50 characters')
             .email('must be a email address')
             .required('email can not be empty'),
-        subject: Yup.string()
-            .min(5, 'pls input at least 4 characters')
-            .max(30, 'Pls input less than 30 characters')
-            .required('pls input subject'),
         content: Yup.string()
             .min(5, 'pls input at least 4 characters')
-            .max(30, 'Pls input less than 30 characters')
+            .max(300, 'Pls input less than 300 characters')
             .required('pls input subject')
     }),
-    handleSubmit: (values, { setSubmitting }) => {
+    handleSubmit: (values, { setSubmitting, setStatus }) => {
         setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
+            setStatus({ submitted: true });
             setSubmitting(false);
         }, 1000);
     }

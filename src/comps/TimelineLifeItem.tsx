@@ -23,7 +23,6 @@ const RightWrapper = styled.div`
 const LeftVertical = styled.div`
     width: 50%;
     text-align: right;
-    /* padding-right: 1rem; */
     box-sizing: border-box;
     @media screen and (max-width: 1200px) {
         width: 100%;
@@ -59,7 +58,7 @@ interface LifeItemProp {
 const TimelineItem = (props: LifeItemProp) => {
     console.log('props', props);
     const { dir, itemData } = props;
-    const { start, end, title, subtitle, description } = itemData as TimelineLifeObject;
+    const { start, title, subtitle, description } = itemData as TimelineLifeObject;
     return (
         <>
             {dir === 'left' ? (

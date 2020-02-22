@@ -1,15 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaCalendarTimes, FaStackOverflow, FaChartArea } from 'react-icons/fa';
+import { FaCalendarTimes, FaChartArea } from 'react-icons/fa';
 import { ProjectObject } from '../../types/interfaces';
 import { TechnologyStackItem } from './TechnologyStack';
 
 const Wrapper = styled.div`
     text-align: left;
-`;
-
-const StackExchangeIcon = styled(FaStackOverflow)`
-    vertical-align: middle;
 `;
 
 const StackRow = styled.div`

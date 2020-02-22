@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -25,7 +25,7 @@ interface PropsType {
 }
 
 const DoAndLike = (props: PropsType) => {
-    const [className, setClassName] = useState('hidden');
+    // const [className, setClassName] = useState('hidden');
 
     const handleScroll = () => {
         // console.log('scrollTop:', document.documentElement.scrollTop);
