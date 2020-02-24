@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { FaWindowClose } from 'react-icons/fa';
+import '../assets/styles/animation.css';
 
 const FRAME_MARGIN = '10%';
 
@@ -26,6 +27,7 @@ const Wrapper = styled.div`
     bottom: ${FRAME_MARGIN};
     margin: auto;
     background: white;
+    overflow-y: scroll;
     /* border-radius: 1rem; */
     box-shadow: ${props => props.theme.shadow};
     @media screen and (max-width: 600px) {
@@ -77,9 +79,10 @@ interface PopupProps {
 const showDuration = 200;
 
 const Popup = (popupProps: PopupProps) => {
-    console.log('popupProps', popupProps);
-    console.log('popupProps.closeButton:', popupProps.closeButton);
+    // console.log('popupProps', popupProps);
+    // console.log('popupProps.closeButton:', popupProps.closeButton);
 
+    // const [animateClassName, setAnimateClassName] = useState('bounce-in-top');
     const [props, set] = useSpring(() => ({
         opacity: 1,
         from: { opacity: 0 },
@@ -90,12 +93,14 @@ const Popup = (popupProps: PopupProps) => {
         set({ opacity: 0 });
         setTimeout(() => {
             if (popupProps.closeHandler) {
+                // setAnimateClassName('bounce-out-top');
                 popupProps.closeHandler();
             }
         }, showDuration);
     };
     return (
         <Mask style={props}>
+            {/* <Wrapper className={animateClassName}> */}
             <Wrapper>
                 <Frame>
                     <CloseButtonContainer>

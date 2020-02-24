@@ -27,7 +27,7 @@ interface ProjectProp {
 }
 
 const Projects = (props: ProjectProp) => {
-    console.log('projects props', props);
+    // console.log('projects props', props);
 
     let { data: items, category } = props;
 

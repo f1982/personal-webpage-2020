@@ -10,7 +10,7 @@ const SpaceBar = styled.div`
 `;
 
 const Projects = (props: any) => {
-    const { syncProjects } = props;
+    const { syncProjects, items: projectItems } = props;
     const [currentProjectCategory, setCurrentProjectCategory] = useState('all');
     const categoryMenuItems = [
         { id: 1, title: 'all', active: true },
@@ -32,6 +32,7 @@ const Projects = (props: any) => {
             <Helmet>
                 <title>Projects</title>
             </Helmet>
+
             <TitleImage title='Projects' subtitle='My Passions & I Love.' backgroundImageURL={imageURL}></TitleImage>
             <SubMenu
                 items={categoryMenuItems}
@@ -41,7 +42,7 @@ const Projects = (props: any) => {
                 }}
             />
             <SpaceBar></SpaceBar>
-            <ProjectList data={props.items} category={currentProjectCategory}></ProjectList>
+            <ProjectList data={projectItems} category={currentProjectCategory}></ProjectList>
         </>
     );
 };

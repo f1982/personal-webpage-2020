@@ -20,8 +20,8 @@ const Wrapper = styled.a`
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: -${ButtonHeight/2}px;
-        margin-left: -${ButtonWidth/2}px;
+        margin-top: -${ButtonHeight / 2}px;
+        margin-left: -${ButtonWidth / 2}px;
         display: block;
         height: ${ButtonHeight}px;
         width: ${ButtonWidth}px;
