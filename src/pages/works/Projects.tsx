@@ -22,15 +22,15 @@ const SpaceBar = styled.div`
 `;
 
 const imageURL = process.env.PUBLIC_URL + 'static/images/projects_img_bar.jpg';
+const categoryMenuItems = [
+    { id: 1, title: 'all', active: true },
+    { id: 2, title: 'app' },
+    { id: 3, title: 'game' }
+];
 
 const Projects = (props: any) => {
     const { syncProjects, items: projectItems } = props;
 
-    const categoryMenuItems = [
-        { id: 1, title: 'all', active: true },
-        { id: 2, title: 'app' },
-        { id: 3, title: 'game' }
-    ];
     let match = useRouteMatch();
 
     useEffect(() => {
@@ -45,8 +45,12 @@ const Projects = (props: any) => {
             <TitleImage title='Projects' subtitle='My Passions & I Love.' backgroundImageURL={imageURL}></TitleImage>
             {props.loadedState === 'loaded' ? (
                 <>
-                    <Link to={`${match.url}/all`}>All</Link> |<Link to={`${match.url}/game`}>Games</Link> |
-                    <Link to={`${match.url}/app`}>Apps</Link>
+                    {categoryMenuItems.map((item: any, index: number) => (
+                        <nav key={index}>
+                            <Link to={`${match.url}/${item.title}`}>{item.title}</Link>
+                            <span> </span>
+                        </nav>
+                    ))}
                     <h1>{props.loadedState}</h1>
                     <Switch>
                         <Route path={`${match.path}/:category`}>

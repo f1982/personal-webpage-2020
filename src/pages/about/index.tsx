@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
 import About from './About';
 
-const mapStatesToProps = (rootState: any) => ({
-    summary: rootState.about.summary,
-    timelines: rootState.about.timelines
-});
+const mapStatesToProps = (rootState: any) => {
+    const { loadedState, timelines, summary } = rootState.about;
+    return {
+        loadedState: loadedState,
+        summary: summary,
+        timelines: timelines
+    };
+};
 
 /**
  * Map dispath to props

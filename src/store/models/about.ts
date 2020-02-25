@@ -24,21 +24,34 @@ const initialState: AboutState = {
 };
 
 const about = createModel({
-    state: initialState,
+    state: {
+        loadedState: '',
+        summary: {},
+        timelines: []
+    },
     reducers: {
-        updateInfo(stateOld: AboutState, state: AboutState) {
-            // const { timelines, summary } = payload;
-            // return { ...state, summary: summary, timelines: timelines };
-            return state;
+        updateLoadedState(state, loadedState) {
+            return { ...state, loadedState: loadedState };
+        },
+        updateTimeline(state, timelines) {
+            console.log('timelines', timelines);
+            return { ...state, timelines: timelines };
+        },
+
+        updateSummary(state, summary) {
+            return { ...state, summary: summary };
         }
     },
     effects: {
         async syncInfo() {
+            this.updateLoadedState('loading');
             const responseData = await ajax({
                 url: API_URL
             });
             const { data } = responseData;
-            this.updateInfo(data);
+            this.updateTimeline(data.timelines);
+            this.updateSummary(data.summary);
+            this.updateLoadedState('loaded');
         }
     }
 });

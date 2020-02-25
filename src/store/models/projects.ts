@@ -3,24 +3,6 @@ import ajax from '../../utils/ajax';
 
 const API_URL = 'projects.json';
 
-/**
- * 定义 works 这个页面需要的变量
- */
-// interface WorksState {
-//     loadedState: string;
-//     currentCategory: string;
-//     items: Array<any>;
-// }
-
-/**
- * Reducer 初次使用的一些预设值（默认值）
- */
-// const initialWorksState: WorksState = {
-//     loadedState: 'notyet',
-//     currentCategory: 'all',
-//     items: []
-// };
-
 const projects = createModel({
     state: {
         loadedState: '',
