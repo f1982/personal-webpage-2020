@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SingleButton from '../../../comps/SingleButton';
-import Projects from '../../../comps/project/Projects';
+import Projects from '../../../comps/project/ProjectList';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`

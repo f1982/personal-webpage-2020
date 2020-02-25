@@ -8,8 +8,13 @@ import Projects from './Projects';
  * @param rootState
  */
 const mapStatesToProps = (rootState: any) => {
-    // const { items, apiLoadingState, currentCategory } = rootState.projects;
-    return rootState.projects;
+    const { items, loadedState } = rootState.projects;
+    // return rootState.projects;
+    return {
+        loadedState: loadedState,
+        total: items.length,
+        items: items
+    };
 };
 
 const mapReducersToProps = (dispatch: any) => {

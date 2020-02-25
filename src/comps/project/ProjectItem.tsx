@@ -6,7 +6,7 @@ import { ProjectObject } from '../../types/interfaces';
 interface ProjectItemProp {
     name?: string;
     itemData: ProjectObject;
-    callback: Function;
+    callback?: Function;
 }
 
 const Overlay = styled.div`
@@ -32,8 +32,8 @@ const TechItem = styled.span``;
 const Wrapper = styled.div`
     position: relative;
     box-sizing: border-box;
-    width: 30%;
-    height: auto;
+    /* width: 300px; */
+    height: 230px;
     padding: 0px;
     background-color: #eee;
     background-repeat: no-repeat;
@@ -53,14 +53,14 @@ const Wrapper = styled.div`
             opacity: 1;
         }
     }
-    @media only screen and (max-width: 700px) {
+    /* @media only screen and (max-width: 700px) {
         width: 48%;
         margin: 1rem 0;
     }
 
     @media only screen and (max-width: 500px) {
         width: 100%;
-    }
+    } */
 `;
 
 /**

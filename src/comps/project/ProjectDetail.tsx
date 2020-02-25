@@ -75,8 +75,7 @@ interface ProjectDetailProp {
 
 const ProjectDetail = (props: ProjectDetailProp) => {
     const { itemData } = props;
-    // type NewType = ProjectObject;
-    // const { title, start, end, tech, description, responsibility, link, qrcode, platform } = itemData;
+
     return (
         <Wrapper>
             <h3>{itemData.title}</h3>

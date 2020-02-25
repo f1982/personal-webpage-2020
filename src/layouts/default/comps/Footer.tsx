@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    position: relative;
+    /* position: relative; */
     height: 10rem;
     background-color: #89cebf;
 `;
 const Copyright = styled.div`
     font-size: 12px;
     color: #eee;
-    position: absolute;
+    /* position: absolute; */
     bottom: 1rem;
     width: 100%;
     text-align: center;

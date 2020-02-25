@@ -14,6 +14,8 @@ const Wrapper = styled.div`
 
 const About = (props: any) => {
     const { syncInfo } = props;
+    // let match = useRouteMatch();
+
     useEffect(() => {
         syncInfo();
     }, [syncInfo]);

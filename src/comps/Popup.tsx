@@ -6,35 +6,38 @@ import '../assets/styles/animation.css';
 
 const FRAME_MARGIN = '10%';
 
-const Mask = styled(animated.div)`
+const Wrapper = styled.div`
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 999;
-    top: 0;
     left: 0;
+    top: 0;
     right: 0;
     bottom: 0;
-    margin: auto;
+    /* position: relative; */
+`;
+const Mask = styled(animated.div)`
+    width: 100%;
+    height: 100%;
+    z-index: 999;
     background-color: rgba(0, 0, 0, 0.5);
 `;
 
-const Wrapper = styled.div`
+const Container = styled.div`
     position: absolute;
-    left: ${FRAME_MARGIN};
-    right: ${FRAME_MARGIN};
-    top: ${FRAME_MARGIN};
-    bottom: ${FRAME_MARGIN};
+    z-index: 1000;
+    width: 80%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: auto;
     background: white;
     overflow-y: scroll;
     /* border-radius: 1rem; */
     box-shadow: ${props => props.theme.shadow};
     @media screen and (max-width: 600px) {
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        width: 100%;
     }
 `;
 
@@ -71,12 +74,12 @@ const CloseButton = styled.div`
 
 interface PopupProps {
     id: string;
-    content: JSX.Element;
+    children: JSX.Element;
     closeButton?: JSX.Element;
     closeHandler?: Function;
 }
 
-const showDuration = 200;
+const showDuration = 0;
 
 const Popup = (popupProps: PopupProps) => {
     // console.log('popupProps', popupProps);
@@ -99,9 +102,8 @@ const Popup = (popupProps: PopupProps) => {
         }, showDuration);
     };
     return (
-        <Mask style={props}>
-            {/* <Wrapper className={animateClassName}> */}
-            <Wrapper>
+        <Wrapper>
+            <Container>
                 <Frame>
                     <CloseButtonContainer>
                         <CloseButton onClick={buttonHandler}>
@@ -112,10 +114,11 @@ const Popup = (popupProps: PopupProps) => {
                             )}
                         </CloseButton>
                     </CloseButtonContainer>
-                    <Border>{popupProps.content}</Border>
+                    <Border>{popupProps.children}</Border>
                 </Frame>
-            </Wrapper>
-        </Mask>
+            </Container>
+            <Mask style={props} onClick={buttonHandler}></Mask>
+        </Wrapper>
     );
 };
 
