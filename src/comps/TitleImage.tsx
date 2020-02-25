@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     height: 25rem;
-    padding: 6rem;
+    padding: 2rem;
     color: #fff;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -31,7 +31,7 @@ const TitleImage = (props: TitleImageProp) => {
 
     return (
         <Wrapper style={{ backgroundImage: `url(${backgroundImageURL})` }}>
-            <h1>{title}</h1>
+            <h2>{title}</h2>
             <Subtitle>{subtitle}</Subtitle>
         </Wrapper>
     );
