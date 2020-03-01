@@ -21,7 +21,7 @@ export interface HighlightProjectProp {
 const HighlightProjects = (props: any) => {
     return (
         <Wrapper>
-            <h3 style={{ marginBottom: `2rem` }}>Projects</h3>
+            <h5>Projects</h5>
             <Intro>
                 <p>
                     My passion and focus are application development. I hope I can develop software that can help people

@@ -36,7 +36,7 @@ export interface ProjectObject {
     description: string;
     type: string;
     icon: string;
-    qrcode?: string;
+    qrcode: string;
     platform: string;
     state: string;
     cover: string;

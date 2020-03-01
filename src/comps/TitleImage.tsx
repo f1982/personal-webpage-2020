@@ -3,18 +3,26 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     height: 25rem;
-    padding: 2rem;
     color: #fff;
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
     background-position: left;
+`;
 
-    @media screen and (max-width: 600px) {
-        padding: 2rem;
-        background-size: auto 100%;
+const Inner = styled.div`
+    width: 100%;
+    margin: 0rem auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    @media screen and (min-width: 1200px) {
+        /* css-code; */
+        width: 1200px;
     }
 `;
 
+const TextBlock = styled.div`
+    width: 620px;
+`;
 const Subtitle = styled.p`
     color: #fff;
     opacity: 0.8;
@@ -31,8 +39,12 @@ const TitleImage = (props: TitleImageProp) => {
 
     return (
         <Wrapper style={{ backgroundImage: `url(${backgroundImageURL})` }}>
-            <h2>{title}</h2>
-            <Subtitle>{subtitle}</Subtitle>
+            <Inner>
+                <TextBlock>
+                    <h2>{title}</h2>
+                    <Subtitle>{subtitle}</Subtitle>
+                </TextBlock>
+            </Inner>
         </Wrapper>
     );
 };

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './pages';
 import Layout from './layouts/default';
+import Welcome from './pages/welcome';
 
 const App = (props: any) => {
     const { syncAppConfig, settings } = props;
@@ -12,20 +13,25 @@ const App = (props: any) => {
         syncAppConfig();
     }, [syncAppConfig]);
 
-    useEffect(() => {
-        console.log('a loaded', settings);
-    }, [settings]);
+    useEffect(() => {}, [settings]);
 
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <Helmet titleTemplate='%s - Andy Cao personal website'>
-                <meta name='description' content='A Opensource Website by React.js' />
+                <meta name='description' content='An opensource personal website by React' />
             </Helmet>
-            <Layout>
-                {routes.map(route => (
-                    <Route key={route.path} path={route.path} exact={route.exact} component={route.component} />
-                ))}
-            </Layout>
+            <Switch>
+                <Route exact path='/'>
+                    <Welcome></Welcome>
+                </Route>
+                <Route>
+                    <Layout>
+                        {routes.map(route => (
+                            <Route key={route.path} path={route.path} exact={route.exact} component={route.component} />
+                        ))}
+                    </Layout>
+                </Route>
+            </Switch>
         </Router>
     );
 };

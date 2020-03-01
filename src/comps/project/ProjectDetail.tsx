@@ -7,6 +7,11 @@ import { ImageSlide } from '../ImageSlide';
 import Button from '../SingleButton';
 import SingleButton from '../SingleButton';
 
+const baseUrl =
+    process.env.NODE_ENV === 'development'
+        ? process.env.REACT_APP_STATIC_BASES_URL_TEST
+        : process.env.REACT_APP_STATIC_BASES_URL;
+
 const WechatQRCodeWrapper = styled.div`
     display: flex;
     flex-direction: column;

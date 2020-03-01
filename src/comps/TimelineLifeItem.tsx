@@ -29,10 +29,10 @@ const LeftVertical = styled.div`
     }
 `;
 const ItemTitle = styled.h4`
-    margin: 0 0;
+    /* margin: 0 0; */
 `;
 const ItemSubTitle = styled.h5`
-    margin: 0 0;
+    /* margin: 0 0; */
 `;
 
 const MiddleVertical = styled.div`

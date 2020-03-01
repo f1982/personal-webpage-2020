@@ -36,6 +36,7 @@ const IntroLeft = styled.div`
     display: flex;
     flex-flow: column;
     width: 300px;
+    margin-right: 1.5rem;
     @media screen and (max-width: 750px) {
         width: 100%;
     }
@@ -78,14 +79,11 @@ const Home = (props: any) => {
                     <div>
                         <img style={{ width: `300px` }} src={hiImageURL} alt='Hi I am Andy' />
                     </div>
-                    <div>
-                        <h5>Software Developer</h5>
-                    </div>
-                    <div>
-                        <Link to='about'>
-                            <SingleButton>Say Hi!</SingleButton>
-                        </Link>
-                    </div>
+                    <h5>Software Developer</h5>
+
+                    <Link to='about'>
+                        <SingleButton>Say Hi!</SingleButton>
+                    </Link>
                 </IntroLeft>
                 <IntroRight
                     style={{

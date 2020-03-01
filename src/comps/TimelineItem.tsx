@@ -32,13 +32,13 @@ const ContentColumn = styled.div`
     width: 100%;
     display: inline-block;
     & h5 {
-        margin: 0 0;
+        /* margin: 0 0; */
     }
     & ul {
         width: 100%;
         & li {
             font-weight: 800;
-            margin: 2px 5px;
+            /* margin: 2px 5px; */
             word-wrap: break-word;
             word-break: normal;
         }

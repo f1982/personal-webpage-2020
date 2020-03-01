@@ -1,7 +1,34 @@
 import { createModel } from '@rematch/core';
 import ajax from '../../utils/ajax';
+import { ProjectObject } from '../../types/interfaces';
 
 const API_URL = 'projects.json';
+
+let baseUrl =
+    process.env.NODE_ENV === 'development'
+        ? process.env.REACT_APP_STATIC_BASES_URL_TEST
+        : process.env.REACT_APP_STATIC_BASES_URL;
+
+baseUrl = baseUrl + 'images/projects/';
+
+const updateImageURLs = (projects: ProjectObject[]) => {
+    function updateURL(original: string) {
+        if (!original) return;
+        original = baseUrl + original;
+    }
+
+    projects.forEach((object: ProjectObject) => {
+        object.cover = object.cover ? baseUrl + object.cover : '';
+        object.icon = object.icon ? baseUrl + object.icon : '';
+        object.qrcode = object.qrcode != '' ? baseUrl + object.qrcode : '';
+
+        for (let i = 0; i < object.images.length; i++) {
+            object.images[i] = baseUrl + object.images[i];
+        }
+
+        console.log('object', object);
+    });
+};
 
 const projects = createModel({
     state: {
@@ -14,6 +41,15 @@ const projects = createModel({
             return { ...state, loadedState: newLoadedState };
         },
         updateProjects: (state, projects) => {
+            //Update static file path base on the .env file configuration
+            projects.forEach((object: ProjectObject) => {
+                object.cover = object.cover ? baseUrl + object.cover : '';
+                object.icon = object.icon ? baseUrl + object.icon : '';
+                object.qrcode = object.qrcode != '' ? baseUrl + object.qrcode : '';
+                for (let i = 0; i < object.images.length; i++) {
+                    object.images[i] = baseUrl + object.images[i];
+                }
+            });
             return { ...state, items: projects, loadedState: 'loaded' };
         }
     },
