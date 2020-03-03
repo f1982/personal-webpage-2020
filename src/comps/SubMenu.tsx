@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, useRouteMatch, NavLink } from 'react-router-dom';
+import '../assets/styles/test.css';
 
 const Wrapper = styled.div`
     padding-top: 2rem;
@@ -7,99 +9,51 @@ const Wrapper = styled.div`
     text-align: right;
 `;
 
-const NavBar = styled.div`
-    display: inline-block;
+const navActiveClassName = 'navActiveClassName';
+let NavBar: any = styled.div`
+    width: 1200px;
+    margin: 1rem auto;
+    & .${navActiveClassName} {
+        color: #fff;
+        background-color: #2ee59d;
+        box-shadow: 0px 16px 20px rgba(46, 229, 157, 0.4);
+    }
 `;
+NavBar.navActiveClassName = navActiveClassName;
 
-const NavButton = styled.button`
+const NavLinkItem = styled(NavLink)`
     height: 45px;
-    padding: 0 1rem;
+    padding: 1rem 1rem;
     margin-right: 0.5rem;
-    font-size: 1.2rem;
-    /* text-transform: uppercase; */
-    letter-spacing: 2.5px;
     font-weight: 500;
-    color: #50e3c2;
-    /* background-color: #50e3c2; */
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    /* color: #fff; */
+    /* background-color: #2ee59d; */
+    /* box-shadow: 0px 16px 20px rgba(46, 229, 157, 0.4); */
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
     &:hover {
-        background-color: #2ee59d;
-        box-shadow: 0px 16px 20px rgba(46, 229, 157, 0.4);
-        color: #fff;
-        transform: translateY(-2px);
-    }
-    &:active {
-        background-color: #2ee59d;
-        box-shadow: 0px 16px 20px rgba(46, 229, 157, 0.4);
-        color: #fff;
-        transform: translateY(-2px);
+        background-color: #2ee534;
+        color: #eee;
+        /* transform: translateY(-2px); */
+        /* padding: 0.5rem; */
+        border-radius: 10px;
     }
 `;
 
-const ActiveNavButton = styled.button`
-    height: 45px;
-    padding: 0 1rem;
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #fff;
-    border: none;
-    border-radius: 45px;
-    background-color: #2ee59d;
-    box-shadow: 0px 16px 20px rgba(46, 229, 157, 0.4);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    &:hover {
-        background-color: #2ee59d;
-        box-shadow: 0px 16px 20px rgba(46, 229, 157, 0.4);
-        color: #fff;
-        transform: translateY(-2px);
-    }
-    &:active {
-        background-color: #2ee59d;
-        box-shadow: 0px 16px 20px rgba(46, 229, 157, 0.4);
-        color: #fff;
-        transform: translateY(-2px);
-    }
-`;
-
-const SubMenu = (props: any) => {
-    const [currentActive, setCurrentActive] = React.useState(1);
-    const activeItem = (id: number) => {
-        const currentItem: any = props.items.find((item: any) => {
-            return item.id === id;
-        });
-        // currentItem.active = true;
-        setCurrentActive(currentItem.id);
-        void (props.callback ? props.callback(currentItem) : null);
-    };
+const Submenu = (props: any) => {
     return (
         <Wrapper>
             <NavBar>
-                {props.items.map((item: any, index: number) =>
-                    item.id === currentActive ? (
-                        <ActiveNavButton key={index}>{item.title}</ActiveNavButton>
-                    ) : (
-                        <NavButton
-                            key={index}
-                            onClick={() => {
-                                console.log(item);
-                                activeItem(item.id);
-                            }}>
-                            {item.title}
-                        </NavButton>
-                    )
-                )}
+                {props.items.map((item: any, index: number) => (
+                    <NavLinkItem key={index} to={item.url} activeClassName={NavBar.navActiveClassName}>
+                        {item.title}
+                    </NavLinkItem>
+                ))}
             </NavBar>
         </Wrapper>
     );
 };
 
-export default SubMenu;
+export default Submenu;

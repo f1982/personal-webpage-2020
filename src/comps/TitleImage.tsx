@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    height: 25rem;
+    height: 39rem;
     color: #fff;
     background-repeat: no-repeat;
     background-size: cover;

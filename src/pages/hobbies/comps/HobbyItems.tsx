@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import SingleButton from '../../../comps/SingleButton';
 
-const ItemWrapper = styled.div`
+const ItemWrapper = styled.section`
     width: 100%;
 `;
 
-const ItemWrapperBG = styled.div`
+const ItemWrapperBG = styled.section`
     width: 100%;
     background-color: #333;
 `;

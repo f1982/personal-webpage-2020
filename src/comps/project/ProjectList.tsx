@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Popup } from '../Popup';
 import { ProjectObject } from '../../types/interfaces';
 import { ProjectItem } from './ProjectItem';
 import { ProjectDetail } from './ProjectDetail';
 import ProjectCloseButton from './ProjectCloseButton';
-import { Link, useRouteMatch, Switch, Route, useParams, useLocation, useHistory } from 'react-router-dom';
+import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -20,7 +20,7 @@ const ProjectsContainer = styled.div`
     > * {
         margin: 2em 0;
         width: 30%;
-        height: 250px;
+        height: 480px;
     }
     @media screen and (max-width: 1200px) {
         > * {
@@ -49,7 +49,7 @@ const Projects = (props: any) => {
     let history = useHistory();
     let { path, url } = useRouteMatch();
     let query = useQuery();
-    console.log('query', query.get('id'));
+    // console.log('query', query.get('id'));
     let { data: items, category } = props;
 
     const findItem = (id: any) => {

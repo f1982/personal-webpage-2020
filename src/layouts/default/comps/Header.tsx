@@ -1,9 +1,10 @@
 import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import routes from '../../../pages';
+import '../../../assets/styles/test.css';
 
 const LogoSVG = () => {
     return (
@@ -37,7 +38,7 @@ const LogoSVG = () => {
 const Wrapper = styled.header`
     width: 100%;
     max-width: 1200px;
-    margin: 1.5rem auto;
+    /* margin: 1.5rem auto; */
     text-align: right;
     @media screen and (max-width: 600px) {
         padding-top: 1rem;
@@ -45,13 +46,24 @@ const Wrapper = styled.header`
     }
 `;
 
-const NavMenu = styled(animated.nav)`
+const navActiveItem = 'navActiveItem';
+let NavMenu: any = styled(animated.nav)`
+    margin: 1.5rem;
+    & .${navActiveItem} {
+        color: #fff;
+        font-weight: 700;
+        border: 1px solid #7ce0c4;
+        background-color: #7ce0c4;
+    }
     ul {
         display: inline-block;
         list-style-type: none;
+        margin: 0;
         overflow: auto;
         & li {
-            padding: 10px;
+            /* padding: 10px; */
+            /* padding: 1rem; */
+            /* display: inline-block; */
             float: left;
             @media screen and (max-width: 600px) {
                 float: none;
@@ -59,10 +71,36 @@ const NavMenu = styled(animated.nav)`
         }
     }
 `;
+//Use this class name for React Router activeClassName
+NavMenu.navActiveItem = navActiveItem;
 
 const NavButton = styled(NavLink)`
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 1rem;
+    border: 1px solid #fff;
+    transition: all 0.3s ease 0s;
+    color: #eee;
     &:hover {
-        text-decoration: line-through;
+        /* text-decoration: line-through; */
+        color: #fff;
+        background-color: #eee;
+        border: 1px solid #7ce0c4;
+    }
+`;
+
+const OutLink = styled.a`
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 1rem;
+    border: 1px solid #fff;
+    transition: all 0.3s ease 0s;
+    color: #eee;
+    &:hover {
+        /* text-decoration: line-through; */
+        color: #fff;
+        background-color: #eee;
+        border: 1px solid #7ce0c4;
     }
 `;
 
@@ -112,6 +150,7 @@ const Header = (props: HeaderPropType = initialProps) => {
      * 切换显示菜单状态
      */
     const toggle = () => {
+        console.log('toggle');
         setIsCollapsed(!isCollapsed);
     };
 
@@ -128,18 +167,18 @@ const Header = (props: HeaderPropType = initialProps) => {
                 <ul>
                     {routes.map((route, index) => (
                         <li key={index}>
-                            <NavButton exact={route.exact} to={route.path}>
+                            <NavButton exact={route.exact} to={route.path} activeClassName={NavMenu.navActiveItem}>
                                 {route.title}
                             </NavButton>
                         </li>
                     ))}
                     <li>
-                        <a href='http://blog.f1982.com' target='_blank' rel='noopener noreferrer'>
+                        <OutLink href='http://blog.f1982.com' target='_blank' rel='noopener noreferrer'>
                             Blog
-                        </a>
+                        </OutLink>
                     </li>
                     <li>
-                        <a href='#'>Resume</a>
+                        <OutLink href='#'>Resume</OutLink>
                     </li>
                 </ul>
             </NavMenu>

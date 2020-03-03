@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const WrapperBase = styled.a`
+const WrapperBase = styled.time`
     margin: 1rem 1rem;
-    background: #CBFFF3;
+    background: #cbfff3;
     padding: 0.5rem;
-    border-radius:6px;
+    border-radius: 6px;
     text-align: center;
     font-weight: 900;
-    color: #30605B;
+    color: #30605b;
     position: relative;
     &:before {
         content: '';
@@ -23,9 +23,9 @@ const WrapperBase = styled.a`
 
 const WrapperRight = styled(WrapperBase)`
     &:before {
-        border-left: 10px solid #CBFFF3;
+        border-left: 10px solid #cbfff3;
         border-right: 10px solid transparent;
-        border-top: 10px solid #CBFFF3;
+        border-top: 10px solid #cbfff3;
         border-bottom: 10px solid transparent;
         right: -19px;
         top: 6px;
@@ -35,8 +35,8 @@ const WrapperRight = styled(WrapperBase)`
 const WrapperLeft = styled(WrapperBase)`
     &:before {
         border-left: 10px solid transparent;
-        border-right: 10px solid #CBFFF3;
-        border-top: 10px solid #CBFFF3;
+        border-right: 10px solid #cbfff3;
+        border-top: 10px solid #cbfff3;
         border-bottom: 10px solid transparent;
         left: -19px;
         top: 6px;
@@ -45,12 +45,12 @@ const WrapperLeft = styled(WrapperBase)`
 
 interface TimeBubbleType {
     direction?: string;
-    children?: string
+    children?: string;
 }
 
 const initialProps: TimeBubbleType = {
     direction: 'left',
-    children:''
+    children: ''
 };
 
 const TimeBubble = (props: TimeBubbleType = initialProps) => {

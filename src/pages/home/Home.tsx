@@ -81,7 +81,7 @@ const Home = (props: any) => {
                     </div>
                     <h5>Software Developer</h5>
 
-                    <Link to='about'>
+                    <Link to='/about/intro'>
                         <SingleButton>Say Hi!</SingleButton>
                     </Link>
                 </IntroLeft>

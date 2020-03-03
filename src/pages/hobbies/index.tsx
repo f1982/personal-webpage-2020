@@ -11,8 +11,15 @@ import { LeftImageItem, RightImageItem, HobbyTextItem } from './comps/HobbyItems
 const imageURL = process.env.PUBLIC_URL + 'static/images/title-hobby.jpg';
 
 const Hobbies = () => {
-    // let match = useRouteMatch();
+    const match = useRouteMatch();
     // console.log('match', match);
+
+    const submenuItems = [
+        { id: 'rc', url: `${match.url}/rc`, title: 'RC' },
+        { id: 'video', url: `${match.url}/video`, title: 'Video' },
+        { id: 'paint', url: `${match.url}/paint`, title: 'paint' }
+    ];
+
     let intro = `I work out of Harrisburg PA, I love pour over coffee, I have a cat named after MacGyver, my favorite
     number is 22, I'm not a huge fan of IPAs, I play video games like it's my life, I knew what I wanted
     to do at the age of 13, I downhill mountain bike, my favorite food is bacon, and I broke my left arm
@@ -20,7 +27,7 @@ const Hobbies = () => {
     return (
         <>
             <Helmet>
-                <title>About</title>
+                <title>Hobbies</title>
             </Helmet>
             <TitleImage
                 title='Everybody needs a hobby'

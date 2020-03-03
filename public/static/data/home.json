@@ -8,12 +8,12 @@
         "projects": [
             {
                 "id": 1,
-                "title": "趣夺夺 / Quduoduo",
+                "title": "Andy Website 2020",
                 "description": "Multi-player real-time online competitive games, users can layout football players and start a competition. You can exchange points by battles and get corresponding prizes.",
                 "responsibility": "Responsible for the idea, project development and maintenance.",
                 "type": "game",
                 "state": "release",
-                "cover": "/static/images/projects/quduoduo.jpg",
+                "cover": "/static/images/projects/personal-website-2020.jpg",
                 "start": "Apr 2001",
                 "end": "Mar 2001",
                 "images": [
