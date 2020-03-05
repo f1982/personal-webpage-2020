@@ -154,17 +154,23 @@ class ParticleCircle {
     public constructor(canvas: any, ctx: any) {
         this.canvas = canvas;
         this.context = ctx;
+
+        console.log('this.canvas.width,this.canvas.height', this.canvas.width, this.canvas.height);
         this.init();
     }
 
     private init() {
+        let winWidth = window.innerWidth;
+        console.log('winWidth', winWidth);
+        let winHeight = window.innerHeight;
+        console.log('winHeight', winHeight);
         for (let i = 0; i < this.numberParticlesStart; i++) {
             const angle = Math.random() * 360;
             const p = new Particle(
                 this.canvas,
                 this.context,
-                this.canvas.width * 0.5 + Math.cos(angle) * this.circleWidth,
-                this.canvas.height * 0.5 - Math.sin(angle) * this.circleWidth
+                winWidth * 0.5 + Math.cos(angle) * this.circleWidth,
+                winHeight * 0.5 - Math.sin(angle) * this.circleWidth
             );
             this.particles.push(p);
         }
