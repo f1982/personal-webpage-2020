@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import SingleButton from '../../comps/SingleButton';
+import { WelcomeAnimation, ParticleCircle } from './canvas';
 
 const Wrapper = styled.div`
     width: 100%;
@@ -26,7 +27,16 @@ const Welcome = (props: any) => {
     useEffect(() => {
         const canvas: any = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
+        resizeCanvas();
+        window.onresize = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            resizeCanvas();
+        };
 
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
         function assignToDiv() {
             // this kind of function you are looking for
             let dataUrl = canvas.toDataURL();
@@ -34,15 +44,8 @@ const Welcome = (props: any) => {
             bg.style.background = 'url(' + dataUrl + ')';
         }
 
-        const draw = () => {
-            // replace with your logic
-            ctx.fillStyle = 'rgb(100, 250, 100)';
-            ctx.fillRect(0, 0, 35, 30);
-            ctx.fillStyle = 'rgba(100, 250, 250, 0.5)';
-            ctx.fillRect(80, 230, 35, 30);
-        };
-
-        draw();
+        // let welcome = new WelcomeAnimation(canvas, ctx);
+        let welcome = new ParticleCircle(canvas, ctx);
         assignToDiv();
 
         return () => {};
@@ -50,13 +53,26 @@ const Welcome = (props: any) => {
     return (
         <Wrapper id='bg'>
             <Centered>
-                <h3>Hey! I'm Andy Cao</h3>
-                <p>Welcome to my space</p>
+                <h3 style={{ letterSpacing: `1rem`, textTransform: `uppercase`, backgroundColor: `#fff` }}>
+                    Hey! I'm Andy Cao
+                </h3>
+                <div
+                    style={{
+                        backgroundColor: `#000`,
+                        color: `#fff`,
+                        width: `max-content`,
+                        margin: `0 auto`,
+                        padding: `0.1rem 1rem`
+                    }}>
+                    {/* <p style={{ backgroundColor: `#000`, color: `#fff`, padding: `0.1rem 1rem` }}> */}
+                    Welcome to my space
+                    {/* </p> */}
+                </div>
                 <Link to='/home'>
-                    <SingleButton>Start</SingleButton>
+                    <SingleButton>ENTER</SingleButton>
                 </Link>
             </Centered>
-            <canvas id='canvas'></canvas>
+            <canvas id='canvas' style={{ backgroundColor: `#fff` }}></canvas>
         </Wrapper>
     );
 };

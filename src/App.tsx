@@ -6,6 +6,8 @@ import routes from './pages';
 import Layout from './layouts/default';
 import Welcome from './pages/welcome';
 
+import GSection from './examples/section';
+
 const App = (props: any) => {
     const { syncAppConfig, settings } = props;
 
@@ -20,6 +22,9 @@ const App = (props: any) => {
             <Helmet titleTemplate='%s - Andy Cao personal website'>
                 <meta name='description' content='An opensource personal website by React' />
             </Helmet>
+            {/* test */}
+            {/* <GSection></GSection> */}
+            {/* test */}
             <Switch>
                 <Route exact path='/'>
                     <Welcome></Welcome>
