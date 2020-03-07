@@ -38,11 +38,9 @@ const LogoSVG = () => {
 const Wrapper = styled.header`
     width: 100%;
     max-width: 1200px;
-    /* margin: 1.5rem auto; */
     text-align: right;
+    margin: 0 auto;
     @media screen and (max-width: 600px) {
-        padding-top: 1rem;
-        padding-right: 1rem;
     }
 `;
 
@@ -61,26 +59,32 @@ let NavMenu: any = styled(animated.nav)`
         margin: 0;
         overflow: auto;
         & li {
-            /* padding: 10px; */
-            /* padding: 1rem; */
-            /* display: inline-block; */
             float: left;
-            @media screen and (max-width: 600px) {
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        margin: 0;
+        ul {
+            display: block;
+            & li {
                 float: none;
             }
         }
     }
 `;
+
 //Use this class name for React Router activeClassName
 NavMenu.navActiveItem = navActiveItem;
 
 const NavButton = styled(NavLink)`
     display: inline-block;
-    box-sizing: border-box;
-    padding: 1rem;
+    padding: 0.75rem;
     border: 1px solid #fff;
     transition: all 0.3s ease 0s;
     color: #eee;
+    width: 100%;
+    text-align: center;
     &:hover {
         /* text-decoration: line-through; */
         color: #fff;
@@ -92,10 +96,12 @@ const NavButton = styled(NavLink)`
 const OutLink = styled.a`
     display: inline-block;
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 0.75rem;
     border: 1px solid #fff;
     transition: all 0.3s ease 0s;
     color: #eee;
+    width: 100%;
+    text-align: center;
     &:hover {
         /* text-decoration: line-through; */
         color: #fff;
@@ -163,7 +169,7 @@ const Header = (props: HeaderPropType = initialProps) => {
             <RightMenuItem onClick={toggle}>
                 <FaBars size='48' color='#ccc' />
             </RightMenuItem>
-            <NavMenu style={springProps}>
+            <NavMenu>
                 <ul>
                     {routes.map((route, index) => (
                         <li key={index}>

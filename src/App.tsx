@@ -28,6 +28,7 @@ const App = (props: any) => {
             <Switch>
                 <Route exact path='/'>
                     <Welcome></Welcome>
+                    {/* <div>test</div> */}
                 </Route>
                 <Route>
                     <Layout>

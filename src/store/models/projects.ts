@@ -25,8 +25,6 @@ const updateImageURLs = (projects: ProjectObject[]) => {
         for (let i = 0; i < object.images.length; i++) {
             object.images[i] = baseUrl + object.images[i];
         }
-
-        console.log('object', object);
     });
 };
 

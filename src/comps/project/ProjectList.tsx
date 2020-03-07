@@ -13,9 +13,10 @@ function useQuery() {
 
 const ProjectsContainer = styled.div`
     display: flex;
+    width: 100%;
+    max-width: 1200px;
     flex-flow: row wrap;
     justify-content: space-between;
-    width: 100%;
     margin: 1rem auto;
     > * {
         margin: 2em 0;
@@ -34,14 +35,11 @@ const ProjectsContainer = styled.div`
         }
     }
     /* <500px */
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
+        width: 80%;
         > * {
             width: 100%;
         }
-    }
-    /* >1200px */
-    @media screen and (min-width: 1200px) {
-        width: 1200px;
     }
 `;
 

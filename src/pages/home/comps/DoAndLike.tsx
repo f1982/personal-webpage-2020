@@ -5,10 +5,9 @@ const Wrapper = styled.div`
     display: flex;
     width: 100%;
     flex-flow: row;
-    margin: 3rem auto;
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 768px) {
         flex-flow: column;
-        margin: 1rem;
+        margin: 0rem;
     }
 `;
 
@@ -37,10 +36,8 @@ const DoAndLike = (props: PropsType) => {
     };
 
     useEffect(() => {
-        console.log('useEffect', window.onscroll);
-        window.onscroll = () => handleScroll();
         return () => {
-            window.onscroll = null;
+            //unsubscripe
         };
     }, []);
 

@@ -26,12 +26,16 @@ const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=OpenSans:400|Lora:400');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
+*{
+  box-sizing:border-box;
+  padding:0;
+  margin: 0;
+}
   html {
     font-size: 16px;
   }
   
   body {
-    margin: 0;
     background-color: white;
     font-family: 'Lora', sans-serif;
     font-weight: 400;
@@ -65,27 +69,27 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 4.209em;
+    font-size: 4.209rem;
   }
 
   h2 {
-    font-size: 3.157em;
+    font-size: 3.157rem;
     line-height: ${myTheme.baseLine * 2.5}rem;
   }
 
   h3 {
-    font-size: 2.369em;
+    font-size: 2.369rem;
     line-height: ${myTheme.baseLine * 2}rem;
   }
 
-  h4 {font-size: 1.777em;}
+  h4 {font-size: 1.777rem;}
 
   h5 {
-    font-size: 1.333em;
+    font-size: 1.333rem;
   }
 
   small, 
-    .text_small {font-size: 0.75em;}
+    .text_small {font-size: 0.75rem;}
     .empty-line {line-height: 2rem;}
 
   .react-icons {

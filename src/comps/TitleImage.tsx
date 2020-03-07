@@ -6,22 +6,28 @@ const Wrapper = styled.div`
     color: #fff;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: left;
+    background-position: center;
+    @media screen and (max-width: 768px) {
+        height: 20rem;
+    }
 `;
 
 const Inner = styled.div`
     width: 100%;
-    margin: 0rem auto;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 2rem;
     box-sizing: border-box;
-    @media screen and (min-width: 1200px) {
-        /* css-code; */
-        width: 1200px;
+    @media screen and (max-width: 768px) {
+        padding: 0.5rem;
     }
 `;
 
 const TextBlock = styled.div`
     width: 620px;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 `;
 const Subtitle = styled.p`
     color: #fff;

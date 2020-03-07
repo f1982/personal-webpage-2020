@@ -4,7 +4,6 @@ import ReactPlayer from 'react-player';
 
 const Wrapper = styled.div`
     display: inline-block;
-    margin: 1rem auto;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -26,7 +25,7 @@ const MyImage = styled.div`
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: left;
+    background-position: center;
 `;
 
 const VideoPlayer = styled(ReactPlayer)`
