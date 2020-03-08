@@ -39,7 +39,7 @@
                 "responsibility": "One of the project manager, responsible for product architecture, technical selection and development team management.",
                 "type": "app",
                 "state": "release",
-                "cover": "/static/images/projects/ysyy.jpg",
+                "cover": "/static/images/projects/quduoduo-cover.jpg",
                 "start": "Mar 2000",
                 "end": "Mar 2001",
                 "images": [
@@ -67,7 +67,7 @@
                 "icon": "",
                 "qrcode": "static/images/projects/dark-planet-qr-code.jpg",
                 "platform": "wechat",
-                "cover": "/static/images/projects/douwang1.png",
+                "cover": "/static/images/projects/thousanddogs-cover.jpg",
                 "start": "2018",
                 "end": "2018",
                 "images": [

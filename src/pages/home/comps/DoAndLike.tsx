@@ -16,6 +16,9 @@ const VerticalContainer = styled.div`
     flex-flow: column;
     padding: 1rem;
     text-align: left;
+    & p {
+        text-align: justify;
+    }
 `;
 
 interface PropsType {
@@ -44,20 +47,12 @@ const DoAndLike = (props: PropsType) => {
     return (
         <Wrapper>
             <VerticalContainer>
-                <div>
-                    <h5>What I Do?</h5>
-                </div>
-                <div>
-                    <p>{props.whatIDo}</p>
-                </div>
+                <h5>What I Do?</h5>
+                <p>{props.whatIDo}</p>
             </VerticalContainer>
             <VerticalContainer>
-                <div>
-                    <h5>Who I Like?</h5>
-                </div>
-                <div>
-                    <p>{props.whatILike}</p>
-                </div>
+                <h5>Who I Like?</h5>
+                <p>{props.whatILike}</p>
             </VerticalContainer>
         </Wrapper>
     );

@@ -98,7 +98,6 @@ const Home = (props: any) => {
                     </IntroRight>
                 </SectionRow>
             </HorizentalExtendBG>
-
             <Row>
                 <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
             </Row>

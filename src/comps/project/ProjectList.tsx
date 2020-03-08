@@ -25,11 +25,11 @@ const ProjectsContainer = styled.div`
     }
     @media screen and (max-width: 1200px) {
         > * {
-            width: 32%;
+            width: 30%;
         }
     }
     /* <900px */
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 950px) {
         > * {
             width: 48%;
         }

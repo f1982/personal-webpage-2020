@@ -4,19 +4,25 @@ import { Link, useRouteMatch, NavLink } from 'react-router-dom';
 import '../assets/styles/test.css';
 
 const Wrapper = styled.div`
-    padding-top: 2rem;
-    padding-right: 4rem;
     text-align: right;
+    @media screen and (max-width: 768px) {
+    }
 `;
 
 const navActiveClassName = 'navActiveClassName';
 let NavBar: any = styled.div`
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
     & .${navActiveClassName} {
         color: #fff;
         background-color: #2ee59d;
         box-shadow: 0px 16px 20px rgba(46, 229, 157, 0.4);
+    }
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
     }
 `;
 NavBar.navActiveClassName = navActiveClassName;
@@ -27,17 +33,12 @@ const NavLinkItem = styled(NavLink)`
     margin-right: 0.5rem;
     font-weight: 500;
     border-radius: 20px;
-    /* color: #fff; */
-    /* background-color: #2ee59d; */
-    /* box-shadow: 0px 16px 20px rgba(46, 229, 157, 0.4); */
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
     &:hover {
         background-color: #2ee534;
         color: #eee;
-        /* transform: translateY(-2px); */
-        /* padding: 0.5rem; */
         border-radius: 10px;
     }
 `;

@@ -13,7 +13,7 @@
             "icon": "",
             "qrcode": "quduoduo_qrcode.jpg",
             "platform": "wechat",
-            "cover": "quduoduo_cover.jpg",
+            "cover": "quduoduo-cover.jpg",
             "start": "Apr 2001",
             "end": "Mar 2001",
             "images": [
@@ -64,7 +64,7 @@
             "icon": "thousanddogs_icon.jpg",
             "qrcode": "thousanddogs_icon.jpg",
             "platform": "wechat",
-            "cover": "thousanddogs_cover.png",
+            "cover": "thousanddogs-cover.jpg",
             "start": "2018",
             "end": "2018",
             "images": ["thousanddogs_1.png", "thousanddogs_2.png", "thousanddogs_3.png"],

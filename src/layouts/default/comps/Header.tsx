@@ -40,6 +40,8 @@ const Wrapper = styled.header`
     max-width: 1200px;
     text-align: right;
     margin: 0 auto;
+    /* display: flex; */
+    /* flex-direction: row; */
     @media screen and (max-width: 600px) {
     }
 `;

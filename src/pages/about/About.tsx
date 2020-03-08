@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet';
 import { Header } from './comps/Header';
 import { Summary } from './comps/Summary';
 import TitleImage from '../../comps/TitleImage';
-import SubMenu from '../../comps/SubMenu';
-import { Experience } from '../../comps/Experience';
+import Submenu from '../../comps/Submenu';
+import { Experience } from '../../comps/TimelineWork';
 import TimelineLife from '../../comps/TimelineLife';
 import { useRouteMatch, Switch, Route } from 'react-router-dom';
 import Introduction from './comps/Introduction';
@@ -14,6 +14,10 @@ const Wrapper = styled.div`
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem;
+    @media screen and (max-width: 768px) {
+        padding: 0.75rem;
+    }
 `;
 
 const About = (props: any) => {
@@ -31,10 +35,6 @@ const About = (props: any) => {
         { id: 'work', url: `${match.url}/work`, title: 'Work Experience' },
         { id: 'life', url: `${match.url}/life`, title: 'Life Experience' },
         { id: 'skill', url: `${match.url}/skill`, title: 'Skills' }
-        // { id: 'intro', url: `/about/intro`, title: 'Introduction', active: true },
-        // { id: 'work', url: `/about/work`, title: 'Work Experience' },
-        // { id: 'life', url: `/about/life`, title: 'Life Experience' },
-        // { id: 'skill', url: `/about/skill`, title: 'Skills' }
     ];
     const imageURL = process.env.PUBLIC_URL + 'static/images/about_img_bar.jpg';
 
@@ -43,7 +43,7 @@ const About = (props: any) => {
             <div id='header'>
                 <Header name='Andy Cao' position='Software Developer'></Header>
             </div>
-            <div style={{ padding: `3rem` }}>
+            <div>
                 <Summary>{props.summary}</Summary>
             </div>
         </>
@@ -58,10 +58,10 @@ const About = (props: any) => {
                 title='About'
                 subtitle='I live in Auckland New Zealand with my wife and 3 years old daughter. I love pour over coffee, I have a cat named Little Black.'
                 backgroundImageURL={imageURL}></TitleImage>
-            <SubMenu items={submenuItems} />
+            <Submenu items={submenuItems} />
             {props.loadedState === 'loaded' ? (
                 <Wrapper>
-                    <div style={{ padding: `3rem` }}>
+                    <div>
                         <Switch>
                             <Route path={`${match.path}/work`}>
                                 <Experience data={props.timelines.works} />

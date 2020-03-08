@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import TitleImage from '../../comps/TitleImage';
 import ProjectList from '../../comps/project/ProjectList';
-import SubMenu from '../../comps/SubMenu';
+import Submenu from '../../comps/Submenu';
 import { Helmet } from 'react-helmet';
 import { Link, Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
 

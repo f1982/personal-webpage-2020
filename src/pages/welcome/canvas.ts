@@ -54,6 +54,7 @@ const getRandomFloat = (min: number, max: number) => {
 };
 
 const getRandomColor = () => {
+    return `rgba(0,0,0,0.3)`;
     let r = Math.round(Math.random() * 255);
     let g = Math.round(Math.random() * 255);
     let b = Math.round(Math.random() * 255);
@@ -146,7 +147,6 @@ class Particle {
 class ParticleCircle {
     private canvas: any;
     private context: any;
-    /* ---- SETTINGS ---- */
     private numberParticlesStart = 500;
     private circleWidth = 180;
     private particles: Particle[] = [];
@@ -158,6 +158,9 @@ class ParticleCircle {
     }
 
     private init() {
+        if (window.innerWidth < 768) {
+            this.circleWidth = 120;
+        }
         for (let i = 0; i < this.numberParticlesStart; i++) {
             const angle = Math.random() * 360;
             const p = new Particle(

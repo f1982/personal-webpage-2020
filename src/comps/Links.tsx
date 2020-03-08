@@ -23,7 +23,7 @@ interface LinksProp {
 
 const LinkContainer = styled.div`
     display: flex;
-    margin: 4rem auto;
+    margin: 1.5rem auto;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center; /* 水平居中 */

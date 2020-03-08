@@ -26,27 +26,24 @@ const Centered = styled.div`
     }
     & p {
         background-color: #fff;
-        color: #000;
+        color: #666;
         width: max-content;
-        margin: 0 auto;
+        margin: 1.5rem auto;
         padding: 0.1rem 1rem;
     }
     @media screen and (max-width: 750px) {
         width: 100%;
         h3 {
             letter-spacing: 0.2rem;
-            font-size: 1.5rem;
-            /* line-height: 3rem; */
-            text-transform: uppercase;
-            background-color: #fff;
+            font-size: 2.25rem;
         }
     }
 `;
-// style={{ letterSpacing: `1rem`, textTransform: `uppercase`, backgroundColor: `#fff` }
-const HeyText = styled.h3``;
-const Title = styled.h1`
-    top: 50vh;
+
+const WelcomeButton = styled(SingleButton)`
+    margin: 1.5rem;
 `;
+
 const WelcomeCanvas = styled.canvas`
     background-color: #fff;
     width: 100%;
@@ -88,10 +85,10 @@ const Welcome = (props: any) => {
     return (
         <Wrapper id='bg'>
             <Centered>
-                <h3>Hey! I'm Andy Cao</h3>
+                <h3>Hey! I'm Andy</h3>
                 <p>Welcome to my space</p>
                 <Link to='/home'>
-                    <SingleButton>ENTER</SingleButton>
+                    <WelcomeButton>ENTER</WelcomeButton>
                 </Link>
             </Centered>
             <WelcomeCanvas id='canvas' />
