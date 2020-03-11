@@ -26,11 +26,12 @@ const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=OpenSans:400|Lora:400');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
-*{
-  box-sizing:border-box;
-  padding:0;
-  margin: 0;
-}
+  * {
+    box-sizing:border-box;
+    padding:0;
+    margin: 0;
+  }
+  
   html {
     font-size: 16px;
   }

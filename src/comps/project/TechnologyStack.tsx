@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TSItem = styled.span`
-    font-family: 'Roboto', sans-serif;
-    padding: 0.2rem 0.4rem;
-    color: #fff;
-    background-color: #1e87f0;
-    border-radius: 0.5rem;
+    font-family: Menlo, Monaco, monospace, 'Courier New';
+    padding: 0.1rem 0.75rem;
+    font-size: 0.75rem;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 0.75rem;
     list-style-type: none;
     :hover {
         background: #555;

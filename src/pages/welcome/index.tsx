@@ -54,6 +54,10 @@ const Welcome = (props: any) => {
     useEffect(() => {
         const canvas: any = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
+
+        const welcome = new ParticleCircle(canvas, ctx);
+        welcome.init();
+
         resizeCanvas();
         window.onresize = () => {
             resizeCanvas();
@@ -63,8 +67,8 @@ const Welcome = (props: any) => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-
-            let welcome = new ParticleCircle(canvas, ctx);
+            welcome.clear();
+            welcome.init();
         }
         /**
          * Set canvas data as a background image

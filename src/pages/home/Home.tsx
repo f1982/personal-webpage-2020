@@ -43,6 +43,7 @@ const IntroLeft = styled.div`
     @media screen and (max-width: 768px) {
         width: 100%;
         margin-right: 0;
+        margin-bottom: 1.5rem;
     }
 `;
 
@@ -85,7 +86,6 @@ const Home = (props: any) => {
                             <img style={{ width: `300px` }} src={hiImageURL} alt='Hi I am Andy' />
                         </div>
                         <h5>Software Developer</h5>
-
                         <Link to='/about/intro'>
                             <SingleButton>Say Hi!</SingleButton>
                         </Link>
