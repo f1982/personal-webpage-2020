@@ -1,5 +1,69 @@
-import React from 'react';
+import React, { useEffect, useRef, FunctionComponent } from 'react';
 import styled from 'styled-components';
+import _ from 'lodash';
+
+const delayTime = `300ms`;
+const currentStyle = 'style1';
+const Layout: any = {
+    style1: {
+        title: {
+            row: `1/3`,
+            column: `1/3`
+        },
+        date: {
+            row: `5`,
+            column: `3/6`
+        },
+        text: {
+            row: `1 / 5`,
+            column: `4 / -1`
+        },
+        image: {
+            row: `4/-1`,
+            column: ` 5/-1`
+        }
+    },
+    style2: {
+        title: {
+            row: `5/-1`,
+            column: `5/-1`
+        },
+        date: {
+            row: `-2`,
+            column: `3/5`
+        },
+        text: {
+            row: `1 / 6`,
+            column: `1 / 5`
+        },
+        image: {
+            row: `1/4`,
+            column: ` 5/-1`
+        }
+    },
+    style3: {
+        title: {
+            row: `2/-1`,
+            column: `1/6`
+        },
+        date: {
+            row: `-2`,
+            column: `3/5`
+        },
+        text: {
+            row: `1 / 6`,
+            column: `1 / 5`
+        },
+        image: {
+            row: `1/4`,
+            column: ` 5/-1`
+        }
+    }
+};
+
+interface StyleProps {
+    accent?: string;
+}
 
 const GSection = styled.section`
     min-height: 100vh;
@@ -10,36 +74,151 @@ const GSection = styled.section`
     scroll-snap-align: start;
 `;
 
-const GGrid = styled.div`
-    display: grid;
-    grid-template-columns: 3fr 2fr 1fr 3fr 1fr 2fr 3fr;
-    grid-template-rows: 2fr 2fr 1fr 1fr 2fr 2fr;
-    gap: 1rem;
-    width: 60rem;
-    max-width: 100%;
+const GGrid = styled.div<StyleProps>`
+    @media (min-width: 758px) {
+        display: grid;
+        grid-template-columns: 3fr 2fr 1fr 3fr 1fr 2fr 3fr;
+        grid-template-rows: 2fr 2fr 1fr 1fr 2fr 2fr;
+        gap: 1rem;
+        width: 60rem;
+        max-width: 100%;
+    }
+
+    &::after {
+        content: '';
+        grid-area: 2 / 2 / -2 / -2;
+        background-color: ${props => props.accent || `#ff0000`};
+        z-index: -1;
+    }
+
+    > * {
+        opacity: 0;
+        /* Read element property of  --distance */
+        transform: translate3d(var(--distance, -2rem), 0, 0);
+        /* Read element property of  --delay */
+        transition: opacity 700ms var(--delay, 0ms), transform 700ms var(--delay, 0ms);
+    }
+
+    &.is-visible {
+        > * {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
 `;
 
-const GridSection = () => {
+interface GridLayoutProps {
+    row: string;
+    column: string;
+}
+const GTitle = styled.h2<GridLayoutProps>`
+    grid-column: ${props => props.column};
+    grid-row: ${props => props.row};
+    text-align: right;
+    margin-bottom: 1rem;
+    border-right: 4px solid;
+    padding-right: 1rem;
+`;
+
+const GDate = styled.div<GridLayoutProps>`
+    font-size: 2rem;
+    grid-column: ${props => props.column};
+    grid-row: ${props => props.row};
+`;
+
+const GText = styled.div<GridLayoutProps>`
+    grid-column: ${props => props.column};
+    grid-row: ${props => props.row};
+`;
+
+const GImg = styled.img<GridLayoutProps>`
+    grid-column: ${props => props.column};
+    grid-row: ${props => props.row};
+
+    border-radius: 0.375rem;
+`;
+
+interface SectionProps extends StyleProps {
+    style?: string;
+    bgColor?: string;
+    title?: string;
+    description?: string;
+    comment?: string;
+    date?: string;
+    imageURL?: string;
+}
+
+const GridSection: React.FC<SectionProps> = ({
+    bgColor,
+    style = 'style1',
+    title = 'Lise Meitner was an Austrian-Swedish',
+    description = `Vera Rubin was an American astronomer who pioneered work on galaxy rotation rates. She uncovered
+    the discrepancy between the predicted angular motion of galaxies and the observed motion, by
+    studying galactic rotation curves. This phenomenon became known as the galaxy rotation problem,
+    and was evidence of the existence of dark matter.`,
+    comment = `Although initially met with skepticism,
+    Rubin's results were confirmed over subsequent decades. Her legacy was described by The New York
+    Times as "ushering in a Copernican-scale change" in cosmological theory`,
+    date = '2020-2022',
+    imageURL = 'https://picsum.photos/300/200'
+}) => {
+    const ref = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        //Setting of every child element
+        //Get all children element
+        const sectionChildren = (ref.current as any).children;
+        for (let i = 0; i < sectionChildren.length; i++) {
+            let el = sectionChildren[i];
+            //set variable for every element inside the grid div
+            el.style.setProperty('--delay', `${i * 200}ms`);
+            el.style.setProperty('--distance', `${_.sample([-2, 2])}rem`);
+        }
+        //Intersection observer
+        //Declare callback function
+        const callback = (entries: any[]) => {
+            entries.forEach(entry => {
+                const { intersectionRatio, target } = entry;
+                console.log(intersectionRatio, target);
+                if (intersectionRatio > 0.25) {
+                    target.classList.add('is-visible');
+                } else {
+                    target.classList.remove('is-visible');
+                }
+            });
+        };
+        //Declare option
+        const opt = {
+            threshold: 0.25
+        };
+        //Declare intersection observer
+        const io = new IntersectionObserver(callback, opt);
+        //Observe element
+        if (ref.current) {
+            io.observe(ref.current as any);
+        }
+
+        return () => {
+            //unobserve
+            io.unobserve(ref.current as any);
+        };
+    }, [ref]);
+
+    const currentStyle: any = Layout[style];
     return (
         <GSection>
-            <GGrid>
-                <h2>Maria Goeppert Mayer</h2>
-                <div>
-                    <time>1906</time> – <time>1972</time>
-                </div>
-                <div>
-                    <p>
-                        Maria Goeppert Mayer was a German-born American theoretical physicist, and Nobel laureate in
-                        Physics for proposing the nuclear shell model of the atomic nucleus. She was the second woman to
-                        win a Nobel Prize in physics In 1986, the Maria Goeppert-Mayer Award for early-career women
-                        physicists was established in her honor.
-                    </p>
-                    <p>
-                        She developed a mathematical model for the structure of nuclear shells, for which she was
-                        awarded the Nobel Prize in Physics in 1963, which she shared with J. Hans D. Jensen and Eugene
-                        Wigner.
-                    </p>
-                </div>
+            <GGrid ref={ref} accent={bgColor}>
+                <GTitle row={currentStyle.title.row} column={currentStyle.title.column}>
+                    {title}
+                </GTitle>
+                <GDate row={currentStyle.date.row} column={currentStyle.date.column}>
+                    <time>{date}</time>
+                </GDate>
+                <GText row={currentStyle.text.row} column={currentStyle.text.column}>
+                    <p>{description}</p>
+                    <p>{comment}</p>
+                </GText>
+                <GImg row={currentStyle.image.row} column={currentStyle.image.column} src={imageURL} />
             </GGrid>
         </GSection>
     );

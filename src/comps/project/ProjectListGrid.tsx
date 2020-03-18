@@ -11,6 +11,12 @@ function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
+const Wrapper = styled.section`
+    width: 100%;
+    max-width: 1200px;
+    margin: 1.5rem auto;
+`;
+
 const ProjectsContainer = styled.div`
     /* flexbox fallback */
     display: flex;
@@ -18,13 +24,6 @@ const ProjectsContainer = styled.div`
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    > * {
-        display: inline-flex;
-        flex-wrap: wrap;
-        flex-basis: 400px;
-        flex-grow: 1;
-        min-width: 400px;
-    }
 `;
 
 const ProjectGrid = (props: any) => {
@@ -56,7 +55,7 @@ const ProjectGrid = (props: any) => {
 
     //return views
     return (
-        <>
+        <Wrapper>
             <ProjectsContainer id='projects'>
                 {filtered.map((item: ProjectObject) => {
                     return (
@@ -73,10 +72,8 @@ const ProjectGrid = (props: any) => {
                     closeHandler={closePopupHandler}>
                     <ProjectDetail itemData={findItem(query.get('id'))} />
                 </Popup>
-            ) : (
-                <></>
-            )}
-        </>
+            ) : null}
+        </Wrapper>
     );
 };
 
