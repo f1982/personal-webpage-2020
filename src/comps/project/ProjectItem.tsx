@@ -70,7 +70,7 @@ const Wrapper = styled.div`
     &:focus,
     &:active {
         box-shadow: 0px 20px 20px 3px rgba(0, 0, 0, 0.5);
-        transform: translateY(-3px) scale(1.05) rotateX(15deg);
+        /* transform: translateY(-3px) scale(1.05) rotateX(15deg); */
         &:after {
             transform: rotate(15deg);
             top: -60%;
@@ -84,7 +84,7 @@ const Wrapper = styled.div`
         }
         ${ProjectName} {
             opacity: 1;
-            transform: translateY(-20px);
+            /* transform: translateY(-20px); */
         }
     }
     /* @media only screen and (max-width: 700px) {

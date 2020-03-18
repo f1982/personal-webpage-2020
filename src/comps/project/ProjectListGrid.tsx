@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Popup } from '../Popup';
 import { ProjectObject } from '../../types/interfaces';
-import { ProjectItem } from './ProjectItem';
+import ProjectItem from './ProjectItemGrid';
 import { ProjectDetail } from './ProjectDetail';
 import ProjectCloseButton from './ProjectCloseButton';
 import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
@@ -11,39 +11,22 @@ function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
-const ProjectsContainer = styled.div`
-    display: flex;
+const Wrapper = styled.section`
     width: 100%;
     max-width: 1200px;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin: 1rem auto;
-    > * {
-        margin: 2em 0;
-        width: 30%;
-        height: 480px;
-    }
-    @media screen and (max-width: 1200px) {
-        > * {
-            width: 30%;
-        }
-    }
-    /* <900px */
-    @media screen and (max-width: 950px) {
-        > * {
-            width: 48%;
-        }
-    }
-    /* <500px */
-    @media screen and (max-width: 768px) {
-        width: 80%;
-        > * {
-            width: 100%;
-        }
-    }
+    margin: 1.5rem auto;
 `;
 
-const Projects = (props: any) => {
+const ProjectsContainer = styled.div`
+    /* flexbox fallback */
+    display: flex;
+    flex-wrap: wrap;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+`;
+
+const ProjectGrid = (props: any) => {
     let history = useHistory();
     let { path, url } = useRouteMatch();
     let query = useQuery();
@@ -72,7 +55,7 @@ const Projects = (props: any) => {
 
     //return views
     return (
-        <>
+        <Wrapper>
             <ProjectsContainer id='projects'>
                 {filtered.map((item: ProjectObject) => {
                     return (
@@ -89,11 +72,9 @@ const Projects = (props: any) => {
                     closeHandler={closePopupHandler}>
                     <ProjectDetail itemData={findItem(query.get('id'))} />
                 </Popup>
-            ) : (
-                <></>
-            )}
-        </>
+            ) : null}
+        </Wrapper>
     );
 };
 
-export default Projects;
+export default ProjectGrid;

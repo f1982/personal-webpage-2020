@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { FaWindowClose } from 'react-icons/fa';
 import '../assets/styles/animation.css';
 
 const FRAME_MARGIN = '10%';
+const ScreenSmallWidth: string = `768px`;
 
 const Wrapper = styled.div`
     position: fixed;
@@ -15,17 +16,16 @@ const Wrapper = styled.div`
     right: 0;
     bottom: 0;
     /* position: relative; */
+    z-index: 9999;
 `;
 const Mask = styled(animated.div)`
     width: 100%;
     height: 100%;
-    z-index: 999;
     background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const Container = styled.div`
     position: absolute;
-    z-index: 1000;
     width: 80%;
     height: auto;
     top: 50%;
@@ -33,23 +33,26 @@ const Container = styled.div`
     transform: translate(-50%, -50%);
     margin: auto;
     background: white;
-    overflow-y: scroll;
+    overflow: auto;
     /* border-radius: 1rem; */
     box-shadow: ${props => props.theme.shadow};
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: ${ScreenSmallWidth}) {
         width: 100%;
+        height: 100vh;
+        padding-top: 3rem;
+        padding-bottom: 6rem;
     }
 `;
 
 const Frame = styled.div`
     position: relative;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 `;
 
 const Border = styled.div`
-    padding: 2rem;
-    @media screen and (max-width: 600px) {
+    padding: 1.5rem;
+    @media screen and (max-width: ${ScreenSmallWidth}) {
         overflow-y: scroll;
     }
 `;
@@ -86,6 +89,14 @@ const Popup = (popupProps: PopupProps) => {
     // console.log('popupProps.closeButton:', popupProps.closeButton);
 
     // const [animateClassName, setAnimateClassName] = useState('bounce-in-top');
+
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, []);
+
     const [props, set] = useSpring(() => ({
         opacity: 1,
         from: { opacity: 0 },

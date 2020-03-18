@@ -13,7 +13,7 @@
             "icon": "",
             "qrcode": "quduoduo_qrcode.jpg",
             "platform": "wechat",
-            "cover": "quduoduo_cover.jpg",
+            "cover": "quduoduo-cover.jpg",
             "start": "Apr 2001",
             "end": "Mar 2001",
             "images": [
@@ -36,7 +36,7 @@
         {
             "id": 2,
             "title": "CBox",
-            "description": "CBox is the most authoritative video client to watch CCTV(China Central Television) and dozens of Chinese local TV programs on the Internet. It has more than 300 million users and it is still growing.",
+            "description": "CBox is the most authoritative video client to watch CCTV (China Central Television) and dozens of Chinese local TV programs on the Internet. It has more than 300 million users and it is still growing.",
             "responsibility": "One of the project manager, responsible for product architecture, technical selection and development team management.",
             "type": "app",
             "state": "release",
@@ -64,7 +64,7 @@
             "icon": "thousanddogs_icon.jpg",
             "qrcode": "thousanddogs_icon.jpg",
             "platform": "wechat",
-            "cover": "thousanddogs_cover.png",
+            "cover": "thousanddogs-cover.jpg",
             "start": "2018",
             "end": "2018",
             "images": ["thousanddogs_1.png", "thousanddogs_2.png", "thousanddogs_3.png"],

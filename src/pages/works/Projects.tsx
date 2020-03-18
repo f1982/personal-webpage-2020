@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import TitleImage from '../../comps/TitleImage';
 import ProjectList from '../../comps/project/ProjectList';
-import SubMenu from '../../comps/SubMenu';
+import ProjectListGrid from '../../comps/project/ProjectListGrid';
+import Submenu from '../../comps/Submenu';
 import { Helmet } from 'react-helmet';
 import { Link, Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ const ProjectCategory = (props: any) => {
         category = 'all';
     }
     console.log('category', category);
-    return <ProjectList data={props.data} category={category}></ProjectList>;
+    return <ProjectListGrid data={props.data} category={category} />;
 };
 
 const imageURL = process.env.PUBLIC_URL + 'static/images/projects_img_bar.jpg';

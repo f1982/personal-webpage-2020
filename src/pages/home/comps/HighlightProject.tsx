@@ -9,9 +9,12 @@ const Wrapper = styled.div`
     text-align: center;
 `;
 const Intro = styled.div`
-    margin: 1rem auto;
+    margin: 1.5rem auto;
     width: 50%;
     text-align: center;
+    @media screen and (max-width: 768px) {
+        width: 90%;
+    }
 `;
 
 export interface HighlightProjectProp {
@@ -30,7 +33,7 @@ const HighlightProjects = (props: any) => {
             </Intro>
 
             <Projects data={props.projects} category='all'></Projects>
-            <div style={{ marginTop: `2rem` }}>
+            <div style={{ marginTop: `1.5rem` }}>
                 <Link to='works'>
                     <SingleButton>MORE</SingleButton>
                 </Link>

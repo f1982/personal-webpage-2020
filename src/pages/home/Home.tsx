@@ -13,23 +13,26 @@ import '../../assets/styles/home-css-animate.css';
 const Wrapper = styled.div`
     /* text-align: center; */
 `;
+const HorizentalExtendBG = styled.div`
+    width: 100%;
+    background-color: #eee;
+`;
 const SectionRow = styled.div`
+    width: 100%;
+    max-width: 1200px;
     display: flex;
-    width: 1200px;
     flex-flow: row;
-    margin: 3rem auto;
-    @media screen and (max-width: 750px) {
+    margin: 1.5rem auto;
+    padding: 1.5rem 0;
+    @media screen and (max-width: 768px) {
         flex-flow: column;
-        margin: 1rem;
+        padding: 0.5rem 0.5rem;
     }
 `;
 const Row = styled.div`
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     margin: 1rem auto;
-    /* 小于 1200px 就 100% */
-    @media screen and (max-width: 1200px) {
-        width: 100%;
-    }
 `;
 
 const IntroLeft = styled.div`
@@ -37,8 +40,10 @@ const IntroLeft = styled.div`
     flex-flow: column;
     width: 300px;
     margin-right: 1.5rem;
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 768px) {
         width: 100%;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
     }
 `;
 
@@ -71,28 +76,28 @@ const Home = (props: any) => {
             <Helmet>
                 <title>Home</title>
             </Helmet>
-            <SectionRow>
-                <IntroLeft>
-                    <div>
-                        <h4>Hi there,</h4>
-                    </div>
-                    <div>
-                        <img style={{ width: `300px` }} src={hiImageURL} alt='Hi I am Andy' />
-                    </div>
-                    <h5>Software Developer</h5>
-
-                    <Link to='/about/intro'>
-                        <SingleButton>Say Hi!</SingleButton>
-                    </Link>
-                </IntroLeft>
-                <IntroRight
-                    style={{
-                        backgroundImage: `url(${bgImageURL})`
-                    }}>
-                    <ShowcaseBox></ShowcaseBox>
-                </IntroRight>
-            </SectionRow>
-
+            <HorizentalExtendBG>
+                <SectionRow>
+                    <IntroLeft>
+                        <div>
+                            <h4>Hi there,</h4>
+                        </div>
+                        <div>
+                            <img style={{ width: `300px` }} src={hiImageURL} alt='Hi I am Andy' />
+                        </div>
+                        <h5>Software Developer</h5>
+                        <Link to='/about/intro'>
+                            <SingleButton>Say Hi!</SingleButton>
+                        </Link>
+                    </IntroLeft>
+                    <IntroRight
+                        style={{
+                            backgroundImage: `url(${bgImageURL})`
+                        }}>
+                        <ShowcaseBox></ShowcaseBox>
+                    </IntroRight>
+                </SectionRow>
+            </HorizentalExtendBG>
             <Row>
                 <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
             </Row>

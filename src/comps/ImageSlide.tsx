@@ -38,14 +38,14 @@ const LeftArrow = styled.a`
     position: absolute;
     top: 50%;
     left: 20px;
-    z-index: 999;
+    z-index: 99;
 `;
 
 const RightArrow = styled.a`
     position: absolute;
     top: 50%;
     right: 20px;
-    z-index: 999;
+    z-index: 99;
 `;
 
 const DisplayInfo = styled.div`

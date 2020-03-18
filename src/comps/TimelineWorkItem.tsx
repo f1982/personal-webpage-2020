@@ -15,6 +15,9 @@ const Wrapper = styled.div`
     flex-wrap: nowrap;
     /* justify-content: center; */
     align-items: center;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 const DateColumn = styled.div`
     /* flex-shrink: 1; */
@@ -36,6 +39,7 @@ const ContentColumn = styled.div`
     }
     & ul {
         width: 100%;
+        padding: 1.5rem;
         & li {
             font-weight: 800;
             /* margin: 2px 5px; */
@@ -48,9 +52,13 @@ const ContentColumn = styled.div`
 const VerticalBar = styled.div`
     display: inline-block;
     height: 160px;
-    border-radius: 1rem;
-    width: 0.6rem;
+    border-radius: 0.75rem;
+    width: 0.75rem;
     background-color: #77b1f6;
+
+    @media screen and (max-width: 768px) {
+        height: 0.75rem;
+    }
 `;
 
 const TimelineItem = (props: TimelineItemProps) => {

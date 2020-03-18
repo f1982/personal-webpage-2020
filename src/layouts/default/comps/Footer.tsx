@@ -2,22 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    /* position: relative; */
+    padding-top: 3rem;
     height: 10rem;
     background-color: #89cebf;
 `;
 const Copyright = styled.div`
-    font-size: 12px;
+    font-size: 10px;
     color: #eee;
-    /* position: absolute; */
-    bottom: 1rem;
     width: 100%;
     text-align: center;
 `;
 const Footer = () => (
     <Wrapper>
-        {/* <h2>Footer</h2> */}
-        <Copyright>@2020 Copyright f1982.com Design by Andy</Copyright>
+        <Copyright>Copyright @2020 f1982.com Design by Andy</Copyright>
     </Wrapper>
 );
 

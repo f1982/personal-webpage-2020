@@ -54,10 +54,11 @@ const getRandomFloat = (min: number, max: number) => {
 };
 
 const getRandomColor = () => {
+    // return `rgba(0,0,0,0.3)`;
     let r = Math.round(Math.random() * 255);
     let g = Math.round(Math.random() * 255);
     let b = Math.round(Math.random() * 255);
-    let a = Math.round(Math.random() * 255);
+    let a = 0.1;
     return `rgba(${r}, ${g}, ${b},${a})`;
 };
 
@@ -72,9 +73,9 @@ class Particle {
         min: getRandomFloat(2, 10),
         max: getRandomFloat(10, 100) / 10
     };
-    private particleSpeed = 0.1;
+    private particleSpeed = 0.05;
     private velocity = 0.9;
-    // private color: string = 'rgba(255, 255, 255, 0.05)';
+    // private color: string = 'rgba(0, 0, 0, 0.05)';
     private color: string = getRandomColor();
 
     public constructor(canvas: any, ctx: any, x: number, y: number) {
@@ -146,14 +147,15 @@ class Particle {
 class ParticleCircle {
     private canvas: any;
     private context: any;
-    /* ---- SETTINGS ---- */
     private numberParticlesStart = 500;
     private circleWidth = 180;
     private particles: Particle[] = [];
+    private count: number = 0;
 
     public constructor(canvas: any, ctx: any) {
         this.canvas = canvas;
         this.context = ctx;
+<<<<<<< HEAD
 
         console.log('this.canvas.width,this.canvas.height', this.canvas.width, this.canvas.height);
         this.init();
@@ -164,6 +166,18 @@ class ParticleCircle {
         console.log('winWidth', winWidth);
         let winHeight = window.innerHeight;
         console.log('winHeight', winHeight);
+=======
+        // this.init();
+    }
+
+    public init() {
+        if (window.innerWidth < 768) {
+            this.circleWidth = 120;
+        } else {
+            this.circleWidth = 180;
+        }
+        this.count = 0;
+>>>>>>> develop
         for (let i = 0; i < this.numberParticlesStart; i++) {
             const angle = Math.random() * 360;
             const p = new Particle(
@@ -178,7 +192,10 @@ class ParticleCircle {
             this.draw();
         });
     }
-
+    public clear() {
+        window.requestAnimationFrame(() => {});
+        this.particles = [];
+    }
     private draw() {
         // this.context.clearRect(0, 0, this.canvas.width, this.canvas.height); // clear canvas
 
@@ -189,9 +206,13 @@ class ParticleCircle {
             p.render();
         }
 
-        window.requestAnimationFrame(() => {
-            this.draw();
-        });
+        this.count++;
+        if (this.count < 1000) {
+            window.requestAnimationFrame(() => {
+                this.draw();
+            });
+        }
+        // console.log(this.count);
     }
 }
 
