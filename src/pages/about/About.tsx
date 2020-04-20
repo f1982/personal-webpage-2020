@@ -9,6 +9,7 @@ import { Experience } from '../../comps/TimelineWork';
 import TimelineLife from '../../comps/TimelineLife';
 import { useRouteMatch, Switch, Route } from 'react-router-dom';
 import Introduction from './comps/Introduction';
+import * as log from 'loglevel';
 
 const Wrapper = styled.div`
     width: 100%;
@@ -21,10 +22,10 @@ const Wrapper = styled.div`
 `;
 
 const About = (props: any) => {
-    console.log('props', props);
+    log.info('props', props);
     const { syncInfo } = props;
     const match = useRouteMatch();
-    console.log('About page match', match);
+    log.info('About page match', match);
 
     useEffect(() => {
         syncInfo();

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Links } from '../../comps/Links';
 import ShowcaseBox from './comps/ShowcaseBox';
-import ContactForm from '../../comps/ContactForm';
 import DoAndLike from '../../pages/home/comps/DoAndLike';
 import '../../assets/styles/home-css-animate.css';
 
@@ -108,9 +107,6 @@ const Home = (props: any) => {
                 }}
             />
             <Links data={props.sns} category='all'></Links>
-            <Row>
-                <ContactForm />
-            </Row>
         </Wrapper>
     );
 };

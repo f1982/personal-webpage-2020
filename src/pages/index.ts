@@ -19,5 +19,10 @@ export default [
         title: 'About',
         path: '/about',
         component: require('./about/').default
+    },
+    {
+        title: 'Contact',
+        path: '/contact',
+        component: require('./contact/').default
     }
 ];

@@ -16,7 +16,7 @@ const Row1200 = styled.div`
     width: 100%;
     height: 100%;
     flex-flow: row;
-    margin: ${props => props.theme.baseLine * 2}rem auto;
+    margin: ${(props) => props.theme.baseLine * 2}rem auto;
     /* background-color: #ffcc00; */
 
     @media screen and (min-width: 1200px) {
@@ -32,7 +32,7 @@ const Row12001 = styled.div`
     width: 100%;
     height: 100%;
     /* flex-flow: column; */
-    margin: ${props => props.theme.baseLine * 2}rem auto;
+    margin: ${(props) => props.theme.baseLine * 2}rem auto;
     /* background-color: #ffcc00; */
     text-align: center;
     color: #fff;
@@ -49,7 +49,7 @@ const LeftSide = styled.div`
     img {
         width: 100%;
         height: auto;
-        margin: ${props => props.theme.baseLine}rem auto;
+        margin: ${(props) => props.theme.baseLine}rem auto;
     }
     @media screen and (max-width: 750px) {
         width: 100%;
@@ -57,7 +57,7 @@ const LeftSide = styled.div`
 `;
 const RightSide = styled.div`
     width: 60%;
-    padding: ${props => props.theme.baseLine}rem;
+    padding: ${(props) => props.theme.baseLine}rem;
     /* border: 1px solid #ff0000; */
     box-sizing: border-box;
     @media screen and (max-width: 750px) {
