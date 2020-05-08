@@ -7,11 +7,15 @@ import Layout from './layouts/default';
 import Welcome from './pages/welcome';
 
 import GSection from './examples/section';
+import * as log from 'loglevel';
 
+log.disableAll();
 const App = (props: any) => {
     const { syncAppConfig, settings } = props;
 
     useEffect(() => {
+        log.info('hello, i am loglevel');
+
         syncAppConfig();
     }, [syncAppConfig]);
 
@@ -52,7 +56,7 @@ const App = (props: any) => {
                 </Route>
                 <Route>
                     <Layout>
-                        {routes.map(route => (
+                        {routes.map((route) => (
                             <Route key={route.path} path={route.path} exact={route.exact} component={route.component} />
                         ))}
                     </Layout>

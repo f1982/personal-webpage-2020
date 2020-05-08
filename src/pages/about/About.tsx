@@ -4,12 +4,13 @@ import { Helmet } from 'react-helmet';
 import { Header } from './comps/Header';
 import { Summary } from './comps/Summary';
 import TitleImage from '../../comps/TitleImage';
-import Submenu from '../../comps/Submenu';
+// import Submenu from '../../comps/Submenu';
 import { Experience } from '../../comps/TimelineWork';
 import TimelineLife from '../../comps/TimelineLife';
 import { useRouteMatch, Switch, Route } from 'react-router-dom';
 import Introduction from './comps/Introduction';
-
+import * as log from 'loglevel';
+//sdf
 const Wrapper = styled.div`
     width: 100%;
     max-width: 1200px;
@@ -21,10 +22,10 @@ const Wrapper = styled.div`
 `;
 
 const About = (props: any) => {
-    console.log('props', props);
+    log.info('props', props);
     const { syncInfo } = props;
     const match = useRouteMatch();
-    console.log('About page match', match);
+    log.info('About page match', match);
 
     useEffect(() => {
         syncInfo();
@@ -58,7 +59,7 @@ const About = (props: any) => {
                 title='About'
                 subtitle='I live in Auckland New Zealand with my wife and 3 years old daughter. I love pour over coffee, I have a cat named Little Black.'
                 backgroundImageURL={imageURL}></TitleImage>
-            <Submenu items={submenuItems} />
+            {/* <Submenu items={submenuItems} /> */}
             {props.loadedState === 'loaded' ? (
                 <Wrapper>
                     <div>

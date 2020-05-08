@@ -5,6 +5,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import routes from '../../../pages';
 import '../../../assets/styles/test.css';
+import log from 'loglevel';
 
 const LogoSVG = () => {
     return (
@@ -158,7 +159,7 @@ const Header = (props: HeaderPropType = initialProps) => {
      * 切换显示菜单状态
      */
     const toggle = () => {
-        console.log('toggle');
+        log.info('toggle');
         setIsCollapsed(!isCollapsed);
     };
 

@@ -1,0 +1,52 @@
+{
+    "status_code": 0,
+    "status_msg": "ok",
+    "last_update": "",
+    "data": {
+        "RC": [
+            {
+                "id": 1,
+                "name": "QDD",
+                "description": "Multi-player real-time online competitive games, users can layout football players and start a competition. You can exchange points by battles and get corresponding prizes.",
+                "type": "RC",
+                "state": "abandon",
+                "cover": "quduoduo-cover.jpg",
+                "start": "Apr 2001",
+                "end": "Mar 2001",
+                "images": ["quduoduo_1.jpg", "quduoduo_2.jpg", "quduoduo_3.jpg"],
+                "link": "",
+                "video": ""
+            }
+        ],
+        "video": [
+            {
+                "id": 1,
+                "name": "QDD",
+                "description": "Multi-player real-time online competitive games, users can layout football players and start a competition. You can exchange points by battles and get corresponding prizes.",
+                "type": "RC",
+                "state": "abandon",
+                "cover": "quduoduo-cover.jpg",
+                "start": "Apr 2001",
+                "end": "Mar 2001",
+                "images": ["quduoduo_1.jpg", "quduoduo_2.jpg", "quduoduo_3.jpg"],
+                "link": "",
+                "video": ""
+            }
+        ],
+        "computer": [
+            {
+                "id": 1,
+                "name": "MacBook Pro 13 2009",
+                "description": "Multi-player real-time online competitive games, users can layout football players and start a competition. You can exchange points by battles and get corresponding prizes.",
+                "type": "RC",
+                "state": "abandon",
+                "cover": "quduoduo-cover.jpg",
+                "start": "Apr 2001",
+                "end": "Mar 2001",
+                "images": ["quduoduo_1.jpg", "quduoduo_2.jpg", "quduoduo_3.jpg"],
+                "link": "",
+                "video": ""
+            }
+        ]
+    }
+}

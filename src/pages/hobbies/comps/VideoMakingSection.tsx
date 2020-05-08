@@ -1,6 +1,12 @@
 import React, { useEffect, useRef, FunctionComponent } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
+import { Link, useHistory, useRouteMatch, useLocation } from 'react-router-dom';
+import log from 'loglevel';
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 const delayTime = `300ms`;
 const currentStyle = 'style1';
@@ -11,8 +17,8 @@ const Layout: any = {
             column: `1/3`
         },
         date: {
-            row: `5`,
-            column: `3/6`
+            row: `3/4`,
+            column: `2/5`
         },
         text: {
             row: `1 / 5`,
@@ -20,43 +26,7 @@ const Layout: any = {
         },
         image: {
             row: `4/-1`,
-            column: ` 5/-1`
-        }
-    },
-    style2: {
-        title: {
-            row: `5/-1`,
-            column: `5/-1`
-        },
-        date: {
-            row: `-2`,
-            column: `3/5`
-        },
-        text: {
-            row: `1 / 6`,
-            column: `1 / 5`
-        },
-        image: {
-            row: `1/4`,
-            column: ` 5/-1`
-        }
-    },
-    style3: {
-        title: {
-            row: `2/-1`,
-            column: `1/6`
-        },
-        date: {
-            row: `-2`,
-            column: `3/5`
-        },
-        text: {
-            row: `1 / 6`,
-            column: `1 / 5`
-        },
-        image: {
-            row: `1/4`,
-            column: ` 5/-1`
+            column: ` 4/-1`
         }
     }
 };
@@ -66,7 +36,7 @@ interface StyleProps {
 }
 
 const GSection = styled.section`
-    min-height: 100vh;
+    min-height: 80vh;
     padding: 1rem;
     display: flex;
     justify-content: center;
@@ -87,7 +57,7 @@ const GGrid = styled.div<StyleProps>`
     &::after {
         content: '';
         grid-area: 2 / 2 / -2 / -2;
-        background-color: ${props => props.accent || `#ff0000`};
+        background-color: ${(props) => props.accent || `#ff0000`};
         z-index: -1;
     }
 
@@ -113,8 +83,8 @@ interface GridLayoutProps {
 }
 
 const GTitle = styled.h2<GridLayoutProps>`
-    grid-column: ${props => props.column};
-    grid-row: ${props => props.row};
+    grid-column: ${(props) => props.column};
+    grid-row: ${(props) => props.row};
     text-align: right;
     margin-bottom: 1rem;
     border-right: 4px solid;
@@ -123,19 +93,18 @@ const GTitle = styled.h2<GridLayoutProps>`
 
 const GDate = styled.div<GridLayoutProps>`
     font-size: 2rem;
-    grid-column: ${props => props.column};
-    grid-row: ${props => props.row};
+    grid-column: ${(props) => props.column};
+    grid-row: ${(props) => props.row};
 `;
 
 const GText = styled.div<GridLayoutProps>`
-    grid-column: ${props => props.column};
-    grid-row: ${props => props.row};
+    grid-column: ${(props) => props.column};
+    grid-row: ${(props) => props.row};
 `;
 
 const GImg = styled.img<GridLayoutProps>`
-    grid-column: ${props => props.column};
-    grid-row: ${props => props.row};
-
+    grid-column: ${(props) => props.column};
+    grid-row: ${(props) => props.row};
     border-radius: 0.375rem;
 `;
 
@@ -149,10 +118,10 @@ interface SectionProps extends StyleProps {
     imageURL?: string;
 }
 
-const GridSection: React.FC<SectionProps> = ({
+const VideoMakingSection: React.FC<SectionProps> = ({
     bgColor,
     style = 'style1',
-    title = 'Lise Meitner was an Austrian-Swedish',
+    title = 'Video Making',
     description = `Vera Rubin was an American astronomer who pioneered work on galaxy rotation rates. She uncovered
     the discrepancy between the predicted angular motion of galaxies and the observed motion, by
     studying galactic rotation curves. This phenomenon became known as the galaxy rotation problem,
@@ -163,6 +132,10 @@ const GridSection: React.FC<SectionProps> = ({
     date = '2020-2022',
     imageURL = 'https://picsum.photos/300/200'
 }) => {
+    let history = useHistory();
+    let { path, url } = useRouteMatch();
+    let query = useQuery();
+
     const ref = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -178,9 +151,9 @@ const GridSection: React.FC<SectionProps> = ({
         //Intersection observer
         //Declare callback function
         const callback = (entries: any[]) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 const { intersectionRatio, target } = entry;
-                console.log(intersectionRatio, target);
+                log.info(intersectionRatio, target, '');
                 if (intersectionRatio > 0.25) {
                     target.classList.add('is-visible');
                 } else {
@@ -219,10 +192,19 @@ const GridSection: React.FC<SectionProps> = ({
                     <p>{description}</p>
                     <p>{comment}</p>
                 </GText>
-                <GImg row={currentStyle.image.row} column={currentStyle.image.column} src={imageURL} />
+                {/* <GImg row={currentStyle.image.row} column={currentStyle.image.column} src={imageURL} /> */}
+                <div style={{ gridRow: `4/-1`, gridColumn: `4/-1` }}>
+                    <ul>
+                        <li>http://www.youtube.com</li>
+                        <li>http://www.youtube.com</li>
+                        <li>http://www.youtube.com</li>
+                        <li>http://www.youtube.com</li>
+                    </ul>
+                    <Link to={`${url}/making-video`}>Detail</Link>
+                </div>
             </GGrid>
         </GSection>
     );
 };
 
-export default GridSection;
+export default VideoMakingSection;
