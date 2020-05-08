@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import TitleImage from '../../comps/TitleImage';
 import ProjectList from '../../comps/project/ProjectList';
 import ProjectListGrid from '../../comps/project/ProjectListGrid';
-import Submenu from '../../comps/Submenu';
+import Submenu from '../../comps/SubMenu2';
 import { Helmet } from 'react-helmet';
 import { Link, Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
 
