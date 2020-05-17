@@ -33,12 +33,12 @@ const CurrentMap = (props: any) => {
 
 const Wrapper = styled.div`
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--content-max-width);
     display: flex;
     flex-flow: column;
     margin: 1.5rem auto;
     padding: 1.5rem 0;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: var(--mobile-screen-width)) {
         flex-flow: column;
         padding: 0.5rem 0.5rem;
     }

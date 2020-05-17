@@ -1,11 +1,10 @@
-import React, { useLayoutEffect, useState } from 'react';
-import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
-import { NavLink, Link } from 'react-router-dom';
-import { FaBars } from 'react-icons/fa';
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { FaBars, FaWindowClose } from 'react-icons/fa';
 import routes from '../../../pages';
-import '../../../assets/styles/test.css';
-import log from 'loglevel';
+import menuStyles from '../../../assets/styles/menubar.module.css';
+import ResponsiveMenuBar from '../../../comps/MenuBar';
 
 const LogoSVG = () => {
     return (
@@ -36,162 +35,129 @@ const LogoSVG = () => {
     );
 };
 
-const ScreenSmallWidth: string = `768px`;
+const ScreenSmallWidth: number = 768;
 
 const Wrapper = styled.header`
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    height: 6rem;
+    background-color: #fff;
+`;
+
+const Inner = styled.div`
     width: 100%;
     max-width: 1200px;
-    text-align: right;
+    height: 100%;
+    display: flex;
+    align-items: center;
     margin: 0 auto;
-    @media screen and (max-width: ${ScreenSmallWidth}) {
-    }
+    padding: 0 1rem;
 `;
 
-const navActiveItem = 'navActiveItem';
-let NavMenu: any = styled(animated.nav)`
-    margin: 1.5rem;
-    & .${navActiveItem} {
-        color: #fff;
-        font-weight: 700;
-        border: 1px solid #7ce0c4;
-        background-color: #7ce0c4;
-    }
-    ul {
-        display: inline-block;
-        list-style-type: none;
-        margin: 0;
-        overflow: auto;
-        & li {
-            float: left;
-        }
-    }
-
-    @media screen and (max-width: ${ScreenSmallWidth}) {
-        margin: 0;
-        ul {
-            display: block;
-            & li {
-                float: none;
-                border-bottom: 1px solid #eee;
-            }
-        }
-    }
+const Spacer = styled.div`
+    flex: 1;
 `;
 
-//Use this class name for React Router activeClassName
-NavMenu.navActiveItem = navActiveItem;
-
-const NavButton = styled(NavLink)`
+// base button style
+const ButtonStyle = css`
+    font-family: 'Lalezar';
+    font-size: 1.5rem;
+    font-weight: 700;
     display: inline-block;
+    position: relative;
+    margin: 0.5rem 0;
     padding: 0.5rem 1rem;
     border: 1px solid #fff;
-    transition: all 0.3s ease 0s;
-    color: #eee;
-    width: 100%;
     text-align: center;
+
+    span {
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
+        transform: translate(0, -20px);
+        opacity: 0;
+    }
+    &::before {
+        content: attr(data-text);
+        position: absolute;
+        left: 20;
+        transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
+        opacity: 1;
+        transform: translate(0, 0px);
+    }
+    &::after {
+        content: attr(data-mark);
+    }
+    &:link,
+    :visited {
+        color: #333;
+    }
     &:hover {
         color: #fff;
         background-color: #7ce0c4;
         border: 1px solid #7ce0c4;
+        span {
+            opacity: 1;
+            transform: translate(0, 0px);
+        }
+        &::before {
+            content: attr(data-text);
+            background-color: #000;
+            opacity: 0;
+            transform: translate(0, 20px);
+        }
     }
+`;
+const NavButton = styled(NavLink)`
+    ${ButtonStyle}
 `;
 
 const OutLink = styled.a`
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 0.5rem 1rem;
-    border: 1px solid #fff;
-    transition: all 0.3s ease 0s;
-    color: #eee;
-    width: 100%;
-    text-align: center;
-    &:hover {
-        /* text-decoration: line-through; */
-        color: #fff;
-        background-color: #7ce0c4;
-        border: 1px solid #7ce0c4;
-    }
+    ${ButtonStyle}
 `;
 
-const RightMenuItem = styled.a`
-    height: 50px;
-    display: none;
-    @media screen and (max-width: 600px) {
-        display: block;
-    }
-`;
-
-interface HeaderPropType {
-    menuCollapse?: boolean;
-}
-
-const initialProps: HeaderPropType = {
-    menuCollapse: false
-};
-
-const Header = (props: HeaderPropType = initialProps) => {
-    const [isCollapsed, setIsCollapsed] = useState(true);
-    const [springProps, set] = useSpring(() => ({ opacity: 0, display: `none` }));
-
-    // Update spring with new props
-    set({
-        opacity: isCollapsed === false ? 1 : 0,
-        display: isCollapsed === false ? `inline-block` : `none`
-    });
-
-    /**
-     * 监控窗口变化，如果窗口大于 600px 显示顶部导航
-     */
-    useLayoutEffect(() => {
-        function updateSize() {
-            if (window.innerWidth > 600 && isCollapsed === true) {
-                setIsCollapsed(false);
-            } else if (window.innerWidth <= 600) {
-                setIsCollapsed(true);
-            }
-        }
-        window.addEventListener('resize', updateSize);
-        updateSize();
-        return () => window.removeEventListener('resize', updateSize);
-    }, [isCollapsed]);
-
-    /**
-     * 切换显示菜单状态
-     */
-    const toggle = () => {
-        log.info('toggle');
-        setIsCollapsed(!isCollapsed);
-    };
-
-    /**
-     * Views
-     */
+const Header = (props: any) => {
     return (
-        <Wrapper>
-            {/* <LogoSVG /> */}
-            <RightMenuItem onClick={toggle}>
-                <FaBars size='48' color='#ccc' />
-            </RightMenuItem>
-            <NavMenu>
-                <ul>
-                    {routes.map((route, index) => (
-                        <li key={index}>
-                            <NavButton exact={route.exact} to={route.path} activeClassName={NavMenu.navActiveItem}>
-                                {route.title}
-                            </NavButton>
-                        </li>
-                    ))}
-                    <li>
-                        <OutLink href='http://blog.f1982.com' target='_blank' rel='noopener noreferrer'>
-                            Blog
+        <>
+            <Wrapper>
+                <Inner>
+                    <LogoSVG />
+                    <Spacer />
+                    <ResponsiveMenuBar
+                        toggleCloseIcon={<FaWindowClose size='32' />}
+                        toggleOpenIcon={<FaBars size='32' />}>
+                        {routes.map((route, index) => {
+                            return (
+                                <NavButton
+                                    data-text={route.title}
+                                    data-mark={route.mark}
+                                    key={index}
+                                    exact={route.exact}
+                                    to={route.path}
+                                    activeClassName={menuStyles.activeNavLink}>
+                                    <span>!{route.title}!</span>
+                                </NavButton>
+                            );
+                        })}
+                        {/* <OutLink
+                            data-text='Blog'
+                            href='http://blog.f1982.com'
+                            target='_blank'
+                            rel='noopener noreferrer'>
+                            <span>Blog</span>
                         </OutLink>
-                    </li>
-                    <li>
-                        <OutLink href='#'>Resume</OutLink>
-                    </li>
-                </ul>
-            </NavMenu>
-        </Wrapper>
+
+                        <OutLink data-text='Resume' href='#'>
+                            <span>Resume</span>
+                        </OutLink> */}
+                    </ResponsiveMenuBar>
+                </Inner>
+            </Wrapper>
+        </>
     );
 };
 

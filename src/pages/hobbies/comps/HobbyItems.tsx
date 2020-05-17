@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import SingleButton from '../../../comps/SingleButton';
 
+const MaxContentWidth: number = 900;
+const MobileScreeWidth: number = 768;
+
 const ItemWrapper = styled.section`
     width: 100%;
 `;
@@ -19,7 +22,7 @@ const Row1200 = styled.div`
     margin: ${(props) => props.theme.baseLine * 2}rem auto;
     /* background-color: #ffcc00; */
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: ${MaxContentWidth}px) {
         width: 1200px;
     }
     @media screen and (max-width: 750px) {

@@ -20,12 +20,17 @@ const myTheme: DefaultTheme = {
     }
 };
 
-const baseLine = 1.5;
-
+const baseLine = 1.0;
+const PrimaryFont = 'DM Mono';
+const SecondaryFont = 'Lalezar';
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=OpenSans:400|Lora:400');
+    @import url('https://fonts.googleapis.com/css?family=${PrimaryFont}:400|${PrimaryFont}:400');
+    @import url('https://fonts.googleapis.com/css?family=${SecondaryFont}:400|${SecondaryFont}:400');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-
+  :root{
+    --content-max-width: 900px;
+    --mobile-screen-width: 768px;
+  }
   * {
     box-sizing:border-box;
     padding:0;
@@ -38,9 +43,9 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     background-color: white;
-    font-family: 'Lora', sans-serif;
+    font-family: ${PrimaryFont}, sans-serif;
     font-weight: 400;
-    line-height: ${myTheme.baseLine};
+    line-height: ${myTheme.baseLine}rem;
     color: #333;
   }
 
@@ -64,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5 {
     margin: ${myTheme.baseLine}rem 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: ${SecondaryFont}, sans-serif;
     font-weight: 700;
     line-height: ${myTheme.baseLine}rem;
   }

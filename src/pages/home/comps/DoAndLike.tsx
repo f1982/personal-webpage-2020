@@ -1,5 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import ReactPlaceholder from 'react-placeholder';
+import 'react-placeholder/lib/reactPlaceholder.css';
+import { TextBlock } from 'react-placeholder/lib/placeholders';
 
 const Wrapper = styled.div`
     display: flex;
@@ -27,8 +30,6 @@ interface PropsType {
 }
 
 const DoAndLike = (props: PropsType) => {
-    // const [className, setClassName] = useState('hidden');
-
     const handleScroll = () => {
         // console.log('scrollTop:', document.documentElement.scrollTop);
         // if (document.documentElement.scrollTop > 25) {
@@ -39,6 +40,7 @@ const DoAndLike = (props: PropsType) => {
     };
 
     useEffect(() => {
+        // setReady(true);
         return () => {
             //unsubscripe
         };
@@ -50,6 +52,7 @@ const DoAndLike = (props: PropsType) => {
                 <h5>What I Do?</h5>
                 <p>{props.whatIDo}</p>
             </VerticalContainer>
+
             <VerticalContainer>
                 <h5>Who I Like?</h5>
                 <p>{props.whatILike}</p>

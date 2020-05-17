@@ -18,4 +18,5 @@ const mapStatesToProps = (rootState: any) => {
 const mapDispatchToProps = (dispatch: any) => ({
     syncInfo: dispatch.about.syncInfo
 });
+
 export default connect(mapStatesToProps, mapDispatchToProps)(About);
