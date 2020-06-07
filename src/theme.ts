@@ -21,11 +21,10 @@ const myTheme: DefaultTheme = {
 };
 
 const baseLine = 1.0;
-const PrimaryFont = 'Myriad Pro';
-const SecondaryFont = 'Lalezar';
+const PrimaryFont = 'OpenSans';
+const SecondaryFont = 'Lora';
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=${PrimaryFont}:400|${PrimaryFont}:400');
-    @import url('https://fonts.googleapis.com/css?family=${SecondaryFont}:400|${SecondaryFont}:400');
+    @import url('https://fonts.googleapis.com/css?family=${PrimaryFont}:400|${SecondaryFont}:400');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
   :root{
     --content-max-width: 900px;
