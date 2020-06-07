@@ -18,6 +18,7 @@ import {
 interface LinksProp {
     data: LinkObject[];
     category: string;
+    padding?: string;
     introduce?: string;
 }
 
@@ -46,8 +47,8 @@ const Links = (props: LinksProp) => {
         <LinkContainer>
             <IconContext.Provider
                 value={{
-                    color: '#666',
-                    size: '50',
+                    color: '#EFC854',
+                    size: '40',
                     style: { verticalAlign: 'middle' }
                 }}>
                 {data.map((item: LinkObject, index: number) => {

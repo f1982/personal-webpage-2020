@@ -21,7 +21,7 @@ const myTheme: DefaultTheme = {
 };
 
 const baseLine = 1.0;
-const PrimaryFont = 'DM Mono';
+const PrimaryFont = 'Myriad Pro';
 const SecondaryFont = 'Lalezar';
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=${PrimaryFont}:400|${PrimaryFont}:400');
@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${PrimaryFont}, sans-serif;
     font-weight: 400;
     line-height: ${myTheme.baseLine}rem;
-    color: #333;
+    color: #4A4A4A;
   }
 
   a ,a:link ,a:active ,a:visited { 
@@ -69,9 +69,11 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5 {
     margin: ${myTheme.baseLine}rem 0;
-    font-family: ${SecondaryFont}, sans-serif;
-    font-weight: 700;
-    line-height: ${myTheme.baseLine}rem;
+    font-family: ${PrimaryFont}, sans-serif;
+    font-style:italic;
+    font-weight: bold;
+    letter-spacing: -3px;
+    /* line-height: ${myTheme.baseLine}*2rem; */
   }
 
   h1 {
@@ -85,8 +87,24 @@ const GlobalStyle = createGlobalStyle`
 
   h3 {
     font-size: 2.369rem;
+    display: inline-block;
     line-height: ${myTheme.baseLine * 2}rem;
+    padding: 0 1rem 0 0.75rem;
+    margin: 0;
+    font-size: 3rem;
+    background: linear-gradient(#efc854, #efc854) no-repeat;
+    background-size: 100% 8px;
+    background-position: 0 1.8rem;
   }
+  /* h3::before {
+    content:'';
+    width:100%;
+    position:absolute;
+    height: 5px;
+    left:0;
+    bottom: 10%;
+    background-color: #EFC854;
+  } */
 
   h4 {font-size: 1.777rem;}
 

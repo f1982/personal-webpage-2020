@@ -11,49 +11,36 @@ import '../../assets/styles/home-css-animate.css';
 import ReactPlaceholder from 'react-placeholder';
 import 'react-placeholder/lib/reactPlaceholder.css';
 import { RectShape, TextBlock } from 'react-placeholder/lib/placeholders';
+import { SectionWide, SectionNarrow } from '../../layouts/default';
+import HeyThere from './comps/HeyThere';
 
 const Wrapper = styled.div`
     /* text-align: center; */
 `;
 const HorizentalExtendBG = styled.div`
     width: 100%;
-    background-color: #eee;
+    /* z-index: 1; */
+    background-color: #efc854;
+    box-sizing: content-box;
 `;
-const SectionRow = styled.div`
+const ShowcaseBar = styled.div`
     width: 100%;
-    max-width: 1200px;
     display: flex;
     flex-flow: row;
-    margin: 1.5rem auto;
-    padding: 1.5rem 0;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: center;
+    /* margin: 1.5rem auto; */
+    padding: 3rem 0;
     @media screen and (max-width: 768px) {
         flex-flow: column;
         padding: 0.5rem 0.5rem;
     }
 `;
 
-const Row = styled.div`
-    width: 100%;
-    max-width: 1200px;
-    margin: 1rem auto;
-`;
-
-const IntroLeft = styled.div`
-    display: flex;
-    flex-flow: column;
-    width: 300px;
-    margin-right: 1.5rem;
-    @media screen and (max-width: 768px) {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 1.5rem;
-    }
-`;
-
 const IntroRight = styled.div`
-    margin-left: 1rem;
-    flex: 1;
-    flex-shrink: 0;
+    width: 764px;
+    height: 430px;
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: right;
@@ -103,7 +90,6 @@ const Home = (props: any) => {
     const [ready, setReady] = useState(false);
 
     const { syncHome } = props;
-    const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
     const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
 
     useEffect(() => {
@@ -118,46 +104,38 @@ const Home = (props: any) => {
             </Helmet>
 
             <HorizentalExtendBG>
-                <SectionRow>
-                    <ReactPlaceholder style={IntroLeftHolderStyle} type='media' rows={7} ready={ready}>
-                        <IntroLeft>
-                            <div>
-                                <h4>Hi there,</h4>
-                            </div>
-                            <div>
-                                <img style={{ width: `300px` }} src={hiImageURL} alt='Hi I am Andy' />
-                            </div>
-                            <h5>Software Developer</h5>
-                            <Link to='/about/intro'>
-                                <SingleButton>Say Hi!</SingleButton>
-                            </Link>
-                        </IntroLeft>
-                    </ReactPlaceholder>
-                    <IntroRight
-                        style={{
-                            backgroundImage: `url(${bgImageURL})`
-                        }}>
+                <div style={{ width: `100%`, maxWidth: `970px`, margin: `0 auto` }}>
+                    <ShowcaseBar>
                         <ReactPlaceholder style={IntroLeftHolderStyle} type='media' rows={7} ready={ready}>
-                            <ShowcaseBox />
+                            <HeyThere />
                         </ReactPlaceholder>
-                    </IntroRight>
-                </SectionRow>
+                        <IntroRight>
+                            <ReactPlaceholder style={IntroLeftHolderStyle} type='media' rows={7} ready={ready}>
+                                <ShowcaseBox />
+                            </ReactPlaceholder>
+                        </IntroRight>
+                    </ShowcaseBar>
+                </div>
             </HorizentalExtendBG>
-            <Row>
-                <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
-            </Row>
 
-            <ReactPlaceholder
-                style={HorizentalCenteredHolder}
-                ready={ready}
-                customPlaceholder={HighlightProjectPlaceholder}>
-                <HighlightProject
-                    projects={props.projects}
-                    moreProjectCallback={() => {
-                        console.log('more project callback');
-                    }}
-                />
-            </ReactPlaceholder>
+            <SectionNarrow>
+                <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
+            </SectionNarrow>
+
+            <SectionNarrow>
+                <ReactPlaceholder
+                    style={HorizentalCenteredHolder}
+                    ready={ready}
+                    customPlaceholder={HighlightProjectPlaceholder}>
+                    <HighlightProject
+                        projects={props.projects}
+                        moreProjectCallback={() => {
+                            console.log('more project callback');
+                        }}
+                    />
+                </ReactPlaceholder>
+            </SectionNarrow>
+
             <Links data={props.sns} category='all'></Links>
         </Wrapper>
     );

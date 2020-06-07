@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     color: #fff;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
     @media screen and (max-width: 768px) {
         height: 20rem;
     }
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 
 const Inner = styled.div`
     width: 100%;
-    max-width: 1200px;
+    max-width: 970px;
     margin: 0 auto;
     padding: 2rem;
     box-sizing: border-box;

@@ -6,7 +6,7 @@ import routes from './pages';
 import Layout from './layouts/default';
 import Welcome from './pages/welcome';
 
-import GSection from './examples/section';
+import { SettingContext } from './Settings';
 import * as log from 'loglevel';
 
 log.disableAll();
@@ -49,19 +49,26 @@ const App = (props: any) => {
             {/* test */}
 
             {/* test */}
-            <Switch>
-                <Route exact path='/'>
-                    <Welcome></Welcome>
-                    {/* <div>test</div> */}
-                </Route>
-                <Route>
-                    <Layout>
-                        {routes.map((route) => (
-                            <Route key={route.path} path={route.path} exact={route.exact} component={route.component} />
-                        ))}
-                    </Layout>
-                </Route>
-            </Switch>
+            <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>
+                <Switch>
+                    <Route exact path='/'>
+                        <Welcome></Welcome>
+                        {/* <div>test</div> */}
+                    </Route>
+                    <Route>
+                        <Layout>
+                            {routes.map((route) => (
+                                <Route
+                                    key={route.path}
+                                    path={route.path}
+                                    exact={route.exact}
+                                    component={route.component}
+                                />
+                            ))}
+                        </Layout>
+                    </Route>
+                </Switch>
+            </SettingContext.Provider>
         </Router>
     );
 };

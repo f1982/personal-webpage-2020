@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
 import routes from '../../../pages';
 import menuStyles from '../../../assets/styles/menubar.module.css';
 import ResponsiveMenuBar from '../../../comps/MenuBar';
+import { SettingContext } from '../../../Settings';
 
 const LogoSVG = () => {
     return (
@@ -42,13 +43,15 @@ const Wrapper = styled.header`
     top: 0;
     left: 0; */
     width: 100%;
-    height: 6rem;
+    /* height: 6rem; */
+    z-index: 99;
     background-color: #fff;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.09);
 `;
 
-const Inner = styled.div`
+const Inner = styled.div<{ minimumWidth: number }>`
     width: 100%;
-    max-width: 1200px;
+    max-width: ${(props) => props.minimumWidth}px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -62,53 +65,70 @@ const Spacer = styled.div`
 
 // base button style
 const ButtonStyle = css`
-    font-family: 'Lalezar';
-    font-size: 1.5rem;
-    font-weight: 700;
+    /* font-family: 'Lalezar'; */
+    font-size: 1rem;
+    font-weight: bold;
     display: inline-block;
     position: relative;
-    margin: 0.5rem 0;
-    padding: 0.5rem 1rem;
-    border: 1px solid #fff;
+    width: 120px;
+    height: 186px;
+    box-sizing: border-box;
     text-align: center;
+    /* margin: 0.5rem 0; */
+    /* padding: 0.5rem 1rem; */
+    border-color: #ececec;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    background-color: #fff;
 
+    transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
+    /* Show this after user hover */
     span {
         display: inline-block;
-        font-size: 1rem;
-        font-weight: 500;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        bottom: 50%;
+
+        font-size: 1.25rem;
+        font-weight: bold;
         text-transform: uppercase;
         transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
-        transform: translate(0, -20px);
         opacity: 0;
     }
+    /* Normally show this, before user hover */
     &::before {
         content: attr(data-text);
         position: absolute;
-        left: 20;
+        transform: translateX(-50%);
+        left: 50%;
+        bottom: 17.7%;
+        color: #5c636d;
+        text-transform: uppercase;
         transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
         opacity: 1;
-        transform: translate(0, 0px);
+        /* transform: translate(0, 0px); */
     }
     &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
         content: attr(data-mark);
     }
     &:link,
     :visited {
-        color: #333;
     }
     &:hover {
-        color: #fff;
-        background-color: #7ce0c4;
-        border: 1px solid #7ce0c4;
+        background-color: #74ddff;
         span {
             opacity: 1;
-            transform: translate(0, 0px);
+            bottom: 17.7%;
         }
         &::before {
             content: attr(data-text);
-            background-color: #000;
+            background-color: #5c636d;
             opacity: 0;
-            transform: translate(0, 20px);
+            bottom: 0;
         }
     }
 `;
@@ -121,15 +141,18 @@ const OutLink = styled.a`
 `;
 
 const Header = (props: any) => {
+    const settingContext = useContext(SettingContext);
+
     return (
         <>
             <Wrapper>
-                <Inner>
+                <Inner minimumWidth={settingContext.contentWidth}>
                     <LogoSVG />
                     <Spacer />
                     <ResponsiveMenuBar
                         toggleCloseIcon={<FaWindowClose size='32' />}
-                        toggleOpenIcon={<FaBars size='32' />}>
+                        toggleOpenIcon={<FaBars size='32' />}
+                        smallDeviceWidth={768}>
                         {routes.map((route, index) => {
                             return (
                                 <NavButton
@@ -139,7 +162,8 @@ const Header = (props: any) => {
                                     exact={route.exact}
                                     to={route.path}
                                     activeClassName={menuStyles.activeNavLink}>
-                                    <span>!{route.title}!</span>
+                                    {/* <span>!{route.title}!📖</span> */}
+                                    <span>🌮</span>
                                 </NavButton>
                             );
                         })}

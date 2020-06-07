@@ -7,7 +7,7 @@ import TitleImage from '../../comps/TitleImage';
 import Submenu from '../../comps/SubMenu2';
 import { Experience } from '../../comps/TimelineWork';
 import TimelineLife from '../../comps/TimelineLife';
-import { useRouteMatch, Switch, Route } from 'react-router-dom';
+import { useRouteMatch, Switch, Route, NavLink, useHistory } from 'react-router-dom';
 import Introduction from './comps/Introduction';
 
 const Wrapper = styled.div`
@@ -17,8 +17,25 @@ const Wrapper = styled.div`
     padding: 1rem;
 `;
 
+const InlineLink = styled(NavLink)`
+    color: #ffcc00;
+    display: inline-block;
+    font-weight: 700;
+    position: relative;
+    ::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        top: 50%;
+        left: 0;
+        background-color: #ffcc00;
+    }
+`;
+
 const About = (props: any) => {
     console.log('props', props);
+    let history = useHistory();
     const { syncInfo } = props;
     const match = useRouteMatch();
     useEffect(() => {
@@ -47,6 +64,11 @@ const About = (props: any) => {
         </>
     );
 
+    const getMyAge = () => {
+        var d = new Date();
+        var n = d.getFullYear();
+        return n - 1982;
+    };
     return (
         <>
             <Helmet>
@@ -66,6 +88,12 @@ const About = (props: any) => {
                                 <Experience data={props.timelines.works} />
                             </Route>
                             <Route path={`${match.path}/life`}>
+                                <button
+                                    onClick={() => {
+                                        history.goBack();
+                                    }}>
+                                    close
+                                </button>
                                 <TimelineLife data={props.timelines.life} />
                             </Route>
                             <Route path={`${match.path}/skill`}>
@@ -73,25 +101,39 @@ const About = (props: any) => {
                             </Route>
                             <Route path={`${match.path}/intro`}>{aboutHtml}</Route>
                             <Route>
-                                <h3>test1</h3>
-                                <img src='http://127.0.0.1:3000/static/images/hobby_drone.png' />
+                                <h3>Hey,</h3>
                                 <p>
-                                    I am Andy Cao. I come from China. I born in a very small village called Shangtai. I
-                                    move to Fushun with my parent. I went to university at Luoyang, and then I want to
-                                    Beijing worked for 14 years.{' '}
+                                    I am Andy, I am a software developer, from Beijing China 🇨🇳. Currently, I am living
+                                    in Auckland, New Zealand 🇳🇿. I am {getMyAge()} years old now. I have made software,
+                                    website, mobile application, games. Writing code is not only my job, but also a
+                                    life-long hobby.
                                 </p>
-                                <h3>test1</h3>
-                                <p>Now I live in Auckland New Zealand with my wife and 3 years old daughter Zoe.</p>
+                                <img src='/static/images/hobby_drone.png' />
                                 <p>
                                     I am an optimistic man in my life. I have many hobbies such as RC airplane, drone,
                                     making video and making games.
                                 </p>
-                                <h3>test1</h3>
+
+                                <h3>Living Place</h3>
+                                <p>
+                                    I born in a very small village in Liaoning China 🇨🇳. I move to Fushun with my parent
+                                    when I was 11. I went to university at Luoyang, and then I want to Beijing worked
+                                    for 14 years. Now, I am living in Northshore, Auckland. Here are the{' '}
+                                    <InlineLink to={match.path + '/life'}>timeline</InlineLink>
+                                </p>
+
+                                <h3>Career</h3>
                                 <p>
                                     On the other side, I have been working as a software developer for about 18 years. I
                                     started to get into this area with Flash when I was at University. And then I fell
                                     love with iOS. For now I focus on front-end and web development. and I also keep an
-                                    eye on design.
+                                    eye on design. Here are my job{' '}
+                                    <InlineLink to={match.path + '/work'}>timeline</InlineLink>
+                                </p>
+                                <h3>Hobbies</h3>
+                                <p>
+                                    I love to diy things, make my hands dirty. I know some electronic techniques, I like
+                                    to make drone by myself, but I am a terrible pilot.{' '}
                                 </p>
                             </Route>
                         </Switch>

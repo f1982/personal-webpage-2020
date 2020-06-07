@@ -6,6 +6,7 @@ import ProjectListGrid from '../../comps/project/ProjectListGrid';
 import Submenu from '../../comps/SubMenu2';
 import { Helmet } from 'react-helmet';
 import { Link, Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
+import { SectionWide, SectionNarrow } from '../../layouts/default';
 
 const ProjectCategory = (props: any) => {
     const params = useParams();
@@ -39,18 +40,21 @@ const Projects = (props: any) => {
             <Helmet>
                 <title>Projects</title>
             </Helmet>
-            <TitleImage title='Projects' subtitle='My Passions & I Love.' backgroundImageURL={imageURL}></TitleImage>
+            <SectionWide>
+                <TitleImage title='Projects' subtitle='My Passions & I Love.' backgroundImageURL={imageURL} />
+            </SectionWide>
             {props.loadedState === 'loaded' ? (
                 <>
-                    {/* <SubMenu items={submenuItems} /> */}
-                    <Switch>
-                        <Route path={`${match.path}/:category`}>
-                            <ProjectCategory data={projectItems} />
-                        </Route>
-                        <Route path={`${match.path}`}>
-                            <ProjectCategory data={projectItems} />
-                        </Route>
-                    </Switch>
+                    <SectionNarrow>
+                        <Switch>
+                            <Route path={`${match.path}/:category`}>
+                                <ProjectCategory data={projectItems} />
+                            </Route>
+                            <Route path={`${match.path}`}>
+                                <ProjectCategory data={projectItems} />
+                            </Route>
+                        </Switch>
+                    </SectionNarrow>
                 </>
             ) : (
                 <p>loading</p>

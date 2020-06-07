@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { TechnologyStackItem } from './TechnologyStack';
 import { ProjectObject } from '../../types/interfaces';
 
 interface ProjectItemProp {
@@ -26,6 +25,7 @@ const CardImage = styled.div`
         object-fit: cover;
     }
 `;
+
 const CardContent = styled.div`
     margin: 10px;
     flex-shrink: 1;

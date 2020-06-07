@@ -25,6 +25,13 @@
 }
 
 .activeNavLink {
-    color: red;
-    background-color: #ccc;
+    background-color: #74ddf7;
+}
+
+.activeNavLink::before {
+    color: #fff;
+}
+
+.activeNavLink span {
+    opacity: 1;
 }

@@ -13,12 +13,10 @@ function useQuery() {
 
 const Wrapper = styled.section`
     width: 100%;
-    max-width: 1200px;
     margin: 1.5rem auto;
 `;
 
 const ProjectsContainer = styled.div`
-    /* flexbox fallback */
     display: flex;
     flex-wrap: wrap;
 
