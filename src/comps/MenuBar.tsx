@@ -52,6 +52,9 @@ const ResponsiveMenuBar = (
             if (window.innerWidth > props.smallDeviceWidth && isCollapsed === true) {
                 setIsCollapsed(false);
             }
+            if (window.innerWidth < props.smallDeviceWidth && isCollapsed === false) {
+                setIsCollapsed(true);
+            }
         }
         window.addEventListener('resize', updateSize);
         updateSize();

@@ -56,7 +56,7 @@ const Inner = styled.div<{ minimumWidth: number }>`
     display: flex;
     align-items: center;
     margin: 0 auto;
-    padding: 0 1rem;
+    /* padding: 0.75rem 1rem; */
 `;
 
 const Spacer = styled.div`

@@ -30,11 +30,11 @@ const ShowcaseBar = styled.div`
     justify-content: space-between;
     align-content: flex-start;
     align-items: center;
-    /* margin: 1.5rem auto; */
+
     padding: 3rem 0;
     @media screen and (max-width: 768px) {
-        flex-flow: column;
-        padding: 0.5rem 0.5rem;
+        flex-flow: column-reverse;
+        padding: 1rem 0.5rem 1rem 0.5rem;
     }
 `;
 
@@ -45,10 +45,11 @@ const IntroRight = styled.div`
     background-repeat: no-repeat;
     background-position: right;
     text-align: center;
-    @media screen and (max-width: 750px) {
-        margin-left: 0rem;
+    @media screen and (max-width: 768px) {
         width: 100%;
-        height: 300px;
+        /* padding-top: 56.7%; */
+        height: 282px;
+        padding: 0.5rem 0;
     }
 `;
 
@@ -106,13 +107,9 @@ const Home = (props: any) => {
             <HorizentalExtendBG>
                 <div style={{ width: `100%`, maxWidth: `970px`, margin: `0 auto` }}>
                     <ShowcaseBar>
-                        <ReactPlaceholder style={IntroLeftHolderStyle} type='media' rows={7} ready={ready}>
-                            <HeyThere />
-                        </ReactPlaceholder>
+                        <HeyThere />
                         <IntroRight>
-                            <ReactPlaceholder style={IntroLeftHolderStyle} type='media' rows={7} ready={ready}>
-                                <ShowcaseBox />
-                            </ReactPlaceholder>
+                            <ShowcaseBox />
                         </IntroRight>
                     </ShowcaseBar>
                 </div>
@@ -123,20 +120,15 @@ const Home = (props: any) => {
             </SectionNarrow>
 
             <SectionNarrow>
-                <ReactPlaceholder
-                    style={HorizentalCenteredHolder}
-                    ready={ready}
-                    customPlaceholder={HighlightProjectPlaceholder}>
-                    <HighlightProject
-                        projects={props.projects}
-                        moreProjectCallback={() => {
-                            console.log('more project callback');
-                        }}
-                    />
-                </ReactPlaceholder>
+                <HighlightProject
+                    projects={props.projects}
+                    moreProjectCallback={() => {
+                        console.log('more project callback');
+                    }}
+                />
             </SectionNarrow>
 
-            <Links data={props.sns} category='all'></Links>
+            <Links linkData={props.sns} iconColor='#EFC854' category='all' />
         </Wrapper>
     );
 };

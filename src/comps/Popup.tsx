@@ -26,7 +26,7 @@ const Mask = styled(animated.div)`
 
 const Container = styled.div`
     position: absolute;
-    width: 80%;
+    /* width: 80%; */
     height: auto;
     top: 50%;
     left: 50%;
@@ -34,8 +34,8 @@ const Container = styled.div`
     margin: auto;
     background: white;
     overflow: auto;
-    /* border-radius: 1rem; */
-    box-shadow: ${props => props.theme.shadow};
+    border-radius: 2rem;
+    box-shadow: ${(props) => props.theme.shadow};
     @media screen and (max-width: ${ScreenSmallWidth}) {
         width: 100%;
         height: 100vh;
@@ -51,7 +51,7 @@ const Frame = styled.div`
 `;
 
 const Border = styled.div`
-    padding: 1.5rem;
+    padding: 3.5rem;
     @media screen and (max-width: ${ScreenSmallWidth}) {
         overflow-y: scroll;
     }

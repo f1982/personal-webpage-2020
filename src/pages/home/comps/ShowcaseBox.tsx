@@ -31,6 +31,9 @@ const MyImage = styled.div<{ src: string }>`
     /* background-blend-mode: multiply; */
     /* background-image: linear-gradient(white, yellow), url(${(props) => props.src}); */
     background-image: url(${(props) => props.src});
+    @media screen and (max-width: 768px) {
+        border-radius: 30px;
+    }
 `;
 
 const VideoPlayer = styled(ReactPlayer)`

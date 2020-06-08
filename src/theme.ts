@@ -92,8 +92,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-size: 3rem;
     background: linear-gradient(#efc854, #efc854) no-repeat;
-    background-size: 100% 8px;
-    background-position: 0 1.8rem;
+    background-size: 100% 25%;
+    background-position: 0 85%;
   }
   /* h3::before {
     content:'';

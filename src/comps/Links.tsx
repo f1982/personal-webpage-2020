@@ -16,7 +16,9 @@ import {
 } from 'react-icons/fa';
 
 interface LinksProp {
-    data: LinkObject[];
+    linkData: any[];
+    iconSize?: number;
+    iconColor?: string;
     category: string;
     padding?: string;
     introduce?: string;
@@ -41,17 +43,22 @@ iconMap['weibo'] = <FaWeibo />;
 iconMap['soundcloud'] = <FaSoundcloud />;
 iconMap['douban'] = <FaDochub />;
 
-const Links = (props: LinksProp) => {
-    const { data } = props;
+const Links = ({
+    linkData = [],
+    iconColor = '#EFC854',
+    iconSize = 40,
+    category = '',
+    padding = '0.5rem'
+}: LinksProp) => {
     return (
         <LinkContainer>
             <IconContext.Provider
                 value={{
-                    color: '#EFC854',
-                    size: '40',
+                    color: iconColor,
+                    size: String(iconSize),
                     style: { verticalAlign: 'middle' }
                 }}>
-                {data.map((item: LinkObject, index: number) => {
+                {linkData.map((item: LinkObject, index: number) => {
                     const { name, alt, link, icon } = item;
                     const iconElement: JSX.Element = iconMap[icon.toLowerCase()];
                     return (

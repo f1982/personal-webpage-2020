@@ -5,7 +5,7 @@ import Footer from './comps/Footer';
 import { SettingContext } from '../../Settings';
 const Wrapper = styled.div`
     background-color: #000;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
 `;
 const Inner = styled.div`
     background-color: #fff;

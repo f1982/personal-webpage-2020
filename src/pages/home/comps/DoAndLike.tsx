@@ -30,6 +30,10 @@ const HorizatalContainer = styled.div`
     & p {
         /* text-align: justify; */
     }
+    @media screen and (max-width: 768px) {
+        flex-flow: column;
+        padding: 0 0.5rem;
+    }
 `;
 
 const HorizatalItem = styled.div`
@@ -40,6 +44,10 @@ const AvatarImg = styled.img``;
 
 const HighlightFont = styled.h3`
     display: inline-block;
+    @media screen and (max-width: 768px) {
+        font-size: 1.5rem;
+        line-height: 1rem;
+    }
 `;
 
 interface PropsType {
