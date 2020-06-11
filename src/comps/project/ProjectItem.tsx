@@ -9,11 +9,22 @@ interface ProjectItemProp {
     callback?: Function;
 }
 
-const ProjectImg = styled.img`
-    position: absolute;
+// const ProjectImg = styled.img`
+//     position: absolute;
+//     width: 100%;
+//     height: auto;
+//     border-radius: 20px;
+//     left: 0;
+// `;
+
+const ImgBg = styled.div<{ url: string }>`
     width: 100%;
-    height: auto;
-    left: 0;
+    height: 100%;
+    border-radius: 20px;
+    background-image: url(${(props) => props.url});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 `;
 const Overlay = styled.div`
     position: absolute;
@@ -37,22 +48,25 @@ const ProjectName = styled.h5`
 `;
 const TechItem = styled.span``;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ url: string }>`
     position: relative;
     box-sizing: border-box;
+    border-radius: 20px;
+
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #eee;
+    /* background-color: #eee; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-image: url(${(props) => props.url});
     box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.6s, border 0.5s;
     transform: translateZ(0);
     transition: 0.3s;
     will-change: transform;
-
+    /* The light in front of the item */
     &:after {
         position: absolute;
         content: '';
@@ -87,14 +101,6 @@ const Wrapper = styled.div`
             /* transform: translateY(-20px); */
         }
     }
-    /* @media only screen and (max-width: 700px) {
-        width: 48%;
-        margin: 1rem 0;
-    }
-
-    @media only screen and (max-width: 500px) {
-        width: 100%;
-    } */
 `;
 
 /**
@@ -103,48 +109,11 @@ const Wrapper = styled.div`
  * @param props
  */
 const ProjectItem = (props: ProjectItemProp) => {
-    /**
-     * Mouse event handler
-     *
-     * @param e MouseEvent
-     */
-    const mouseMoveHandler = (e: React.MouseEvent<Element, MouseEvent>) => {
-        e.preventDefault();
-        const elm: HTMLElement = e.target as HTMLElement;
-        // const elm: HTMLElement = e.currentTarget as HTMLElement;
-        // const elm: HTMLElement = wrapperRef as HTMLElement;
-        const x = e.clientX;
-        const y = e.clientY;
-        const coords = elm.getBoundingClientRect();
-        const elmX = coords.left + elm.offsetWidth / 2;
-        const elmY = coords.top + elm.offsetHeight / 2;
-        const angleX = (elmY - y) / 15;
-        const angleY = (elmX - x) / -15;
-        elm.style.transform = `rotateX(${angleX}deg)
-                              rotateY(${angleY}deg)`;
-    };
-
-    const mouseOutHandler = (event: React.MouseEvent<Element, MouseEvent>) => {
-        event.preventDefault();
-        console.log('mouse out');
-    };
-
-    /**
-     * Touch end handler
-     *
-     * @param e TouchEvent
-     */
-    const touchEndHandler = (event: React.TouchEvent | React.MouseEvent) => {
-        console.log('touchEndHandler');
-        if (props.callback) {
-            props.callback(props.itemData);
-        }
-    };
-
     return (
-        <Wrapper>
-            <ProjectImg src={props.itemData.cover} />
-            <Overlay></Overlay>
+        <Wrapper url={props.itemData.cover}>
+            {/* <ProjectImg src={props.itemData.cover} /> */}
+            {/* <ImgBg url={props.itemData.cover} /> */}
+            {/* <Overlay></Overlay> */}
             <ProjectName>{props.itemData.title}</ProjectName>
         </Wrapper>
     );

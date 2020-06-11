@@ -59,16 +59,18 @@ const Links = ({
                     style: { verticalAlign: 'middle' }
                 }}>
                 {linkData.map((item: LinkObject, index: number) => {
-                    const { name, alt, link, icon } = item;
+                    const { name, alt, link, icon, hidden } = item;
                     const iconElement: JSX.Element = iconMap[icon.toLowerCase()];
-                    return (
-                        <LinkItemSimple
-                            key={index}
-                            title={name}
-                            icon={iconElement}
-                            link={link}
-                            alt={alt}></LinkItemSimple>
-                    );
+                    if (!hidden) {
+                        return (
+                            <LinkItemSimple
+                                key={index}
+                                title={name}
+                                icon={iconElement}
+                                link={link}
+                                alt={alt}></LinkItemSimple>
+                        );
+                    }
                 })}
             </IconContext.Provider>
         </LinkContainer>

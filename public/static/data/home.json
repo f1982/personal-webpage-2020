@@ -7,32 +7,6 @@
         "whatILike": "I consider indie game 🕹 development as a leisure time hobby. I know some design 🎨. I am trying to be a life-long learner 🧠, an excellent drone 🛸 pilot as well as a good father 💁🏻‍♂️",
         "projects": [
             {
-                "id": 1,
-                "title": "Andy Website 2020",
-                "description": "Multi-player real-time online competitive games, users can layout football players and start a competition. You can exchange points by battles and get corresponding prizes.",
-                "responsibility": "Responsible for the idea, project development and maintenance.",
-                "type": "game",
-                "state": "release",
-                "cover": "/static/images/projects/personal-website-2020.jpg",
-                "start": "Apr 2001",
-                "end": "Mar 2001",
-                "images": [
-                    "/static/images/projects/bfq.png",
-                    "/static/images/projects/cbq.png",
-                    "/static/images/projects/ddd.png",
-                    "/static/images/projects/douwang.jpg",
-                    "/static/images/projects/ff.png",
-                    "/static/images/projects/gdts.png",
-                    "/static/images/projects/gzgz.png"
-                ],
-                "tech": "Javascript,PHP,Workerman,Wechat",
-                "link": "",
-                "github": "",
-                "video": "",
-                "language": "en",
-                "quote": "It's a very good game"
-            },
-            {
                 "id": 2,
                 "title": "央视影音",
                 "description": "央视影音 is the most authoritative video client to watch CCTV(China Central Television) and dozens of Chinese local TV programs on the Internet. It has more than 300 million users and it is still growing.",
@@ -143,7 +117,7 @@
                 "link": "https://www.flickr.com/photos/ad1982/",
                 "alt": null,
                 "tag": null,
-                "hidden": 0
+                "hidden": 1
             },
             {
                 "id": 7,
@@ -163,7 +137,7 @@
                 "link": "https://soundcloud.com/andy-cao-925715105",
                 "alt": null,
                 "tag": null,
-                "hidden": 0
+                "hidden": 1
             },
             {
                 "id": 9,
@@ -173,7 +147,7 @@
                 "link": "https://www.douban.com/people/f1982/",
                 "alt": null,
                 "tag": null,
-                "hidden": 0
+                "hidden": 1
             }
         ]
     }

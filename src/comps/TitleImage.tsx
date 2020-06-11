@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    height: 39rem;
+    height: 16rem;
     color: #fff;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-position: center; */
+    background-position: center;
     @media screen and (max-width: 768px) {
         height: 20rem;
     }
@@ -25,6 +25,11 @@ const Inner = styled.div`
 
 const TextBlock = styled.div`
     width: 620px;
+    border: solid 3px #ffcc00;
+    h2 {
+        /* background-color: #fff;
+        color: #ccc; */
+    }
     @media screen and (max-width: 768px) {
         width: 100%;
     }

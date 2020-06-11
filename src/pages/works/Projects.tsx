@@ -43,19 +43,21 @@ const Projects = (props: any) => {
             <SectionWide>
                 <TitleImage title='Projects' subtitle='My Passions & I Love.' backgroundImageURL={imageURL} />
             </SectionWide>
+
+            <div style={{ textAlign: `center`, marginTop: `3rem` }}>
+                <h3>Projects</h3>
+            </div>
             {props.loadedState === 'loaded' ? (
-                <>
-                    <SectionNarrow>
-                        <Switch>
-                            <Route path={`${match.path}/:category`}>
-                                <ProjectCategory data={projectItems} />
-                            </Route>
-                            <Route path={`${match.path}`}>
-                                <ProjectCategory data={projectItems} />
-                            </Route>
-                        </Switch>
-                    </SectionNarrow>
-                </>
+                <SectionNarrow>
+                    <Switch>
+                        <Route path={`${match.path}/:category`}>
+                            <ProjectCategory data={projectItems} />
+                        </Route>
+                        <Route path={`${match.path}`}>
+                            <ProjectCategory data={projectItems} />
+                        </Route>
+                    </Switch>
+                </SectionNarrow>
             ) : (
                 <p>loading</p>
             )}

@@ -19,20 +19,11 @@ const ProjectsContainer = styled.div`
     justify-content: space-between;
     margin: 1rem auto;
     > * {
-        margin: 2em 0;
-        width: 30%;
-        height: 480px;
-    }
-    @media screen and (max-width: 1200px) {
-        > * {
-            width: 30%;
-        }
-    }
-    /* <900px */
-    @media screen and (max-width: 950px) {
-        > * {
-            width: 48%;
-        }
+        /* margin: 2em 0; */
+        /* padding-top: 56.25%; */
+        border-radius: 20px;
+        width: 48%;
+        height: 280px;
     }
     /* <500px */
     @media screen and (max-width: 768px) {

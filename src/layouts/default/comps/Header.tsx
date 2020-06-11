@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
 import routes from '../../../pages';
 import menuStyles from '../../../assets/styles/menubar.module.css';
@@ -56,7 +56,9 @@ const Inner = styled.div<{ minimumWidth: number }>`
     display: flex;
     align-items: center;
     margin: 0 auto;
-    /* padding: 0.75rem 1rem; */
+    @media screen and (max-width: 768px) {
+        padding: 0.5rem;
+    }
 `;
 
 const Spacer = styled.div`
@@ -119,7 +121,7 @@ const ButtonStyle = css`
     :visited {
     }
     &:hover {
-        background-color: #74ddff;
+        background-color: #74ddf7;
         span {
             opacity: 1;
             bottom: 17.7%;
@@ -142,18 +144,22 @@ const OutLink = styled.a`
 
 const Header = (props: any) => {
     const settingContext = useContext(SettingContext);
+    const match = useRouteMatch();
 
     return (
         <>
             <Wrapper>
                 <Inner minimumWidth={settingContext.contentWidth}>
-                    <LogoSVG />
+                    <NavLink to='/home'>
+                        <LogoSVG />
+                    </NavLink>
                     <Spacer />
                     <ResponsiveMenuBar
                         toggleCloseIcon={<FaWindowClose size='32' />}
                         toggleOpenIcon={<FaBars size='32' />}
                         smallDeviceWidth={768}>
                         {routes.map((route, index) => {
+                            if (index < 1) return;
                             return (
                                 <NavButton
                                     data-text={route.title}
