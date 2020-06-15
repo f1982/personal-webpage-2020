@@ -61,7 +61,7 @@ const GlobalStyle = createGlobalStyle`
   p {
     line-height: ${myTheme.baseLine}rem;
     margin-top: ${myTheme.baseLine}rem;
-    margin-bottom: ${myTheme.baseLine * 2}rem;
+    margin-bottom: ${myTheme.baseLine}rem;
     color: #666;
   }
   
@@ -69,22 +69,26 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5 {
     margin: ${myTheme.baseLine}rem 0;
     font-family: ${PrimaryFont}, sans-serif;
-    font-style:italic;
+    
     font-weight: bold;
-    letter-spacing: -3px;
+    
     /* line-height: ${myTheme.baseLine}*2rem; */
   }
 
   h1 {
     font-size: 4.209rem;
+    font-style:italic;
   }
 
   h2 {
     font-size: 3.157rem;
+    font-style:italic;
     line-height: ${myTheme.baseLine * 2.5}rem;
   }
 
   h3 {
+    letter-spacing: -2px;
+    font-style:italic;
     font-size: 2.369rem;
     display: inline-block;
     line-height: ${myTheme.baseLine * 2}rem;
