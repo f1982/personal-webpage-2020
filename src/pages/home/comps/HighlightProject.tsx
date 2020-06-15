@@ -33,7 +33,7 @@ const HighlightProjects = (props: any) => {
             </Intro>
 
             <Projects data={props.projects} category='all'></Projects>
-            <div style={{ marginTop: `1.5rem` }}>
+            <div style={{ marginTop: `3rem` }}>
                 <Link to='works'>
                     <SingleButton>MORE</SingleButton>
                 </Link>

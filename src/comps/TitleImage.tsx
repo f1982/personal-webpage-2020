@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     background-size: cover;
     background-position: center;
     @media screen and (max-width: 768px) {
-        height: 20rem;
+        height: 8rem;
     }
 `;
 
@@ -51,10 +51,10 @@ const TitleImage = (props: TitleImageProp) => {
     return (
         <Wrapper style={{ backgroundImage: `url(${backgroundImageURL})` }}>
             <Inner>
-                <TextBlock>
+                {/* <TextBlock>
                     <h2>{title}</h2>
                     <Subtitle>{subtitle}</Subtitle>
-                </TextBlock>
+                </TextBlock> */}
             </Inner>
         </Wrapper>
     );

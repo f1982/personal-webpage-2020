@@ -4,37 +4,9 @@ import { NavLink, useRouteMatch } from 'react-router-dom';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
 import routes from '../../../pages';
 import menuStyles from '../../../assets/styles/menubar.module.css';
-import ResponsiveMenuBar from '../../../comps/MenuBar';
+import ResponsiveMenuBar, { SmallMenuBar } from '../../../comps/MenuBar';
 import { SettingContext } from '../../../Settings';
-
-const LogoSVG = () => {
-    return (
-        <svg width='88px' height='40px' viewBox='0 0 88 40'>
-            <g id='andycao' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
-                <g id='andy-logo-copy' fill='#CFCFCF'>
-                    <polygon
-                        id='Rectangle'
-                        points='6.12939328 0 87.6378601 0 87.6378601 6.18181818 0 6.18181818'></polygon>
-                    <polygon
-                        id='Rectangle'
-                        points='0 33.4545455 58.8688508 33.4545455 55.8134445 39.6363636 6.31322476 39.6363636'></polygon>
-                    <polygon
-                        id='Rectangle-2'
-                        points='0 6.00839372 6.51851852 0 6.51851852 39.6363636 0 33.5543879'></polygon>
-                    <polygon
-                        id='Rectangle-2'
-                        points='76.8077087 16.025542 65.8300594 39.6269678 58.2885098 39.6583845 72.9551765 8.12574621'></polygon>
-                    <polyline
-                        id='Rectangle-2'
-                        points='84.3622182 33.0909091 87.6378601 39.6363636 73.5144033 39.6363636 73.5144033 33.0909091 83.862521 33.0909091'></polyline>
-                    <polygon
-                        id='Rectangle-2'
-                        points='72.9872104 8.12574621 87.653877 39.6583845 80.1388665 39.6840256 69.1198974 15.9937642'></polygon>
-                </g>
-            </g>
-        </svg>
-    );
-};
+import Logo from '../../../assets/logo.png';
 
 const ScreenSmallWidth: number = 768;
 
@@ -55,6 +27,7 @@ const Inner = styled.div<{ minimumWidth: number }>`
     height: 100%;
     display: flex;
     align-items: center;
+    /* justify-content: center; */
     margin: 0 auto;
     @media screen and (max-width: 768px) {
         padding: 0.5rem;
@@ -64,84 +37,11 @@ const Inner = styled.div<{ minimumWidth: number }>`
 const Spacer = styled.div`
     flex: 1;
 `;
-
-// base button style
-const ButtonStyle = css`
-    /* font-family: 'Lalezar'; */
-    font-size: 1rem;
-    font-weight: bold;
-    display: inline-block;
-    position: relative;
-    width: 120px;
-    height: 186px;
-    box-sizing: border-box;
-    text-align: center;
-    /* margin: 0.5rem 0; */
-    /* padding: 0.5rem 1rem; */
-    border-color: #ececec;
-    border-style: solid;
-    border-width: 0 1px 0 0;
-    background-color: #fff;
-
-    transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
-    /* Show this after user hover */
-    span {
-        display: inline-block;
-        position: absolute;
-        transform: translateX(-50%);
-        left: 50%;
-        bottom: 50%;
-
-        font-size: 1.25rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
-        opacity: 0;
-    }
-    /* Normally show this, before user hover */
-    &::before {
-        content: attr(data-text);
-        position: absolute;
-        transform: translateX(-50%);
-        left: 50%;
-        bottom: 17.7%;
-        color: #5c636d;
-        text-transform: uppercase;
-        transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
-        opacity: 1;
-        /* transform: translate(0, 0px); */
-    }
-    &::after {
-        position: absolute;
-        top: 0;
-        right: 0;
-        content: attr(data-mark);
-    }
-    &:link,
-    :visited {
-    }
-    &:hover {
-        background-color: #74ddf7;
-        span {
-            opacity: 1;
-            bottom: 17.7%;
-        }
-        &::before {
-            content: attr(data-text);
-            background-color: #5c636d;
-            opacity: 0;
-            bottom: 0;
-        }
+const LogoImg = styled.img`
+    @media screen and (max-width: 768px) {
+        height: 56px;
     }
 `;
-const NavButton = styled(NavLink)`
-    ${ButtonStyle}
-`;
-
-const OutLink = styled.a`
-    ${ButtonStyle}
-`;
-
 const Header = (props: any) => {
     const settingContext = useContext(SettingContext);
     const match = useRouteMatch();
@@ -151,40 +51,15 @@ const Header = (props: any) => {
             <Wrapper>
                 <Inner minimumWidth={settingContext.contentWidth}>
                     <NavLink to='/home'>
-                        <LogoSVG />
+                        <LogoImg src={Logo} />
                     </NavLink>
                     <Spacer />
                     <ResponsiveMenuBar
+                        routes={routes}
                         toggleCloseIcon={<FaWindowClose size='32' />}
                         toggleOpenIcon={<FaBars size='32' />}
-                        smallDeviceWidth={768}>
-                        {routes.map((route, index) => {
-                            if (index < 1) return;
-                            return (
-                                <NavButton
-                                    data-text={route.title}
-                                    data-mark={route.mark}
-                                    key={index}
-                                    exact={route.exact}
-                                    to={route.path}
-                                    activeClassName={menuStyles.activeNavLink}>
-                                    {/* <span>!{route.title}!📖</span> */}
-                                    <span>🌮</span>
-                                </NavButton>
-                            );
-                        })}
-                        {/* <OutLink
-                            data-text='Blog'
-                            href='http://blog.f1982.com'
-                            target='_blank'
-                            rel='noopener noreferrer'>
-                            <span>Blog</span>
-                        </OutLink>
-
-                        <OutLink data-text='Resume' href='#'>
-                            <span>Resume</span>
-                        </OutLink> */}
-                    </ResponsiveMenuBar>
+                        smallDeviceWidth={768}></ResponsiveMenuBar>
+                    <SmallMenuBar routes={routes} smallDeviceWidth={768} />
                 </Inner>
             </Wrapper>
         </>

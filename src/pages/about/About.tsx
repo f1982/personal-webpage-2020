@@ -22,19 +22,7 @@ const Wrapper = styled.div`
 `;
 
 const InlineLink = styled(NavLink)`
-    color: #ffcc00;
     display: inline-block;
-    font-weight: 700;
-    position: relative;
-    ::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        top: 50%;
-        left: 0;
-        background-color: #ffcc00;
-    }
 `;
 
 const About = (props: any) => {
@@ -114,14 +102,23 @@ const About = (props: any) => {
                                     <p style={{ textAlign: `justify` }}>
                                         My name is Andy Cao and I come from China 🇨🇳. I am {getMyAge()} years old, I
                                         have been on this planet for about {getDays()} days. I am a software developer
-                                        👨‍💻 who focuses on building website and mobile 📱 apps. I have serval hobbies
-                                        with me many years. like FPV(flying drone in first person view), video editing
-                                        and DIY. Currently My family and I living in Auckland, New Zealand 🇳🇿
+                                        👨‍💻 who focuses on building website and mobile apps 📱. I have serval hobbies
+                                        with me for many years. Like RC hobby, FPV(flying drone in first person view),
+                                        video editing and DIY. Currently My family and I living in Auckland, New Zealand
+                                        🇳🇿
                                     </p>
                                     <img style={{ width: `100%` }} src={PicAndyBack} />
                                     <div style={{ margin: `2rem auto` }}>
-                                        <SingleButton>test</SingleButton>
-                                        <SingleButton>test</SingleButton>
+                                        <SingleButton>HOBBIES</SingleButton>
+                                        <div
+                                            style={{
+                                                display: `inline-block`,
+                                                width: `1rem`,
+                                                height: `1rem`
+                                                // backgroundColor: `#ffcc00`
+                                            }}
+                                        />
+                                        <SingleButton>TIMELINE</SingleButton>
                                     </div>
 
                                     <h3>What I do?</h3>
@@ -133,10 +130,13 @@ const About = (props: any) => {
                                         front-end development technology. The main focuses are on JavaScript, CSS, HTML,
                                         React related technology stack and React Native. Because I love Apple 💻
                                         ecosystem, I also keep an eye on iOS development.
-                                        <InlineLink to={match.path + '/life'}>timeline</InlineLink>
                                     </p>
                                     <img style={{ width: `100%` }} src={PicAndyComputer} />
-                                    <div style={{ margin: `2rem auto` }}></div>
+                                    <div style={{ margin: `2rem auto` }}>
+                                        <InlineLink to={match.path + '/life'}>
+                                            <SingleButton>LIFE EVENTS</SingleButton>
+                                        </InlineLink>
+                                    </div>
                                     <h3>Family</h3>
                                     <p style={{ textAlign: `justify` }}>
                                         I was very lucky to have met my wife Fang very early. She helped me immensely in

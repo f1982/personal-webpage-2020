@@ -55,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
 
   a:hover{
     color: #666;
-    font-weight:bold;
+    /* font-weight:bold; */
     text-decoration: none;
   }
   p {

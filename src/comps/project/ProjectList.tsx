@@ -27,9 +27,13 @@ const ProjectsContainer = styled.div`
     }
     /* <500px */
     @media screen and (max-width: 768px) {
-        width: 80%;
+        width: 90%;
         > * {
             width: 100%;
+        }
+        /* except last child, each other have a 3 rem margin */
+        > *:not(:last-child) {
+            margin-bottom: 3rem;
         }
     }
 `;

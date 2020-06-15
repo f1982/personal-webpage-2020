@@ -66,6 +66,18 @@ const Wrapper = styled.div<{ url: string }>`
     transform: translateZ(0);
     transition: 0.3s;
     will-change: transform;
+    /* Color overlay the project item */
+    &:before {
+        content: '';
+        opacity: 0.2;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: linear-gradient(to top, transparent, #ffcc00 89%, rgba(255, 255, 255, 0.9));
+        z-index: 99;
+    }
     /* The light in front of the item */
     &:after {
         position: absolute;
