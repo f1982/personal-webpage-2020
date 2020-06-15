@@ -8,7 +8,6 @@ const ScreenSmallWidth: number = 768;
 
 // base button style
 const MenuBarItemBase = css`
-    /* font-family: 'Lalezar'; */
     font-size: 1rem;
     font-weight: bold;
     display: inline-block;
@@ -17,11 +16,7 @@ const MenuBarItemBase = css`
     height: 186px;
     box-sizing: border-box;
     text-align: center;
-    /* margin: 0.5rem 0; */
-    /* padding: 0.5rem 1rem; */
-
     background-color: #fff;
-
     transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
     @media screen and (max-width: 768px) {
         height: 80px;
@@ -167,10 +162,9 @@ const ResponsiveMenuBar = (
 /**
  * Small menu bar related
  */
-const SmallMenuBarIconSize = 36;
-const ToggleButton = styled.a<{ minimumWidth: number }>`
+const SmallMenuBarIconSize = 32;
+const ToggleButton = styled.a`
     display: none;
-    /* z-index: 1001; */
     @media screen and (max-width: 768px) {
         display: block;
     }
@@ -185,10 +179,6 @@ const MobileMenuBar = styled.div`
     background-color: #fff;
     z-index: 999;
     opacity: 1;
-    /* padding: 1rem; */
-    a:active {
-        color: #fff;
-    }
 `;
 const SmallMenuBarItem = styled(NavLink)`
     padding: 1rem;
@@ -223,8 +213,8 @@ const SmallMenuBar = (
     };
     return (
         <>
-            <ToggleButton onClick={toggle} minimumWidth={768}>
-                <FaBars size={SmallMenuBarIconSize} />
+            <ToggleButton onClick={toggle}>
+                <FaBars size={SmallMenuBarIconSize} style={{ verticalAlign: `middle` }} />
             </ToggleButton>
             <MobileMenuBar style={{ display: isShowing == true ? `block` : `none` }}>
                 <div style={{ textAlign: `right`, padding: `1rem` }}>

@@ -64,10 +64,7 @@ const ProjectGrid = (props: any) => {
                 })}
             </ProjectsContainer>
             {query.get('id') ? (
-                <Popup
-                    id='test'
-                    closeButton={<ProjectCloseButton></ProjectCloseButton>}
-                    closeHandler={closePopupHandler}>
+                <Popup id='test' closeButton={<ProjectCloseButton />} closeHandler={closePopupHandler}>
                     <ProjectDetail itemData={findItem(query.get('id'))} />
                 </Popup>
             ) : null}

@@ -19,7 +19,6 @@ const UserAvatar = styled.img`
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    vertical-align: middle;
 `;
 
 const HorizatalContainer = styled.div`
@@ -50,6 +49,13 @@ const HighlightFont = styled.h3`
     }
 `;
 
+const WhatIDoParagraph = styled.p`
+    text-align: right;
+    @media screen and (max-width: 768px) {
+        text-align: justify;
+    }
+`;
+
 interface PropsType {
     whatIDo: string;
     whatILike: string;
@@ -68,7 +74,7 @@ const DoAndLike = (props: PropsType) => {
             </div>
             <HorizatalContainer>
                 <HorizatalItem style={{ textAlign: `right`, paddingRight: `2rem` }}>
-                    <UserAvatar src={Avatar}></UserAvatar>
+                    <UserAvatar src={Avatar} />
                 </HorizatalItem>
                 <HorizatalItem>
                     <p>{props.whatIDo}</p>
@@ -77,7 +83,7 @@ const DoAndLike = (props: PropsType) => {
 
             <HorizatalContainer>
                 <HorizatalItem>
-                    <p style={{ textAlign: `right` }}>{props.whatILike}</p>
+                    <WhatIDoParagraph>{props.whatILike}</WhatIDoParagraph>
                 </HorizatalItem>
                 <HorizatalItem style={{ textAlign: `left`, paddingLeft: `2rem` }}>
                     <AvatarImg src={hobbyImg} />

@@ -30,7 +30,7 @@ const Inner = styled.div<{ minimumWidth: number }>`
     /* justify-content: center; */
     margin: 0 auto;
     @media screen and (max-width: 768px) {
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
     }
 `;
 
@@ -38,8 +38,9 @@ const Spacer = styled.div`
     flex: 1;
 `;
 const LogoImg = styled.img`
+    vertical-align: middle;
     @media screen and (max-width: 768px) {
-        height: 56px;
+        height: 48px;
     }
 `;
 const Header = (props: any) => {
