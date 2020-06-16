@@ -14,14 +14,30 @@ import { RectShape, TextBlock } from 'react-placeholder/lib/placeholders';
 import { SectionWide, SectionNarrow } from '../../layouts/default';
 import HeyThere from './comps/HeyThere';
 
+const RectangleAngle = -30 - Math.random() * 20 + 'deg';
 const Wrapper = styled.div`
     /* text-align: center; */
 `;
 const HorizentalExtendBG = styled.div`
     width: 100%;
     /* z-index: 1; */
-    background-color: #efc854;
-    box-sizing: content-box;
+    /* background-color: #efc854; */
+    /* box-sizing: content-box; */
+    overflow: hidden;
+    position: relative;
+    :before {
+        content: '';
+        position: absolute;
+        z-index: -10;
+        background-color: #efc800;
+        top: 30%;
+        left: -30%;
+        width: 150%;
+        height: 60%;
+        border-top: 120px solid #8ddaf4;
+        border-bottom: 20px solid #e9c8ff;
+        transform: rotate(${RectangleAngle});
+    }
 `;
 const ShowcaseBar = styled.div`
     width: 100%;
@@ -30,8 +46,8 @@ const ShowcaseBar = styled.div`
     justify-content: space-between;
     align-content: flex-start;
     align-items: center;
-
     padding: 3rem 0;
+    /* z-index: 990; */
     @media screen and (max-width: 768px) {
         flex-flow: column-reverse;
         padding: 1rem 0.5rem 1rem 0.5rem;
@@ -52,14 +68,6 @@ const IntroRight = styled.div`
         padding: 0.5rem 0;
     }
 `;
-
-const ItemStyle = {
-    display: `inline-flex`,
-    flexWrap: `wrap`,
-    flexGrow: `1`,
-    height: `300px`,
-    minWidth: `400px`
-};
 
 const HighlightProjectPlaceholder = (
     <div

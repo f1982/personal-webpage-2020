@@ -103,12 +103,17 @@ const ImageSlide = (props: ImageSlideProp) => {
                     return <Slider key={index} image={item}></Slider>;
                 })}
             </SliderContainer>
-            <LeftArrow onClick={goPrevious}>
-                <FaArrowCircleLeft size='48' color='#666' style={{ transform: `translateY(-50%)` }} />
-            </LeftArrow>
-            <RightArrow onClick={goNext}>
-                <FaArrowCircleRight size='48' color='#666' style={{ transform: `translateY(-50%)` }} />
-            </RightArrow>
+            {props.images.length > 1 ? (
+                <>
+                    <LeftArrow onClick={goPrevious}>
+                        <FaArrowCircleLeft size='48' color='#666' style={{ transform: `translateY(-50%)` }} />
+                    </LeftArrow>
+                    <RightArrow onClick={goNext}>
+                        <FaArrowCircleRight size='48' color='#666' style={{ transform: `translateY(-50%)` }} />
+                    </RightArrow>
+                </>
+            ) : null}
+
             {/* <DisplayInfo>{current}</DisplayInfo> */}
         </SliderWrapper>
     );

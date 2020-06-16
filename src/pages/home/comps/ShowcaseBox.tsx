@@ -14,9 +14,10 @@ const Wrapper = styled.div`
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+
     &:hover {
         /* box-shadow: 0px 36px 20px rgba(0, 0, 0, 0.1); */
-        transform: translateY(5px);
+        transform: translateY(2px);
     }
 `;
 

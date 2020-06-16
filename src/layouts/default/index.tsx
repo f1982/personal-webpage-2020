@@ -4,11 +4,11 @@ import Header from './comps/Header';
 import Footer from './comps/Footer';
 import { SettingContext } from '../../Settings';
 const Wrapper = styled.div`
-    background-color: #000;
+    /* background-color: #000; */
     /* padding: 0 1rem; */
 `;
 const Inner = styled.div`
-    background-color: #fff;
+    /* background-color: #fff; */
     position: relative;
 `;
 const MainContainer = styled.div`
