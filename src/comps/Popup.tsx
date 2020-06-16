@@ -66,6 +66,9 @@ const TitleBar = styled.div`
     padding: 1rem;
 `;
 
+const Footer = styled.div`
+    height: 1rem;
+`;
 const CloseButton = styled.div`
     background-color: rgb(0, 0, 0, 0);
 `;
@@ -74,12 +77,16 @@ interface PopupProps {
     id: string;
     children: JSX.Element;
     closeButton?: JSX.Element;
+    containerWidth?: string;
+    containerHeight?: string;
+    roundCorner?: boolean;
     closeHandler?: Function;
 }
 
 const showDuration = 0;
 
 const Popup = (popupProps: PopupProps) => {
+    const { containerWidth = '70%', containerHeight = '90%', roundCorner = true } = popupProps;
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         return () => {
@@ -104,7 +111,8 @@ const Popup = (popupProps: PopupProps) => {
     };
     return (
         <Wrapper>
-            <Container>
+            <Container
+                style={{ width: containerWidth, height: containerHeight, borderRadius: roundCorner ? `20px` : `0` }}>
                 <TitleBar>
                     <span></span>
                     <CloseButton onClick={buttonHandler}>
@@ -112,6 +120,7 @@ const Popup = (popupProps: PopupProps) => {
                     </CloseButton>
                 </TitleBar>
                 <Border>{popupProps.children}</Border>
+                <Footer></Footer>
             </Container>
             <Mask style={props} onClick={buttonHandler}></Mask>
         </Wrapper>

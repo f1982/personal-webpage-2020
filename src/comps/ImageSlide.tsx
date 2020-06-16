@@ -7,7 +7,7 @@ const SlideImage = styled(animated.div)`
     display: inline-block;
     width: 100%;
     height: 100%;
-    background-size: contain;
+    background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
 `;

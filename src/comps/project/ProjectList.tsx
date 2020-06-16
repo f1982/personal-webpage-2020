@@ -4,7 +4,7 @@ import { Popup } from '../Popup';
 import { ProjectObject } from '../../types/interfaces';
 import { ProjectItem } from './ProjectItem';
 import { ProjectDetail } from './ProjectDetail';
-import ProjectCloseButton from './ProjectCloseButton';
+import { ProjectCloseButton } from './../../comps/SingleButton';
 import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
 
 function useQuery() {

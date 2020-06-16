@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import SingleButton from '../../comps/SingleButton';
+import { SingleButton } from '../../comps/SingleButton';
 import { WelcomeAnimation, ParticleCircle } from './canvas';
 
 const Wrapper = styled.div`

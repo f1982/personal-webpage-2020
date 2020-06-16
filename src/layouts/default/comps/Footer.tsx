@@ -14,7 +14,6 @@ const Inner = styled.div`
     width: 100%;
     max-width: 970px;
     margin: 0 auto;
-    /* border: solid 1px #ff0000; */
 `;
 const Copyright = styled.p`
     font-size: 10px;
@@ -74,27 +73,39 @@ const LinkData = [
 ];
 
 const getCurrentURL = () => {
-    // let location = useLocation();
-    // return 'http://' + window.location.hostname + ':' + window.location.port + '/#' + window.location.pathname;
     return window.location.href;
 };
 
 const Footer = () => {
     const [showQRCode, setShowQRCode] = useState(false);
-
-    // localhost3000#//home
-    // http://localhost:3000/#/home
-    console.log(window.location);
-
     return (
         <Wrapper>
             {showQRCode ? (
                 <Popup
                     id='qr-code'
+                    containerWidth='300px'
+                    containerHeight='420px'
                     closeHandler={() => {
                         setShowQRCode(false);
                     }}>
-                    <QRCode value={getCurrentURL()} />
+                    <div
+                        style={{
+                            display: `flex`,
+                            flexDirection: `column`,
+                            justifyContent: `center`,
+                            alignItems: `center`,
+                            height: `100%`,
+                            padding: `1rem`
+                        }}>
+                        <QRCode value={getCurrentURL()} />
+                        <div style={{ textAlign: `center` }}>
+                            <p>
+                                📱Scan this QR code
+                                <br />
+                                You can continue to 👀browse on other devices
+                            </p>
+                        </div>
+                    </div>
                 </Popup>
             ) : null}
 

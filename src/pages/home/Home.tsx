@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import SingleButton from '../../comps/SingleButton';
+import { SingleButton } from '../../comps/SingleButton';
 import HighlightProject from './comps/HighlightProject';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';

@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 const TSItem = styled.span`
     font-family: Menlo, Monaco, monospace, 'Courier New';
-    padding: 0.1rem 0.75rem;
+    padding: 2px 0.5rem;
     font-size: 0.75rem;
     background-color: #eee;
     border: 1px solid #ccc;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
+    line-height: 1rem;
     list-style-type: none;
     :hover {
         background: #555;
@@ -19,7 +20,11 @@ interface TechnologyStackItemProp {
 }
 
 const TechnologyStackItem = (props: TechnologyStackItemProp) => {
-    return <TSItem>{props.technology}</TSItem>;
+    return (
+        <TSItem>
+            <small>{props.technology}</small>
+        </TSItem>
+    );
 };
 
 export { TechnologyStackItem };

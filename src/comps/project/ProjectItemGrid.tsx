@@ -26,13 +26,23 @@ const CardImage = styled.div`
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: 160px;
-    margin: 0.5rem 1rem;
-
+    margin: 1rem 1rem;
+    position: relative;
+    > span {
+        position: absolute;
+        padding: 1px 10px;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 10px;
+        top: -10px;
+        right: 20px;
+        background-color: #8ddaf4;
+    }
     > img {
         width: 100%;
-        height: 330px;
+        height: 254px;
         object-fit: cover;
-        border-radius: 2rem;
+        border-radius: 1.5rem;
     }
 `;
 
@@ -41,6 +51,21 @@ const CardContent = styled.div`
     flex-shrink: 1;
     flex-grow: 1;
     flex-basis: 60%;
+    p {
+        position: relative;
+        line-height: 1.5em;
+        /* 高度为需要显示的行数*行高，比如这里我们显示两行，则为3 */
+        height: 3em;
+        overflow: hidden;
+    }
+    p:after {
+        content: '...';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0 5px;
+        background-color: #fff;
+    }
 `;
 
 /**
@@ -49,14 +74,16 @@ const CardContent = styled.div`
  * @param props
  */
 const ProjectItem = (props: ProjectItemProp) => {
+    const { itemData } = props;
     return (
         <Wrapper>
             <CardImage>
-                <img src={props.itemData.cover} />
+                <img src={itemData.cover} />
+                {itemData.platform ? <span>{itemData.platform}</span> : null}
             </CardImage>
             <CardContent>
-                <h5 style={{ margin: `0.5rem` }}>{props.itemData.title}</h5>
-                <p style={{ textAlign: `justify` }}>{props.itemData.description}</p>
+                <h5 style={{ margin: `0.5rem` }}>{itemData.title}</h5>
+                <p>{itemData.description}</p>
             </CardContent>
         </Wrapper>
     );

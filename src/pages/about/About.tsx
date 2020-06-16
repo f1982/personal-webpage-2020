@@ -9,7 +9,7 @@ import { Experience } from '../../comps/TimelineWork';
 import TimelineLife from '../../comps/TimelineLife';
 import { useRouteMatch, Switch, Route, NavLink, useHistory } from 'react-router-dom';
 import Introduction from './comps/Introduction';
-import SingleButton from '../../comps/SingleButton';
+import { SingleButton } from '../../comps/SingleButton';
 //Images
 import PicAndyBack from './../../assets/about-andy-back.png';
 import PicAndyComputer from './../../assets/about-computer.png';

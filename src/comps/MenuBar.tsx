@@ -101,14 +101,7 @@ const MenuBar: any = styled.nav<{ minimumWidth: number }>`
     }
 
     @media screen and (max-width: ${(props) => props.minimumWidth}px) {
-        /* visibility: hidden; */
         display: none;
-        /* width: 100%;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        margin: 0;
-        opacity: 1; */
     }
 `;
 

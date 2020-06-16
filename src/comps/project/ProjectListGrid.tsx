@@ -4,7 +4,7 @@ import { Popup } from '../Popup';
 import { ProjectObject } from '../../types/interfaces';
 import ProjectItem from './ProjectItemGrid';
 import { ProjectDetail } from './ProjectDetail';
-import ProjectCloseButton from './ProjectCloseButton';
+import { ProjectCloseButton } from '../../comps/SingleButton';
 import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
 
 function useQuery() {
@@ -21,14 +21,29 @@ const ProjectsContainer = styled.div`
     flex-wrap: wrap;
 
     display: grid;
+    grid-gap: 32px;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 `;
 
+const getPopupContainerWidth = () => {
+    if (window.innerWidth < 768) {
+        return '100%';
+    } else {
+        return '60%';
+    }
+};
+
+const getPopupContainerHeight = () => {
+    if (window.innerWidth < 768) {
+        return '96%';
+    } else {
+        return '80%';
+    }
+};
 const ProjectGrid = (props: any) => {
     let history = useHistory();
     let { path, url } = useRouteMatch();
     let query = useQuery();
-    // console.log('query', query.get('id'));
     let { data: items, category } = props;
 
     const findItem = (id: any) => {
@@ -64,7 +79,12 @@ const ProjectGrid = (props: any) => {
                 })}
             </ProjectsContainer>
             {query.get('id') ? (
-                <Popup id='test' closeButton={<ProjectCloseButton />} closeHandler={closePopupHandler}>
+                <Popup
+                    id='test'
+                    containerWidth={getPopupContainerWidth()}
+                    containerHeight={getPopupContainerHeight()}
+                    closeButton={<ProjectCloseButton />}
+                    closeHandler={closePopupHandler}>
                     <ProjectDetail itemData={findItem(query.get('id'))} />
                 </Popup>
             ) : null}

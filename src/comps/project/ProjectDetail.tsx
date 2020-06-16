@@ -4,7 +4,7 @@ import { FaCalendarTimes, FaChartArea, FaQuestionCircle } from 'react-icons/fa';
 import { ProjectObject } from '../../types/interfaces';
 import { TechnologyStackItem } from './TechnologyStack';
 import { ImageSlide } from '../ImageSlide';
-import SingleButton from '../SingleButton';
+import { SingleButton, ProjectCloseButton } from '../SingleButton';
 
 const WechatWebsiteURL = 'https://www.wechat.com/';
 const HowToScanQRCode =
@@ -36,7 +36,8 @@ const QuestionMarkIcon = styled(FaQuestionCircle)`
 `;
 
 const Images = styled(ImageSlide)`
-    margin-bottom: 1.5rem;
+    margin-top: 56.7%;
+    /* margin-bottom: 1rem; */
 `;
 
 interface WechatQRCodeType {
@@ -71,7 +72,7 @@ const Wrapper = styled.div`
 const StackRow = styled.div`
     display: flex;
     flex-wrap: wrap;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     span {
         margin-right: 5px;
         margin-bottom: 5px;
@@ -106,8 +107,8 @@ const ProjectDetail = (props: ProjectDetailProp) => {
                 {itemData.responsibility}
             </p>
 
-            <Images width='100%' height='300px' images={itemData.images} />
-            {itemData.link ? (
+            <Images width='100%' height='400px' images={itemData.images} />
+            {/* {itemData.link ? (
                 <div style={{ textAlign: `center`, marginTop: `1.5rem` }}>
                     <SingleButton
                         callback={() => {
@@ -116,9 +117,9 @@ const ProjectDetail = (props: ProjectDetailProp) => {
                         Detail
                     </SingleButton>
                 </div>
-            ) : null}
+            ) : null} */}
             {/* Wechat QR Code */}
-            {itemData.platform === 'wechat' && itemData.qrcode ? <WechatQRCode image={itemData.qrcode} /> : <></>}
+            {/* {itemData.platform === 'wechat' && itemData.qrcode ? <WechatQRCode image={itemData.qrcode} /> : <></>} */}
         </Wrapper>
     );
 };

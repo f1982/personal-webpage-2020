@@ -89,4 +89,59 @@ const SingleButton = (props: ButtonProp) => {
     );
 };
 
-export default SingleButton;
+// Close Button
+
+const ButtonWidth = 32;
+const ButtonHeight = 8;
+const ButtonSize = 32;
+
+const CloseButtonWrapper = styled.a`
+    height: ${ButtonSize}px;
+    width: ${ButtonSize}px;
+    position: relative;
+    box-sizing: border-box;
+    line-height: ${ButtonSize}px;
+    display: inline-block;
+    /* background-color: #ffcc00; */
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        transform-origin: center;
+        transform: rotate(-45deg);
+        top: 50%;
+        /* left: 50%; */
+        /* transform: translate(50%,-50%);  */
+        /* margin-top: -${ButtonHeight / 2}px;
+        margin-left: -${ButtonWidth / 2}px; */
+        /* transform-origin: center center; */
+        display: block;
+        height: ${ButtonHeight}px;
+        width: ${ButtonWidth}px;
+        background-color: #4a4a4a;
+        transition: all 0.25s ease-out;
+        will-change: transform;
+    }
+
+    &:after {
+        transform: rotate(-135deg);
+    }
+
+    &:hover {
+        &:before {
+            transform: rotate(0deg);
+            /* width: 8px; */
+        }
+        &:after {
+            transform: rotate(-180deg);
+            /* width: 8px; */
+        }
+    }
+`;
+
+const ProjectCloseButton = (props: any) => {
+    return <CloseButtonWrapper></CloseButtonWrapper>;
+};
+
+export { SingleButton, ProjectCloseButton };
