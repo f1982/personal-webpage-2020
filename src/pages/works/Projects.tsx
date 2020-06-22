@@ -10,19 +10,18 @@ import { SectionWide, SectionNarrow } from '../../layouts/default';
 
 const ProjectCategory = (props: any) => {
     const params = useParams();
+    console.log('params', params);
     let { category } = useParams();
-    if (category === 'all' || category === 'game' || category === 'app') {
-    } else {
+    if (!category) {
         category = 'all';
     }
-    console.log('category', category);
     return <ProjectListGrid data={props.data} category={category} />;
 };
 
 const imageURL = process.env.PUBLIC_URL + 'static/images/image-banner-projects.jpg';
 
 const Projects = (props: any) => {
-    const { syncProjects, items: projectItems } = props;
+    const { projects } = props;
 
     const match = useRouteMatch();
     const submenuItems = [
@@ -30,10 +29,6 @@ const Projects = (props: any) => {
         { id: 2, url: `${match.url}/app`, title: 'app' },
         { id: 3, url: `${match.url}/game`, title: 'game' }
     ];
-
-    useEffect(() => {
-        syncProjects();
-    }, [syncProjects]);
 
     return (
         <>
@@ -43,24 +38,23 @@ const Projects = (props: any) => {
             <SectionWide>
                 <TitleImage title='Projects' subtitle='My Passions & I Love.' backgroundImageURL={imageURL} />
             </SectionWide>
-
             <div style={{ textAlign: `center`, marginTop: `3rem` }}>
                 <h3>Projects</h3>
+                <p>
+                    This is part of the project I participated in, and there are some projects that I have not organized
+                    and listed.
+                </p>
             </div>
-            {props.loadedState === 'loaded' ? (
-                <SectionNarrow>
-                    <Switch>
-                        <Route path={`${match.path}/:category`}>
-                            <ProjectCategory data={projectItems} />
-                        </Route>
-                        <Route path={`${match.path}`}>
-                            <ProjectCategory data={projectItems} />
-                        </Route>
-                    </Switch>
-                </SectionNarrow>
-            ) : (
-                <p>loading</p>
-            )}
+            <SectionNarrow>
+                <Switch>
+                    <Route path={`${match.path}/:category`}>
+                        <ProjectCategory data={projects} />
+                    </Route>
+                    <Route path={`${match.path}`}>
+                        <ProjectCategory data={projects} />
+                    </Route>
+                </Switch>
+            </SectionNarrow>
         </>
     );
 };

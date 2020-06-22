@@ -46,14 +46,10 @@ const App = (props: any) => {
             <Helmet titleTemplate='%s - Andy Cao personal website'>
                 <meta name='description' content='An opensource personal website by React' />
             </Helmet>
-            {/* test */}
-
-            {/* test */}
             <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>
                 <Switch>
                     <Route exact path='/'>
-                        <Welcome></Welcome>
-                        {/* <div>test</div> */}
+                        <Welcome />
                     </Route>
                     <Route>
                         <Layout>

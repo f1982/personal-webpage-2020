@@ -69,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
   p a {
     background: linear-gradient(#efc854, #efc854) no-repeat;
     background-size: 100% 15%;
-    background-position: 0 105%;
+    background-position: 0 70%;
   }
   
 
@@ -106,15 +106,6 @@ const GlobalStyle = createGlobalStyle`
     background-size: 100% 25%;
     background-position: 0 85%;
   }
-  /* h3::before {
-    content:'';
-    width:100%;
-    position:absolute;
-    height: 5px;
-    left:0;
-    bottom: 10%;
-    background-color: #EFC854;
-  } */
 
   h4 {font-size: 1.777rem;}
 

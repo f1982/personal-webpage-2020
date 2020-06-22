@@ -6,21 +6,11 @@ import log from 'loglevel';
 const HOME_API_URL = 'home.json';
 const LINKS_API_URL = 'links.json';
 
-/**
- * 定义 works 这个页面需要的变量
- */
-interface HomeState {
-    whatIDo: string;
-    whatILike: string;
-    projects: Array<ProjectObject>;
-    sns: Array<LinkObject>;
-}
-
 const home = createModel({
     state: {
         whatIDo: '',
         whatILike: '',
-        projects: [],
+        // projects: [],
         sns: []
     },
     reducers: {
@@ -48,7 +38,7 @@ const home = createModel({
                 url: HOME_API_URL
             });
             const { data } = response;
-            log.info('response', response);
+            // log.info('response', response);
             this.updateLinks(data);
         }
     }

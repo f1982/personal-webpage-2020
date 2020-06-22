@@ -69,20 +69,6 @@ const IntroRight = styled.div`
     }
 `;
 
-const HighlightProjectPlaceholder = (
-    <div
-        style={{
-            display: `grid`,
-            gridTemplateColumns: `repeat(auto-fit, minmax(400px, 1fr))`,
-            width: `1200px`,
-            margin: `1rem auto`
-        }}>
-        <RectShape color='#E0E0E0' style={{ width: 250, height: 350 }} />
-        <RectShape color='#E0E0E0' style={{ width: 250, height: 350 }} />
-        <RectShape color='#E0E0E0' style={{ width: 250, height: 350 }} />
-    </div>
-);
-
 const IntroLeftHolderStyle = {
     margin: `0.5rem, 1rem`,
     flex: 1,
@@ -96,9 +82,12 @@ const HorizentalCenteredHolder = {
 };
 
 const Home = (props: any) => {
+    console.log('props', props);
     const [ready, setReady] = useState(false);
 
     const { syncHome } = props;
+    // console.log('syncHome', syncHome);
+    // console.log('appConfig', appConfig);
     const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
 
     useEffect(() => {
@@ -136,7 +125,7 @@ const Home = (props: any) => {
                 />
             </SectionNarrow>
 
-            <Links linkData={props.sns} iconColor='#EFC854' category='all' />
+            <Links linkData={props.links.sns} iconColor='#EFC854' category='all' />
         </Wrapper>
     );
 };

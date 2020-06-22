@@ -9,7 +9,7 @@ import { SectionWide, SectionNarrow } from '../../layouts/default';
 const YOUR_GOOGLE_MAP_API_KEY = 'AIzaSyDRAHe23jG9GXgLKUTsayaxaLiEFWKg8-k';
 
 const MapFlag = (props: any) => {
-    return <h3>{props.text}</h3>;
+    return <span style={{ fontSize: `2rem` }}>{props.text}</span>;
 };
 
 interface MapPropType {
@@ -26,8 +26,8 @@ const CurrentMap = (props: any) => {
                 bootstrapURLKeys={{ key: YOUR_GOOGLE_MAP_API_KEY }} // set if you need stats etc ...
                 center={defaultCenter}
                 zoom={12}>
-                <MapFlag lat={defaultCenter.lat} lng={defaultCenter.lng} text='Here' />
-                <MapFlag lat={59.824465} lng={30.180121} text='My Marker2' />
+                <MapFlag lat={defaultCenter.lat} lng={defaultCenter.lng} text='📍' />
+                {/* <MapFlag lat={59.824465} lng={30.180121} text='My Marker2' /> */}
             </GoogleMap>
         </div>
     );
@@ -65,16 +65,36 @@ const Contact = (props: any) => {
                     </div>
                     <p>
                         Current, I live in Auckland, New Zealand, If you want contact me, feel free to send a email to
-                        me.
+                        me. My email address is{' '}
+                        <a
+                            target='_blank'
+                            href='https://drive.google.com/file/d/1X7czXZn03TirgH98BA5kN1f_ZYOlNha1/view?usp=sharing'>
+                            here
+                        </a>
                     </p>
                     <p>
-                        If you want to hire a software energeer, you can get my CV here, and you can also can contact me
-                        via Linkin
+                        If you want to hire a software energeer, you can get my CV{' '}
+                        <a
+                            target='_blank'
+                            href='https://drive.google.com/file/d/1Hn0eD4Qy6GvgRm99lPf1_HED_862b2dS/view?usp=sharing'>
+                            here
+                        </a>{' '}
+                        and you can also can contact me via{' '}
+                        <a target='_blank' href='https://www.linkedin.com/in/andyisme/'>
+                            Linkin
+                        </a>
                     </p>
                     <p>
                         If you would like to get more updates about me, you can follow me via social networks. Such as
-                        Twitter or Weibo, I also update some information in my Telegram channel, I upload some videos
-                        about my life and experience in Youtube regularly, welcome to{' '}
+                        <a target='_blank' href='https://twitter.com/iandycao'>
+                            Twitter
+                        </a>{' '}
+                        or{' '}
+                        <a target='_blank' href='https://www.weibo.com/enjoywound'>
+                            Weibo
+                        </a>
+                        , I also update some information in my Telegram channel, I upload some videos about my life and
+                        experience in Youtube regularly, welcome to{' '}
                         <a href='http://tiny.cc/9owsqz' target='_blank'>
                             subscribe
                         </a>
@@ -85,9 +105,9 @@ const Contact = (props: any) => {
                 <section>
                     <CurrentMap />
                 </section>
-                <section>
+                {/* <section>
                     <ContactForm />
-                </section>
+                </section> */}
             </Wrapper>
         </>
     );

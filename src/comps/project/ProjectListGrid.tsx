@@ -44,7 +44,7 @@ const ProjectGrid = (props: any) => {
     let history = useHistory();
     let { path, url } = useRouteMatch();
     let query = useQuery();
-    let { data: items, category } = props;
+    let { data: items, category, top = 0 } = props;
 
     const findItem = (id: any) => {
         return items.find((item: ProjectObject) => item.id === parseInt(id));
@@ -64,6 +64,12 @@ const ProjectGrid = (props: any) => {
         filtered = items.filter((item: ProjectObject) => item.type === category);
     } else {
         filtered = items;
+    }
+    //Only show released project
+    filtered = filtered.filter((item: ProjectObject) => item.state === 'release');
+
+    if (top > 0) {
+        filtered = filtered.slice(0, top);
     }
 
     //return views

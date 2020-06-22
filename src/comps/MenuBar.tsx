@@ -122,7 +122,7 @@ const ResponsiveMenuBar = (
         <div style={{ zIndex: 999 }}>
             <MenuBar minimumWidth={props.smallDeviceWidth}>
                 {props.routes.map((route, index) => {
-                    if (index < 1) return;
+                    if (index < 0) return;
                     return (
                         <MenuBarItem
                             data-text={route.title}

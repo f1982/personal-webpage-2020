@@ -46,8 +46,8 @@ const HeyThere = (props: any) => {
                 <Cao> CAO</Cao>
             </IM>
             <small style={{ margin: `0 0 0.75rem 0` }}>Software Developer</small>
-            <Link to='/about/intro'>
-                <SingleButton>Say Hi!</SingleButton>
+            <Link to='/contact'>
+                <SingleButton>Contact</SingleButton>
             </Link>
         </Wrapper>
     );

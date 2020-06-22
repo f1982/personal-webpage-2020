@@ -24,11 +24,11 @@ export default [
         title: 'Contact',
         path: '/contact',
         component: require('./contact/').default
-    },
-    {
-        title: 'Resume',
-        path: '/resume',
-        mark: '🔥',
-        component: require('./resume/').default
     }
+    // {
+    //     title: 'Resume',
+    //     path: '/resume',
+    //     mark: '🔥',
+    //     component: require('./resume/').default
+    // }
 ];

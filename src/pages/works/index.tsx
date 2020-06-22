@@ -8,20 +8,14 @@ import Projects from './Projects';
  * @param rootState
  */
 const mapStatesToProps = (rootState: any) => {
-    const { items, loadedState } = rootState.projects;
-    // return rootState.projects;
     return {
-        loadedState: loadedState,
-        total: items.length,
-        items: items
+        total: rootState.appConfig.projects.length,
+        projects: rootState.appConfig.projects
     };
 };
 
 const mapReducersToProps = (dispatch: any) => {
-    console.log('dispatch', dispatch.projects);
-    return {
-        syncProjects: dispatch.projects.syncProjects
-    };
+    return {};
 };
 
 export default connect(mapStatesToProps, mapReducersToProps)(Projects);

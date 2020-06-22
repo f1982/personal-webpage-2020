@@ -8,7 +8,10 @@ import { connect } from 'react-redux';
  */
 const mapStatesToProps = (rootState: any) => {
     // const { projects, whatIDo, whatILike, sns } = rootState.home;
-    return rootState.home;
+    return {
+        ...rootState.home,
+        ...rootState.appConfig
+    };
 };
 
 const mapReducersToProps = (dispatch: any) => ({

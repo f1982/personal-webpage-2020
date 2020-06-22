@@ -8,25 +8,7 @@ let baseUrl =
     process.env.NODE_ENV === 'development'
         ? process.env.REACT_APP_STATIC_BASES_URL_TEST
         : process.env.REACT_APP_STATIC_BASES_URL;
-
 baseUrl = baseUrl + 'images/projects/';
-
-const updateImageURLs = (projects: ProjectObject[]) => {
-    function updateURL(original: string) {
-        if (!original) return;
-        original = baseUrl + original;
-    }
-
-    projects.forEach((object: ProjectObject) => {
-        object.cover = object.cover ? baseUrl + object.cover : '';
-        object.icon = object.icon ? baseUrl + object.icon : '';
-        object.qrcode = object.qrcode != '' ? baseUrl + object.qrcode : '';
-
-        for (let i = 0; i < object.images.length; i++) {
-            object.images[i] = baseUrl + object.images[i];
-        }
-    });
-};
 
 const projects = createModel({
     state: {

@@ -59,7 +59,8 @@ const Header = (props: any) => {
                         routes={routes}
                         toggleCloseIcon={<FaWindowClose size='32' />}
                         toggleOpenIcon={<FaBars size='32' />}
-                        smallDeviceWidth={768}></ResponsiveMenuBar>
+                        smallDeviceWidth={768}
+                    />
                     <SmallMenuBar routes={routes} smallDeviceWidth={768} />
                 </Inner>
             </Wrapper>
