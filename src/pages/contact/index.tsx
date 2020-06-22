@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import * as log from 'loglevel';
 import GoogleMap, { Coords } from 'google-map-react';
 import ContactForm from '../contact/comps/ContactForm';
+import TitleImage from '../../comps/TitleImage';
+import { SectionWide, SectionNarrow } from '../../layouts/default';
 
 const YOUR_GOOGLE_MAP_API_KEY = 'AIzaSyDRAHe23jG9GXgLKUTsayaxaLiEFWKg8-k';
 
@@ -44,28 +46,50 @@ const Wrapper = styled.div`
     }
 `;
 
+const imageURL = process.env.PUBLIC_URL + 'static/images/contact-title-image.jpg';
+
 const Contact = (props: any) => {
     return (
-        <Wrapper>
-            <section>
-                <h3>Hey,I am Andy!</h3>
-                <p>
-                    Current, I live in Auckland, New Zealand, If you want contact me, feel free to send a email to me.
-                </p>
-                <p>
-                    If you want to hire a software energeer, you can get my CV here, and you can also can contact me via
-                    Linkin
-                </p>
-                <p>If you want to get more updates about me, you can follow me via social network.</p>
-            </section>
+        <>
+            <SectionWide>
+                <TitleImage
+                    title='About'
+                    subtitle='I live in Auckland New Zealand with my wife and 3 years old daughter. I love pour over coffee, I have a cat named Little Black.'
+                    backgroundImageURL={imageURL}
+                />
+            </SectionWide>
+            <Wrapper>
+                <section>
+                    <div style={{ textAlign: 'center' }}>
+                        <h3>Contact</h3>
+                    </div>
+                    <p>
+                        Current, I live in Auckland, New Zealand, If you want contact me, feel free to send a email to
+                        me.
+                    </p>
+                    <p>
+                        If you want to hire a software energeer, you can get my CV here, and you can also can contact me
+                        via Linkin
+                    </p>
+                    <p>
+                        If you would like to get more updates about me, you can follow me via social networks. Such as
+                        Twitter or Weibo, I also update some information in my Telegram channel, I upload some videos
+                        about my life and experience in Youtube regularly, welcome to{' '}
+                        <a href='http://tiny.cc/9owsqz' target='_blank'>
+                            subscribe
+                        </a>
+                        .
+                    </p>
+                </section>
 
-            <section>
-                <CurrentMap />
-            </section>
-            <section>
-                <ContactForm />
-            </section>
-        </Wrapper>
+                <section>
+                    <CurrentMap />
+                </section>
+                <section>
+                    <ContactForm />
+                </section>
+            </Wrapper>
+        </>
     );
 };
 

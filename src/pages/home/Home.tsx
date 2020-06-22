@@ -34,8 +34,8 @@ const HorizentalExtendBG = styled.div`
         left: -30%;
         width: 150%;
         height: 60%;
-        border-top: 120px solid #8ddaf4;
-        border-bottom: 20px solid #e9c8ff;
+        /* border-top: 120px solid #8ddaf4;
+        border-bottom: 20px solid #e9c8ff; */
         transform: rotate(${RectangleAngle});
     }
 `;

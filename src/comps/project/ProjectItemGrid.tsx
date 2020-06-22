@@ -82,7 +82,7 @@ const ProjectItem = (props: ProjectItemProp) => {
                 {itemData.platform ? <span>{itemData.platform}</span> : null}
             </CardImage>
             <CardContent>
-                <h5 style={{ margin: `0.5rem` }}>{itemData.title}</h5>
+                <h5 style={{ margin: `0.5rem 0` }}>{itemData.title}</h5>
                 <p>{itemData.description}</p>
             </CardContent>
         </Wrapper>

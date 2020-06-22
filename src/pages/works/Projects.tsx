@@ -19,7 +19,7 @@ const ProjectCategory = (props: any) => {
     return <ProjectListGrid data={props.data} category={category} />;
 };
 
-const imageURL = process.env.PUBLIC_URL + 'static/images/projects_img_bar.jpg';
+const imageURL = process.env.PUBLIC_URL + 'static/images/image-banner-projects.jpg';
 
 const Projects = (props: any) => {
     const { syncProjects, items: projectItems } = props;

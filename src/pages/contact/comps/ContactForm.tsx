@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import * as React from 'react';
 import * as Yup from 'yup';
 import { useState } from 'react';
+import { SingleButton } from '../../../comps/SingleButton';
 
 const FMForm = styled.form`
     width: 100%;
@@ -128,6 +129,7 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (props:
                     <FMButton type='submit' disabled={props.isSubmitting}>
                         Submit
                     </FMButton>
+                    <SingleButton>Submit</SingleButton>
                 </FMForm>
             ) : (
                 <p>Thank you for you feedback!</p>
@@ -139,12 +141,8 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (props:
 const UserSearchForm = withFormik<FormProps, FormValues>({
     mapPropsToValues: () => ({ firstName: '', lastName: '', email: '', subject: '', content: '' }),
     validationSchema: Yup.object().shape({
-        firstName: Yup.string()
-            .max(16, 'Please input 16 characters or less')
-            .required('Please input userName name'),
-        lastName: Yup.string()
-            .max(16, 'Please input 16 characters or less')
-            .required('Please input userName name'),
+        firstName: Yup.string().max(16, 'Please input 16 characters or less').required('Please input userName name'),
+        lastName: Yup.string().max(16, 'Please input 16 characters or less').required('Please input userName name'),
         email: Yup.string()
             .max(50, 'Pls input less than 50 characters')
             .email('must be a email address')

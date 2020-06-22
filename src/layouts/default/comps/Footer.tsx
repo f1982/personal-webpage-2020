@@ -34,6 +34,7 @@ const FooterLink = styled.a`
     overflow: hidden;
     height: 30px;
     width: 80px;
+    cursor: pointer;
     &:hover {
         /* height: 80px; */
     }

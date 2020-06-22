@@ -101,7 +101,7 @@ const About = (props: any) => {
                                     <h3>Who's Andy</h3>
                                     <p style={{ textAlign: `justify` }}>
                                         My name is Andy Cao and I come from China 🇨🇳. I am {getMyAge()} years old, I
-                                        have been on this planet for about {getDays()} days. I am a software developer
+                                        have been on this planet for about {getDays()} days🌞. I am a software developer
                                         👨‍💻 who focuses on building website and mobile apps 📱. I have serval hobbies
                                         with me for many years. Like RC hobby, FPV(flying drone in first person view),
                                         video editing and DIY. Currently My family and I living in Auckland, New Zealand

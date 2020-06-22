@@ -21,10 +21,11 @@ const myTheme: DefaultTheme = {
 };
 
 const baseLine = 1.0;
-const PrimaryFont = 'OpenSans';
+// const PrimaryFont = 'OpenSans';
+const PrimaryFont = 'Quicksand';
 const SecondaryFont = 'Lora';
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=${PrimaryFont}:400|${SecondaryFont}:400');
+    @import url('https://fonts.googleapis.com/css?family=${PrimaryFont}|${PrimaryFont}:b');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
   :root{
     --content-max-width: 900px;
@@ -43,7 +44,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: white;
     font-family: ${PrimaryFont}, sans-serif;
-    font-weight: 400;
     line-height: ${myTheme.baseLine}rem;
     color: #4A4A4A;
   }
@@ -52,6 +52,7 @@ const GlobalStyle = createGlobalStyle`
     color: #333;
     text-decoration: none;
   }
+
 
   a:hover{
     color: #666;
@@ -64,13 +65,19 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: ${myTheme.baseLine}rem;
     color: #666;
   }
+
+  p a {
+    background: linear-gradient(#efc854, #efc854) no-repeat;
+    background-size: 100% 15%;
+    background-position: 0 105%;
+  }
   
 
   h1, h2, h3, h4, h5 {
     margin: ${myTheme.baseLine}rem 0;
     font-family: ${PrimaryFont}, sans-serif;
     
-    font-weight: bold;
+    font-weight: 700;
     
     /* line-height: ${myTheme.baseLine}*2rem; */
   }
