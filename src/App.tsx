@@ -23,7 +23,7 @@ const App = (props: any) => {
 
     return (
         <Router basename={process.env.PUBLIC_URL}>
-            <Helmet titleTemplate='%s - Andy Cao personal website'>
+            <Helmet titleTemplate='%s - Andy Cao Personal Website'>
                 <meta name='description' content='An opensource personal website by React' />
             </Helmet>
             <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>

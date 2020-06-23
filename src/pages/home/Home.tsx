@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import HighlightProject from './comps/HighlightProject';
 import { Helmet } from 'react-helmet';
@@ -9,14 +9,9 @@ import { SectionNarrow } from '../../layouts/default';
 import HeyThere from './comps/HeyThere';
 
 const RectangleAngle = -30 - Math.random() * 20 + 'deg';
-const Wrapper = styled.div`
-    /* text-align: center; */
-`;
+const Wrapper = styled.div``;
 const HorizentalExtendBG = styled.div`
     width: 100%;
-    /* z-index: 1; */
-    /* background-color: #efc854; */
-    /* box-sizing: content-box; */
     overflow: hidden;
     position: relative;
     :before {
@@ -28,11 +23,10 @@ const HorizentalExtendBG = styled.div`
         left: -30%;
         width: 150%;
         height: 60%;
-        /* border-top: 120px solid #8ddaf4;
-        border-bottom: 20px solid #e9c8ff; */
         transform: rotate(${RectangleAngle});
     }
 `;
+
 const ShowcaseBar = styled.div`
     width: 100%;
     display: flex;
@@ -41,7 +35,6 @@ const ShowcaseBar = styled.div`
     align-content: flex-start;
     align-items: center;
     padding: 3rem 0;
-    /* z-index: 990; */
     @media screen and (max-width: 768px) {
         flex-flow: column-reverse;
         padding: 1rem 0.5rem 1rem 0.5rem;
@@ -65,7 +58,7 @@ const IntroRight = styled.div`
 
 const Home = (props: any) => {
     console.log('props', props);
-    const [ready, setReady] = useState(false);
+    // const [ready, setReady] = useState(false);
 
     const { syncHome } = props;
     // console.log('syncHome', syncHome);
@@ -73,14 +66,14 @@ const Home = (props: any) => {
     // const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
 
     useEffect(() => {
-        syncHome();
-        setReady(true);
+        // syncHome();
+        // setReady(true);
     }, [syncHome]);
 
     return (
         <Wrapper>
             <Helmet>
-                <title>Home{ready === true ? 'loading' : ''}</title>
+                <title>Home</title>
             </Helmet>
             <HorizentalExtendBG>
                 <div style={{ width: `100%`, maxWidth: `970px`, margin: `0 auto` }}>

@@ -143,7 +143,7 @@ const Footer = () => {
                     borderColor: `#D2D2D2`,
                     borderWidth: `0 0 1px 0`
                 }}></div>
-            <Inner style={{ padding: `3rem 0` }}>
+            <Inner style={{ padding: `3rem 0.5rem` }}>
                 <Under>
                     <div>
                         <p style={{ margin: `0.5rem auto` }}>
