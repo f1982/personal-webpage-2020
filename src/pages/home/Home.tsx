@@ -66,7 +66,7 @@ const Home = (props: any) => {
     // const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
 
     useEffect(() => {
-        // syncHome();
+        syncHome();
         // setReady(true);
     }, [syncHome]);
 

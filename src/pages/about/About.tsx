@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { Header } from './comps/Brief';
 import TitleImage from '../../comps/TitleImage';
 import { Experience } from '../../comps/TimelineWork';
 import TimelineLife from '../../comps/TimelineLife';

@@ -7,15 +7,6 @@ import Helmet from 'react-helmet';
 
 const imageURL = process.env.PUBLIC_URL + 'static/images/contact-title-image.jpg';
 
-const Wrapper = styled.div`
-    width: 100%;
-    max-width: var(--content-max-width);
-    display: flex;
-    flex-flow: column;
-    margin: 0 auto;
-    padding: 1rem;
-`;
-
 const SectionContent = styled.section`
     width: 100%;
     max-width: var(--content-max-width);

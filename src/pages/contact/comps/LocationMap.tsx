@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import GoogleMap, { Coords } from 'google-map-react';
 
 const YOUR_GOOGLE_MAP_API_KEY = 'AIzaSyDRAHe23jG9GXgLKUTsayaxaLiEFWKg8-k';
