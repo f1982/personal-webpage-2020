@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { SingleButton } from '../../comps/SingleButton';
-import { WelcomeAnimation, ParticleCircle } from './canvas';
+import { ParticleCircle } from './canvas';
 
 const Wrapper = styled.div`
     position: relative;
@@ -70,19 +70,6 @@ const Welcome = (props: any) => {
             welcome.clear();
             welcome.init();
         }
-        /**
-         * Set canvas data as a background image
-         */
-        function assignToDiv() {
-            // this kind of function you are looking for
-            let dataUrl = canvas.toDataURL();
-            let bg: any = document.getElementById('bg');
-            bg.style.background = 'url(' + dataUrl + ')';
-        }
-
-        // let welcome = new WelcomeAnimation(canvas, ctx);
-
-        // assignToDiv();
 
         return () => {};
     }, []);

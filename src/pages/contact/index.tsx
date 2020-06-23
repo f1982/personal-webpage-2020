@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as log from 'loglevel';
 import GoogleMap, { Coords } from 'google-map-react';
-import ContactForm from '../contact/comps/ContactForm';
 import TitleImage from '../../comps/TitleImage';
-import { SectionWide, SectionNarrow } from '../../layouts/default';
+import { SectionWide } from '../../layouts/default';
 
 const YOUR_GOOGLE_MAP_API_KEY = 'AIzaSyDRAHe23jG9GXgLKUTsayaxaLiEFWKg8-k';
 
@@ -68,6 +66,7 @@ const Contact = (props: any) => {
                         me. My email address is{' '}
                         <a
                             target='_blank'
+                            rel='noopener noreferrer'
                             href='https://drive.google.com/file/d/1X7czXZn03TirgH98BA5kN1f_ZYOlNha1/view?usp=sharing'>
                             here
                         </a>
@@ -76,26 +75,27 @@ const Contact = (props: any) => {
                         If you want to hire a software energeer, you can get my CV{' '}
                         <a
                             target='_blank'
+                            rel='noopener noreferrer'
                             href='https://drive.google.com/file/d/1Hn0eD4Qy6GvgRm99lPf1_HED_862b2dS/view?usp=sharing'>
                             here
                         </a>{' '}
                         and you can also can contact me via{' '}
-                        <a target='_blank' href='https://www.linkedin.com/in/andyisme/'>
+                        <a target='_blank' rel='noopener noreferrer' href='https://www.linkedin.com/in/andyisme/'>
                             Linkin
                         </a>
                     </p>
                     <p>
                         If you would like to get more updates about me, you can follow me via social networks. Such as
-                        <a target='_blank' href='https://twitter.com/iandycao'>
+                        <a target='_blank' rel='noopener noreferrer' href='https://twitter.com/iandycao'>
                             Twitter
                         </a>{' '}
                         or{' '}
-                        <a target='_blank' href='https://www.weibo.com/enjoywound'>
+                        <a target='_blank' rel='noopener noreferrer' href='https://www.weibo.com/enjoywound'>
                             Weibo
                         </a>
                         , I also update some information in my Telegram channel, I upload some videos about my life and
                         experience in Youtube regularly, welcome to{' '}
-                        <a href='http://tiny.cc/9owsqz' target='_blank'>
+                        <a href='http://tiny.cc/9owsqz' target='_blank' rel='noopener noreferrer'>
                             subscribe
                         </a>
                         .

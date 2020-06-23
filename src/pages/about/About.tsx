@@ -2,27 +2,20 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { Header } from './comps/Brief';
-import { Summary } from './comps/Summary';
 import TitleImage from '../../comps/TitleImage';
-import Submenu from '../../comps/SubMenu2';
 import { Experience } from '../../comps/TimelineWork';
 import TimelineLife from '../../comps/TimelineLife';
-import { useRouteMatch, Switch, Route, NavLink, useHistory } from 'react-router-dom';
-import Introduction from './comps/Introduction';
-import { SingleButton } from '../../comps/SingleButton';
+import { useRouteMatch, Switch, Route, useHistory } from 'react-router-dom';
 //Images
 import PicAndyBack from './../../assets/about-andy-back.png';
 import PicAndyComputer from './../../assets/about-computer.png';
 import PicAndyFamily from './../../assets/about-andy-family.png';
+
 const Wrapper = styled.div`
     width: 100%;
     max-width: var(--content-max-width);
     margin: 0 auto;
     padding: 1rem;
-`;
-
-const InlineLink = styled(NavLink)`
-    display: inline-block;
 `;
 
 const About = (props: any) => {
@@ -34,12 +27,12 @@ const About = (props: any) => {
         syncInfo();
     }, [syncInfo]);
 
-    const submenuItems = [
-        { id: 'intro', url: `${match.url}/intro`, title: 'Introduction', active: true },
-        { id: 'work', url: `${match.url}/work`, title: 'Work Experience' },
-        { id: 'life', url: `${match.url}/life`, title: 'Life Experience' },
-        { id: 'skill', url: `${match.url}/skill`, title: 'Skills' }
-    ];
+    // const submenuItems = [
+    //     { id: 'intro', url: `${match.url}/intro`, title: 'Introduction', active: true },
+    //     { id: 'work', url: `${match.url}/work`, title: 'Work Experience' },
+    //     { id: 'life', url: `${match.url}/life`, title: 'Life Experience' },
+    //     { id: 'skill', url: `${match.url}/skill`, title: 'Skills' }
+    // ];
     const imageURL = process.env.PUBLIC_URL + 'static/images/about_img_bar.jpg';
 
     const aboutHtml = (
@@ -56,14 +49,14 @@ const About = (props: any) => {
         </>
     );
 
-    const getMyAge = () => {
+    const getAge = (birthYear: number) => {
         var d = new Date();
         var n = d.getFullYear();
-        return n - 1982;
+        return n - birthYear;
     };
-    const getDays = () => {
-        return getMyAge() * 365;
-    };
+    // const getMyDays = () => {
+    //     return getAge(1982) * 365;
+    // };
     return (
         <>
             <Helmet>
@@ -94,13 +87,27 @@ const About = (props: any) => {
                             <div style={{ textAlign: `center` }}>
                                 <h3>Who's Andy</h3>
                                 <p style={{ textAlign: `justify` }}>
-                                    My name is Andy Cao and I come from China 🇨🇳. I am {getMyAge()} years old, I have
-                                    been on this planet for about {getDays()} days🌞. I am a software developer 👨‍💻 who
-                                    focuses on building website and mobile apps 📱. I have serval hobbies with me for
-                                    many years. Like RC hobby, FPV(flying drone in first person view), video editing and
-                                    DIY. Currently My family and I living in Auckland, New Zealand 🇳🇿.
+                                    My name is Andy Cao and I come from China{' '}
+                                    <span role='img' aria-label='china'>
+                                        🇨🇳
+                                    </span>
+                                    . I am a software developer
+                                    <span role='img' aria-label='developer'>
+                                        👨‍💻
+                                    </span>{' '}
+                                    who focuses on building website and mobile apps{' '}
+                                    <span role='img' aria-label='iphone'>
+                                        📱
+                                    </span>
+                                    . I have serval hobbies with me for many years. Like RC hobby, FPV(flying drone in
+                                    first person view), video editing and DIY. Currently My family and I living in
+                                    Auckland, New Zealand{' '}
+                                    <span role='img' aria-label='nz'>
+                                        🇳🇿
+                                    </span>
+                                    .
                                 </p>
-                                <img style={{ width: `100%` }} src={PicAndyBack} />
+                                <img style={{ width: `100%` }} src={PicAndyBack} alt='I was on the beach' />
                                 <div style={{ margin: `2rem auto` }}>
                                     {/* <SingleButton>My Hobbies</SingleButton>
                                         <div
@@ -115,15 +122,28 @@ const About = (props: any) => {
 
                                 <h3>What I do?</h3>
                                 <p style={{ textAlign: `justify` }}>
-                                    I am a software developer 👨‍💻 and have worked in the software industry for more than
-                                    15 years. I have developed websites, made mobile 📱apps, and also built and designed
-                                    casual games 🕹. The process of developing software always brings me happiness 🙃 and
-                                    satisfaction 😌. Currently, I am learning 📖 and using front-end development
-                                    technology. The main focuses are on JavaScript, CSS, HTML, React related technology
-                                    stack and React Native. Because I love Apple 💻 ecosystem, I also keep an eye on iOS
-                                    development.
+                                    I am a software developer{' '}
+                                    <span role='img' aria-label='developer'>
+                                        👨‍💻
+                                    </span>{' '}
+                                    and have worked in the software industry for more than 15 years. I have developed
+                                    websites, made mobile 📱apps, and also built and designed casual games{' '}
+                                    <span role='img' aria-label='game dev'>
+                                        🕹
+                                    </span>
+                                    . The process of developing software always brings me happiness and satisfaction.
+                                    Currently, I am learning{' '}
+                                    <span role='img' aria-label='learning'>
+                                        📖
+                                    </span>{' '}
+                                    and using front-end development technology. The main focuses are on JavaScript, CSS,
+                                    HTML, React related technology stack and React Native. Because I love Apple{' '}
+                                    <span role='img' aria-label='macbook pro'>
+                                        💻
+                                    </span>{' '}
+                                    ecosystem, I also keep an eye on iOS development.
                                 </p>
-                                <img style={{ width: `100%` }} src={PicAndyComputer} />
+                                <img style={{ width: `100%` }} src={PicAndyComputer} alt='My Computer' />
                                 <div style={{ margin: `2rem auto` }}>
                                     {/* <InlineLink to={match.path + '/life'}>
                                             <SingleButton>LIFE EVENTS</SingleButton>
@@ -132,10 +152,10 @@ const About = (props: any) => {
                                 <h3>Family</h3>
                                 <p style={{ textAlign: `justify` }}>
                                     I was very lucky to have met my wife Fang very early. She helped me immensely in
-                                    life and spirit. We have a 4 year old daughter who is very lively, healthy and cute.
-                                    Our family currently lives in Auckland.
+                                    life and spirit. We have a {getAge(2016)} year old daughter who is very lively,
+                                    healthy and cute. Our family currently lives in Auckland.
                                 </p>
-                                <img style={{ width: `100%` }} src={PicAndyFamily} />
+                                <img style={{ width: `100%` }} src={PicAndyFamily} alt='Introduce my family' />
                                 <div style={{ margin: `2rem auto` }}></div>
                             </div>
                         </Route>

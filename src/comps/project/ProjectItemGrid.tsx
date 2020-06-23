@@ -78,7 +78,7 @@ const ProjectItem = (props: ProjectItemProp) => {
     return (
         <Wrapper>
             <CardImage>
-                <img src={itemData.cover} />
+                <img src={itemData.cover} alt={itemData.title} />
                 {itemData.platform ? <span>{itemData.platform}</span> : null}
             </CardImage>
             <CardContent>

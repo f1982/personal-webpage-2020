@@ -13,16 +13,6 @@ interface AboutState {
     timelines: any;
 }
 
-/**
- * Initial value for the state
- */
-const initialState: AboutState = {
-    myName: 'noname',
-    myPosition: 'noposition',
-    summary: '',
-    timelines: []
-};
-
 const about = createModel({
     state: {
         loadedState: '',

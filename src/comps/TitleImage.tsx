@@ -23,22 +23,6 @@ const Inner = styled.div`
     }
 `;
 
-const TextBlock = styled.div`
-    width: 620px;
-    border: solid 3px #ffcc00;
-    h2 {
-        /* background-color: #fff;
-        color: #ccc; */
-    }
-    @media screen and (max-width: 768px) {
-        width: 100%;
-    }
-`;
-const Subtitle = styled.p`
-    color: #fff;
-    opacity: 0.8;
-`;
-
 export interface TitleImageProp {
     title: string;
     subtitle: string;
@@ -46,16 +30,11 @@ export interface TitleImageProp {
 }
 
 const TitleImage = (props: TitleImageProp) => {
-    const { title, subtitle, backgroundImageURL } = props;
+    const { backgroundImageURL } = props;
 
     return (
         <Wrapper style={{ backgroundImage: `url(${backgroundImageURL})` }}>
-            <Inner>
-                {/* <TextBlock>
-                    <h2>{title}</h2>
-                    <Subtitle>{subtitle}</Subtitle>
-                </TextBlock> */}
-            </Inner>
+            <Inner></Inner>
         </Wrapper>
     );
 };

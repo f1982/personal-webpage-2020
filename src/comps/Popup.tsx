@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
-import { FaWindowClose, FaTimes } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 import '../assets/styles/animation.css';
 
-const FRAME_MARGIN = '10%';
 const ScreenSmallWidth: string = `768px`;
 
 const Wrapper = styled.div`

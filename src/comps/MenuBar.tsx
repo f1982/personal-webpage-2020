@@ -1,10 +1,9 @@
-import React, { useState, useLayoutEffect, useEffect, useContext } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import menuStyles from '../assets/styles/menubar.module.css';
-import { NavLink, useRouteMatch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { sample } from 'lodash';
-import { FaWindowClose, FaSatellite, FaBars, FaCloudscale, FaTimes } from 'react-icons/fa';
-const ScreenSmallWidth: number = 768;
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 // base button style
 const MenuBarItemBase = css`
@@ -75,10 +74,6 @@ const MenuBarItem = styled(NavLink)`
     ${MenuBarItemBase}
 `;
 
-const OutLink = styled.a`
-    ${MenuBarItemBase}
-`;
-
 const MenuBar: any = styled.nav<{ minimumWidth: number }>`
     width: auto;
     display: flex;
@@ -122,7 +117,7 @@ const ResponsiveMenuBar = (
         <div style={{ zIndex: 999 }}>
             <MenuBar minimumWidth={props.smallDeviceWidth}>
                 {props.routes.map((route, index) => {
-                    if (index < 0) return;
+                    if (index < 0) return null;
                     return (
                         <MenuBarItem
                             data-text={route.title}
@@ -209,7 +204,7 @@ const SmallMenuBar = (
             <ToggleButton onClick={toggle}>
                 <FaBars size={SmallMenuBarIconSize} style={{ verticalAlign: `middle` }} />
             </ToggleButton>
-            <MobileMenuBar style={{ display: isShowing == true ? `block` : `none` }}>
+            <MobileMenuBar style={{ display: isShowing === true ? `block` : `none` }}>
                 <div style={{ textAlign: `right`, padding: `1rem` }}>
                     <FaTimes size={SmallMenuBarIconSize} onClick={toggle} />
                 </div>

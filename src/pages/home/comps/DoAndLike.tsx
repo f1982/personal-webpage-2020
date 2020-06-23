@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import ReactPlaceholder from 'react-placeholder';
-import 'react-placeholder/lib/reactPlaceholder.css';
-import { TextBlock } from 'react-placeholder/lib/placeholders';
 import Avatar from '../../../assets/avatar-pixel.jpg';
 
 const Wrapper = styled.div`
@@ -62,8 +59,6 @@ interface PropsType {
 }
 
 const DoAndLike = (props: PropsType) => {
-    const handleScroll = () => {};
-
     const hobbyImg = process.env.PUBLIC_URL + 'static/images/transmiter.png';
     return (
         <Wrapper>

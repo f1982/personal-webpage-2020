@@ -13,8 +13,6 @@ baseUrl = baseUrl + 'images/projects/';
 
 const appConfig = createModel({
     state: {
-        a: 1,
-        b: 2,
         projects: [],
         links: {}
     },
@@ -24,7 +22,7 @@ const appConfig = createModel({
             projects.forEach((object: ProjectObject) => {
                 object.cover = object.cover ? baseUrl + object.cover : '';
                 object.icon = object.icon ? baseUrl + object.icon : '';
-                object.qrcode = object.qrcode != '' ? baseUrl + object.qrcode : '';
+                object.qrcode = object.qrcode !== '' ? baseUrl + object.qrcode : '';
                 for (let i = 0; i < object.images.length; i++) {
                     object.images[i] = baseUrl + object.images[i];
                 }

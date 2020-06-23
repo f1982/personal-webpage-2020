@@ -4,7 +4,6 @@ import IconScan from '../../../assets/icon-phone-scan.png';
 import IconGoUp from '../../../assets/icon-go-top.png';
 import { Links } from '../../../comps/Links';
 import { Popup } from '../../../comps/Popup';
-import { useLocation } from 'react-router-dom';
 var QRCode = require('qrcode.react');
 const Wrapper = styled.div`
     padding-top: 3rem;
@@ -14,9 +13,6 @@ const Inner = styled.div`
     width: 100%;
     max-width: 970px;
     margin: 0 auto;
-`;
-const Copyright = styled.p`
-    font-size: 10px;
 `;
 
 const Under = styled.div`
@@ -101,7 +97,10 @@ const Footer = () => {
                         <QRCode value={getCurrentURL()} />
                         <div style={{ textAlign: `center` }}>
                             <p>
-                                📱Scan this QR code
+                                <span role='img' aria-label='device'>
+                                    📱
+                                </span>
+                                Scan this QR code
                                 <br />
                                 You can continue to 👀browse on other devices
                             </p>
@@ -122,7 +121,7 @@ const Footer = () => {
                         onClick={() => {
                             setShowQRCode(true);
                         }}>
-                        <img src={IconScan} />
+                        <img src={IconScan} alt='scan' />
                     </FooterLink>
 
                     <FooterLink
@@ -130,7 +129,7 @@ const Footer = () => {
                             window.scrollTo(0, 0);
                         }}
                         style={{ textAlign: `right` }}>
-                        <img src={IconGoUp} />
+                        <img src={IconGoUp} alt='go up' />
                     </FooterLink>
                 </div>
             </Inner>

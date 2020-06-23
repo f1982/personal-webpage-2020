@@ -104,7 +104,7 @@ const TimelineItem = (props: LifeItemProp) => {
                         </TimeHint>
                     </MiddleVertical>
                     <RightVertical>
-                        <img src='https://image.flaticon.com/icons/svg/147/147144.svg' />
+                        <img src='https://image.flaticon.com/icons/svg/147/147144.svg' alt={title} />
                     </RightVertical>
                 </LeftWrapper>
             ) : (

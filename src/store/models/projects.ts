@@ -25,7 +25,7 @@ const projects = createModel({
             projects.forEach((object: ProjectObject) => {
                 object.cover = object.cover ? baseUrl + object.cover : '';
                 object.icon = object.icon ? baseUrl + object.icon : '';
-                object.qrcode = object.qrcode != '' ? baseUrl + object.qrcode : '';
+                object.qrcode = object.qrcode !== '' ? baseUrl + object.qrcode : '';
                 for (let i = 0; i < object.images.length; i++) {
                     object.images[i] = baseUrl + object.images[i];
                 }

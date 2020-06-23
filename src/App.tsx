@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
@@ -20,26 +20,6 @@ const App = (props: any) => {
     }, [syncAppConfig]);
 
     useEffect(() => {}, [settings]);
-
-    //test
-    const [showSection, setShowSection] = useState(true);
-
-    //for test
-    // return (
-    //     <>
-    //         <div style={{ backgroundColor: `yellow`, height: `100vh` }}></div>
-    //         {showSection ? <GSection bgColor='#ffcc99' style='style2' title='I am andy cao' /> : null}
-
-    //         <button
-    //             onClick={() => {
-    //                 setShowSection(false);
-    //             }}>
-    //             Remove Section
-    //         </button>
-    //         <GSection bgColor='#ffcc00' style='style1' title='Lise Meitner was an Austrian-Swedish' />
-    //         <div style={{ backgroundColor: `yellow`, height: `100vh` }}></div>
-    //     </>
-    // );
 
     return (
         <Router basename={process.env.PUBLIC_URL}>

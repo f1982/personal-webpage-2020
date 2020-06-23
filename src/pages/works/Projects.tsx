@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import TitleImage from '../../comps/TitleImage';
-import ProjectList from '../../comps/project/ProjectList';
 import ProjectListGrid from '../../comps/project/ProjectListGrid';
-import Submenu from '../../comps/SubMenu2';
 import { Helmet } from 'react-helmet';
-import { Link, Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
+import { Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
 import { SectionWide, SectionNarrow } from '../../layouts/default';
 
 const ProjectCategory = (props: any) => {
@@ -24,11 +21,11 @@ const Projects = (props: any) => {
     const { projects } = props;
 
     const match = useRouteMatch();
-    const submenuItems = [
-        { id: 1, url: `${match.url}/all`, title: 'all', active: true },
-        { id: 2, url: `${match.url}/app`, title: 'app' },
-        { id: 3, url: `${match.url}/game`, title: 'game' }
-    ];
+    // const submenuItems = [
+    //     { id: 1, url: `${match.url}/all`, title: 'all', active: true },
+    //     { id: 2, url: `${match.url}/app`, title: 'app' },
+    //     { id: 3, url: `${match.url}/game`, title: 'game' }
+    // ];
 
     return (
         <>

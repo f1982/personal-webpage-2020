@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { SingleButton } from '../../comps/SingleButton';
 import HighlightProject from './comps/HighlightProject';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Links } from '../../comps/Links';
 import ShowcaseBox from './comps/ShowcaseBox';
 import DoAndLike from '../../pages/home/comps/DoAndLike';
-import '../../assets/styles/home-css-animate.css';
-import ReactPlaceholder from 'react-placeholder';
-import 'react-placeholder/lib/reactPlaceholder.css';
-import { RectShape, TextBlock } from 'react-placeholder/lib/placeholders';
-import { SectionWide, SectionNarrow } from '../../layouts/default';
+import { SectionNarrow } from '../../layouts/default';
 import HeyThere from './comps/HeyThere';
 
 const RectangleAngle = -30 - Math.random() * 20 + 'deg';
@@ -69,18 +63,6 @@ const IntroRight = styled.div`
     }
 `;
 
-const IntroLeftHolderStyle = {
-    margin: `0.5rem, 1rem`,
-    flex: 1,
-    flexShrink: 0
-};
-
-const HorizentalCenteredHolder = {
-    width: `100%`,
-    maxWidth: `1200px`,
-    margin: `1.5rem auto`
-};
-
 const Home = (props: any) => {
     console.log('props', props);
     const [ready, setReady] = useState(false);
@@ -88,7 +70,7 @@ const Home = (props: any) => {
     const { syncHome } = props;
     // console.log('syncHome', syncHome);
     // console.log('appConfig', appConfig);
-    const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
+    // const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
 
     useEffect(() => {
         syncHome();
@@ -98,9 +80,8 @@ const Home = (props: any) => {
     return (
         <Wrapper>
             <Helmet>
-                <title>Home</title>
+                <title>Home{ready === true ? 'loading' : ''}</title>
             </Helmet>
-
             <HorizentalExtendBG>
                 <div style={{ width: `100%`, maxWidth: `970px`, margin: `0 auto` }}>
                     <ShowcaseBar>
@@ -111,11 +92,9 @@ const Home = (props: any) => {
                     </ShowcaseBar>
                 </div>
             </HorizentalExtendBG>
-
             <SectionNarrow>
                 <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
             </SectionNarrow>
-
             <SectionNarrow>
                 <HighlightProject
                     projects={props.projects}

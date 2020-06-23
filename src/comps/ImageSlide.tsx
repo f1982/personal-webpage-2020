@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
 
-const SlideImage = styled(animated.div)`
+const SlideImage = styled.div`
     display: inline-block;
     width: 100%;
     height: 100%;
@@ -46,12 +45,6 @@ const RightArrow = styled.a`
     top: 50%;
     right: 20px;
     z-index: 99;
-`;
-
-const DisplayInfo = styled.div`
-    position: absolute;
-    top: 0;
-    left: 50%;
 `;
 
 interface ImageSlideProp {

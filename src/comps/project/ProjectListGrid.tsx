@@ -42,7 +42,7 @@ const getPopupContainerHeight = () => {
 };
 const ProjectGrid = (props: any) => {
     let history = useHistory();
-    let { path, url } = useRouteMatch();
+    let { url } = useRouteMatch();
     let query = useQuery();
     let { data: items, category, top = 0 } = props;
 

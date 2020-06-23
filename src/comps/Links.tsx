@@ -70,6 +70,8 @@ const Links = ({
                                 link={link}
                                 alt={alt}></LinkItemSimple>
                         );
+                    } else {
+                        return null;
                     }
                 })}
             </IconContext.Provider>

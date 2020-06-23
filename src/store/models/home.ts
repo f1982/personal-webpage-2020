@@ -1,7 +1,5 @@
 import { createModel } from '@rematch/core';
 import ajax from '../../utils/ajax';
-import { ProjectObject, LinkObject } from '../../types/interfaces';
-import log from 'loglevel';
 
 const HOME_API_URL = 'home.json';
 const LINKS_API_URL = 'links.json';

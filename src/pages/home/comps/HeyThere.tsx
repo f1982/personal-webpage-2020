@@ -37,7 +37,7 @@ const Cao = styled.i`
 `;
 
 const HeyThere = (props: any) => {
-    const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
+    // const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
     return (
         <Wrapper>
             <div>Hi there,</div>

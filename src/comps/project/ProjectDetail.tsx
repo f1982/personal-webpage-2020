@@ -1,39 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaCalendarTimes, FaChartArea, FaQuestionCircle } from 'react-icons/fa';
+import { FaCalendarTimes } from 'react-icons/fa';
 import { ProjectObject } from '../../types/interfaces';
 import { TechnologyStackItem } from './TechnologyStack';
 import { ImageSlide } from '../ImageSlide';
-import { SingleButton, ProjectCloseButton } from '../SingleButton';
 
-const WechatWebsiteURL = 'https://www.wechat.com/';
-const HowToScanQRCode =
-    'https://help.wechat.com/cgi-bin/micromsg-bin/oshelpcenter?opcode=2&id=160527an7bii160527veeabv&lang=en&plat=android&Channel=helpcenter';
+// const WechatWebsiteURL = 'https://www.wechat.com/';
+// const HowToScanQRCode =
+// 'https://help.wechat.com/cgi-bin/micromsg-bin/oshelpcenter?opcode=2&id=160527an7bii160527veeabv&lang=en&plat=android&Channel=helpcenter';
 
-const baseUrl =
-    process.env.NODE_ENV === 'development'
-        ? process.env.REACT_APP_STATIC_BASES_URL_TEST
-        : process.env.REACT_APP_STATIC_BASES_URL;
+// const WechatQRCodeWrapper = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     margin: 1rem auto;
+//     width: fit-content;
+// `;
 
-const WechatQRCodeWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: 1rem auto;
-    width: fit-content;
-`;
-
-const WechatQRCodeImage = styled.img`
-    width: 240px;
-    height: 240px;
-`;
+// const WechatQRCodeImage = styled.img`
+//     width: 240px;
+//     height: 240px;
+// `;
 
 const DateRow = styled.div`
     font-family: Menlo, Monaco, monospace, 'Courier New';
 `;
-const QuestionMarkIcon = styled(FaQuestionCircle)`
-    vertical-align: middle;
-    margin-left: 4px;
-`;
+// const QuestionMarkIcon = styled(FaQuestionCircle)`
+//     vertical-align: middle;
+//     margin-left: 4px;
+// `;
 
 const Images = styled(ImageSlide)`
     margin-top: 56.7%;
@@ -44,26 +38,26 @@ interface WechatQRCodeType {
     image: string;
 }
 
-const WechatQRCode = (props: WechatQRCodeType) => {
-    let html = (
-        <a href={WechatWebsiteURL}>
-            <em>Wechat</em>
-        </a>
-    );
-    return (
-        <WechatQRCodeWrapper>
-            <WechatQRCodeImage src={props.image} alt='Wechat QR Code' />
-            <div>
-                <span>Use {html} to scan the QR code</span>
-                <span>
-                    <a href={HowToScanQRCode} rel='noopener noreferrer'>
-                        <QuestionMarkIcon color='#7CE0C4' size='16' />
-                    </a>
-                </span>
-            </div>
-        </WechatQRCodeWrapper>
-    );
-};
+// const WechatQRCode = (props: WechatQRCodeType) => {
+//     let html = (
+//         <a href={WechatWebsiteURL}>
+//             <em>Wechat</em>
+//         </a>
+//     );
+//     return (
+//         <WechatQRCodeWrapper>
+//             <WechatQRCodeImage src={props.image} alt='Wechat QR Code' />
+//             <div>
+//                 <span>Use {html} to scan the QR code</span>
+//                 <span>
+//                     <a href={HowToScanQRCode} rel='noopener noreferrer'>
+//                         <QuestionMarkIcon color='#7CE0C4' size='16' />
+//                     </a>
+//                 </span>
+//             </div>
+//         </WechatQRCodeWrapper>
+//     );
+// };
 
 const Wrapper = styled.div`
     text-align: left;
@@ -77,10 +71,6 @@ const StackRow = styled.div`
         margin-right: 5px;
         margin-bottom: 5px;
     }
-`;
-
-const ChartArea = styled(FaChartArea)`
-    vertical-align: middle;
 `;
 
 interface ProjectDetailProp {
