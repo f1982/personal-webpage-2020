@@ -5,7 +5,7 @@ import TitleImage from '../../comps/TitleImage';
 import Helmet from 'react-helmet';
 import '../../assets/styles/glitch.scss';
 import { Link, Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
-import { SingleButton } from '../../comps/SingleButton';
+import { SingleButton } from '../../comps/Buttons';
 
 import { LeftImageItem, RightImageItem, HobbyTextItem } from './comps/HobbyItems';
 import VideoMakingSection from './comps/VideoMakingSection';

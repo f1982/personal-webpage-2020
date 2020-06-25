@@ -5,26 +5,20 @@ const Wrapper = styled.span``;
 const BubbleColor = '#fff';
 const InnterButton = styled.button`
     padding: 0.75rem 2rem;
-    /* letter-spacing: 2.5px; */
     font-weight: 500;
     color: #fff;
     border: 2px solid #fff;
     font-size: 1rem;
     background-color: #efc854;
     border-radius: 1.5rem;
-    /* box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.1); */
     transition: all 0.3s ease 0s;
     overflow: hidden;
     cursor: pointer;
-    /* border: none; */
-    /* outline: none; */
     position: relative;
     &:hover {
-        /* background-color: #2ee59d; */
         box-shadow: 0px 8px 10px rgba(226, 142, 1, 0.5);
         color: #fff;
         transform: translateY(-1px);
-
         &:before {
             content: '';
             pointer-events: none;
@@ -141,7 +135,7 @@ const CloseButtonWrapper = styled.a`
 `;
 
 const ProjectCloseButton = (props: any) => {
-    return <CloseButtonWrapper></CloseButtonWrapper>;
+    return <CloseButtonWrapper />;
 };
 
 export { SingleButton, ProjectCloseButton };

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 //Images
-import PicAndyBack from './../../../assets/about-andy-back.png';
-import PicAndyComputer from './../../../assets/about-computer.png';
-import PicAndyFamily from './../../../assets/about-andy-family.png';
+import PicAndyBack from './../../../assets/about-andy-back.jpg';
+import PicAndyComputer from './../../../assets/about-computer.jpg';
+import PicAndyFamily from './../../../assets/about-andy-family.jpg';
 
 const Content = styled.div`
     width: 100%;
@@ -19,13 +19,13 @@ const Content = styled.div`
     }
 `;
 
-const getAge = (birthYear: number) => {
+const getYears = (birthYear: number) => {
     var d = new Date();
     var n = d.getFullYear();
     return n - birthYear;
 };
 // const getMyDays = () => {
-//     return getAge(1982) * 365;
+//     return getYears(1982) * 365;
 // };
 
 interface SummaryProps {
@@ -73,8 +73,8 @@ const Summary = (props: SummaryProps) => {
                 <span role='img' aria-label='developer'>
                     👨‍💻
                 </span>{' '}
-                and have worked in the software industry for more than 15 years. I have developed websites, made mobile
-                📱apps, and also built and designed casual games{' '}
+                and have worked in the software industry for more than {getYears(2005)} years. I have developed
+                websites, made mobile 📱apps, and also built and designed casual games{' '}
                 <span role='img' aria-label='game dev'>
                     🕹
                 </span>
@@ -99,8 +99,8 @@ const Summary = (props: SummaryProps) => {
             <h3>Family</h3>
             <p>
                 I was very lucky to have met my wife Fang very early. She helped me immensely in life and spirit. We
-                have a {getAge(2016)} year old daughter who is very lively, healthy and cute. Our family currently lives
-                in Auckland.
+                have a {getYears(2016)} year old daughter who is very lively, healthy and cute. Our family currently
+                lives in Auckland.
             </p>
             <img src={PicAndyFamily} alt='Introduce my family' />
             <div style={{ margin: `2rem auto` }}></div>

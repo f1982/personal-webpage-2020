@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SingleButton } from '../../../comps/SingleButton';
+import { SingleButton } from '../../../comps/Buttons';
 
 const MaxContentWidth: number = 900;
 const MobileScreeWidth: number = 768;

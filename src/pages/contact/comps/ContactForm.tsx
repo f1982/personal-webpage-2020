@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as React from 'react';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import { SingleButton } from '../../../comps/SingleButton';
+import { SingleButton } from '../../../comps/Buttons';
 
 const FMForm = styled.form`
     width: 100%;
