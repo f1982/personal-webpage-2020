@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import routes from './pages';
 import Layout from './layouts/default';
 import Welcome from './pages/welcome';
@@ -15,6 +16,7 @@ const App = (props: any) => {
 
     useEffect(() => {
         log.info('hello, i am loglevel');
+        ReactGA.initialize('UA-171033058-1');
 
         syncAppConfig();
     }, [syncAppConfig]);

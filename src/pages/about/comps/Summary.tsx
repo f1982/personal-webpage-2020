@@ -98,9 +98,9 @@ const Summary = (props: SummaryProps) => {
             </div>
             <h3>Family</h3>
             <p>
-                I was very lucky to have met my wife Fang very early. She helped me immensely in life and spirit. We
-                have a {getYears(2016)} year old daughter who is very lively, healthy and cute. Our family currently
-                lives in Auckland.
+                I was very lucky to have met my wife Fang very early. She helped me immensely in my life and my spirit.
+                We have a {getYears(2016)} year old daughter, her name is Zoe and she is healthy and lively. Our family
+                currently lives in Auckland.
             </p>
             <img src={PicAndyFamily} alt='Introduce my family' />
             <div style={{ margin: `2rem auto` }}></div>

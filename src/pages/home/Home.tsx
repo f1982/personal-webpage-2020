@@ -3,14 +3,13 @@ import styled from 'styled-components';
 import HighlightProject from './comps/HighlightProject';
 import { Helmet } from 'react-helmet';
 import { Links } from '../../comps/Links';
-import ShowcaseBox from './comps/ShowcaseBox';
+import FocusingBox from './comps/ShowcaseBox';
 import DoAndLike from '../../pages/home/comps/DoAndLike';
 import { SectionNarrow } from '../../layouts/default';
 import HeyThere from './comps/HeyThere';
 
 const RectangleAngle = -30 - Math.random() * 20 + 'deg';
-const Wrapper = styled.div``;
-const HorizentalExtendBG = styled.div`
+const BannerBackground = styled.div`
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -27,9 +26,11 @@ const HorizentalExtendBG = styled.div`
     }
 `;
 
-const ShowcaseBar = styled.div`
+const BannerWrapper = styled.div`
     width: 100%;
+    max-width: 970px;
     display: flex;
+    margin: 0 auto;
     flex-flow: row;
     justify-content: space-between;
     align-content: flex-start;
@@ -41,7 +42,7 @@ const ShowcaseBar = styled.div`
     }
 `;
 
-const IntroRight = styled.div`
+const FocusingFrame = styled.div`
     width: 764px;
     height: 430px;
     background-size: auto 100%;
@@ -50,20 +51,15 @@ const IntroRight = styled.div`
     text-align: center;
     @media screen and (max-width: 768px) {
         width: 100%;
-        /* padding-top: 56.7%; */
         height: 282px;
         padding: 0.5rem 0;
     }
 `;
 
 const Home = (props: any) => {
-    console.log('props', props);
     // const [ready, setReady] = useState(false);
 
     const { syncHome } = props;
-    // console.log('syncHome', syncHome);
-    // console.log('appConfig', appConfig);
-    // const bgImageURL = process.env.PUBLIC_URL + 'static/images/intro_pic_bg.png';
 
     useEffect(() => {
         syncHome();
@@ -71,20 +67,18 @@ const Home = (props: any) => {
     }, [syncHome]);
 
     return (
-        <Wrapper>
+        <>
             <Helmet>
                 <title>Home</title>
             </Helmet>
-            <HorizentalExtendBG>
-                <div style={{ width: `100%`, maxWidth: `970px`, margin: `0 auto` }}>
-                    <ShowcaseBar>
-                        <HeyThere />
-                        <IntroRight>
-                            <ShowcaseBox />
-                        </IntroRight>
-                    </ShowcaseBar>
-                </div>
-            </HorizentalExtendBG>
+            <BannerBackground>
+                <BannerWrapper>
+                    <HeyThere />
+                    <FocusingFrame>
+                        <FocusingBox />
+                    </FocusingFrame>
+                </BannerWrapper>
+            </BannerBackground>
             <SectionNarrow>
                 <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
             </SectionNarrow>
@@ -98,7 +92,7 @@ const Home = (props: any) => {
             </SectionNarrow>
 
             <Links linkData={props.links.sns} iconColor='#EFC854' category='all' />
-        </Wrapper>
+        </>
     );
 };
 

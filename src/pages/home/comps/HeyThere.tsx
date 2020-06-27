@@ -27,12 +27,13 @@ const Cao = styled.i`
     ::after {
         content: '[ch ow]';
         font-size: 0.75rem;
-        font-weight: 0;
+        line-height: 1.5rem;
         letter-spacing: 2px;
         color: #fff;
         position: absolute;
-        right: 1rem;
-        bottom: 0rem;
+        text-shadow: 0px 0px 1px #333;
+        right: 0;
+        bottom: 0;
     }
 `;
 
