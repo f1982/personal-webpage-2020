@@ -42,7 +42,7 @@ const CardImage = styled.div`
         width: 100%;
         height: 254px;
         object-fit: cover;
-        border-radius: 1.5rem;
+        border-radius: 1rem;
     }
 `;
 

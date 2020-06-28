@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import IconScan from '../../../assets/icon-phone-scan.png';
 import IconGoUp from '../../../assets/icon-go-top.png';
 import { Links } from '../../../comps/Links';
 import { Popup } from '../../../comps/Popup';
 var QRCode = require('qrcode.react');
 const Wrapper = styled.div`
-    padding-top: 3rem;
+    padding-top: 1rem;
 `;
 
 const Inner = styled.div`
@@ -15,7 +15,7 @@ const Inner = styled.div`
     margin: 0 auto;
 `;
 
-const Under = styled.div`
+const BottomRow = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -25,15 +25,30 @@ const Under = styled.div`
     }
 `;
 
-const FooterLink = styled.a`
+const FooterButtonBase = css`
     display: inline-block;
-    overflow: hidden;
-    height: 30px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
+    background-size: 100% auto;
+    background-position-y:35px;
+    background-repeat: no-repeat;
+    background-image: url('${IconScan}');
+    transition: all 0.35s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    will-change: transform;
     cursor: pointer;
     &:hover {
-        /* height: 80px; */
+        background-position-y:10px;
     }
+`;
+
+const ScanContinueButton = styled.a`
+    ${FooterButtonBase}
+    background-image: url('${IconScan}');
+`;
+
+const BackToTopButton = styled.a`
+    ${FooterButtonBase}
+    background-image: url('${IconGoUp}');
 `;
 
 const LinkData = [
@@ -108,7 +123,6 @@ const Footer = () => {
                     </div>
                 </Popup>
             ) : null}
-
             <Inner>
                 <div
                     style={{
@@ -117,23 +131,18 @@ const Footer = () => {
                         padding: `0 0.5rem`,
                         justifyContent: `space-between`
                     }}>
-                    <FooterLink
+                    <ScanContinueButton
                         onClick={() => {
                             setShowQRCode(true);
-                        }}>
-                        <img src={IconScan} alt='scan' />
-                    </FooterLink>
+                        }}></ScanContinueButton>
 
-                    <FooterLink
+                    <BackToTopButton
                         onClick={() => {
                             window.scrollTo(0, 0);
                         }}
-                        style={{ textAlign: `right` }}>
-                        <img src={IconGoUp} alt='go up' />
-                    </FooterLink>
+                        style={{ textAlign: `right` }}></BackToTopButton>
                 </div>
             </Inner>
-
             <div
                 style={{
                     width: `100%`,
@@ -144,7 +153,7 @@ const Footer = () => {
                     borderWidth: `0 0 1px 0`
                 }}></div>
             <Inner style={{ padding: `3rem 0.5rem` }}>
-                <Under>
+                <BottomRow>
                     <div>
                         <p style={{ margin: `0.5rem auto` }}>
                             Have a mind that is open to everything and attached to nothing
@@ -154,7 +163,7 @@ const Footer = () => {
                     <div>
                         <Links linkData={LinkData} iconColor='#ccc' iconSize={24} category='all' />
                     </div>
-                </Under>
+                </BottomRow>
             </Inner>
         </Wrapper>
     );
