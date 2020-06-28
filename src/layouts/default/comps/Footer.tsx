@@ -34,7 +34,7 @@ const FooterButtonBase = css`
     background-repeat: no-repeat;
     background-image: url('${IconScan}');
     transition: all 0.35s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    will-change: transform;
+    /* will-change: transform; */
     cursor: pointer;
     &:hover {
         background-position-y:10px;

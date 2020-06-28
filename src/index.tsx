@@ -7,7 +7,7 @@ import App from './App';
 import StoreProvider from './store';
 
 //tests
-import Example from './examples';
+// import Example from './examples';
 
 const render = () => {
     // ReactDOM.render(<Example />, document.getElementById('root') as HTMLElement);
