@@ -6,6 +6,10 @@ const Wrapper = styled.div`
     position: relative;
     height: 16rem;
     overflow: hidden;
+    /* transform: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); */
+    @media screen and (max-width: 768px) {
+        height: 11rem;
+    }
 `;
 
 const LanscapeImage = styled.div`
@@ -18,10 +22,6 @@ const LanscapeImage = styled.div`
     background-position-y: 50%;
     position: relative;
     transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* transform: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); */
-    @media screen and (max-width: 768px) {
-        height: 8rem;
-    }
     &:after {
         content: '';
         position: absolute;
@@ -38,6 +38,16 @@ const LanscapeImage = styled.div`
             opacity: 0.1;
         }
     }
+`;
+
+const LandscapeVideo = styled.video`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    object-fit: cover;
+    transform: translateY(-50%);
+    /* filter: grayscale(1) brightness(0.45) contrast(1.05); */
 `;
 
 const TextLayer = styled.div`
@@ -95,15 +105,9 @@ const MediaBanner = (props: MediaBannerProps) => {
             {showMediaType === 'image' ? (
                 <LanscapeImage style={{ backgroundImage: `url(${imageURL})` }} />
             ) : (
-                <video
-                    src={videoURL}
-                    autoPlay={true}
-                    width='100%'
-                    style={{ position: `absolute`, top: `0`, objectFit: `cover`, filter: `brightness(50%);` }}
-                    controls={false}
-                    loop={true}>
+                <LandscapeVideo src={videoURL} autoPlay={true} controls={false} loop={true}>
                     Sorry,Your browser does not support the video replay.
-                </video>
+                </LandscapeVideo>
                 // <ReactPlayer
                 //     url='https://www.youtube.com/watch?v=8Vw3RryITv0'
                 //     playing={true}
