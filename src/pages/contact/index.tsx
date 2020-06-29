@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SectionWide } from '../../layouts/default';
-import TitleImage from '../../comps/TitleImage';
+import TitleImage from '../../comps/MediaBanner';
 import Map from './comps/LocationMap';
 import Helmet from 'react-helmet';
 
@@ -31,7 +31,7 @@ const Contact = (props: any) => {
                 <TitleImage
                     title='About'
                     subtitle='I live in Auckland New Zealand with my wife and 3 years old daughter. I love pour over coffee, I have a cat named Little Black.'
-                    backgroundImageURL={imageURL}
+                    imageURL={imageURL}
                 />
             </SectionWide>
             <div style={{ marginTop: `3rem` }} />

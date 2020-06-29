@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import TitleImage from '../../comps/TitleImage';
+import ImageBanner from '../../comps/MediaBanner';
 import { Experience } from '../../comps/TimelineWork';
 import TimelineLife from '../../comps/TimelineLife';
 import { useRouteMatch, Switch, Route, useHistory } from 'react-router-dom';
 import Summary from './comps/Summary';
 
 const About = (props: any) => {
-    console.log('props', props);
     let history = useHistory();
     const { syncInfo } = props;
     const match = useRouteMatch();
@@ -22,13 +21,14 @@ const About = (props: any) => {
     //     { id: 'skill', url: `${match.url}/skill`, title: 'Skills' }
     // ];
     const imageURL = process.env.PUBLIC_URL + 'static/images/about_img_bar.jpg';
+    const videoURL = process.env.PUBLIC_URL + 'static/videos/desk.mp4';
 
     return (
         <>
             <Helmet>
                 <title>About</title>
             </Helmet>
-            <TitleImage title='' subtitle='' backgroundImageURL={imageURL} />
+            <ImageBanner imageURL={imageURL} videoURL={videoURL} />
             <div style={{ marginTop: `3rem` }} />
             <Switch>
                 <Route path={`${match.path}/work`}>

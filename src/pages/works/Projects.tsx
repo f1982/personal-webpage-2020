@@ -1,5 +1,5 @@
 import React from 'react';
-import TitleImage from '../../comps/TitleImage';
+import TitleImage from '../../comps/MediaBanner';
 import ProjectListGrid from '../../comps/project/ProjectListGrid';
 import { Helmet } from 'react-helmet';
 import { Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
@@ -16,6 +16,7 @@ const ProjectCategory = (props: any) => {
 };
 
 const imageURL = process.env.PUBLIC_URL + 'static/images/image-banner-projects.jpg';
+const videoURL = process.env.PUBLIC_URL + 'static/videos/coding.mp4';
 
 const Projects = (props: any) => {
     const { projects } = props;
@@ -33,7 +34,7 @@ const Projects = (props: any) => {
                 <title>Projects</title>
             </Helmet>
             <SectionWide>
-                <TitleImage title='Projects' subtitle='My Passions & I Love.' backgroundImageURL={imageURL} />
+                <TitleImage imageURL={imageURL} videoURL={videoURL} />
             </SectionWide>
             <div style={{ textAlign: `center`, marginTop: `3rem` }}>
                 <h3>Projects</h3>
