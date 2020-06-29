@@ -45,6 +45,7 @@ const LandscapeVideo = styled.video`
     width: 100%;
     height: 100%;
     top: 50%;
+    background-color: rgba(255, 255, 255, 0);
     object-fit: cover;
     transform: translateY(-50%);
     /* filter: grayscale(1) brightness(0.45) contrast(1.05); */
@@ -92,7 +93,7 @@ const MediaBanner = (props: MediaBannerProps) => {
             counter = setTimeout(() => {
                 console.log('timeout');
                 setShowMediaType('video');
-            }, 5000);
+            }, 15000);
         }
         return () => {
             console.log('clear timeout');
@@ -102,19 +103,12 @@ const MediaBanner = (props: MediaBannerProps) => {
 
     return (
         <Wrapper>
-            {showMediaType === 'image' ? (
-                <LanscapeImage style={{ backgroundImage: `url(${imageURL})` }} />
-            ) : (
+            <LanscapeImage style={{ backgroundImage: `url(${imageURL})` }} />
+            {showMediaType === 'video' ? (
                 <LandscapeVideo src={videoURL} autoPlay={true} controls={false} loop={true}>
                     Sorry,Your browser does not support the video replay.
                 </LandscapeVideo>
-                // <ReactPlayer
-                //     url='https://www.youtube.com/watch?v=8Vw3RryITv0'
-                //     playing={true}
-                //     width='100%'
-                //     height='100%'
-                // />
-            )}
+            ) : null}
 
             <TextLayer>
                 <h2>{title}</h2>
