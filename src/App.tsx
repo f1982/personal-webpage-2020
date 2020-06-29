@@ -6,22 +6,29 @@ import ReactGA from 'react-ga';
 import routes from './pages';
 import Layout from './layouts/default';
 import Welcome from './pages/welcome';
-
 import { SettingContext } from './Settings';
-import * as log from 'loglevel';
+import log from './utils/loglevel-middleware';
 
-log.disableAll();
+log.info('log is working');
+
+ReactGA.initialize('UA-171033058-1');
+
+const history = require('history').createBrowserHistory();
+history.listen((location: any) => {
+    ReactGA.set({ page: window.location.hash });
+    ReactGA.pageview(window.location.hash);
+});
+
 const App = (props: any) => {
-    const { syncAppConfig, settings } = props;
+    const { syncAppConfig } = props;
 
     useEffect(() => {
-        log.info('hello, i am loglevel');
-        ReactGA.initialize('UA-171033058-1');
-
+        ReactGA.pageview('/');
         syncAppConfig();
     }, [syncAppConfig]);
 
-    useEffect(() => {}, [settings]);
+    // useEffect(() => {
+    // }, [props.location]);
 
     return (
         <Router basename={process.env.PUBLIC_URL}>

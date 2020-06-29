@@ -28,11 +28,7 @@ const Contact = (props: any) => {
                 <title>Contact</title>
             </Helmet>
             <SectionWide>
-                <TitleImage
-                    title='About'
-                    subtitle='I live in Auckland New Zealand with my wife and 3 years old daughter. I love pour over coffee, I have a cat named Little Black.'
-                    imageURL={imageURL}
-                />
+                <TitleImage imageURL={imageURL} />
             </SectionWide>
             <div style={{ marginTop: `3rem` }} />
             <SectionContent>
