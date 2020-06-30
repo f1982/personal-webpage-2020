@@ -22,7 +22,9 @@ const myTheme: DefaultTheme = {
 
 const PrimaryFont = 'Quicksand';
 // const SecondaryFont = 'Lora';
+
 const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css?family=Quicksand|Quicksand:b');
     @import url('https://fonts.googleapis.com/css?family=${PrimaryFont}|${PrimaryFont}:b');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
   :root{
