@@ -105,7 +105,6 @@ const MediaBanner = (props: MediaBannerProps) => {
                     Sorry,Your browser does not support the video replay.
                 </LandscapeVideo>
             ) : null}
-
             <TextLayer>
                 <h2>{title}</h2>
                 <p>{subtitle}</p>
