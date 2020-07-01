@@ -4,26 +4,13 @@ import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 import MediaBanner from './MediaBanner';
 
-const Button = styled.button`
-    color: red;
-    @media (max-width: 640px) {
-        &:hover {
-            color: green;
-        }
-    }
-`;
-
-test('it works', () => {
-    const tree = renderer.create(<Button />).toJSON();
-    expect(tree).toHaveStyleRule('color', 'red');
-    expect(tree).toHaveStyleRule('color', 'green', {
-        media: '(max-width: 640px)',
-        modifier: ':hover'
-    });
+test('only with a title ', () => {
+    const tree = renderer.create(<MediaBanner title='hello' />).toJSON();
+    expect(tree).toMatchSnapshot();
 });
 
-test('match snapshot ', () => {
-    const tree = renderer.create(<MediaBanner title='hello' />).toJSON();
+test('with video URL ', () => {
+    const tree = renderer.create(<MediaBanner title='hello' videoURL='http://www.baidu.com' />).toJSON();
     expect(tree).toMatchSnapshot();
 });
 

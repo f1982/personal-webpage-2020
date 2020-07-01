@@ -10,7 +10,7 @@ const InnterButton = styled.button`
     border: 2px solid #fff;
     font-size: 1rem;
     background-color: #efc854;
-    border-radius: 1.5rem;
+    border-radius: 0.75rem;
     transition: all 0.3s ease 0s;
     overflow: hidden;
     cursor: pointer;
@@ -18,7 +18,8 @@ const InnterButton = styled.button`
     &:hover {
         box-shadow: 0px 8px 10px rgba(226, 142, 1, 0.5);
         color: #fff;
-        transform: translateY(-1px);
+        transform: translateY(1px);
+        background-color: #ffcc00;
         &:before {
             content: '';
             pointer-events: none;
@@ -47,7 +48,6 @@ const InnterButton = styled.button`
                     ${BubbleColor} 6px,
                     transparent 6px
                 );
-
             width: 100%;
             height: 200%;
             top: 0;
@@ -63,6 +63,9 @@ const InnterButton = styled.button`
                 transform: translate(0, -66.666%);
             }
         }
+    }
+    &:focus {
+        outline: 0;
     }
 `;
 

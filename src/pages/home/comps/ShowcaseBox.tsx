@@ -25,7 +25,7 @@ const MyImage = styled.div<{ src: string }>`
     display: block;
     width: 100%;
     height: 100%;
-    border-radius: 60px;
+    border-radius: 2rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -33,7 +33,7 @@ const MyImage = styled.div<{ src: string }>`
     /* background-image: linear-gradient(white, yellow), url(${(props) => props.src}); */
     background-image: url(${(props) => props.src});
     @media screen and (max-width: 768px) {
-        border-radius: 30px;
+        border-radius: 1rem;
     }
 `;
 

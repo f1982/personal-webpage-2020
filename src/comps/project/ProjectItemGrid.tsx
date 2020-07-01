@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
     &:hover {
         border-radius: 2rem;
-        box-shadow: 0px 20px 20px 3px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 10px 10px 2px rgba(0, 0, 0, 0.1);
     }
 `;
 

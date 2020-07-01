@@ -20,8 +20,8 @@ const myTheme: DefaultTheme = {
     }
 };
 
+//Load this font at html template
 const PrimaryFont = 'Quicksand';
-// const SecondaryFont = 'Lora';
 
 const GlobalStyle = createGlobalStyle`
   :root{
@@ -33,63 +33,29 @@ const GlobalStyle = createGlobalStyle`
     padding:0;
     margin: 0;
   }
-  
   html {
     font-size: 16px;
   }
-  
   body {
     background-color: white;
     font-family: ${PrimaryFont}, sans-serif;
     line-height: ${myTheme.baseLine}rem;
     color: #4A4A4A;
   }
-
-  a ,a:link ,a:active ,a:visited { 
-    color: #333;
-    text-decoration: none;
-  }
-
-
-  a:hover{
-    color: #666;
-    /* font-weight:bold; */
-    text-decoration: none;
-  }
-  p {
-    line-height: ${myTheme.baseLine}rem;
-    margin-top: ${myTheme.baseLine}rem;
-    margin-bottom: ${myTheme.baseLine}rem;
-    color: #666;
-  }
-
-  p a {
-    background: linear-gradient(#efc854, #efc854) no-repeat;
-    background-size: 100% 15%;
-    background-position: 0 70%;
-  }
-  
-
   h1, h2, h3, h4, h5 {
     margin: ${myTheme.baseLine}rem 0;
     font-family: ${PrimaryFont}, sans-serif;
-    
     font-weight: 700;
-    
-    /* line-height: ${myTheme.baseLine}*2rem; */
   }
-
   h1 {
     font-size: 4.209rem;
     font-style:italic;
   }
-
   h2 {
     font-size: 3.157rem;
     font-style:italic;
     line-height: ${myTheme.baseLine * 2.5}rem;
   }
-
   h3 {
     letter-spacing: -2px;
     font-style:italic;
@@ -103,13 +69,30 @@ const GlobalStyle = createGlobalStyle`
     background-size: 100% 25%;
     background-position: 0 85%;
   }
-
   h4 {font-size: 1.777rem;}
-
   h5 {
     font-size: 1.333rem;
   }
-
+  a ,a:link ,a:active ,a:visited { 
+    color: #333;
+    text-decoration: none;
+  }
+  a:hover{
+    color: #666;
+    /* font-weight:bold; */
+    text-decoration: none;
+  }
+  p {
+    line-height: ${myTheme.baseLine}rem;
+    margin-top: ${myTheme.baseLine}rem;
+    margin-bottom: ${myTheme.baseLine}rem;
+    color: #666;
+  }
+  p a {
+    background: linear-gradient(#efc854, #efc854) no-repeat;
+    background-size: 100% 15%;
+    background-position: 0 70%;
+  }
   small, 
     .text_small {font-size: 0.75rem;}
     .empty-line {line-height: 2rem;}
