@@ -15,6 +15,7 @@ const Content = styled.div`
         text-align: justify;
     }
     img {
+        border-radius: 16px;
         width: 100%;
     }
 `;
