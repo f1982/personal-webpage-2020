@@ -23,6 +23,8 @@ export interface TimelineLifeObject {
     title: string;
     subtitle: string;
     description: string;
+    cover?: string;
+    images?: string[];
     hidden: boolean;
 }
 

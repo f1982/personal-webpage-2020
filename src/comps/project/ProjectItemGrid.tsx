@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ProjectObject } from '../../types/interfaces';
-
+import ProgressiveImage from './../ProgressiveImage';
 interface ProjectItemProp {
     name?: string;
     itemData: ProjectObject;
@@ -78,7 +78,7 @@ const ProjectItem = (props: ProjectItemProp) => {
     return (
         <Wrapper>
             <CardImage>
-                <img src={itemData.cover} alt={itemData.title} />
+                <ProgressiveImage src={itemData.cover} alt={itemData.title} />
                 {itemData.platform ? <span>{itemData.platform}</span> : null}
             </CardImage>
             <CardContent>
