@@ -38,12 +38,6 @@ const CardImage = styled.div`
         right: 20px;
         background-color: #8ddaf4;
     }
-    > img {
-        width: 100%;
-        height: 254px;
-        object-fit: cover;
-        border-radius: 1rem;
-    }
 `;
 
 const CardContent = styled.div`
@@ -78,7 +72,7 @@ const ProjectItem = (props: ProjectItemProp) => {
     return (
         <Wrapper>
             <CardImage>
-                <ProgressiveImage src={itemData.cover} alt={itemData.title} />
+                <ProgressiveImage width='100%' height='254px' src={itemData.cover} alt={itemData.title} />
                 {itemData.platform ? <span>{itemData.platform}</span> : null}
             </CardImage>
             <CardContent>

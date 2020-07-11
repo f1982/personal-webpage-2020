@@ -11,74 +11,88 @@
         "timelines": {
             "life": [
                 {
-                    "id": 3,
-                    "start": "2008",
+                    "id": 18,
+                    "start": "2019",
                     "end": "",
-                    "title": "Engaged with Cindy",
-                    "subtitle": "This is subtitle",
+                    "title": "Back to school",
+                    "subtitle": "Moved to Auckland, New Zealand",
+                    "description": "Go back to school and learn something basic. Moved to another country and started a new journey.",
+                    "cover": "",
+                    "images": [],
+                    "hidden": false
+                },
+                {
+                    "id": 17,
+                    "start": "2017",
+                    "end": "",
+                    "title": "Gall bladder surgery",
+                    "subtitle": "@Renmin Hospital, Beijing China",
+                    "description": "Sufered a huge pain by the illness and thankfully I rethink about my life, family and the meaning of this journey.",
+                    "cover": "",
+                    "images": [],
+                    "hidden": false
+                },
+                {
+                    "id": 16,
+                    "start": "2016",
+                    "end": "",
+                    "title": "Be a father",
+                    "subtitle": "Had a baby girl named Zoe",
                     "description": "Velit ut provident eaque est ea ut quaerat. Ut dolor rerum saepe alias iure debitis quam optio placeat. Optio et facere aperiam qui consectetur explicabo qui quia. Ipsam ut consequatur nostrum aut cupiditate.Velit ut provident eaque est ea ut quaerat. Ut dolor rerum saepe alias iure debitis quam optio placeat. Optio et facere aperiam qui consectetur explicabo qui quia. Ipsam ut consequatur nostrum aut cupiditate.",
-                    "cover": "",
-                    "images": []
+                    "cover": "/static/images/zoe-3-months.jpg",
+                    "images": [],
+                    "hidden": false
                 },
                 {
-                    "id": 3,
-                    "start": "2014",
-                    "end": "",
-                    "title": "Upload my first video to Youtube",
-                    "subtitle": "this is subtitle",
-                    "description": "",
-                    "cover": "",
-                    "images": []
-                },
-                {
-                    "id": 3,
+                    "id": 15,
                     "start": "2014",
                     "end": "",
                     "title": "Started my RC Hobby",
                     "subtitle": "this is subtitle",
                     "description": "",
                     "cover": "",
-                    "images": []
+                    "images": ["/static/images/andy-rc-hobby.jpg"]
                 },
                 {
-                    "id": 3,
-                    "start": "2016",
+                    "id": 14,
+                    "start": "2014",
                     "end": "",
-                    "title": "Be a father",
-                    "subtitle": "Had a baby girl named Zoe",
-                    "description": "Velit ut provident eaque est ea ut quaerat. Ut dolor rerum saepe alias iure debitis quam optio placeat. Optio et facere aperiam qui consectetur explicabo qui quia. Ipsam ut consequatur nostrum aut cupiditate.Velit ut provident eaque est ea ut quaerat. Ut dolor rerum saepe alias iure debitis quam optio placeat. Optio et facere aperiam qui consectetur explicabo qui quia. Ipsam ut consequatur nostrum aut cupiditate.",
+                    "title": "Upload my first video to Youtube",
+                    "subtitle": "@Beijing",
+                    "description": "It was a travel video which we shot at Japan with our friends.",
                     "cover": "",
-                    "images": []
+                    "images": [],
+                    "hidden": false
                 },
                 {
-                    "id": 3,
-                    "start": "2017",
+                    "id": 13,
+                    "start": "2008",
                     "end": "",
-                    "title": "Had my gall bladder surgery at RENMIN hospital",
-                    "subtitle": "this is subtitle",
-                    "description": "",
-                    "cover": "",
+                    "title": "Engaged with Fang",
+                    "subtitle": "@Liaoyang",
+                    "description": "We did not have a very formal ceremony, but we decided to go together in the future.",
+                    "cover": "/static/images/andy-and-fang-engaged.jpg",
                     "images": []
                 },
-
                 {
-                    "id": 3,
-                    "start": "2019",
+                    "id": 12,
+                    "start": "2007",
                     "end": "",
-                    "title": "Move forward",
-                    "subtitle": "Came to New Zealand",
-                    "description": "Velit ut provident eaque est ea ut quaerat. Ut dolor rerum saepe alias iure debitis quam optio placeat. Optio et facere aperiam qui consectetur explicabo qui quia. Ipsam ut consequatur nostrum aut cupiditate.",
+                    "title": "Started a startup",
+                    "subtitle": "@Beijing",
+                    "description": "Started a startup with parters, we did a business for small companies to help them to share their videos to the customers.",
                     "cover": "",
-                    "images": []
+                    "images": [],
+                    "hidden": false
                 },
                 {
-                    "id": 3,
+                    "id": 11,
                     "start": "2005",
                     "end": "",
                     "title": "Met my love",
                     "subtitle": "We met at BFSU",
                     "description": "Met the girl who is my wife now, and her name is Fang",
-                    "cover": "",
+                    "cover": "/static/images/fang-2014.jpg",
                     "images": []
                 },
                 {
@@ -89,7 +103,8 @@
                     "subtitle": "Started to work at CS&S",
                     "description": "I got the offer before I graduate from university, because the project mananger saw a game I made was popular online.",
                     "cover": "",
-                    "images": []
+                    "images": [],
+                    "hidden": false
                 },
                 {
                     "id": 9,
@@ -119,7 +134,8 @@
                     "subtitle": "Studied at TLX High School",
                     "description": "That was the first time for me to live by myself, without the cares of parents.",
                     "cover": "",
-                    "images": []
+                    "images": [],
+                    "hidden": false
                 },
                 {
                     "id": 5,
@@ -129,7 +145,8 @@
                     "subtitle": "Studied at LQH Middle School",
                     "description": "It was a strange school for me, I left all my friends and started learning again.",
                     "cover": "",
-                    "images": []
+                    "images": [],
+                    "hidden": false
                 },
                 {
                     "id": 4,
@@ -149,7 +166,8 @@
                     "subtitle": "Spent the rest of my Primary School life at Shijia Primary School, Fushun ",
                     "description": "Transfered to another school for a kid is tough.",
                     "cover": "https://image.flaticon.com/icons/svg/147/147144.svg",
-                    "images": []
+                    "images": [],
+                    "hidden": false
                 },
                 {
                     "id": 2,
@@ -169,7 +187,7 @@
                     "title": "Born",
                     "subtitle": "@Liaoning Tieling",
                     "description": "The palce which I was born at, It is in the north of China. many Chinese people call that place DongBei",
-                    "cover": "https://image.flaticon.com/icons/svg/147/147144.svg",
+                    "cover": "/static/images/andy-2-years-old.jpg",
                     "hidden": false,
                     "images": ["https://picsum.photos/354/200", "https://picsum.photos/354/200"]
                 }
@@ -189,7 +207,7 @@
                         "Collaborated with development team, product owner, design team and QA team in identifying website and application problems, testing methods and best solutions.",
                         "Worked with backend team to optimize API data structure and reduce bandwidth requests"
                     ],
-                    "hidden": 0
+                    "hidden": false
                 },
                 {
                     "id": 2,
@@ -221,7 +239,7 @@
                         "Built live stream services base on RED5 open source project",
                         "Responsible for recruitment and management of development team"
                     ],
-                    "hidden": 1
+                    "hidden": false
                 },
                 {
                     "id": 4,
@@ -236,7 +254,7 @@
                         "Participated software system installation, deployment and debugging",
                         "Engaged with customers to understand requirements, test ideas, and refine workflows"
                     ],
-                    "hidden": 0
+                    "hidden": false
                 }
             ]
         }

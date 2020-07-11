@@ -122,7 +122,6 @@ const ImageContainer = styled.div`
         margin-bottom: 0.5rem;
         filter: blur(1px);
         transition: opacity ease-in 1000ms;
-        clippath: inset(0);
     }
 `;
 
@@ -155,6 +154,7 @@ const TimelineItem = (props: LifeItemProp) => {
                         {cover ? (
                             <img
                                 src={cover}
+                                style={{ width: '80px', height: '80px', objectFit: 'cover' }}
                                 onLoad={() => {
                                     console.log('img loaded');
                                 }}
@@ -183,7 +183,13 @@ const TimelineItem = (props: LifeItemProp) => {
                         </TimeHint>
                     </MiddleVertical>
                     <RightVertical style={{ textAlign: 'right' }}>
-                        {cover ? <img src={cover} alt={title} /> : null}
+                        {cover ? (
+                            <img
+                                style={{ width: '80px', height: '80px', objectFit: 'cover' }}
+                                src={cover}
+                                alt={title}
+                            />
+                        ) : null}
                     </RightVertical>
                 </RightWrapper>
             )}

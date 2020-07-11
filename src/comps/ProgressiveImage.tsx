@@ -8,6 +8,7 @@ const Wrapper = styled.div`
 
     img {
         width: 100%;
+        height: 100%;
         object-fit: cover;
         background-color: #ccc;
     }
@@ -24,8 +25,8 @@ const Wrapper = styled.div`
     }
 `;
 
-const ProgressiveImage = (props: { src: string; radius?: String; alt?: string }) => {
-    const { src: imageURL, radius = '16px' } = props;
+const ProgressiveImage = (props: { src: string; width?: string; height?: string; radius?: String; alt?: string }) => {
+    const { src: imageURL, width = '100%', height = 'auto', radius = '16px', alt = 'progressive image' } = props;
     const [loadingState, sestLoadingState] = useState('loading');
 
     const handleImageLoaded = () => {
@@ -37,9 +38,10 @@ const ProgressiveImage = (props: { src: string; radius?: String; alt?: string })
     };
 
     return (
-        <Wrapper>
+        <Wrapper style={{ width: width, height: height }}>
             <img
-                src={props.src}
+                src={imageURL}
+                alt={alt}
                 style={{ borderRadius: `${radius}` }}
                 onLoad={handleImageLoaded}
                 onError={handleImageErrored}
