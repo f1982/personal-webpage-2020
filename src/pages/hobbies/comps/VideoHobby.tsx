@@ -1,12 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import styled from 'styled-components';
 // import Progressive from '../../../comps/ProgressiveImage';
 import { SingleButton } from '../../../comps/Buttons';
 import _ from 'lodash';
-import log from 'loglevel';
 import RCCoverImage from '../../../assets/video-hobby-cover.png';
 
-const GridContainer = styled.div`
+const Wrapper = styled.div`
     display: grid;
     width: 100%;
     max-width: 970px;
@@ -68,63 +67,71 @@ const GridContainer = styled.div`
 `;
 
 const VideoHobby = () => {
-    const ref = useRef<HTMLInputElement>(null);
+    const [node, setNode] = useState<HTMLDivElement>();
 
-    useEffect(() => {
-        //Setting of every child element
-        //Get all children element
-        const sectionChildren = (ref.current as any).children;
-        for (let i = 0; i < sectionChildren.length; i++) {
-            let el = sectionChildren[i];
-            console.log('el', el);
-            //set variable for every element inside the grid div
-            el.style.setProperty('--delay', `${i * 200}ms`);
-            el.style.setProperty('--distance', `${_.sample([-2, 0, 2])}rem`);
-        }
-        //Intersection observer
-        //Declare callback function
-        const callback = (entries: any[]) => {
+    //Declare intersection observer
+    const io = new IntersectionObserver(
+        (entries: any[]) => {
             entries.forEach((entry) => {
                 const { intersectionRatio, target } = entry;
-                log.info(intersectionRatio, target, '');
                 if (intersectionRatio > 0.25) {
                     target.classList.add('is-visible');
                 } else {
                     target.classList.remove('is-visible');
                 }
             });
-        };
-        //Declare option
-        const opt = {
+        },
+        {
             threshold: 0.25
-        };
-        //Declare intersection observer
-        const io = new IntersectionObserver(callback, opt);
-        //Observe element
-        if (ref.current) {
-            io.observe(ref.current as any);
         }
+    );
 
+    const containerRef = useCallback((node) => {
+        setNode(node);
+    }, []);
+
+    useEffect(() => {
+        if (node) {
+            //Set default variables for each element
+            const sectionChildren = (node as HTMLElement).children;
+            for (let i = 0; i < sectionChildren.length; i++) {
+                let el: HTMLElement = sectionChildren[i] as HTMLElement;
+                //set variable for every element inside the grid div
+                el.style.setProperty('--delay', `${i * 200}ms`);
+                el.style.setProperty('--distance', `${_.sample([-2, 0, 2])}rem`);
+            }
+            //Observe the node
+            io.observe(node);
+        }
         return () => {
             //unobserve
-            io.unobserve(ref.current as any);
+            if (node) {
+                io.unobserve(node);
+                io.disconnect();
+                console.log('unobserve');
+            }
         };
-    }, [ref]);
+    }, [node, io]);
 
     return (
-        <GridContainer ref={ref}>
-            <img src={RCCoverImage} />
+        <Wrapper ref={containerRef}>
+            <img src={RCCoverImage} alt='Andy RC Hobby' />
             <h3>Video Making</h3>
             <p>
-                I work out of Harrisburg PA, I love pour over coffee, I have a cat named after MacGyver, my favorite
-                number is 22, I'm not a huge fan of IPAs, I play video games like it's my life, I knew what I wanted to
-                do at the age of 13, I downhill mountain bike, my favorite food is bacon, and I broke my left arm twice.
+                I don’t think human’s memory is very stable and accurate. Sometimes, when we recall the things that
+                happened before we can only remember the blurred pictures. I consider video as an external memory for
+                very precise and detailed information. Especially when I have my child, I try to record all the key
+                memories.
             </p>
             <div>
-                <SingleButton>Devices</SingleButton>
-                <SingleButton>Planes</SingleButton>
+                <a href='http://tiny.cc/9owsqz' target='_blank' rel='noopener noreferrer'>
+                    <SingleButton>Youtube</SingleButton>
+                </a>
+                <a href='https://space.bilibili.com/30429048' target='_blank' rel='noopener noreferrer'>
+                    <SingleButton>Bilibili</SingleButton>
+                </a>
             </div>
-        </GridContainer>
+        </Wrapper>
     );
 };
 

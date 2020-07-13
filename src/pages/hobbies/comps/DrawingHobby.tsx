@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 // import Progressive from '../../../comps/ProgressiveImage';
 import { SingleButton } from '../../../comps/Buttons';
 import _ from 'lodash';
-import log from 'loglevel';
+// import log from 'loglevel';
 import CoverImage from '../../../assets/hobby-drawing-cover.jpg';
 
 const TriangleShape = styled.div`
@@ -13,14 +13,19 @@ const TriangleShape = styled.div`
     grid-column: 3 / span 3;
     grid-row: 1 / span 3;
     background-color: gray;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    clip-path: polygon(100% 0, 0% 0, 50% 100%);
+
     z-index: 10;
+    img {
+        width: 100%;
+        height: 100%;
+    }
     @media screen and (max-width: 768px) {
         position: initial;
     }
 `;
 
-const GridContainer = styled.div`
+const Wrapper = styled.div`
     display: grid;
     position: relative;
     width: 100%;
@@ -84,7 +89,7 @@ const GridContainer = styled.div`
     }
     p {
         margin: 1rem auto;
-        grid-column: 2 / span 5;
+        grid-column: 1 / span 7;
         grid-row: 4 / span 2;
         text-align: justify;
         align-self: stretch;
@@ -97,71 +102,69 @@ const GridContainer = styled.div`
 `;
 
 const DrawingHobby = () => {
-    const ref = useRef<HTMLInputElement>(null);
-
-    useEffect(() => {
-        //Setting of every child element
-        //Get all children element
-        const sectionChildren = (ref.current as any).children;
-        for (let i = 0; i < sectionChildren.length; i++) {
-            let el = sectionChildren[i];
-            console.log('el', el);
-            //set variable for every element inside the grid div
-            el.style.setProperty('--delay', `${i * 200}ms`);
-            el.style.setProperty('--distance', `${_.sample([-2, 0, 2])}rem`);
-        }
-        //Intersection observer
-        //Declare callback function
-        const callback = (entries: any[]) => {
+    const [node, setNode] = useState<HTMLDivElement>();
+    //Declare intersection observer
+    const io = new IntersectionObserver(
+        (entries: any[]) => {
             entries.forEach((entry) => {
                 const { intersectionRatio, target } = entry;
-                // log.info(intersectionRatio, target, '');
                 if (intersectionRatio > 0.25) {
                     target.classList.add('is-visible');
                 } else {
                     target.classList.remove('is-visible');
                 }
             });
-        };
-        //Declare option
-        const opt = {
+        },
+        {
             threshold: 0.25
-        };
-        //Declare intersection observer
-        const io = new IntersectionObserver(callback, opt);
-        //Observe element
-        if (ref.current) {
-            io.observe(ref.current as any);
         }
+    );
 
+    const containerRef = useCallback((node) => {
+        setNode(node);
+    }, []);
+
+    useEffect(() => {
+        if (node) {
+            //Setting of every child element
+            //Get all children element
+            const sectionChildren = node.children;
+            for (let i = 0; i < sectionChildren.length; i++) {
+                let el: HTMLElement = sectionChildren[i] as HTMLElement;
+                //set variable for every element inside the grid div
+                el.style.setProperty('--delay', `${i * 200}ms`);
+                el.style.setProperty('--distance', `${_.sample([-2, 0, 2])}rem`);
+            }
+            //Observe element
+            io.observe(node);
+        }
         return () => {
             //unobserve
-            io.unobserve(ref.current as any);
+            if (node) {
+                io.unobserve(node);
+            }
         };
-    }, [ref]);
+    }, [node, io]);
 
     return (
-        <GridContainer ref={ref}>
+        <Wrapper ref={containerRef}>
             <TriangleShape id='cover'>
-                <img src={CoverImage} style={{ width: '100%' }}></img>
+                <img src={CoverImage} alt='Drawing Hobby' />
             </TriangleShape>
-            {/* <img src='https://picsum.photos/200' /> */}
             <h3>DRAWING</h3>
             <h2>DRAWING</h2>
             <p>
-                I work out of Harrisburg PA, I love pour over coffee, I have a cat named after MacGyver, my favorite
-                number is 22, I'm not a huge fan of IPAs, I play video games like it's my life, I knew what I wanted to
-                do at the age of 13, I downhill mountain bike, my favorite food is bacon, and I broke my left arm twice.
+                I feel that drawing is an easy way to express your ideas and also an efficient way to communicate with
+                others. When I first time decided to draw something seriously was that when I saw the famous cartoon
+                series of the Dragon Balls which created by Toriyama Akira. I keep this hobby as a tool to record some
+                ideas or an approach for design.
             </p>
             <div id='links'>
-                <a
-                    href='https://photos.google.com/share/AF1QipNtWKaWltlWMiw9nr_FYn9mecSDqdIhaMcERWGhJ1XL18Kl_7fBtCXcu0uftkphtA?key=S1BGenlYWkJKWDVJbnUyZ2JWcmVnUjZaVHN4aDBB'
-                    target='_blank'>
+                <a href='https://photos.app.goo.gl/9GZrmEyXhCBReKGP6' target='_blank' rel='noopener noreferrer'>
                     <SingleButton>Drawing Album</SingleButton>
                 </a>
-                {/* <SingleButton>Test</SingleButton> */}
             </div>
-        </GridContainer>
+        </Wrapper>
     );
 };
 
