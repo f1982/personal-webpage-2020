@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TimelineLifeObject } from '../types/interfaces';
+import TimelineCurrent from '../assets/timeline-current.png';
+import TimelineStarter from '../assets/timeline-starter.png';
+import ProgressiveImage from './ProgressiveImage';
 
 const LeftWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background: linear-gradient(#efc854, #efc854) no-repeat;
-    background-size: 20px 100%;
+    background-size: 17px 100%;
     background-position: 50% 50%;
 
     @media screen and (max-width: 768px) {
@@ -22,7 +25,7 @@ const RightWrapper = styled.div`
     flex-direction: row-reverse;
     justify-content: space-between;
     background: linear-gradient(#f5c02e, #f5c02e) no-repeat;
-    background-size: 20px 100%;
+    background-size: 17px 100%;
     background-position: 50% 50%;
     @media screen and (max-width: 768px) {
         flex-direction: column-reverse;
@@ -55,6 +58,7 @@ const MiddleVertical = styled.div`
     /* background-color: #50e3c2; */
     color: #fff;
     margin: 0 1rem;
+    padding-top: 1rem;
 
     @media screen and (max-width: 768px) {
         width: 100%;
@@ -85,18 +89,61 @@ interface LifeItemProp {
     itemData?: TimelineLifeObject;
 }
 
+const Upper = () => {
+    return (
+        <div
+            style={{
+                height: `48px`,
+                backgroundRepeat: `no-repeat`,
+                backgroundPositionX: '50%',
+                backgroundImage: `url('${TimelineCurrent}')`
+            }}>
+            {/* <img src={TimelineCurrent} /> */}
+        </div>
+    );
+};
+
+const Lower = () => {
+    return (
+        <div
+            style={{
+                height: `88px`,
+                backgroundRepeat: `no-repeat`,
+                backgroundPositionX: '50%',
+                backgroundImage: `url('${TimelineStarter}')`
+            }}></div>
+    );
+};
+
+const ImageContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    > img {
+        margin-bottom: 0.5rem;
+        filter: blur(1px);
+        transition: opacity ease-in 1000ms;
+    }
+`;
+
 const TimelineItem = (props: LifeItemProp) => {
     console.log('props', props);
     const { dir, itemData } = props;
-    const { start, title, subtitle, description } = itemData as TimelineLifeObject;
+    const { start, title, subtitle, description, cover, images } = itemData as TimelineLifeObject;
     return (
         <>
             {dir === 'left' ? (
                 <LeftWrapper>
                     <LeftVertical>
                         <h5>{title}</h5>
-                        <b>{subtitle}</b>
+                        <i>{subtitle}</i>
                         <p>{description}</p>
+                        <ImageContainer>
+                            {images && images.length > 0
+                                ? images.map((image, index) => {
+                                      return <ProgressiveImage key={index} src={image} />;
+                                  })
+                                : null}
+                        </ImageContainer>
                     </LeftVertical>
                     <MiddleVertical style={{ textAlign: 'left' }}>
                         <TimeHint>
@@ -104,20 +151,46 @@ const TimelineItem = (props: LifeItemProp) => {
                         </TimeHint>
                     </MiddleVertical>
                     <RightVertical>
-                        <img src='https://image.flaticon.com/icons/svg/147/147144.svg' alt={title} />
+                        {cover ? (
+                            <img
+                                src={cover}
+                                style={{ width: '80px', height: '80px', objectFit: 'cover' }}
+                                onLoad={() => {
+                                    console.log('img loaded');
+                                }}
+                                alt={title}
+                            />
+                        ) : null}
                     </RightVertical>
                 </LeftWrapper>
             ) : (
                 <RightWrapper>
                     <LeftVertical style={{ textAlign: 'left' }}>
                         <h5>{title}</h5>
-                        <b>{subtitle}</b>
+                        <i>{subtitle}</i>
                         <p>{description}</p>
+                        <ImageContainer>
+                            {images && images.length > 0
+                                ? images.map((image, index) => {
+                                      return <ProgressiveImage key={index} src={image} />;
+                                  })
+                                : null}
+                        </ImageContainer>
                     </LeftVertical>
                     <MiddleVertical style={{ textAlign: 'right' }}>
-                        <TimeHint>{start}</TimeHint>
+                        <TimeHint>
+                            <i>{start}</i>
+                        </TimeHint>
                     </MiddleVertical>
-                    <RightVertical></RightVertical>
+                    <RightVertical style={{ textAlign: 'right' }}>
+                        {cover ? (
+                            <img
+                                style={{ width: '80px', height: '80px', objectFit: 'cover' }}
+                                src={cover}
+                                alt={title}
+                            />
+                        ) : null}
+                    </RightVertical>
                 </RightWrapper>
             )}
         </>
@@ -125,3 +198,4 @@ const TimelineItem = (props: LifeItemProp) => {
 };
 
 export default TimelineItem;
+export { Upper, Lower };

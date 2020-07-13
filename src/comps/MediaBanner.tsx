@@ -79,15 +79,12 @@ export interface MediaBannerProps {
 
 const MediaBanner = (props: MediaBannerProps) => {
     const { title = '', subtitle = '', imageURL = '', videoURL = '' } = props;
-
     const [showMediaType, setShowMediaType] = useState('image');
-
     //3 precondition should be met
     //1. it's not on mobile phone
     //2. it's set video url
     //3. show time more than 3s
     useEffect(() => {
-        console.log('set timeout');
         let counter: number = 0;
         if (videoURL) {
             counter = setTimeout(() => {
@@ -96,7 +93,6 @@ const MediaBanner = (props: MediaBannerProps) => {
             }, 15000);
         }
         return () => {
-            console.log('clear timeout');
             if (counter) clearTimeout(counter);
         };
     }, [videoURL]);
@@ -109,7 +105,6 @@ const MediaBanner = (props: MediaBannerProps) => {
                     Sorry,Your browser does not support the video replay.
                 </LandscapeVideo>
             ) : null}
-
             <TextLayer>
                 <h2>{title}</h2>
                 <p>{subtitle}</p>

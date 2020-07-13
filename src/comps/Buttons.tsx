@@ -5,12 +5,12 @@ const Wrapper = styled.span``;
 const BubbleColor = '#fff';
 const InnterButton = styled.button`
     padding: 0.75rem 2rem;
-    font-weight: 500;
+    font-weight: bold;
     color: #fff;
     border: 2px solid #fff;
     font-size: 1rem;
     background-color: #efc854;
-    border-radius: 1.5rem;
+    border-radius: 0.75rem;
     transition: all 0.3s ease 0s;
     overflow: hidden;
     cursor: pointer;
@@ -18,7 +18,8 @@ const InnterButton = styled.button`
     &:hover {
         box-shadow: 0px 8px 10px rgba(226, 142, 1, 0.5);
         color: #fff;
-        transform: translateY(-1px);
+        transform: translateY(1px);
+        background-color: #ffcc00;
         &:before {
             content: '';
             pointer-events: none;
@@ -47,7 +48,6 @@ const InnterButton = styled.button`
                     ${BubbleColor} 6px,
                     transparent 6px
                 );
-
             width: 100%;
             height: 200%;
             top: 0;
@@ -63,6 +63,9 @@ const InnterButton = styled.button`
                 transform: translate(0, -66.666%);
             }
         }
+    }
+    &:focus {
+        outline: 0;
     }
 `;
 
@@ -84,7 +87,6 @@ const SingleButton = (props: ButtonProp) => {
 };
 
 // Close Button
-
 const ButtonWidth = 32;
 const ButtonHeight = 8;
 const ButtonSize = 32;
@@ -96,7 +98,6 @@ const CloseButtonWrapper = styled.a`
     box-sizing: border-box;
     line-height: ${ButtonSize}px;
     display: inline-block;
-    /* background-color: #ffcc00; */
 
     &:before,
     &:after {
@@ -105,11 +106,6 @@ const CloseButtonWrapper = styled.a`
         transform-origin: center;
         transform: rotate(-45deg);
         top: 50%;
-        /* left: 50%; */
-        /* transform: translate(50%,-50%);  */
-        /* margin-top: -${ButtonHeight / 2}px;
-        margin-left: -${ButtonWidth / 2}px; */
-        /* transform-origin: center center; */
         display: block;
         height: ${ButtonHeight}px;
         width: ${ButtonWidth}px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ProjectObject } from '../../types/interfaces';
-
+import ProgressiveImage from './../ProgressiveImage';
 interface ProjectItemProp {
     name?: string;
     itemData: ProjectObject;
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
     &:hover {
         border-radius: 2rem;
-        box-shadow: 0px 20px 20px 3px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 10px 10px 2px rgba(0, 0, 0, 0.1);
     }
 `;
 
@@ -37,12 +37,6 @@ const CardImage = styled.div`
         top: -10px;
         right: 20px;
         background-color: #8ddaf4;
-    }
-    > img {
-        width: 100%;
-        height: 254px;
-        object-fit: cover;
-        border-radius: 1rem;
     }
 `;
 
@@ -78,7 +72,7 @@ const ProjectItem = (props: ProjectItemProp) => {
     return (
         <Wrapper>
             <CardImage>
-                <img src={itemData.cover} alt={itemData.title} />
+                <ProgressiveImage width='100%' height='254px' src={itemData.cover} alt={itemData.title} />
                 {itemData.platform ? <span>{itemData.platform}</span> : null}
             </CardImage>
             <CardContent>

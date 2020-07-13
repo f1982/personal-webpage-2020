@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+// import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import ImageBanner from '../../comps/MediaBanner';
 import { Experience } from '../../comps/TimelineWork';
 import TimelineLife from '../../comps/TimelineLife';
 import { useRouteMatch, Switch, Route, useHistory } from 'react-router-dom';
 import Summary from './comps/Summary';
+import { SectionNarrow } from '../../layouts/default';
 
 const About = (props: any) => {
     let history = useHistory();
@@ -34,14 +36,16 @@ const About = (props: any) => {
                 <Route path={`${match.path}/work`}>
                     <Experience data={props.timelines.works} />
                 </Route>
-                <Route path={`${match.path}/life`}>
+                <Route path={`${match.path}/timeline`}>
                     <button
                         onClick={() => {
                             history.goBack();
                         }}>
                         close
                     </button>
-                    <TimelineLife data={props.timelines.life} />
+                    <SectionNarrow>
+                        <TimelineLife data={props.timelines.life} />
+                    </SectionNarrow>
                 </Route>
                 <Route path={`${match.path}/skill`}>
                     <h1>Skills</h1>
