@@ -42,19 +42,20 @@ const Wrapper = styled.div`
         margin: 0 auto;
         &:hover {
         }
-    }
-
-    h3 {
+        #hobby-title {
         grid-column: 5 / span 3;
         grid-row: 2 / span 1;
         text-align: center;
-        color: #333;
-        @media screen and (max-width: 768px) {
+        h3 {
             color: #333;
+            @media screen and (max-width: 768px) {
+                color: #333;
+            }
         }
     }
+
     p {
-        margin: 0 auto;
+        margin: 1rem auto;
         grid-column: 5 / span 3;
         grid-row: 3 / span 2;
         text-align: justify;
@@ -116,7 +117,9 @@ const VideoHobby = () => {
     return (
         <Wrapper ref={containerRef}>
             <img src={RCCoverImage} alt='Andy RC Hobby' />
-            <h3>Video Making</h3>
+            <div id='hobby-title'>
+                <h3>Video Making</h3>
+            </div>
             <p>
                 I don’t think human’s memory is very stable and accurate. Sometimes, when we recall the things that
                 happened before we can only remember the blurred pictures. I consider video as an external memory for
