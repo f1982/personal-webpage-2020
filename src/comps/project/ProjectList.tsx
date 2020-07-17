@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Popup } from '../Popup';
 import { ProjectObject } from '../../types/interfaces';
-import ProjectItem from './ProjectItemGrid';
+import ProjectItem from './ProjectCard';
 import { ProjectDetail } from './ProjectDetail';
 import { ProjectCloseButton } from '../Buttons';
 import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';

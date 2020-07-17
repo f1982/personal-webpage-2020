@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ProjectObject } from '../../types/interfaces';
-import ProgressiveImage from './../ProgressiveImage';
+import ProgressiveImage from '../ProgressiveImage';
 interface ProjectItemProp {
     name?: string;
     itemData: ProjectObject;
