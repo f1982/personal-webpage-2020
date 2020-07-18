@@ -42,16 +42,6 @@ const Wrapper = styled.div`
         margin: 0 auto;
         &:hover {
         }
-        #hobby-title {
-        grid-column: 5 / span 3;
-        grid-row: 2 / span 1;
-        text-align: center;
-        h3 {
-            color: #333;
-            @media screen and (max-width: 768px) {
-                color: #333;
-            }
-        }
     }
 
     p {
@@ -60,11 +50,23 @@ const Wrapper = styled.div`
         grid-row: 3 / span 2;
         text-align: justify;
     }
-    div {
-        grid-column: 3 / span 3;
-        grid-row: 5 / span 1;
-        text-align: center;
+`;
+const TitleContainer = styled.div`
+    grid-column: 5 / span 3;
+    grid-row: 2 / span 1;
+    text-align: left;
+    h3 {
+        color: #333;
+        @media screen and (max-width: 768px) {
+            color: #333;
+        }
     }
+`;
+
+const Links = styled.div`
+    grid-column: 3 / span 3;
+    grid-row: 5 / span 1;
+    text-align: center;
 `;
 
 const VideoHobby = () => {
@@ -117,23 +119,23 @@ const VideoHobby = () => {
     return (
         <Wrapper ref={containerRef}>
             <img src={RCCoverImage} alt='Andy RC Hobby' />
-            <div id='hobby-title'>
+            <TitleContainer>
                 <h3>Video Making</h3>
-            </div>
+            </TitleContainer>
             <p>
                 I don’t think human’s memory is very stable and accurate. Sometimes, when we recall the things that
                 happened before we can only remember the blurred pictures. I consider video as an external memory for
                 very precise and detailed information. Especially when I have my child, I try to record all the key
                 memories.
             </p>
-            <div>
+            <Links>
                 <a href='http://tiny.cc/9owsqz' target='_blank' rel='noopener noreferrer'>
                     <SingleButton>Youtube</SingleButton>
                 </a>
                 <a href='https://space.bilibili.com/30429048' target='_blank' rel='noopener noreferrer'>
                     <SingleButton>Bilibili</SingleButton>
                 </a>
-            </div>
+            </Links>
         </Wrapper>
     );
 };
