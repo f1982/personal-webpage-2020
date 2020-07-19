@@ -131,20 +131,6 @@ const ResponsiveMenuBar = (
                     </MenuBarItem>
                 );
             })}
-            <span id='test-mark' style={{ display: 'none' }}>
-                test content
-            </span>
-            {/* <OutLink
-                            data-text='Blog'
-                            href='http://blog.f1982.com'
-                            target='_blank'
-                            rel='noopener noreferrer'>
-                            <span>Blog</span>
-                        </OutLink>
-
-                        <OutLink data-text='Resume' href='#'>
-                            <span>Resume</span>
-                        </OutLink> */}
         </MenuBar>
     );
 };

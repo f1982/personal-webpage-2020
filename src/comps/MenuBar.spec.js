@@ -40,11 +40,34 @@ const routes = [
     }
 ];
 
-test('only with a title ', () => {
+test('base setups', () => {
+    const tree = renderer.create(
+        <MemoryRouter>
+            <ResponsiveMenuBar
+                routes={routes}
+                toggleCloseIcon={<span>close</span>}
+                toggleOpenIcon={<span>open</span>}
+                smallDeviceWidth={768}
+            />
+        </MemoryRouter>
+    );
+    const json = tree.toJSON();
+
+    //Desktop screen size
+    expect(json).toHaveStyleRule('display', 'flex');
+    expect(json).toHaveStyleRule('z-index', '999');
+
+    //display as set
+    expect(tree.root.findByType(ResponsiveMenuBar).children[0].props.children.length).toEqual(routes.length);
+});
+
+// When testing react-router related element
+// you need to add <MemoryRouter> for wrapping the test components
+//Small screen size
+//小屏幕手机状态
+test('show menubar in a small screen ', () => {
     const tree = renderer
         .create(
-            // When testing react-router related element
-            // you need to add <MemoryRouter> for wrapping the test components
             <MemoryRouter>
                 <ResponsiveMenuBar
                     routes={routes}
@@ -52,62 +75,36 @@ test('only with a title ', () => {
                     toggleOpenIcon={<span>open</span>}
                     smallDeviceWidth={768}
                 />
-                //{' '}
             </MemoryRouter>
         )
         .toJSON();
-});
-
-test('show menubar in a small screen ', () => {
-    // When testing react-router related element
-    // you need to add <MemoryRouter> for wrapping the test components
-    const tree = renderer
-        .create(
-            <MemoryRouter style={{ display: 'block' }}>
-                <ResponsiveMenuBar
-                    routes={routes}
-                    toggleCloseIcon={<span>close</span>}
-                    toggleOpenIcon={<span>open</span>}
-                    smallDeviceWidth={768}
-                />
-            </MemoryRouter>
-        )
-        .toJSON();
-
-    //Desktop screen size
-    expect(tree).toHaveStyleRule('display', 'flex');
-    expect(tree).toHaveStyleRule('z-index', '999');
-    //Small screen size
-    //小屏幕手机状态
     expect(tree).toHaveStyleRule('display', 'none', {
-        media: 'screen and (max-width: 768px)'
-    });
-    expect(tree).toHaveStyleRule('z-index', '998', {
         media: 'screen and (max-width: 768px)'
     });
 });
 
 test('menu item hover ', () => {
-    const tree = renderer
-        .create(
-            <MemoryRouter>
-                <MenuBarItem
-                    data-text='title'
-                    data-mark='mark'
-                    exact={false}
-                    to='/test'
-                    activeClassName={menuStyles.activeNavLink}>
-                    <span>'🌮'</span>
-                </MenuBarItem>
-            </MemoryRouter>
-        )
-        .toJSON();
+    const tree = renderer.create(
+        <MemoryRouter>
+            <MenuBarItem
+                data-text='title'
+                data-mark='mark'
+                exact={false}
+                to='/test'
+                activeClassName={menuStyles.activeNavLink}>
+                <span>'🌮'</span>
+            </MenuBarItem>
+        </MemoryRouter>
+    );
+    const treeJSON = tree.toJSON();
 
-    expect(tree).toHaveStyleRule('font-size', '1rem');
+    expect(treeJSON).toHaveStyleRule('font-size', '1rem');
 
-    expect(tree).toHaveStyleRule('background-color', '#74ddf7', {
+    expect(treeJSON).toHaveStyleRule('background-color', '#74ddf7', {
         modifier: ':hover'
     });
+    //Right active class name set
+    expect(tree.root.findByType(MenuBarItem).props.activeClassName).toEqual(menuStyles.activeNavLink);
 });
 
 // test('display correctly', () => {
