@@ -83,12 +83,7 @@ const Home = (props: any) => {
                 <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
             </SectionNarrow>
             <SectionNarrow>
-                <HighlightProject
-                    projects={props.projects}
-                    moreProjectCallback={() => {
-                        console.log('more project callback');
-                    }}
-                />
+                <HighlightProject projects={props.projects} moreProjectCallback={() => {}} />
             </SectionNarrow>
 
             <Links linkData={props.links.sns} iconColor='#EFC854' category='all' />

@@ -16,7 +16,6 @@ test('with video URL ', () => {
 
 test('display correctly', () => {
     const tree = renderer.create(<MediaBanner title='hello' />).toJSON();
-    console.log('tree', tree);
     expect(tree).toHaveStyleRule('position', 'relative');
     expect(tree).toHaveStyleRule('height', '16rem');
     expect(tree).toHaveStyleRule('height', '11rem', {

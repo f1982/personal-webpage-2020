@@ -22,7 +22,6 @@ const appConfig = createModel({
             let { projects, links } = config;
             projects.forEach((object: ProjectObject) => {
                 object.id = uuid.v4();
-                // console.log('object.id', uuid.v4());
                 object.cover = object.cover ? baseUrl + object.cover : '';
                 object.icon = object.icon ? baseUrl + object.icon : '';
                 object.qrcode = object.qrcode !== '' ? baseUrl + object.qrcode : '';

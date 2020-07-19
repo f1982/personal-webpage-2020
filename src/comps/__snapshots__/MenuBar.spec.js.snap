@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`only with a title  1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "zIndex": 999,
+      }
+    }
+  >
+    <nav
+      className="sc-AxirZ bmRswj"
+    >
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="Home"
+        href="/home"
+        onClick={[Function]}
+      >
+        <span>
+          🍩
+        </span>
+      </a>
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="Works"
+        href="/works"
+        onClick={[Function]}
+      >
+        <span>
+          🌮
+        </span>
+      </a>
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="Hobbies"
+        href="/hobbies"
+        onClick={[Function]}
+      >
+        <span>
+          🌮
+        </span>
+      </a>
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="About"
+        href="/about"
+        onClick={[Function]}
+      >
+        <span>
+          🥑
+        </span>
+      </a>
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="Contact"
+        href="/contact"
+        onClick={[Function]}
+      >
+        <span>
+          🌮
+        </span>
+      </a>
+    </nav>
+  </div>,
+  "//",
+  " ",
+]
+`;
+
+exports[`show menubar in a small screen  1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "zIndex": 999,
+      }
+    }
+  >
+    <nav
+      className="sc-AxirZ bmRswj"
+    >
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="Home"
+        href="/home"
+        onClick={[Function]}
+      >
+        <span>
+          🍩
+        </span>
+      </a>
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="Works"
+        href="/works"
+        onClick={[Function]}
+      >
+        <span>
+          🥑
+        </span>
+      </a>
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="Hobbies"
+        href="/hobbies"
+        onClick={[Function]}
+      >
+        <span>
+          🍩
+        </span>
+      </a>
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="About"
+        href="/about"
+        onClick={[Function]}
+      >
+        <span>
+          🥑
+        </span>
+      </a>
+      <a
+        aria-current={null}
+        className="sc-AxjAm jJSTvn"
+        data-text="Contact"
+        href="/contact"
+        onClick={[Function]}
+      >
+        <span>
+          🥑
+        </span>
+      </a>
+    </nav>
+  </div>,
+  "//",
+  " ",
+]
+`;
