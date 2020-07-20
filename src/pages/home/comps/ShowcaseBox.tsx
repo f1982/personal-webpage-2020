@@ -21,22 +21,6 @@ const Wrapper = styled.div`
     }
 `;
 
-const MyImage = styled.div<{ src: string }>`
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 2rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    /* background-blend-mode: multiply; */
-    /* background-image: linear-gradient(white, yellow), url(${(props) => props.src}); */
-    background-image: url(${(props) => props.src});
-    @media screen and (max-width: 768px) {
-        border-radius: 1rem;
-    }
-`;
-
 const VideoPlayer = styled(ReactPlayer)`
     display: block;
     width: 100%;
@@ -53,7 +37,7 @@ const ShowcaseBox = (props: any) => {
             {playIndex === 0 ? (
                 <VideoPlayer url='https://www.youtube.com/watch?v=8Vw3RryITv0' width='100%' height='100%' />
             ) : (
-                <ProgressiveImage src={mainImageURL} width='100%' height='100%' />
+                <ProgressiveImage src={mainImageURL} width='100%' height='100%' radius='2rem' />
             )}
         </Wrapper>
     );
