@@ -79,6 +79,9 @@ interface ProjectDetailProp {
 
 const ProjectDetail = (props: ProjectDetailProp) => {
     const { itemData } = props;
+    if (!itemData) {
+        return <Wrapper>Data Error</Wrapper>;
+    }
 
     return (
         <Wrapper>

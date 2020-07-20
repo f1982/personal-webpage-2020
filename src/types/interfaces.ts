@@ -32,7 +32,7 @@ export interface TimelineLifeObject {
  * Project Value Object
  */
 export interface ProjectObject {
-    id: number;
+    id: string;
     title: string;
     responsibility: string;
     description: string;

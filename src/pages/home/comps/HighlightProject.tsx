@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SingleButton } from '../../../comps/Buttons';
-import Projects from '../../../comps/project/ProjectListGrid';
+import Projects from '../../../comps/project/ProjectList';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -26,7 +26,7 @@ const HighlightProjects = (props: any) => {
         <Wrapper>
             <h3>Projects</h3>
             <Intro>
-                <p>Here are some projects that I am recently focusing on</p>
+                <p>Here are some projects that I have done recently.</p>
             </Intro>
 
             <Projects data={props.projects} category='all' top={2}></Projects>

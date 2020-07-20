@@ -2,6 +2,7 @@ import { createModel } from '@rematch/core';
 import ajax from '../../utils/ajax';
 import log from 'loglevel';
 import { ProjectObject } from '../../types/interfaces';
+import * as uuid from 'uuid';
 
 const API_URL = 'app.json';
 
@@ -20,6 +21,7 @@ const appConfig = createModel({
         updateConfig: (old, config) => {
             let { projects, links } = config;
             projects.forEach((object: ProjectObject) => {
+                object.id = uuid.v4();
                 object.cover = object.cover ? baseUrl + object.cover : '';
                 object.icon = object.icon ? baseUrl + object.icon : '';
                 object.qrcode = object.qrcode !== '' ? baseUrl + object.qrcode : '';

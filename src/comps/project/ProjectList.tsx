@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Popup } from '../Popup';
 import { ProjectObject } from '../../types/interfaces';
-import ProjectItem from './ProjectItemGrid';
+import ProjectItem from './ProjectCard';
 import { ProjectDetail } from './ProjectDetail';
 import { ProjectCloseButton } from '../Buttons';
 import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
@@ -46,8 +46,8 @@ const ProjectGrid = (props: any) => {
     let query = useQuery();
     let { data: items, category, top = 0 } = props;
 
-    const findItem = (id: any) => {
-        return items.find((item: ProjectObject) => item.id === parseInt(id));
+    const findItem = (id: string) => {
+        return items.find((item: ProjectObject) => item.id === id);
     };
 
     /**
@@ -91,7 +91,7 @@ const ProjectGrid = (props: any) => {
                     containerHeight={getPopupContainerHeight()}
                     closeButton={<ProjectCloseButton />}
                     closeHandler={closePopupHandler}>
-                    <ProjectDetail itemData={findItem(query.get('id'))} />
+                    <ProjectDetail itemData={findItem(query.get('id') as string)} />
                 </Popup>
             ) : null}
         </Wrapper>

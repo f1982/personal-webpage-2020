@@ -61,6 +61,18 @@ const Wrapper = styled.div`
             transform: translate3d(0, 0, 0);
         }
     }
+    #hobby-title {
+        grid-column: 3 / span 3;
+        grid-row: 3 / span 1;
+        text-align: center;
+        z-index: 12;
+        h3 {
+            color: #fff;
+            color: #333;
+            @media screen and (max-width: 768px) {
+            }
+        }
+    }
     h2 {
         position: absolute;
         width: 100%;
@@ -77,16 +89,7 @@ const Wrapper = styled.div`
             display: none;
         }
     }
-    h3 {
-        grid-column: 3 / span 3;
-        grid-row: 3 / span 1;
-        text-align: center;
-        color: #fff;
-        z-index: 12;
-        color: #333;
-        @media screen and (max-width: 768px) {
-        }
-    }
+
     p {
         margin: 1rem auto;
         grid-column: 1 / span 7;
@@ -151,7 +154,9 @@ const DrawingHobby = () => {
             <TriangleShape id='cover'>
                 <img src={CoverImage} alt='Drawing Hobby' />
             </TriangleShape>
-            <h3>DRAWING</h3>
+            <div id='hobby-title'>
+                <h3>DRAWING</h3>
+            </div>
             <h2>DRAWING</h2>
             <p>
                 I feel that drawing is an easy way to express your ideas and also an efficient way to communicate with

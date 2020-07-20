@@ -1,13 +1,11 @@
 import React from 'react';
 import TitleImage from '../../comps/MediaBanner';
-import ProjectListGrid from '../../comps/project/ProjectListGrid';
+import ProjectListGrid from '../../comps/project/ProjectList';
 import { Helmet } from 'react-helmet';
 import { Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
 import { SectionWide, SectionNarrow } from '../../layouts/default';
 
 const ProjectCategory = (props: any) => {
-    const params = useParams();
-    console.log('params', params);
     let { category } = useParams();
     if (!category) {
         category = 'all';

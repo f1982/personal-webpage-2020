@@ -49,12 +49,11 @@ const Wrapper = styled.div`
         }
     }
 
-    h3 {
-        display: block;
-        grid-column: 3 / span 3;
+    #hobby-title {
+        grid-column: 2 / span 5;
         grid-row: 4 / span 1;
         text-align: center;
-        color: #333;
+        color: #fff;
         @media screen and (max-width: 768px) {
             color: #333;
         }
@@ -121,7 +120,9 @@ const RCHobby = () => {
     return (
         <Wrapper ref={containerRef}>
             <img src={RCCoverImage} alt='RC Hobby' />
-            <h3>RC Hobby</h3>
+            <div id='hobby-title'>
+                <h3>RC Hobby</h3>
+            </div>
             <p>
                 Making RC aeroplane was one of my dream in my childhood. When I was in primary school I have seen some
                 magazines that introduced how to make RC aeroplane, I was shocked by the content and started to absorb

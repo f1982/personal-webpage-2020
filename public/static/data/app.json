@@ -28,7 +28,7 @@
                     "link": "https://www.facebook.com/andycao1982",
                     "alt": "Andy's Facebook Homepage",
                     "tag": null,
-                    "hidden": 0
+                    "hidden": 1
                 },
                 {
                     "id": 3,
@@ -78,7 +78,7 @@
                     "link": "http://www.weibo.com/enjoywound",
                     "alt": null,
                     "tag": null,
-                    "hidden": 0
+                    "hidden": 1
                 },
                 {
                     "id": 8,
@@ -104,11 +104,11 @@
             "friends": [
                 {
                     "id": 1,
-                    "name": "Tiger",
+                    "name": "TigerWang",
                     "type": "outside",
-                    "icon": "facebook",
-                    "link": "https://www.instagram.com/iandycao/",
-                    "alt": "Andy's Instagram",
+                    "icon": "",
+                    "link": "https://tigerwang.us/",
+                    "alt": "Tiger Wang",
                     "tag": null,
                     "hidden": 0
                 },
@@ -117,14 +117,35 @@
                     "name": "Feng",
                     "type": "outside",
                     "icon": "facebook",
-                    "link": "https://www.instagram.com/iandycao/",
-                    "alt": "Andy's Instagram",
+                    "link": "http://fenglee.com/",
+                    "alt": "Indie game developer Feng Lee",
                     "tag": null,
                     "hidden": 0
                 }
             ]
         },
         "projects": [
+            {
+                "id": 0,
+                "type": "coding",
+                "platform": "Web",
+                "title": "CCTV.com",
+                "description": "China Central Television is the predominant public television broadcaster in Mainland China. CCTV has a network of 50 channels broadcasting different programmes and is accessible to more than one billion viewers. The cctv.com is the portal of CCTV.",
+                "responsibility": "Responsible for the construction of UGC website, team management, development and maintenance of video player (Flash & HTML5) and multi-functional upload components.",
+                "state": "release",
+                "icon": "",
+                "qrcode": "",
+                "cover": "cctv.com-cover.jpg",
+                "start": "2009",
+                "end": "2013",
+                "images": ["cctv.com-01.jpg", "cctv.com-02.jpg"],
+                "tech": "HTML,Javascript,JQuery,Flash,PHP",
+                "link": "https://www.cctv.com",
+                "github": "",
+                "video": "",
+                "language": "zh-cn",
+                "quote": ""
+            },
             {
                 "id": 1,
                 "type": "coding",
@@ -182,9 +203,9 @@
                 "end": "2017",
                 "images": ["thousanddogs-01.jpg", "thousanddogs-02.jpg"],
                 "tech": "Gulp,NPM,Cocos2d-JS,HTML,CSS,Wechat",
-                "link": "http://www.f1982.com",
+                "link": "",
                 "github": "",
-                "video": "http://www.youtube.com",
+                "video": "",
                 "language": "en",
                 "quote": ""
             },
@@ -203,9 +224,9 @@
                 "end": "2018",
                 "images": ["timesignet-01.jpg", "timesignet-02.jpg"],
                 "tech": "Cocos Creator,JavaScript,Gulp",
-                "link": "http://www.f1982.com",
+                "link": "",
                 "github": "",
-                "video": "http://www.youtube.com",
+                "video": "",
                 "language": "en",
                 "quote": ""
             },
@@ -315,6 +336,27 @@
                 "quote": ""
             },
             {
+                "id": 13,
+                "type": "coding",
+                "platform": "Facebook Game",
+                "title": "Pocket Gridiron",
+                "description": "In this game you can manage your team, upgrade your roster, and move the chains in a mobile football gaming experience on Android and iOS",
+                "responsibility": "Responsible for the development of core game logic and UI animation effects.",
+                "state": "release",
+                "icon": "",
+                "qrcode": "",
+                "cover": "pocket-gridiron-cover.jpg",
+                "start": "2011",
+                "end": "2011",
+                "images": ["pocket-gridiron-cover.jpg"],
+                "tech": "Flash,ActionScript3.0,Away3D",
+                "link": "",
+                "github": "",
+                "video": "https://www.youtube.com/watch?v=c2oflYQPsmM",
+                "language": "en",
+                "quote": ""
+            },
+            {
                 "id": 5,
                 "type": "coding",
                 "platform": "Web",
@@ -329,8 +371,8 @@
                 "end": "2007",
                 "images": ["eingzone-01.jpg"],
                 "tech": "ASP,SQLServer,Flash,ActionScript",
-                "link": "http://www.f1982.com",
-                "video": "http://www.youtube.com",
+                "link": "",
+                "video": "",
                 "language": "en",
                 "quote": ""
             },

@@ -155,9 +155,7 @@ const TimelineItem = (props: LifeItemProp) => {
                             <img
                                 src={cover}
                                 style={{ width: '80px', height: '80px', objectFit: 'cover' }}
-                                onLoad={() => {
-                                    console.log('img loaded');
-                                }}
+                                onLoad={() => {}}
                                 alt={title}
                             />
                         ) : null}

@@ -15,7 +15,7 @@ const MenuBarItemBase = css`
     height: 186px;
     box-sizing: border-box;
     text-align: center;
-    background-color: #fff;
+    /* background-color: #fff; */
     transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
     @media screen and (max-width: 768px) {
         height: 80px;
@@ -70,11 +70,12 @@ const MenuBarItemBase = css`
         }
     }
 `;
-const MenuBarItem = styled(NavLink)`
+export const MenuBarItem = styled(NavLink)`
     ${MenuBarItemBase}
 `;
 
-const MenuBar: any = styled.nav<{ minimumWidth: number }>`
+export const MenuBar: any = styled.nav<{ minimumWidth: number }>`
+    z-index: 999;
     width: auto;
     display: flex;
     flex-direction: row;
@@ -97,6 +98,7 @@ const MenuBar: any = styled.nav<{ minimumWidth: number }>`
 
     @media screen and (max-width: ${(props) => props.minimumWidth}px) {
         display: none;
+        z-index: 998;
     }
 `;
 
@@ -114,36 +116,22 @@ const ResponsiveMenuBar = (
     }
 ) => {
     return (
-        <div style={{ zIndex: 999 }}>
-            <MenuBar minimumWidth={props.smallDeviceWidth}>
-                {props.routes.map((route, index) => {
-                    if (index < 0) return null;
-                    return (
-                        <MenuBarItem
-                            data-text={route.title}
-                            data-mark={route.mark}
-                            key={index}
-                            exact={route.exact}
-                            to={route.path}
-                            activeClassName={menuStyles.activeNavLink}>
-                            <span>{sample(['🌮', '🥑', '🍋', '🥪', '🍩'])}</span>
-                        </MenuBarItem>
-                    );
-                })}
-
-                {/* <OutLink
-                            data-text='Blog'
-                            href='http://blog.f1982.com'
-                            target='_blank'
-                            rel='noopener noreferrer'>
-                            <span>Blog</span>
-                        </OutLink>
-
-                        <OutLink data-text='Resume' href='#'>
-                            <span>Resume</span>
-                        </OutLink> */}
-            </MenuBar>
-        </div>
+        <MenuBar minimumWidth={props.smallDeviceWidth}>
+            {props.routes.map((route, index) => {
+                if (index < 0) return null;
+                return (
+                    <MenuBarItem
+                        data-text={route.title}
+                        data-mark={route.mark}
+                        key={index}
+                        exact={route.exact}
+                        to={route.path}
+                        activeClassName={menuStyles.activeNavLink}>
+                        <span>{sample(['🌮', '🥑', '🍋', '🥪', '🍩'])}</span>
+                    </MenuBarItem>
+                );
+            })}
+        </MenuBar>
     );
 };
 
