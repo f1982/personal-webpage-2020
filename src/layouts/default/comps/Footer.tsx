@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import IconScan from '../../../assets/icon-phone-scan.png';
 import IconGoUp from '../../../assets/icon-go-top.png';
-import { Links } from '../../../comps/Links';
-import { Popup } from '../../../comps/Popup';
+import { Links } from '../../../comps/link';
+import { Popup } from '../../../comps/common/Popup';
 var QRCode = require('qrcode.react');
 const Wrapper = styled.div`
     padding-top: 1rem;

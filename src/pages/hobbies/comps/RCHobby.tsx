@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { SingleButton } from '../../../comps/Buttons';
+import { SingleButton } from '../../../comps/common/Buttons';
 import _ from 'lodash';
 import RCCoverImage from '../../../assets/hobby-rc-cover.jpg';
 

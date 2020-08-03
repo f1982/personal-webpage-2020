@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import menuStyles from '../assets/styles/menubar.module.css';
+import menuStyles from './menubar.module.css';
 import { NavLink } from 'react-router-dom';
 import { sample } from 'lodash';
 import { FaBars, FaTimes } from 'react-icons/fa';

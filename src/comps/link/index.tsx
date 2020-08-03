@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LinkObject } from '../types/interfaces';
+import { LinkObject } from '../../types/interfaces';
 import { IconContext } from 'react-icons';
 import LinkItemSimple from './LinkItemSimple';
 import {

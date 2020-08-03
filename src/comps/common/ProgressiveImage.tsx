@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import loading from '../assets/styles/loading.module.css';
+import loading from './loading.module.css';
 const Wrapper = styled.div`
     position: relative;
     min-width: 265px;

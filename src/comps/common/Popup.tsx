@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { FaTimes } from 'react-icons/fa';
-import '../assets/styles/animation.css';
+import './animation.css';
 
 const ScreenSmallWidth: string = `768px`;
 

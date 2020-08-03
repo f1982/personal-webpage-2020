@@ -7,9 +7,7 @@ import routes from './pages';
 import Layout from './layouts/default';
 import Welcome from './pages/welcome';
 import { SettingContext } from './Settings';
-import log from './utils/loglevel-middleware';
-
-log.info('log is working');
+// import log from './utils/loglevel-middleware';
 
 ReactGA.initialize('UA-171033058-1');
 

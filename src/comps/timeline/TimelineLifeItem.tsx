@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TimelineLifeObject } from '../types/interfaces';
-import TimelineCurrent from '../assets/timeline-current.png';
-import TimelineStarter from '../assets/timeline-starter.png';
-import ProgressiveImage from './ProgressiveImage';
+import { TimelineLifeObject } from '../../types/interfaces';
+import TimelineCurrent from '../../assets/timeline-current.png';
+import TimelineStarter from '../../assets/timeline-starter.png';
+import ProgressiveImage from '../common/ProgressiveImage';
 
 const LeftWrapper = styled.div`
     display: flex;

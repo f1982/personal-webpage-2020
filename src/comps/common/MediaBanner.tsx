@@ -88,7 +88,6 @@ const MediaBanner = (props: MediaBannerProps) => {
         let counter: number = 0;
         if (videoURL) {
             counter = setTimeout(() => {
-                console.log('timeout');
                 setShowMediaType('video');
             }, 15000);
         }

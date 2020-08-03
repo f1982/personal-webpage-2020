@@ -1,5 +1,5 @@
 import React from 'react';
-import { TimelineLifeObject } from '../types/interfaces';
+import { TimelineLifeObject } from '../../types/interfaces';
 import TimelineLifeItem, { Upper, Lower } from './TimelineLifeItem';
 
 interface TimelineLifeProp {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SectionWide } from '../../layouts/default';
-import TitleImage from '../../comps/MediaBanner';
+import TitleImage from '../../comps/common/MediaBanner';
 import Map from './comps/LocationMap';
 import Helmet from 'react-helmet';
 

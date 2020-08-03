@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SingleButton } from '../../../comps/Buttons';
-import Projects from '../../../comps/project/ProjectList';
+import { SingleButton } from '../../../comps/common/Buttons';
+import Projects from '../../../comps/project';
 import { Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
+import loglevel from '../../../utils/loglevel-middleware';
 
 const Wrapper = styled.div`
     margin: 1rem auto;
@@ -29,7 +31,18 @@ const HighlightProjects = (props: any) => {
                 <p>Here are some projects that I have done recently.</p>
             </Intro>
 
-            <Projects data={props.projects} category='all' top={2}></Projects>
+            <Projects
+                data={props.projects}
+                type='coding'
+                top={2}
+                eventHandler={(projectName: string) => {
+                    loglevel.info('project detail event handler', projectName);
+                    ReactGA.event({
+                        category: 'ViewContent',
+                        action: 'View Project',
+                        label: projectName
+                    });
+                }}></Projects>
             <div style={{ marginTop: `3rem` }}>
                 <Link to='works'>
                     <SingleButton>MORE</SingleButton>

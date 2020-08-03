@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
-// import Progressive from '../../../comps/ProgressiveImage';
-import { SingleButton } from '../../../comps/Buttons';
+import { SingleButton } from '../../../comps/common/Buttons';
 import _ from 'lodash';
 // import log from 'loglevel';
 import CoverImage from '../../../assets/hobby-drawing-cover.jpg';

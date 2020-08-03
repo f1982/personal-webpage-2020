@@ -1,5 +1,5 @@
 import React from 'react';
-import { TimelineObject } from '../types/interfaces';
+import { TimelineObject } from '../../types/interfaces';
 import { TimelineItem } from './TimelineWorkItem';
 
 const Experience = (props: any) => {

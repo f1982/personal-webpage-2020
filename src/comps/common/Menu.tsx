@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { MenuItemObject } from '../types/interfaces';
+import { MenuItemObject } from '../../types/interfaces';
 
 export interface MenuProps {
     data?: Array<MenuItemObject>;
@@ -69,7 +69,7 @@ const Menu = (props: MenuProps) => {
     return (
         <Wrapper>
             {menuData.length > 0 &&
-                menuData.map(item => {
+                menuData.map((item) => {
                     return (
                         <MenuItem key={item.name}>
                             {item.link ? (

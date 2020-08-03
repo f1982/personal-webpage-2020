@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TimelineObject } from '../types/interfaces';
+import { TimelineObject } from '../../types/interfaces';
 
 import TimeBubble from './TimeBubble';
 

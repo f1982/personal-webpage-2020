@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import styled from 'styled-components';
-// import Progressive from '../../../comps/ProgressiveImage';
-import { SingleButton } from '../../../comps/Buttons';
+import { SingleButton } from '../../../comps/common/Buttons';
 import _ from 'lodash';
 import RCCoverImage from '../../../assets/video-hobby-cover.png';
 

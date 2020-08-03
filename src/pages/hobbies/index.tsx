@@ -1,5 +1,5 @@
 import React from 'react';
-import TitleImage from '../../comps/MediaBanner';
+import TitleImage from '../../comps/common/MediaBanner';
 import Helmet from 'react-helmet';
 import '../../assets/styles/glitch.scss';
 import { Switch, Route } from 'react-router-dom';

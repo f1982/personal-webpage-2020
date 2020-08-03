@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import HighlightProject from './comps/HighlightProject';
 import { Helmet } from 'react-helmet';
-import { Links } from '../../comps/Links';
+import { Links } from '../../comps/link';
 import FocusingBox from './comps/ShowcaseBox';
 import DoAndLike from '../../pages/home/comps/DoAndLike';
 import { SectionNarrow } from '../../layouts/default';

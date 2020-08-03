@@ -1,16 +1,30 @@
 import React from 'react';
-import TitleImage from '../../comps/MediaBanner';
-import ProjectListGrid from '../../comps/project/ProjectList';
+import TitleImage from '../../comps/common/MediaBanner';
+import ProjectListGrid from '../../comps/project';
 import { Helmet } from 'react-helmet';
 import { Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
 import { SectionWide, SectionNarrow } from '../../layouts/default';
-
+import ReactGA from 'react-ga';
+import loglevel from '../../utils/loglevel-middleware';
 const ProjectCategory = (props: any) => {
     let { category } = useParams();
     if (!category) {
-        category = 'all';
+        category = 'coding';
     }
-    return <ProjectListGrid data={props.data} category={category} />;
+    return (
+        <ProjectListGrid
+            data={props.data}
+            type={category}
+            eventHandler={(projectName: string) => {
+                loglevel.info('project detail event handler', projectName);
+                ReactGA.event({
+                    category: 'ViewContent',
+                    action: 'View Project',
+                    label: projectName
+                });
+            }}
+        />
+    );
 };
 
 const imageURL = process.env.PUBLIC_URL + 'static/images/image-banner-projects.jpg';

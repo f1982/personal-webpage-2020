@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReactPlayer from 'react-player';
-import ProgressiveImage from '../../../comps/ProgressiveImage';
+import ProgressiveImage from '../../../comps/common/ProgressiveImage';
 const Wrapper = styled.div`
     display: inline-block;
     width: 100%;

@@ -37,6 +37,7 @@ export interface ProjectObject {
     responsibility: string;
     description: string;
     type: string;
+    category: string;
     icon: string;
     qrcode: string;
     platform: string;

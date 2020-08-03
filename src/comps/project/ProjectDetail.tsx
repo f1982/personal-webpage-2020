@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FaCalendarTimes } from 'react-icons/fa';
 import { ProjectObject } from '../../types/interfaces';
 import { TechnologyStackItem } from './TechnologyStack';
-import { ImageSlide } from '../ImageSlide';
+import { ImageSlide } from './ImageSlide';
 
 // const WechatWebsiteURL = 'https://www.wechat.com/';
 // const HowToScanQRCode =

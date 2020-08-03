@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 // import styled from 'styled-components';
-import { Helmet } from 'react-helmet';
-import ImageBanner from '../../comps/MediaBanner';
-import { Experience } from '../../comps/TimelineWork';
-import TimelineLife from '../../comps/TimelineLife';
 import { useRouteMatch, Switch, Route, useHistory } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import ImageBanner from '../../comps/common/MediaBanner';
+import { Experience } from '../../comps/timeline/TimelineWork';
+import TimelineLife from '../../comps/timeline/TimelineLife';
 import Summary from './comps/Summary';
 import { SectionNarrow } from '../../layouts/default';
 
@@ -22,7 +22,7 @@ const About = (props: any) => {
     //     { id: 'life', url: `${match.url}/life`, title: 'Life Experience' },
     //     { id: 'skill', url: `${match.url}/skill`, title: 'Skills' }
     // ];
-    const imageURL = process.env.PUBLIC_URL + 'static/images/about_img_bar.jpg';
+    const imageURL = process.env.PUBLIC_URL + 'static/images/andy-at-beach.jpg';
     const videoURL = process.env.PUBLIC_URL + 'static/videos/desk.mp4';
 
     return (
