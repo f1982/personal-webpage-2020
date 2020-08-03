@@ -87,8 +87,43 @@ const getCurrentURL = () => {
     return window.location.href;
 };
 
+const underLinkHandler = (evt: any) => {
+    console.log('evt', evt.target.id);
+};
+
+const footerLinks = () => {
+    return (
+        <small style={{ color: `#ccc` }}>
+            <span
+                id='log-btn'
+                onClick={(evt) => {
+                    underLinkHandler(evt);
+                }}>
+                Logs
+            </span>{' '}
+            |{' '}
+            <span
+                id='links-btn'
+                onClick={(evt) => {
+                    underLinkHandler(evt);
+                }}>
+                Links
+            </span>{' '}
+            |{' '}
+            <span
+                id='statement-btn'
+                onClick={(evt) => {
+                    underLinkHandler(evt);
+                }}>
+                Statement
+            </span>
+        </small>
+    );
+};
+
 const Footer = () => {
     const [showQRCode, setShowQRCode] = useState(false);
+
     return (
         <Wrapper>
             {showQRCode ? (
@@ -157,12 +192,15 @@ const Footer = () => {
                         <p style={{ margin: `0.5rem auto` }}>
                             Have a mind that is open to everything and attached to nothing
                         </p>
-                        <small style={{ color: `#ccc` }}>Copyright @2020 f1982.com Design by Andy</small>
+                        {footerLinks()}
                     </div>
                     <div>
                         <Links linkData={LinkData} iconColor='#ccc' iconSize={24} category='all' />
                     </div>
                 </BottomRow>
+                <div style={{ textAlign: 'center', paddingTop: '1rem' }}>
+                    <small style={{ color: `#ccc` }}>Copyright @2020 f1982.com Design by Andy</small>
+                </div>
             </Inner>
         </Wrapper>
     );

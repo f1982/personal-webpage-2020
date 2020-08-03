@@ -1,6 +1,6 @@
 import { createModel } from '@rematch/core';
 import ajax from '../../utils/ajax';
-import log from 'loglevel';
+// import log from 'loglevel';
 import { ProjectObject } from '../../types/interfaces';
 // import * as uuid from 'uuid';
 
@@ -38,7 +38,6 @@ const appConfig = createModel({
                 url: API_URL
             });
             const { data } = cnf;
-            log.info('app config data', data);
             this.updateConfig(data);
         }
     }
