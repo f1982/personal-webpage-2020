@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from './comps/Header';
 import Footer from './comps/Footer';
+import { Route } from 'react-router-dom';
 const Wrapper = styled.div``;
 const Inner = styled.div`
     position: relative;
@@ -9,18 +10,30 @@ const Inner = styled.div`
 const MainContainer = styled.div`
     width: 100%;
 `;
-interface LayoutProp {
-    children: any;
+
+interface IDefaultProps {
+    component: any;
+    path?: string;
+    exact?: boolean;
 }
-const DefaultLayout = (props: LayoutProp) => {
+
+const DefaultLayout: React.SFC<IDefaultProps> = (props: IDefaultProps) => {
+    const { component: Component, ...rest } = props;
     return (
-        <Wrapper>
-            <Inner>
-                <Header />
-                <MainContainer>{props.children}</MainContainer>
-                <Footer />
-            </Inner>
-        </Wrapper>
+        <Route
+            {...rest}
+            render={(matchProps: any) => (
+                <Wrapper>
+                    <Inner>
+                        <Header />
+                        <MainContainer>
+                            <Component {...matchProps} />
+                        </MainContainer>
+                        <Footer />
+                    </Inner>
+                </Wrapper>
+            )}
+        />
     );
 };
 

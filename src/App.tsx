@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import routes from './pages';
 import Layout from './layouts/default';
 import Welcome from './pages/welcome';
+import NoMatchPage from './pages/NoMatchPage';
 import { SettingContext } from './Settings';
 // import log from './utils/loglevel-middleware';
 
@@ -35,21 +36,12 @@ const App = (props: any) => {
             </Helmet>
             <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>
                 <Switch>
-                    <Route exact path='/'>
-                        <Welcome />
-                    </Route>
-                    <Route>
-                        <Layout>
-                            {routes.map((route) => (
-                                <Route
-                                    key={route.path}
-                                    path={route.path}
-                                    exact={route.exact}
-                                    component={route.component}
-                                />
-                            ))}
-                        </Layout>
-                    </Route>
+                    <Route path='/welcome' component={Welcome} />
+                    {routes.map((route) => (
+                        <Layout key={route.path} path={route.path} exact={route.exact} component={route.component} />
+                    ))}
+                    <Redirect path='/' exact to='/welcome' />
+                    <Route path='*' component={NoMatchPage} />
                 </Switch>
             </SettingContext.Provider>
         </Router>
