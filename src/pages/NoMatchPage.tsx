@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Helmet from 'react-helmet';
 
 const Frame = styled.div`
     width: 100%;
@@ -9,11 +10,14 @@ const Frame = styled.div`
     justify-content: center;
     align-items: center;
 `;
-const Page404 = (props: any) => {
+const Page404: React.FunctionComponent = (props: any) => {
     return (
         <Frame>
-            <h1>404</h1>
-            <h3>Can't find the page!</h3>
+            <Helmet titleTemplate='%s - 404, Page not found.'>
+                <meta name='description' content='404, Page not found.' />
+            </Helmet>
+            <h1>:(</h1>
+            <h3>Oops! Page not found.</h3>
         </Frame>
     );
 };

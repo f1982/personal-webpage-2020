@@ -17,8 +17,7 @@ interface IDefaultProps {
     exact?: boolean;
 }
 
-const DefaultLayout: React.SFC<IDefaultProps> = (props: IDefaultProps) => {
-    const { component: Component, ...rest } = props;
+const DefaultLayout: React.FunctionComponent<IDefaultProps> = ({ component: Component, ...rest }: IDefaultProps) => {
     return (
         <Route
             {...rest}
@@ -37,8 +36,10 @@ const DefaultLayout: React.SFC<IDefaultProps> = (props: IDefaultProps) => {
     );
 };
 
-const SectionWide = (props: any) => <section style={{ width: `100%` }}>{props.children}</section>;
-const SectionNarrow = (props: any) => (
+const SectionWide: React.FunctionComponent = (props: any) => (
+    <section style={{ width: `100%` }}>{props.children}</section>
+);
+const SectionNarrow: React.FunctionComponent = (props: any) => (
     <div style={{ width: `100%`, maxWidth: `970px`, margin: `4rem auto` }}>{props.children}</div>
 );
 

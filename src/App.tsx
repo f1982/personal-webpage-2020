@@ -18,16 +18,13 @@ history.listen((location: any) => {
     ReactGA.pageview(window.location.hash);
 });
 
-const App = (props: any) => {
+const App: React.FunctionComponent = (props: any) => {
     const { syncAppConfig } = props;
 
     useEffect(() => {
         ReactGA.pageview('/');
         syncAppConfig();
     }, [syncAppConfig]);
-
-    // useEffect(() => {
-    // }, [props.location]);
 
     return (
         <Router basename={process.env.PUBLIC_URL}>
