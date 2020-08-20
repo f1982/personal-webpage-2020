@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import menuStyles from './menubar.module.css';
 import { NavLink } from 'react-router-dom';
-import { sample } from 'lodash';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 // base button style
@@ -128,7 +127,6 @@ const ResponsiveMenuBar = (
                         to={route.path}
                         activeClassName={menuStyles.activeNavLink}>
                         <span>{route.title}</span>
-                        {/* {sample(['🌮', '🥑', '🍋', '🥪', '🍩'])} */}
                     </MenuBarItem>
                 );
             })}
