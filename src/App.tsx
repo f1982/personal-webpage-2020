@@ -10,6 +10,7 @@ import NoMatchPage from './pages/NoMatchPage';
 import { SettingContext } from './Settings';
 // import log from './utils/loglevel-middleware';
 
+//Initialize Google Analytic
 ReactGA.initialize('UA-171033058-1');
 
 const history = require('history').createBrowserHistory();

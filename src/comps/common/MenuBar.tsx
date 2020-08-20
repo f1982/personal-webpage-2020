@@ -28,7 +28,7 @@ const MenuBarItemBase = css`
         left: 50%;
         bottom: 50%;
 
-        font-size: 1.25rem;
+        /* font-size: 1.25rem; */
         font-weight: bold;
         text-transform: uppercase;
         transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
@@ -127,7 +127,8 @@ const ResponsiveMenuBar = (
                         exact={route.exact}
                         to={route.path}
                         activeClassName={menuStyles.activeNavLink}>
-                        <span>{sample(['🌮', '🥑', '🍋', '🥪', '🍩'])}</span>
+                        <span>{route.title}</span>
+                        {/* {sample(['🌮', '🥑', '🍋', '🥪', '🍩'])} */}
                     </MenuBarItem>
                 );
             })}

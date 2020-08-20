@@ -29,13 +29,15 @@ const Inner = styled.div<{ minimumWidth: number }>`
 const Spacer = styled.div`
     flex: 1;
 `;
+
 const LogoImg = styled.img`
     vertical-align: middle;
     @media screen and (max-width: 768px) {
         height: 48px;
     }
 `;
-const Header = (props: any) => {
+
+const Header: React.FunctionComponent = (props: any) => {
     const settingContext = useContext(SettingContext);
 
     return (
