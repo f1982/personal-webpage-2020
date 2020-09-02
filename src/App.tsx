@@ -8,6 +8,7 @@ import Layout from './layouts/default';
 import Welcome from './pages/welcome';
 import NoMatchPage from './pages/NoMatchPage';
 import { SettingContext } from './Settings';
+import ClosurePage from './pages/closure/Closure';
 // import log from './utils/loglevel-middleware';
 
 //Initialize Google Analytic
@@ -34,6 +35,7 @@ const App: React.FunctionComponent = (props: any) => {
             </Helmet>
             <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>
                 <Switch>
+                    <Route path='*' component={ClosurePage} />
                     <Route path='/welcome' component={Welcome} />
                     {routes.map((route) => (
                         <Layout key={route.path} path={route.path} exact={route.exact} component={route.component} />
