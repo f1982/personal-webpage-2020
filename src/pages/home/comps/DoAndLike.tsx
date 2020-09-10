@@ -62,7 +62,7 @@ const DoAndLike = (props: PropsType) => {
     return (
         <Wrapper>
             <div style={{ textAlign: `center`, marginBottom: `2rem` }}>
-                <HighlightFont>Love to explore and creative</HighlightFont>
+                <HighlightFont>Love to explore and create</HighlightFont>
             </div>
             <HorizatalContainer>
                 <HorizatalItem style={{ textAlign: `right`, paddingRight: `2rem` }}>

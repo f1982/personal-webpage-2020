@@ -48,7 +48,7 @@ const Contact = (props: any) => {
                     <a
                         target='_blank'
                         rel='noopener noreferrer'
-                        href='https://drive.google.com/file/d/1Hn0eD4Qy6GvgRm99lPf1_HED_862b2dS/view?usp=sharing'>
+                        href='https://drive.google.com/file/d/1pyrvwo3Hmu7qVeEFqTFCtTgNotbWhNK1/view?usp=sharing'>
                         here
                     </a>{' '}
                     and you can also can contact me via{' '}
