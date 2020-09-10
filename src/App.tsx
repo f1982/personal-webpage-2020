@@ -35,7 +35,7 @@ const App: React.FunctionComponent = (props: any) => {
             </Helmet>
             <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>
                 <Switch>
-                    <Route path='*' component={ClosurePage} />
+                    {/* <Route path='*' component={ClosurePage} /> */}
                     <Route path='/welcome' component={Welcome} />
                     {routes.map((route) => (
                         <Layout key={route.path} path={route.path} exact={route.exact} component={route.component} />
