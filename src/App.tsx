@@ -8,7 +8,7 @@ import Layout from './layouts/default';
 import Welcome from './pages/welcome';
 import NoMatchPage from './pages/NoMatchPage';
 import { SettingContext } from './Settings';
-import ClosurePage from './pages/closure/Closure';
+// import ClosurePage from './pages/closure/Closure';
 // import log from './utils/loglevel-middleware';
 
 //Initialize Google Analytic
