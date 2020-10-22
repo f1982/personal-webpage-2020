@@ -5,7 +5,6 @@ import { FaBars, FaWindowClose } from 'react-icons/fa';
 import routes from '../../../pages';
 import ResponsiveMenuBar, { SmallMenuBar } from '../../../comps/common/MenuBar';
 import { SettingContext } from '../../../Settings';
-import Logo from '../../../assets/logo.png';
 
 const Wrapper = styled.header`
     width: 100%;
@@ -39,13 +38,12 @@ const LogoImg = styled.img`
 
 const Header: React.FunctionComponent = (props: any) => {
     const settingContext = useContext(SettingContext);
-
     return (
         <>
             <Wrapper>
                 <Inner minimumWidth={settingContext.contentWidth}>
                     <NavLink to='/home'>
-                        <LogoImg src={Logo} />
+                        <LogoImg src={process.env.PUBLIC_URL + 'static/images/logo.png'} />
                     </NavLink>
                     <Spacer />
                     <ResponsiveMenuBar

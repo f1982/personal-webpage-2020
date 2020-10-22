@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TimelineLifeObject } from '../../types/interfaces';
-import TimelineCurrent from '../../assets/timeline-current.png';
-import TimelineStarter from '../../assets/timeline-starter.png';
 import ProgressiveImage from '../common/ProgressiveImage';
 
 const LeftWrapper = styled.div`
@@ -96,7 +94,7 @@ const Upper = () => {
                 height: `48px`,
                 backgroundRepeat: `no-repeat`,
                 backgroundPositionX: '50%',
-                backgroundImage: `url('${TimelineCurrent}')`
+                backgroundImage: `url('${process.env.PUBLIC_URL + 'static/images/timeline-current.png'}')`
             }}>
             {/* <img src={TimelineCurrent} /> */}
         </div>
@@ -110,7 +108,7 @@ const Lower = () => {
                 height: `88px`,
                 backgroundRepeat: `no-repeat`,
                 backgroundPositionX: '50%',
-                backgroundImage: `url('${TimelineStarter}')`
+                backgroundImage: `url('${process.env.PUBLIC_URL + 'static/images/timeline-starter.png'}')`
             }}></div>
     );
 };
@@ -140,8 +138,8 @@ const TimelineItem = (props: LifeItemProp) => {
                         <ImageContainer>
                             {images && images.length > 0
                                 ? images.map((image, index) => {
-                                      return <ProgressiveImage key={index} src={image} />;
-                                  })
+                                    return <ProgressiveImage key={index} src={image} />;
+                                })
                                 : null}
                         </ImageContainer>
                     </LeftVertical>
@@ -155,42 +153,42 @@ const TimelineItem = (props: LifeItemProp) => {
                             <img
                                 src={cover}
                                 style={{ width: '80px', height: '80px', objectFit: 'cover' }}
-                                onLoad={() => {}}
+                                onLoad={() => { }}
                                 alt={title}
                             />
                         ) : null}
                     </RightVertical>
                 </LeftWrapper>
             ) : (
-                <RightWrapper>
-                    <LeftVertical style={{ textAlign: 'left' }}>
-                        <h5>{title}</h5>
-                        <i>{subtitle}</i>
-                        <p>{description}</p>
-                        <ImageContainer>
-                            {images && images.length > 0
-                                ? images.map((image, index) => {
-                                      return <ProgressiveImage key={index} src={image} />;
-                                  })
-                                : null}
-                        </ImageContainer>
-                    </LeftVertical>
-                    <MiddleVertical style={{ textAlign: 'right' }}>
-                        <TimeHint>
-                            <i>{start}</i>
-                        </TimeHint>
-                    </MiddleVertical>
-                    <RightVertical style={{ textAlign: 'right' }}>
-                        {cover ? (
-                            <img
-                                style={{ width: '80px', height: '80px', objectFit: 'cover' }}
-                                src={cover}
-                                alt={title}
-                            />
-                        ) : null}
-                    </RightVertical>
-                </RightWrapper>
-            )}
+                    <RightWrapper>
+                        <LeftVertical style={{ textAlign: 'left' }}>
+                            <h5>{title}</h5>
+                            <i>{subtitle}</i>
+                            <p>{description}</p>
+                            <ImageContainer>
+                                {images && images.length > 0
+                                    ? images.map((image, index) => {
+                                        return <ProgressiveImage key={index} src={image} />;
+                                    })
+                                    : null}
+                            </ImageContainer>
+                        </LeftVertical>
+                        <MiddleVertical style={{ textAlign: 'right' }}>
+                            <TimeHint>
+                                <i>{start}</i>
+                            </TimeHint>
+                        </MiddleVertical>
+                        <RightVertical style={{ textAlign: 'right' }}>
+                            {cover ? (
+                                <img
+                                    style={{ width: '80px', height: '80px', objectFit: 'cover' }}
+                                    src={cover}
+                                    alt={title}
+                                />
+                            ) : null}
+                        </RightVertical>
+                    </RightWrapper>
+                )}
         </>
     );
 };

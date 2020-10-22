@@ -1,9 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-//Images
-import PicAndyBack from './../../../assets/about-andy-back.jpg';
-import PicAndyComputer from './../../../assets/about-computer.jpg';
-import PicAndyFamily from './../../../assets/about-andy-family.jpg';
 
 const Content = styled.div`
     width: 100%;
@@ -56,7 +52,7 @@ const Summary = (props: SummaryProps) => {
                 </span>
                 .
             </p>
-            <img src={PicAndyBack} alt='I was on the beach' />
+            <img src={process.env.PUBLIC_URL + 'static/images/about-andy-back.jpg'} alt='I was on the beach' />
             <div style={{ margin: `2rem auto` }}>
                 {/* <SingleButton>My Hobbies</SingleButton>
                                         <div
@@ -91,7 +87,7 @@ const Summary = (props: SummaryProps) => {
                 </span>{' '}
                 ecosystem, I also keep an eye on iOS development.
             </p>
-            <img src={PicAndyComputer} alt='My Computer' />
+            <img src={process.env.PUBLIC_URL + 'static/images/about-computer.jpg'} alt='My Computer' />
             <div style={{ margin: `2rem auto` }}>
                 {/* <InlineLink to={match.path + '/life'}>
                                             <SingleButton>LIFE EVENTS</SingleButton>
@@ -103,7 +99,7 @@ const Summary = (props: SummaryProps) => {
                 We have a {getYears(2016)} year old daughter, her name is Zoe and she is healthy and lively. Our family
                 currently lives in Auckland.
             </p>
-            <img src={PicAndyFamily} alt='Introduce my family' />
+            <img src={process.env.PUBLIC_URL + 'static/images/about-andy-family.jpg'} alt='Introduce my family' />
             <div style={{ margin: `2rem auto` }}></div>
         </Content>
     );

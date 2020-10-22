@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Avatar from '../../../assets/avatar-pixel.jpg';
 import TransmiterImg from '../../../assets/rc-transmiter.png';
 const Wrapper = styled.div`
     display: flex;
@@ -66,7 +65,7 @@ const DoAndLike = (props: PropsType) => {
             </div>
             <HorizatalContainer>
                 <HorizatalItem style={{ textAlign: `right`, paddingRight: `2rem` }}>
-                    <UserAvatar src={Avatar} />
+                    <UserAvatar src={process.env.PUBLIC_URL + 'static/images/avatar-pixel.jpg'} />
                 </HorizatalItem>
                 <HorizatalItem>
                     <p>{props.whatIDo}</p>
@@ -78,7 +77,7 @@ const DoAndLike = (props: PropsType) => {
                     <WhatIDoParagraph>{props.whatILike}</WhatIDoParagraph>
                 </HorizatalItem>
                 <HorizatalItem style={{ textAlign: `left`, paddingLeft: `2rem` }}>
-                    <AvatarImg src={TransmiterImg} />
+                    <AvatarImg src={process.env.PUBLIC_URL + 'static/images/rc-transmiter.png'} />
                 </HorizatalItem>
             </HorizatalContainer>
         </Wrapper>

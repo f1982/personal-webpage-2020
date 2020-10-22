@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { SingleButton } from '../../../comps/common/Buttons';
 import _ from 'lodash';
-import RCCoverImage from '../../../assets/hobby-rc-cover.jpg';
+
 
 const Wrapper = styled.div`
     $randomNumber: random(5);
@@ -119,7 +119,7 @@ const RCHobby = () => {
 
     return (
         <Wrapper ref={containerRef}>
-            <img src={RCCoverImage} alt='RC Hobby' />
+            <img src={process.env.PUBLIC_URL + 'static/images/hobby-rc-cover.jpg'} alt='RC Hobby' />
             <div id='hobby-title'>
                 <h3>RC Hobby</h3>
             </div>

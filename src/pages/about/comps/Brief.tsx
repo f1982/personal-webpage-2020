@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { FaEnvelopeOpenText, FaMobileAlt, FaAt } from 'react-icons/fa';
-import Avatar from '../../../assets/avatar-pixel.jpg';
 
 interface SProps {
     theme?: any;
@@ -70,7 +69,7 @@ const At = styled(FaAt)`
 const Header = (props: SProps) => {
     return (
         <UserContainer>
-            <UserAvatar src={Avatar}></UserAvatar>
+            <UserAvatar src={process.env.PUBLIC_URL + 'static/images/avatar-pixel.jpg'}></UserAvatar>
             <UserName>{props.name}</UserName>
             <UserPosition>{props.position}</UserPosition>
             <ul>

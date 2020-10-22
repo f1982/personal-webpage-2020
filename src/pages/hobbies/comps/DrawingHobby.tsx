@@ -2,8 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { SingleButton } from '../../../comps/common/Buttons';
 import _ from 'lodash';
-// import log from 'loglevel';
-import CoverImage from '../../../assets/hobby-drawing-cover.jpg';
 
 const TriangleShape = styled.div`
     position: absolute;
@@ -151,7 +149,7 @@ const DrawingHobby = () => {
     return (
         <Wrapper ref={containerRef}>
             <TriangleShape id='cover'>
-                <img src={CoverImage} alt='Drawing Hobby' />
+                <img src={process.env.PUBLIC_URL + 'static/images/hobby-drawing-cover.jpg'} alt='Drawing Hobby' />
             </TriangleShape>
             <div id='hobby-title'>
                 <h3>DRAWING</h3>

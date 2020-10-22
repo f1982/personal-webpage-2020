@@ -6,7 +6,6 @@ import { Switch, Route } from 'react-router-dom';
 import VideoHobby from './comps/VideoHobby';
 import RCHobby from './comps/RCHobby';
 import DrawingHobby from './comps/DrawingHobby';
-const imageURL = process.env.PUBLIC_URL + 'static/images/banner-fpv.jpg';
 
 const Hobbies = () => {
     return (
@@ -16,7 +15,7 @@ const Hobbies = () => {
             </Helmet>
             <Switch>
                 <Route>
-                    <TitleImage imageURL={imageURL}></TitleImage>
+                    <TitleImage imageURL={process.env.PUBLIC_URL + 'static/images/banner-fpv.jpg'}></TitleImage>
                     <RCHobby />
                     <DrawingHobby />
                     <VideoHobby />
