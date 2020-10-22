@@ -1,8 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const Introduction = (props: any) => {
+export default () => {
     return <div></div>;
 };
-
-export default Introduction;

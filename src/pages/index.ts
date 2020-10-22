@@ -25,7 +25,6 @@ export default [
         path: '/contact',
         component: require('./contact/').default
     }
-    // {
     //     title: 'Resume',
     //     path: '/resume',
     //     mark: '🔥',

@@ -62,10 +62,10 @@ const TimeBubble = (props: TimeBubbleType = initialProps) => {
                     <span>{props.children}</span>
                 </WrapperRight>
             ) : (
-                <WrapperLeft>
-                    <span>{props.children}</span>
-                </WrapperLeft>
-            )}
+                    <WrapperLeft>
+                        <span>{props.children}</span>
+                    </WrapperLeft>
+                )}
         </>
     );
 };

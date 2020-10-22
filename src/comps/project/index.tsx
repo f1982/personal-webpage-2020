@@ -94,6 +94,7 @@ const ProjectGrid = (props: PropsType) => {
 
     /**
      * Close popup panel
+     *
      * @param event
      */
     const closePopupHandler = (event: React.MouseEvent) => {
@@ -101,7 +102,6 @@ const ProjectGrid = (props: PropsType) => {
         setProjectItemData(null);
     };
 
-    //return views
     return (
         <Wrapper>
             <ProjectsContainer id='projects'>

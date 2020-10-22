@@ -10,7 +10,8 @@ const Frame = styled.div`
     justify-content: center;
     align-items: center;
 `;
-const Page404: React.FunctionComponent = (props: any) => {
+
+export default () => {
     return (
         <Frame>
             <Helmet titleTemplate='%s - 404, Page not found.'>
@@ -21,5 +22,3 @@ const Page404: React.FunctionComponent = (props: any) => {
         </Frame>
     );
 };
-
-export default Page404;

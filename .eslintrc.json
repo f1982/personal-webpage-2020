@@ -1,3 +1,31 @@
 {
-    "extends": ["eslint:recommended", "plugin:react/recommended"]
+    "extends": [
+        "airbnb",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": "error"
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "jasmine": true
+    },
+    "no-restricted-imports": [
+        "error",
+        {
+            "paths": [
+                {
+                    "name": "styled-components",
+                    "message": "Please import from styled-components/macro."
+                }
+            ],
+            "patterns": [
+                "!styled-components/macro"
+            ]
+        }
+    ]
 }
