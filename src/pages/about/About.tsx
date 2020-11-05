@@ -25,12 +25,15 @@ const About = (props: any) => {
     const imageURL = process.env.PUBLIC_URL + 'static/images/andy-at-beach.jpg';
     const videoURL = process.env.PUBLIC_URL + 'static/videos/desk.mp4';
 
+
     return (
         <>
             <Helmet>
                 <title>About</title>
                 <meta name="description" content="There are something about me" />
             </Helmet>
+            {/* <p>test:{console.log("props.sections: ", props.sections)}</p>
+            <p>test:{props.sections.who_is_andy}</p> */}
             <ImageBanner imageURL={imageURL} videoURL={videoURL} />
             <div style={{ marginTop: `3rem` }} />
             <Switch>
@@ -53,7 +56,7 @@ const About = (props: any) => {
                 </Route>
                 <Route path={`${match.path}/intro`}>intro</Route>
                 <Route>
-                    <Summary />
+                    <Summary data={props.sections} />
                 </Route>
             </Switch>
             {props.loadedState === 'loaded' ? <></> : <p style={{ textAlign: 'center' }}>loading</p>}

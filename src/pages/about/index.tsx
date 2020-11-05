@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import About from './About';
 
 const mapStatesToProps = (rootState: any) => {
-    const { loadedState, timelines, summary } = rootState.about;
+    const { loadedState, timelines, sections } = rootState.about;
+    console.log(rootState.about);
     return {
         loadedState: loadedState,
-        summary: summary,
+        sections: sections,
         timelines: timelines
     };
 };

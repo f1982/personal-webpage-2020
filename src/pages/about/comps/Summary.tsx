@@ -26,32 +26,15 @@ const getYears = (birthYear: number) => {
 // };
 
 interface SummaryProps {
+    data: any;
     children?: string;
 }
 const Summary = (props: SummaryProps) => {
+    const { who_is_andy, what_i_do, family } = props.data;
     return (
         <Content>
             <h3>Who's Andy</h3>
-            <p>
-                My name is Andy Cao and I come from China{' '}
-                <span role='img' aria-label='china'>
-                    🇨🇳
-                </span>
-                . I am a software developer
-                <span role='img' aria-label='developer'>
-                    👨‍💻
-                </span>{' '}
-                who focuses on building website and mobile apps{' '}
-                <span role='img' aria-label='iphone'>
-                    📱
-                </span>
-                . I have serval hobbies with me for many years. Like RC hobby, FPV(flying drone in first person view),
-                video editing and DIY. Currently My family and I living in Auckland, New Zealand{' '}
-                <span role='img' aria-label='nz'>
-                    🇳🇿
-                </span>
-                .
-            </p>
+            <p>{who_is_andy}</p>
             <img src={process.env.PUBLIC_URL + 'static/images/about-andy-back.jpg'} alt='I was on the beach' />
             <div style={{ margin: `2rem auto` }}>
                 {/* <SingleButton>My Hobbies</SingleButton>
@@ -65,28 +48,7 @@ const Summary = (props: SummaryProps) => {
                                         <SingleButton>Timeline</SingleButton> */}
             </div>
             <h3>What I do?</h3>
-            <p>
-                I am a software developer{' '}
-                <span role='img' aria-label='developer'>
-                    👨‍💻
-                </span>{' '}
-                and have worked in the software industry for more than {getYears(2005)} years. I have developed
-                websites, made mobile 📱apps, and also built and designed casual games{' '}
-                <span role='img' aria-label='game dev'>
-                    🕹
-                </span>
-                . The process of developing software always brings me happiness and satisfaction. Currently, I am
-                learning{' '}
-                <span role='img' aria-label='learning'>
-                    📖
-                </span>{' '}
-                and using front-end development technology. The main focuses are on JavaScript, CSS, HTML, React related
-                technology stack and React Native. Because I love Apple{' '}
-                <span role='img' aria-label='macbook pro'>
-                    💻
-                </span>{' '}
-                ecosystem, I also keep an eye on iOS development.
-            </p>
+            <p>{what_i_do}</p>
             <img src={process.env.PUBLIC_URL + 'static/images/about-computer.jpg'} alt='My Computer' />
             <div style={{ margin: `2rem auto` }}>
                 {/* <InlineLink to={match.path + '/life'}>
@@ -94,11 +56,7 @@ const Summary = (props: SummaryProps) => {
                                         </InlineLink> */}
             </div>
             <h3>Family</h3>
-            <p>
-                I was very lucky to have met my wife Fang very early. She helped me immensely in my life and my spirit.
-                We have a {getYears(2016)} year old daughter, her name is Zoe and she is healthy and lively. Our family
-                currently lives in Auckland.
-            </p>
+            <p>{String(family).replace('${AGE_OF_ZOE}', getYears(2016).toString())}</p>
             <img src={process.env.PUBLIC_URL + 'static/images/about-andy-family.jpg'} alt='Introduce my family' />
             <div style={{ margin: `2rem auto` }}></div>
         </Content>

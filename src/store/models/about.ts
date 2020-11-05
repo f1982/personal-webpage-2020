@@ -16,7 +16,7 @@ interface AboutState {
 const about = createModel({
     state: {
         loadedState: '',
-        summary: {},
+        sections: {},
         timelines: []
     },
     reducers: {
@@ -24,12 +24,11 @@ const about = createModel({
             return { ...state, loadedState: loadedState };
         },
         updateTimeline(state, timelines) {
-            console.log('timelines', timelines);
             return { ...state, timelines: timelines };
         },
 
-        updateSummary(state, summary) {
-            return { ...state, summary: summary };
+        updateSections(state, sections) {
+            return { ...state, sections: sections };
         }
     },
     effects: {
@@ -40,7 +39,7 @@ const about = createModel({
             });
             const { data } = responseData;
             this.updateTimeline(data.timelines);
-            this.updateSummary(data.summary);
+            this.updateSections(data.sections);
             this.updateLoadedState('loaded');
         }
     }

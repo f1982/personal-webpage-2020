@@ -35,7 +35,7 @@ const Contact = (props: any) => {
             <SectionContent>
                 <h3>Contact</h3>
                 <p>
-                    Current, I live in Auckland, New Zealand, If you want contact me, feel free to send a email to me.
+                    Currently, I am living in Auckland, New Zealand, If you want contact me, feel free to send a email to me.
                     My email address is{' '}
                     <a
                         target='_blank'
