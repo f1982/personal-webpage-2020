@@ -4,10 +4,7 @@ import { ProjectObject } from '../../types/interfaces';
 
 const API_URL = 'projects.json';
 
-let baseUrl =
-    process.env.NODE_ENV === 'development'
-        ? process.env.REACT_APP_STATIC_BASES_URL_TEST
-        : process.env.REACT_APP_STATIC_BASES_URL;
+let baseUrl = process.env.REACT_APP_STATIC_BASES_URL;
 baseUrl = baseUrl + 'images/projects/';
 
 const projects = createModel({

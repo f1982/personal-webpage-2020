@@ -43,6 +43,7 @@ const Projects = (props: any) => {
         <>
             <Helmet>
                 <title>Projects</title>
+                <meta name="description" content="There are some projects that I have participated" />
             </Helmet>
             <SectionWide>
                 <TitleImage imageURL={imageURL} videoURL={videoURL} />

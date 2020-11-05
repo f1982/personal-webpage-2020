@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { SingleButton } from '../../comps/common/Buttons';
 import { ParticleCircle } from './canvas';
+import Helmet from 'react-helmet';
 
 const Wrapper = styled.div`
     position: relative;
@@ -71,10 +72,14 @@ const Welcome = (props: any) => {
             welcome.init();
         }
 
-        return () => {};
+        return () => { };
     }, []);
     return (
         <Wrapper id='bg'>
+            <Helmet>
+                <title>Welcome</title>
+                <meta name="description" content="Welcome to Andy's space" />
+            </Helmet>
             <Centered>
                 <h3>Hey! I'm Andy</h3>
                 <p>Welcome to my space</p>

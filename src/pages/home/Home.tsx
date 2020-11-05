@@ -69,7 +69,8 @@ const Home = (props: any) => {
     return (
         <>
             <Helmet>
-                <title>Home</title>
+                <title>Homepage</title>
+                <meta name="description" content="This page is to give your a overall view of Andy's current states." />
             </Helmet>
             <BannerBackground>
                 <BannerWrapper>
@@ -83,7 +84,7 @@ const Home = (props: any) => {
                 <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
             </SectionNarrow>
             <SectionNarrow>
-                <HighlightProject projects={props.projects} moreProjectCallback={() => {}} />
+                <HighlightProject projects={props.projects} moreProjectCallback={() => { }} />
             </SectionNarrow>
 
             <Links linkData={props.links.sns} iconColor='#EFC854' category='all' />

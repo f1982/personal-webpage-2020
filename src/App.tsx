@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -8,7 +8,7 @@ import Layout from './layouts/default';
 import Welcome from './pages/welcome';
 import NoMatchPage from './pages/NoMatchPage';
 import { SettingContext } from './Settings';
-// import ClosurePage from './pages/closure/Closure';
+import ClosurePage from './pages/closure/Closure';
 // import log from './utils/loglevel-middleware';
 
 //Initialize Google Analytic
@@ -20,6 +20,10 @@ history.listen((location: any) => {
     ReactGA.pageview(window.location.hash);
 });
 
+// set this variable to true to close the whole website
+const websiteClosed = false;
+const pageTitleTemplate = `%s | Andy's Personal Website`;
+
 const App: React.FunctionComponent = (props: any) => {
     const { syncAppConfig } = props;
 
@@ -28,23 +32,43 @@ const App: React.FunctionComponent = (props: any) => {
         syncAppConfig();
     }, [syncAppConfig]);
 
+    const openStatus = <>
+        <Route path='/welcome' component={Welcome} />
+        {
+            routes.map((route) => (
+                <Layout key={route.path} path={route.path} exact={route.exact} component={route.component} />
+            ))
+        }
+        <Redirect path='/' exact to='/welcome' />
+        <Route component={NoMatchPage} />
+    </>;
+
     return (
-        <Router basename={process.env.PUBLIC_URL}>
-            <Helmet titleTemplate='%s - Andy Cao Personal Website'>
-                <meta name='description' content='An opensource personal website by React' />
-            </Helmet>
-            <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>
-                <Switch>
-                    {/* <Route path='*' component={ClosurePage} /> */}
-                    <Route path='/welcome' component={Welcome} />
-                    {routes.map((route) => (
-                        <Layout key={route.path} path={route.path} exact={route.exact} component={route.component} />
-                    ))}
-                    <Redirect path='/' exact to='/welcome' />
-                    <Route path='*' component={NoMatchPage} />
-                </Switch>
-            </SettingContext.Provider>
-        </Router>
+        <>
+            {
+                websiteClosed ?
+                    <ClosurePage />
+                    :
+                    <Router basename={process.env.PUBLIC_URL}>
+                        <Helmet titleTemplate={pageTitleTemplate} >
+                            <meta name="description" content="Andy is a software developer, he loves to make mobile apps, website and games." />
+                        </Helmet>
+                        <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>
+                            <Switch>
+                                <Route path='/welcome' component={Welcome} />
+                                {
+                                    routes.map((route) => (
+                                        <Layout key={route.path} path={route.path} exact={route.exact} component={route.component} />
+                                    ))
+                                }
+                                <Redirect path='/' exact to='/welcome' />
+                                <Route component={NoMatchPage} />
+                            </Switch>
+                        </SettingContext.Provider>
+                    </Router >
+            }
+        </>
+
     );
 };
 

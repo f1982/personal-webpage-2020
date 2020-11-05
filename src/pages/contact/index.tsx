@@ -26,6 +26,7 @@ const Contact = (props: any) => {
         <>
             <Helmet>
                 <title>Contact</title>
+                <meta name="description" content="I am not always online, but if you want to find me, it's easy" />
             </Helmet>
             <SectionWide>
                 <TitleImage imageURL={imageURL} />

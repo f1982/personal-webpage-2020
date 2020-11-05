@@ -29,6 +29,7 @@ const About = (props: any) => {
         <>
             <Helmet>
                 <title>About</title>
+                <meta name="description" content="There are something about me" />
             </Helmet>
             <ImageBanner imageURL={imageURL} videoURL={videoURL} />
             <div style={{ marginTop: `3rem` }} />

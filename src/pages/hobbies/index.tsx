@@ -12,6 +12,8 @@ const Hobbies = () => {
         <>
             <Helmet>
                 <title>Hobbies</title>
+                <meta name="description" content="I have some very interesting hobbies which make me happy and optimistic." />
+
             </Helmet>
             <Switch>
                 <Route>

@@ -4,10 +4,7 @@ import notify from './notify';
 // import reloadApp from './reloadApp'
 import 'nprogress/nprogress.css';
 
-const baseUrl =
-    process.env.NODE_ENV === 'development'
-        ? process.env.REACT_APP_API_BASE_URL_TEST
-        : process.env.REACT_APP_API_BASE_URL;
+const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
 /**
  * @param  {object} req - https://github.com/axios/axios#request-config
