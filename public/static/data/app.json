@@ -3,7 +3,7 @@
     "status_msg": "ok",
     "last_update": "",
     "data": {
-        "settings": {
+        "settingsd": {
             "aaa": 111,
             "bbb": 222,
             "ccc": 333
