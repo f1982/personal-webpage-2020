@@ -10,6 +10,7 @@ interface DefaultTheme {
     secondary: string;
   };
 }
+
 const myTheme: DefaultTheme = {
   baseLine: 1.5,
   borderRadius: '5px',
