@@ -3,7 +3,6 @@ import About from './About';
 
 const mapStatesToProps = (rootState: any) => {
     const { loadedState, timelines, sections } = rootState.about;
-    console.log(rootState.about);
     return {
         loadedState: loadedState,
         sections: sections,

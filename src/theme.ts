@@ -1,27 +1,27 @@
 import { createGlobalStyle } from 'styled-components';
 
 interface DefaultTheme {
-    baseLine: 1.5;
-    borderRadius: string;
-    shadow: string;
+  baseLine: 1.5;
+  borderRadius: string;
+  shadow: string;
 
-    colors: {
-        main: string;
-        secondary: string;
-    };
+  colors: {
+    main: string;
+    secondary: string;
+  };
 }
 const myTheme: DefaultTheme = {
-    baseLine: 1.5,
-    borderRadius: '5px',
-    shadow: '0 19px 38px rgba(0, 0, 0, 0.30),0 15px 12px rgba(0, 0, 0, 0.22);',
-    colors: {
-        main: 'cyan',
-        secondary: 'magenta'
-    }
+  baseLine: 1.5,
+  borderRadius: '5px',
+  shadow: '0 19px 38px rgba(0, 0, 0, 0.30),0 15px 12px rgba(0, 0, 0, 0.22);',
+  colors: {
+    main: 'cyan',
+    secondary: 'magenta'
+  }
 };
 
 //Load this font at html template
-const PrimaryFont = 'Quicksand';
+const PrimaryFonts = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto'
 
 const GlobalStyle = createGlobalStyle`
   :root{
@@ -38,13 +38,12 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     background-color: white;
-    font-family: ${PrimaryFont}, sans-serif;
+    font-family: ${PrimaryFonts};
     line-height: ${myTheme.baseLine}rem;
     color: #4A4A4A;
   }
   h1, h2, h3, h4, h5 {
     margin: ${myTheme.baseLine}rem 0;
-    font-family: ${PrimaryFont}, sans-serif;
     font-weight: 700;
   }
   h1 {

@@ -52,11 +52,9 @@ const Menu = (props: MenuProps) => {
 
     useEffect(() => {
         setMenuData(props.data || []);
-        console.log('set state value');
-        return () => {};
+        return () => { };
     }, []);
-    // console.log('menuData', menuData);
-    const myFunction = (event: React.MouseEvent) => {};
+    const myFunction = (event: React.MouseEvent) => { };
 
     const hasData = () => {
         return menuData != undefined && menuData != null;
@@ -75,8 +73,8 @@ const Menu = (props: MenuProps) => {
                             {item.link ? (
                                 <MenuItemA href={item.link}>{item.name}</MenuItemA>
                             ) : (
-                                <MenuItemA onClick={buttonHandler}>{item.name}</MenuItemA>
-                            )}
+                                    <MenuItemA onClick={buttonHandler}>{item.name}</MenuItemA>
+                                )}
                         </MenuItem>
                     );
                 })}

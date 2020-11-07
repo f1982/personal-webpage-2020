@@ -89,7 +89,7 @@ const getCurrentURL = () => {
 };
 
 const underLinkHandler = (evt: any) => {
-    console.log('evt', evt.target.id);
+    // console.log('evt', evt.target.id);
 };
 
 const footerLinks = () => {

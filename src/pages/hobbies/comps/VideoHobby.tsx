@@ -109,7 +109,7 @@ const VideoHobby = () => {
             if (node) {
                 io.unobserve(node);
                 io.disconnect();
-                console.log('unobserve');
+                // console.log('unobserve');
             }
         };
     }, [node, io]);

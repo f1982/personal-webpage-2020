@@ -29,7 +29,7 @@ describe('test broken links', () => {
         for (let i = 0; i < links.length; i++) {
             const item = links[i];
             if (validURL(item.link) === false) {
-                console.log('error link:', item.link);
+                // console.log('error link:', item.link);
                 allLinksAreValid = false;
                 break;
             }

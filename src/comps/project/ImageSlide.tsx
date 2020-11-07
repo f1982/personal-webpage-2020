@@ -57,7 +57,6 @@ const ImageSlide = (props: ImageSlideProp) => {
     const [current, setCurrent] = React.useState<number>(0);
 
     const goNext = (evt: React.MouseEvent | React.TouchEvent) => {
-        // console.log('goNext');
         if (current < props.images.length - 1) {
             setCurrent(current + 1);
         }

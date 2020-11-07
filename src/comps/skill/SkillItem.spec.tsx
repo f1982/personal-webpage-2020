@@ -23,7 +23,6 @@ function setup(title = '', level = 0) {
 describe('test item', () => {
     it('should display', () => {
         const { titleSpan } = setup('hello');
-        console.log('titleSpan text', titleSpan.text());
         expect(titleSpan.text()).toEqual('hello');
     });
 });
