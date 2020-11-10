@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -24,24 +24,16 @@ history.listen((location: any) => {
 const websiteClosed = false;
 const pageTitleTemplate = `%s | Andy's Personal Website`;
 
-const App: React.FunctionComponent = (props: any) => {
-    const { syncAppConfig } = props;
+interface IProps {
+    syncAppConfig: Function;
+}
+
+const App: React.FC<IProps> = ({ syncAppConfig }) => {
 
     useEffect(() => {
         ReactGA.pageview('/');
         syncAppConfig();
     }, [syncAppConfig]);
-
-    const openStatus = <>
-        <Route path='/welcome' component={Welcome} />
-        {
-            routes.map((route) => (
-                <Layout key={route.path} path={route.path} exact={route.exact} component={route.component} />
-            ))
-        }
-        <Redirect path='/' exact to='/welcome' />
-        <Route component={NoMatchPage} />
-    </>;
 
     return (
         <>

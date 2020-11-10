@@ -6,12 +6,8 @@ import App from './App';
 
 import StoreProvider from './store';
 
-//tests
-// import Example from './examples';
 
 const render = () => {
-    // ReactDOM.render(<Example />, document.getElementById('root') as HTMLElement);
-    // return;
     ReactDOM.render(
         <StoreProvider>
             <ThemeProvider theme={myTheme}>

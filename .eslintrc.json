@@ -4,6 +4,7 @@
         "prettier"
     ],
     "plugins": [
+        "react",
         "prettier"
     ],
     "rules": {
