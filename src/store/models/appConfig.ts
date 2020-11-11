@@ -12,11 +12,13 @@ baseUrl = baseUrl + 'images/projects/';
 const appConfig = createModel({
     state: {
         projects: [],
-        links: {}
+        links: {},
+        settings: {},
+        loadedState: ""
     },
     reducers: {
-        updateConfig: (old, config) => {
-            let { projects, links } = config;
+        updateConfig: (old: any, config: any) => {
+            let { settings, projects, links } = config;
             projects.forEach((object: ProjectObject) => {
                 // object.id = uuid.v4();
                 object.cover = object.cover ? baseUrl + object.cover : '';
@@ -26,7 +28,13 @@ const appConfig = createModel({
                     object.images[i] = baseUrl + object.images[i];
                 }
             });
-            return { ...old, projects: projects, links: links, loadedState: 'loaded' };
+            return {
+                ...old,
+                projects: projects,
+                settings: settings,
+                links: links,
+                loadedState: 'loaded'
+            };
         }
     },
     effects: {
