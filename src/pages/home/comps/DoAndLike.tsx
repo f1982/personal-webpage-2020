@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import TransmiterImg from '../../../assets/rc-transmiter.png';
+
 const Wrapper = styled.div`
     display: flex;
     width: 100%;

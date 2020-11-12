@@ -16,14 +16,15 @@ const Content = styled.div`
     }
 `;
 
+const Spacer = styled.div`
+    margin: 2rem auto
+`
+
 const getYears = (birthYear: number) => {
     var d = new Date();
     var n = d.getFullYear();
     return n - birthYear;
 };
-// const getMyDays = () => {
-//     return getYears(1982) * 365;
-// };
 
 interface SummaryProps {
     data: any;
@@ -31,32 +32,19 @@ interface SummaryProps {
 }
 const Summary = (props: SummaryProps) => {
     const { who_is_andy, what_i_do, family } = props.data;
+
     return (
         <Content>
             <h3>Who's Andy</h3>
             <p>{who_is_andy}</p>
             <img src={process.env.PUBLIC_URL + 'static/images/about-andy-back.jpg'} alt='I was on the beach' />
-            <div style={{ margin: `2rem auto` }}>
-                {/* <SingleButton>My Hobbies</SingleButton>
-                                        <div
-                                            style={{
-                                                display: `inline-block`,
-                                                width: `1rem`,
-                                                height: `1rem`
-                                            }}
-                                        />
-                                        <SingleButton>Timeline</SingleButton> */}
-            </div>
+            <Spacer />
             <h3>What I do?</h3>
             <p>{what_i_do}</p>
             <img src={process.env.PUBLIC_URL + 'static/images/about-computer.jpg'} alt='My Computer' />
-            <div style={{ margin: `2rem auto` }}>
-                {/* <InlineLink to={match.path + '/life'}>
-                                            <SingleButton>LIFE EVENTS</SingleButton>
-                                        </InlineLink> */}
-            </div>
+            <Spacer />
             <h3>Family</h3>
-            <p>{String(family).replace('${AGE_OF_ZOE}', getYears(2016).toString())}</p>
+            <p>{String(family).replace('$AGE_OF_ZOE$', getYears(2016).toString())}</p>
             <img src={process.env.PUBLIC_URL + 'static/images/about-andy-family.jpg'} alt='Introduce my family' />
             <div style={{ margin: `2rem auto` }}></div>
         </Content>
