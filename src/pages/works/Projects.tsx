@@ -5,9 +5,10 @@ import { Helmet } from 'react-helmet';
 import { Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
 import { SectionWide, SectionNarrow } from '../../layouts/default';
 import ReactGA from 'react-ga';
+import { ProjectObject } from '../../types/interfaces';
 // import loglevel from '../../utils/loglevel-middleware';
 const ProjectCategory = (props: any) => {
-    let { category } = useParams();
+    let { category } = useParams<{ category: string }>();
     if (!category) {
         category = 'coding';
     }
@@ -29,8 +30,11 @@ const ProjectCategory = (props: any) => {
 const imageURL = process.env.PUBLIC_URL + 'static/images/image-banner-projects.jpg';
 const videoURL = process.env.PUBLIC_URL + 'static/videos/coding.mp4';
 
-const Projects = (props: any) => {
-    const { projects } = props;
+interface IProps {
+    projects: ProjectObject[]
+}
+
+const Projects: React.FC<IProps> = ({ projects }) => {
 
     const match = useRouteMatch();
     // const submenuItems = [
