@@ -63,7 +63,6 @@ const Welcome = (props: any) => {
         window.onresize = () => {
             resizeCanvas();
         };
-
         function resizeCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             canvas.width = window.innerWidth;
@@ -74,6 +73,7 @@ const Welcome = (props: any) => {
 
         return () => { };
     }, []);
+
     return (
         <Wrapper id='bg'>
             <Helmet>
