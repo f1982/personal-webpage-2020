@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as React from 'react';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import { SingleButton } from '../../../comps/common/Buttons';
+import { SingleButton } from '../../../comps/Button';
 
 const FMForm = styled.form`
     width: 100%;
@@ -132,8 +132,8 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (props:
                     <SingleButton>Submit</SingleButton>
                 </FMForm>
             ) : (
-                <p>Thank you for you feedback!</p>
-            )}
+                    <p>Thank you for you feedback!</p>
+                )}
         </>
     );
 };

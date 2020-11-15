@@ -108,11 +108,11 @@ const ResponsiveMenuBar = (
         toggleCloseIcon?: React.ReactNode;
         smallDeviceWidth: number;
     } = {
-        routes: [],
-        toggleOpenIcon: null,
-        toggleCloseIcon: null,
-        smallDeviceWidth: 768
-    }
+            routes: [],
+            toggleOpenIcon: null,
+            toggleCloseIcon: null,
+            smallDeviceWidth: 768
+        }
 ) => {
     return (
         <MenuBar minimumWidth={props.smallDeviceWidth}>

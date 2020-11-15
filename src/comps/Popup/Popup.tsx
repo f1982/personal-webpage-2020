@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
 import { FaTimes } from 'react-icons/fa';
-import './animation.css';
+import styles from './popup.module.css';
 
 const ScreenSmallWidth: string = `768px`;
 
@@ -16,7 +15,7 @@ const Wrapper = styled.div`
     bottom: 0;
     z-index: 9999;
 `;
-const Mask = styled(animated.div)`
+const Mask = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -33,6 +32,7 @@ const Container = styled.div`
     transform: translate(-50%, -50%);
     background: white;
     border-radius: 2rem;
+    overflow: auto;
     box-shadow: ${(props) => props.theme.shadow};
     @media screen and (max-width: ${ScreenSmallWidth}) {
         width: 100%;
@@ -44,7 +44,7 @@ const Container = styled.div`
 const Border = styled.div`
     padding: 0 2rem 1rem 2rem;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     @media screen and (max-width: ${ScreenSmallWidth}) {
         padding: 0.5rem;
     }
@@ -82,10 +82,13 @@ interface PopupProps {
     closeHandler?: Function;
 }
 
-const showDuration = 0;
+const showDuration = 200;
 
-const Popup = (popupProps: PopupProps) => {
+const Popup: React.FC<PopupProps> = (popupProps: PopupProps) => {
     const { containerWidth = '70%', containerHeight = '90%', roundCorner = true } = popupProps;
+
+    const [containerClassName, setContainerClassName] = useState(styles.bounceInTop);
+
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         return () => {
@@ -93,17 +96,10 @@ const Popup = (popupProps: PopupProps) => {
         };
     }, []);
 
-    const [props, set] = useSpring(() => ({
-        opacity: 1,
-        from: { opacity: 0 },
-        config: { duration: showDuration }
-    }));
-
     const buttonHandler = (event: React.MouseEvent) => {
-        set({ opacity: 0 });
-        setTimeout(() => {
+        setContainerClassName(styles.bounceOutTop);
+        setTimeout(function () {
             if (popupProps.closeHandler) {
-                // setAnimateClassName('bounce-out-top');
                 popupProps.closeHandler();
             }
         }, showDuration);
@@ -111,6 +107,7 @@ const Popup = (popupProps: PopupProps) => {
     return (
         <Wrapper>
             <Container
+                className={containerClassName}
                 style={{ width: containerWidth, height: containerHeight, borderRadius: roundCorner ? `20px` : `0` }}>
                 <TitleBar>
                     <span></span>
@@ -121,9 +118,10 @@ const Popup = (popupProps: PopupProps) => {
                 <Border>{popupProps.children}</Border>
                 <Footer></Footer>
             </Container>
-            <Mask style={props} onClick={buttonHandler}></Mask>
+            <Mask
+                onClick={buttonHandler}></Mask>
         </Wrapper>
     );
 };
 
-export { Popup };
+export default Popup;

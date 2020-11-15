@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { SingleButton } from '../../comps/common/Buttons';
+import { SingleButton } from '../../comps/Button';
 import { ParticleCircle } from './canvas';
 import Helmet from 'react-helmet';
 
@@ -84,7 +84,7 @@ const Welcome = (props: any) => {
                 <h3>Hey! I'm Andy</h3>
                 <p>Welcome to my space</p>
                 <Link to='/home'>
-                    <WelcomeButton>ENTER</WelcomeButton>
+                    <WelcomeButton id="enter-button">ENTER</WelcomeButton>
                 </Link>
             </Centered>
             <WelcomeCanvas id='canvas' />

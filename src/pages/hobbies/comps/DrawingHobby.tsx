@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
-import { SingleButton } from '../../../comps/common/Buttons';
+import { SingleButton } from '../../../comps/Button';
 import _ from 'lodash';
 
 const TriangleShape = styled.div`
@@ -48,7 +48,7 @@ const Wrapper = styled.div`
         /* opacity: 0; */
         transform: translate3d(0, 2rem, 0);
     }
-    /* 
+    /*
     Once this component show up in the display area
     All element opacity is 1 and move to right position
     */

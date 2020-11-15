@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
 import routes from '../../../pages';
-import ResponsiveMenuBar, { SmallMenuBar } from '../../../comps/common/MenuBar';
+import ResponsiveMenuBar, { SmallMenuBar } from '../../../comps/MenuBar';
 import { SettingContext } from '../../../Settings';
 
 const Wrapper = styled.header`

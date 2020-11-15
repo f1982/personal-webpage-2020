@@ -70,11 +70,11 @@ const Menu = (props: MenuProps) => {
                 menuData.map((item) => {
                     return (
                         <MenuItem key={item.name}>
-                            {item.link ? (
+                            {item.link ?
                                 <MenuItemA href={item.link}>{item.name}</MenuItemA>
-                            ) : (
-                                    <MenuItemA onClick={buttonHandler}>{item.name}</MenuItemA>
-                                )}
+                                :
+                                <MenuItemA onClick={buttonHandler}>{item.name}</MenuItemA>
+                            }
                         </MenuItem>
                     );
                 })}

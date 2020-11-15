@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { SingleButton } from '../../../comps/common/Buttons';
+import { SingleButton } from '../../../comps/Button';
 const Wrapper = styled.div`
     display: flex;
     flex-flow: column;

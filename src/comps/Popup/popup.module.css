@@ -1,0 +1,35 @@
+.bounceInTop {
+    animation: bounce-in-top 0.5s both;
+}
+
+.bounceOutTop {
+    animation: bounce-out-top 0.2s both;
+}
+
+@keyframes bounce-in-top {
+    0% {
+        top: 20%;
+        animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        opacity: 0;
+    }
+
+    100% {
+        top: 50%;
+        animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce-out-top {
+    0% {
+        top: 50%;
+        animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        opacity: 1;
+    }
+
+    100% {
+        top: 30%;
+        animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        opacity: 0;
+    }
+}

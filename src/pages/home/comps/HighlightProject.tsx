@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SingleButton } from '../../../comps/common/Buttons';
+import { SingleButton } from '../../../comps/Button';
 import Projects from '../../../comps/project';
 import { Link } from 'react-router-dom';
 import ReactGA from 'react-ga';

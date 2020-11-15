@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Popup } from '../common/Popup';
+import { Popup } from '../Popup';
 import { ProjectObject } from '../../types/interfaces';
 import ProjectItem from './ProjectCard';
 import { ProjectDetail } from './ProjectDetail';
-import { ProjectCloseButton } from '../common/Buttons';
+import { ProjectCloseButton } from '../Button';
 import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
 
 function useQuery() {

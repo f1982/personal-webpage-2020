@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { SingleButton } from '../../../comps/common/Buttons';
+import { SingleButton } from '../../../comps/Button';
 import _ from 'lodash';
 
 const Wrapper = styled.div`

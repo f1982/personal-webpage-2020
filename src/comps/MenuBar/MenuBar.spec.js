@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, MemoryRouter } from 'react-router';
 import renderer from 'react-test-renderer';
-import ResponsiveMenuBar, { MenuBar, MenuBarItem, SmallMenuBar } from './MenuBar';
+import ResponsiveMenuBar, { MenuBar, MenuBarItem, SmallMenuBar } from './index';
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import menuStyles from '../assets/styles/menubar.module.css';
