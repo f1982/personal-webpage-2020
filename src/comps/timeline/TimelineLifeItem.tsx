@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TimelineLifeObject } from '../../types/interfaces';
-import ProgressiveImage from '../common/ProgressiveImage';
+import ProgressiveImage from '../ProgressiveImage/ProgressiveImage';
 
 const LeftWrapper = styled.div`
     display: flex;

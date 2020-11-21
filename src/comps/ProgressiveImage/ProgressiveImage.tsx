@@ -1,29 +1,13 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import loading from './loading.module.css';
-const Wrapper = styled.div`
-    position: relative;
-    min-width: 265px;
-    min-height: 150px;
+import styles from './pi.module.css';
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        background-color: #ccc;
-    }
-    > div {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-`;
+interface Props {
+    imgURL: string;
+    imgWidth: string;
+    imgHeight: string;
+    imgRadius: string;
+    imgAlt: string;
+}
 
 const ProgressiveImage = (props: { src: string; width?: string; height?: string; radius?: String; alt?: string }) => {
     const { src: imageURL, width = '100%', height = 'auto', radius = '16px', alt = 'progressive image' } = props;
@@ -38,21 +22,18 @@ const ProgressiveImage = (props: { src: string; width?: string; height?: string;
     };
 
     return (
-        <Wrapper style={{ width: width, height: height }}>
+        <div className={styles.wrapper} style={{ width: width, height: height }}>
             <img
+                className={styles.innerImg}
                 src={imageURL}
                 alt={alt}
                 style={{ borderRadius: `${radius}` }}
                 onLoad={handleImageLoaded}
                 onError={handleImageErrored}
             />
-            <div>
+            <div className={styles.overlayer}>
                 {loadingState === 'loading' ? (
-                    // <div className={loading['lds-ripple']}>
-                    //     <div></div>
-                    //     <div></div>
-                    // </div>
-                    <div className={loading['lds-ellipsis']}>
+                    <div className={styles.ldsEllipsis} >
                         <div></div>
                         <div></div>
                         <div></div>
@@ -60,7 +41,8 @@ const ProgressiveImage = (props: { src: string; width?: string; height?: string;
                     </div>
                 ) : null}
             </div>
-        </Wrapper>
+        </div >
     );
 };
+
 export default ProgressiveImage;

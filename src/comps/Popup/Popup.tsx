@@ -118,8 +118,7 @@ const Popup: React.FC<PopupProps> = (popupProps: PopupProps) => {
                 <Border>{popupProps.children}</Border>
                 <Footer></Footer>
             </Container>
-            <Mask
-                onClick={buttonHandler}></Mask>
+            <Mask onClick={buttonHandler}></Mask>
         </Wrapper>
     );
 };

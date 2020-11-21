@@ -4,7 +4,7 @@ import ajax from '../utils/ajax'
 import axios from 'axios';
 import adapter from 'axios/lib/adapters/http';
 
-function validURL(str) {
+function validURL(str: string) {
     var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
@@ -14,7 +14,7 @@ function validURL(str) {
     return !!pattern.test(str);
 }
 
-let response = null;
+let response: any = null;
 beforeAll(async () => {
     const API_URL = 'http://127.0.0.1:3000/static/data/app.json';
     const { data } = await axios.get(API_URL, { adapter });

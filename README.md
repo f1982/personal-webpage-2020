@@ -1,8 +1,8 @@
-## Overall
+## Personal Website of Andy Cao v2020
 
-A personal website which is made by [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/)
+A personal website which is made by using [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/)
 
-[Online live demo](https://andycao.netlify.com)
+[demo](https://andycao.netlify.com)
 
 ## Installation
 
