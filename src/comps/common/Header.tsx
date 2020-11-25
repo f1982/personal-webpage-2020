@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
-import routes from '../../pages';
 import ResponsiveMenuBar, { SmallMenuBar } from '../MenuBar';
 import { SettingContext } from '../../Settings';
 
@@ -36,7 +35,11 @@ const LogoImg = styled.img`
   }
 `;
 
-const Header: React.FunctionComponent = (props: any) => {
+interface IProps {
+  routes: any[];
+}
+
+const Header: React.FC<IProps> = ({ routes }: IProps) => {
   const settingContext = useContext(SettingContext);
   return (
     <>

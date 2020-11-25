@@ -144,7 +144,7 @@ const Footer = () => {
               height: `100%`,
               padding: `1rem`
             }}>
-            <QRCode value={getCurrentURL()} />
+            {process.env.NODE_ENV !== 'test' ? <QRCode value={getCurrentURL()} /> : null}
             <div style={{ textAlign: `center` }}>
               <p>
                 <span role='img' aria-label='device'>

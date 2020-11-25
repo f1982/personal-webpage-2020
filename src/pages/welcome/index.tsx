@@ -51,24 +51,33 @@ const WelcomeCanvas = styled.canvas`
   height: 100vh;
 `;
 
+function resizeCanvas(canvas: HTMLCanvasElement) {
+  const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
 const Welcome = () => {
   useEffect(() => {
-    const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
-    const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
-    const welcome = new ParticleCircle(canvas, ctx);
-    welcome.init();
-    resizeCanvas();
-    window.onresize = () => {
-      resizeCanvas();
-    };
-    function resizeCanvas() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      welcome.clear();
+    if (process.env.NODE_ENV !== 'test') {
+      const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
+      const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
+      const welcome = new ParticleCircle(canvas, ctx);
       welcome.init();
+      resizeCanvas(canvas);
+      window.onresize = () => {
+        resizeCanvas(canvas);
+        welcome.clear();
+        welcome.init();
+      };
     }
-    return () => {};
+
+    return () => {
+      if (process.env.NODE_ENV !== 'test') {
+        window.onresize = null;
+      }
+    };
   }, []);
 
   return (
