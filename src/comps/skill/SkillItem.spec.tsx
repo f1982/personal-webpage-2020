@@ -1,28 +1,15 @@
 /**
  * How to write expect
  * https://jestjs.io/docs/en/expect
- * 
+ *
  */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { SkillItem, TitleSpan } from './SkillItem';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { SkillItem } from './SkillItem';
 
-function setup(title = '', level = 0) {
-    const actions = {};
-
-    const component = shallow(<SkillItem title={title} level={level} />);
-
-    return {
-        component: component,
-        actions: actions,
-        // Have to import TitleSpan first
-        titleSpan: component.find(TitleSpan)
-    };
-}
-
-describe('test item', () => {
-    it('should display', () => {
-        const { titleSpan } = setup('hello');
-        expect(titleSpan.text()).toEqual('hello');
+describe('skill item', () => {
+    it('should display name', () => {
+        const { getByText } = render(<SkillItem title={'hello'} level={2} />)
+        expect(getByText('hello')).toBeInTheDocument();
     });
 });

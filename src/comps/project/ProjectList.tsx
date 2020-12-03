@@ -19,6 +19,13 @@ const ProjectsContainer = styled.div`
   grid-gap: 32px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 `;
+const ProjectButton = styled.button`
+  background-color: transparent;
+  border: none;
+  &:focus {
+    outline: 0;
+  }
+`;
 
 const getPopupContainerWidth = () => {
   if (window.innerWidth < 768) {
@@ -65,6 +72,10 @@ const ProjectList = ({ itemData, eventHandler = null, type = 'all', top = 0 }: P
   //     setSelectedProject(projectData[0]);
   //   }, [projectData]);
 
+  const handleItemClick = (id: string) => {
+    setSelectedProject(projectData.find((selectedItem: ProjectObject) => selectedItem.id === id));
+    eventHandler && eventHandler('SelectProject');
+  };
   /**
    * Close popup panel
    *
@@ -75,7 +86,7 @@ const ProjectList = ({ itemData, eventHandler = null, type = 'all', top = 0 }: P
       setSelectedProject(null);
       eventHandler && eventHandler('CloseProject');
     },
-    [setProjectData]
+    [setSelectedProject, eventHandler]
   );
 
   return (
@@ -83,12 +94,11 @@ const ProjectList = ({ itemData, eventHandler = null, type = 'all', top = 0 }: P
       <ProjectsContainer id='projects'>
         {projectData.map((item: ProjectObject) => {
           return (
-            <a
-              role='project-item-link'
+            <ProjectButton
+              title={'Show detail of project ' + item.title}
               key={item.id}
               onClick={() => {
-                setSelectedProject(projectData.find((selectedItem: ProjectObject) => selectedItem.id === item.id));
-                eventHandler && eventHandler('SelectProject');
+                handleItemClick(item.id);
               }}>
               <ProjectItem
                 title={item.title}
@@ -96,7 +106,7 @@ const ProjectList = ({ itemData, eventHandler = null, type = 'all', top = 0 }: P
                 platform={item.platform}
                 description={item.description}
               />
-            </a>
+            </ProjectButton>
           );
         })}
       </ProjectsContainer>

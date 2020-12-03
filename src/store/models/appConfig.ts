@@ -14,9 +14,12 @@ const appConfig = createModel({
         projects: [],
         links: {},
         settings: {},
-        loadedState: ""
+        loadingState: ""
     },
     reducers: {
+        startToLoad: (state, payload) => {
+            return { ...state, loadingState: 'pending' }
+        },
         updateConfig: (old: any, config: any) => {
             let { settings, projects, links } = config;
             projects.forEach((object: ProjectObject) => {
@@ -33,15 +36,14 @@ const appConfig = createModel({
                 projects: projects,
                 settings: settings,
                 links: links,
-                loadedState: 'loaded'
+                loadingState: 'loaded'
             };
         }
     },
     effects: {
         async syncConfig() {
-            const cnf = await ajax({
-                url: API_URL
-            });
+            this.startToLoad();
+            const cnf = await ajax({ url: API_URL });
             const { data } = cnf;
             this.updateConfig(data);
         }

@@ -73,20 +73,18 @@ describe('test project list component', () => {
 
   //   console.log(data);
   test('should display properly', () => {
-    const { getByText, getAllByRole, getByTestId } = render(<ProjectList itemData={data} />);
+    const { getByText, getAllByRole, getAllByTitle } = render(<ProjectList itemData={data} />);
     expect(getByText('Cyber Vertex News Portal')).toBeInTheDocument();
     expect(getByText('CCTV.com')).toBeInTheDocument();
     expect(getByText('QDD')).toBeInTheDocument();
 
-    expect(getAllByRole('project-item-link').length).toBe(3);
+    expect(getAllByTitle(/Show detail of project/i).length).toBe(3);
   });
 
   test('should callback event work', () => {
     const eventCallback = jest.fn();
-    const { getByText, getAllByRole, getByTestId } = render(
-      <ProjectList itemData={data} eventHandler={eventCallback} />
-    );
-    fireEvent.click(getAllByRole('project-item-link')[0]);
+    const { getAllByTitle } = render(<ProjectList itemData={data} eventHandler={eventCallback} />);
+    fireEvent.click(getAllByTitle(/Show detail of project/i)[0]);
     expect(eventCallback).toBeCalledTimes(1);
   });
 });

@@ -82,9 +82,7 @@ export const MenuBar: any = styled.nav<{ minimumWidth: number }>`
     justify-content: center;
     align-content: center;
     background-color: #fff;
-
     transition: 0.3s cubic-bezier(0.5, -1, 0.5, 2);
-
     > * {
         border-color: #ececec;
         border-style: solid;
@@ -115,7 +113,7 @@ const ResponsiveMenuBar = (
         }
 ) => {
     return (
-        <MenuBar minimumWidth={props.smallDeviceWidth}>
+        <MenuBar data-testid="longMenubar" minimumWidth={props.smallDeviceWidth}>
             {props.routes.map((route, index) => {
                 if (index < 0) return null;
                 return (
@@ -168,14 +166,19 @@ const SmallMenuBarItem = styled(NavLink)`
     }
 `;
 
-const SmallMenuBar = (
-    props: {
-        routes: any[];
-        smallDeviceWidth: number;
-        toggleOpenIcon?: React.ReactNode;
-        toggleCloseIcon?: React.ReactNode;
-    } = { routes: [], smallDeviceWidth: 768, toggleCloseIcon: null, toggleOpenIcon: null }
-) => {
+interface SmallMenuBarProps {
+    routes: any[];
+    smallDeviceWidth: number;
+    toggleOpenIcon?: React.ReactNode;
+    toggleCloseIcon?: React.ReactNode;
+}
+
+const SmallMenuBar = ({
+    routes,
+    smallDeviceWidth = 768,
+    toggleCloseIcon = null,
+    toggleOpenIcon = null
+}: SmallMenuBarProps) => {
     const [isShowing, setisShowing] = useState(false);
 
     const toggle = (evt: any) => {
@@ -187,7 +190,7 @@ const SmallMenuBar = (
         }
     };
     return (
-        <>
+        <div data-testid="smallMenubar">
             <ToggleButton onClick={toggle}>
                 <FaBars size={SmallMenuBarIconSize} style={{ verticalAlign: `middle` }} />
             </ToggleButton>
@@ -196,7 +199,7 @@ const SmallMenuBar = (
                     <FaTimes size={SmallMenuBarIconSize} onClick={toggle} />
                 </div>
                 <div style={{ paddingLeft: `1rem` }}>
-                    {props.routes.map((route, index) => {
+                    {routes.map((route, index) => {
                         return (
                             <SmallMenuBarItem
                                 key={index}
@@ -209,7 +212,7 @@ const SmallMenuBar = (
                     })}
                 </div>
             </MobileMenuBar>
-        </>
+        </div>
     );
 };
 export default ResponsiveMenuBar;

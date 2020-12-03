@@ -43,7 +43,7 @@ export default function ajax(req) {
                 if (err.response) {
                     const res = err.response;
                     const resData = res.data;
-                    // console.log('resData', resData);
+                    console.log('resData', resData);
                     notify(
                         typeof resData === 'string' ? resData : `[${resData.status_code}] ${resData.status_message}`
                     );

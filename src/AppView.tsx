@@ -17,8 +17,8 @@ ReactGA.initialize('UA-171033058-1', { testMode: process.env.NODE_ENV === 'test'
 
 const history = require('history').createBrowserHistory();
 history.listen((location: any) => {
-  ReactGA.set({ page: window.location.hash });
-  ReactGA.pageview(window.location.hash);
+    ReactGA.set({ page: window.location.hash });
+    ReactGA.pageview(window.location.hash);
 });
 
 // set this variable to true to close the whole website
@@ -26,62 +26,63 @@ const websiteClosed = false;
 const pageTitleTemplate = `%s | Andy's Personal Website`;
 
 export const LocationDisplay = () => {
-  const location = useLocation();
-  return <div data-testid='location-display'>{location.pathname}</div>;
+    const location = useLocation();
+    return <div data-testid='location-display'>{location.pathname}</div>;
 };
 
 interface IProps {
-  syncAppConfig?: Function;
-  settings?: any;
-  loadedState?: boolean;
+    syncAppConfig?: Function;
+    settings?: any;
+    loadedState?: boolean;
 }
 
 const AppView: React.FC<IProps> = ({ syncAppConfig, settings, loadedState }) => {
-  useEffect(() => {
-    ReactGA.pageview('/');
-    if (syncAppConfig) syncAppConfig();
-  }, [syncAppConfig]);
+    useEffect(() => {
+        ReactGA.pageview('/');
+        if (syncAppConfig) syncAppConfig();
+    }, [syncAppConfig]);
 
-  return (
-    <>
-      {websiteClosed ? (
-        <ClosurePage />
-      ) : (
+    return (
         <>
-          <Helmet titleTemplate={pageTitleTemplate}>
-            <meta
-              name='description'
-              content='Andy is a software developer, he loves to make mobile apps, website and games.'
-            />
-          </Helmet>
+            {websiteClosed
+                ?
+                <ClosurePage />
+                :
+                <>
+                    <Helmet titleTemplate={pageTitleTemplate}>
+                        <meta
+                            name='description'
+                            content='Andy is a software developer, he loves to make mobile apps, website and games.'
+                        />
+                    </Helmet>
 
-          <Router>
-            <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>
-              <Switch>
-                <Route exact path='/welcome' component={Welcome} />
-                <Redirect path='/' exact to='/welcome' />
-                <Route exact path='/404' component={PageNotFound} />
+                    <Router>
+                        <SettingContext.Provider value={{ contentWidth: 950, smallDeviceWidth: 768 }}>
+                            <Switch>
+                                <Route exact path='/welcome' component={Welcome} />
+                                <Redirect path='/' exact to='/welcome' />
+                                <Route exact path='/404' component={PageNotFound} />
 
-                <Route>
-                  <Layout header={() => <Header routes={routes} />} footer={Footer}>
-                    <Switch>
-                      {routes.map(({ path, exact, component }) => (
-                        <Route key={path} path={path} exact={exact} component={component} />
-                      ))}
-                      <Redirect to='/404' />
-                    </Switch>
-                  </Layout>
-                </Route>
+                                <Route>
+                                    <Layout header={() => <Header routes={routes} />} footer={Footer}>
+                                        <Switch>
+                                            {routes.map(({ path, exact, component }) => (
+                                                <Route key={path} path={path} exact={exact} component={component} />
+                                            ))}
+                                            <Redirect to='/404' />
+                                        </Switch>
+                                    </Layout>
+                                </Route>
 
-                {/* <Redirect to='/404' /> */}
-              </Switch>
-            </SettingContext.Provider>
-            <LocationDisplay />
-          </Router>
+                                {/* <Redirect to='/404' /> */}
+                            </Switch>
+                        </SettingContext.Provider>
+                        <LocationDisplay />
+                    </Router>
+                </>
+            }
         </>
-      )}
-    </>
-  );
+    );
 };
 
 export default AppView;

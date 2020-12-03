@@ -1,12 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import ProgressiveImage from '../ProgressiveImage/ProgressiveImage';
-export interface ProjectItemProp {
-  title: string;
-  cover: string;
-  description: string;
-  platform?: string;
-}
 
 const Wrapper = styled.div`
   display: inline-flex;
@@ -50,6 +44,7 @@ const CardContent = styled.div`
     margin: 0.5rem 0;
   }
   p {
+    font-size: 1rem;
     text-align: left;
     position: relative;
     line-height: 1.5em;
@@ -66,6 +61,13 @@ const CardContent = styled.div`
     background-color: #fff;
   }
 `;
+
+export interface ProjectItemProp {
+  title: string;
+  cover: string;
+  description: string;
+  platform?: string;
+}
 
 /**
  * Project item
