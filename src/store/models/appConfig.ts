@@ -13,6 +13,7 @@ const appConfig = createModel({
     state: {
         projects: [],
         links: {},
+        pages: {},
         settings: {},
         loadingState: ""
     },
@@ -21,7 +22,7 @@ const appConfig = createModel({
             return { ...state, loadingState: 'pending' }
         },
         updateConfig: (old: any, config: any) => {
-            let { settings, projects, links } = config;
+            let { settings, projects, links, pages } = config;
             projects.forEach((object: ProjectObject) => {
                 // object.id = uuid.v4();
                 object.cover = object.cover ? baseUrl + object.cover : '';
@@ -36,6 +37,7 @@ const appConfig = createModel({
                 projects: projects,
                 settings: settings,
                 links: links,
+                pages,
                 loadingState: 'loaded'
             };
         }

@@ -99,25 +99,3 @@ test('show menubar in a small screen ', () => {
 //         media: 'screen and (max-width: 768px)'
 //     });
 // });
-
-test('menu item hover ', () => {
-    const tree = renderer.create(
-        <MemoryRouter>
-            <MenuBarItem
-                data-text='title'
-                data-mark='mark'
-                exact={false}
-                to='/test'
-                activeClassName={menuStyles.activeNavLink}>
-                <span>'🌮'</span>
-            </MenuBarItem>
-        </MemoryRouter>
-    );
-    const treeJSON = tree.toJSON();
-    // expect(treeJSON).toHaveStyleRule('font-size', '1rem');
-    expect(treeJSON).toHaveStyleRule('background-color', '#74ddf7', {
-        modifier: ':hover'
-    });
-    //Right active class name set
-    expect(tree.root.findByType(MenuBarItem).props.activeClassName).toEqual(menuStyles.activeNavLink);
-});

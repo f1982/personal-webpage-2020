@@ -62,10 +62,10 @@ const Home = (props: any) => {
     const { syncHome } = props;
 
     useEffect(() => {
-        syncHome();
+        // syncHome();
         // setReady(true);
     }, [syncHome]);
-
+    console.log(props.pageContents);
     return (
         <>
             <Helmet>
@@ -81,13 +81,13 @@ const Home = (props: any) => {
                 </BannerWrapper>
             </BannerBackground>
             <SectionNarrow>
-                <DoAndLike whatIDo={props.whatIDo} whatILike={props.whatILike} />
+                <DoAndLike whatIDo={props.pageContents['what_i_do']} whatILike={props.pageContents['who_is_andy']} />
             </SectionNarrow>
             <SectionNarrow>
                 <HighlightProject projects={props.projects} moreProjectCallback={() => { }} />
             </SectionNarrow>
 
-            <Links linkData={props.links.sns} iconColor='#EFC854' category='all' />
+            <Links linkData={props.sns} iconColor='#EFC854' category='all' />
         </>
     );
 };
