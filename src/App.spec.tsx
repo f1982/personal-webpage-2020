@@ -1,13 +1,7 @@
 import React from 'react';
-import StoreProvider from './store';
 import { createMemoryHistory } from 'history';
-import { mount } from 'enzyme';
-import { MemoryRouter, Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import AppView from './AppView';
-import App from './App';
-import Welcome from './pages/welcome';
-import PageNotFound from './pages/404/index';
-import Home from './pages/home';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 it('test if show welcome page by default', () => {

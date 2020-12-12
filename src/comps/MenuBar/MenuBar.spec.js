@@ -1,12 +1,8 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import ResponsiveMenuBar, { MenuBar, MenuBarItem, SmallMenuBar } from './index';
-import menuStyles from '../assets/styles/menubar.module.css';
-
-import renderer from 'react-test-renderer';
-import styled, { css } from 'styled-components';
 
 const resizeWindow = (x, y) => {
     window.innerWidth = x;
