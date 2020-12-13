@@ -9,20 +9,29 @@ const API_URL = 'app.json';
 let baseUrl = process.env.REACT_APP_STATIC_BASES_URL;
 baseUrl = baseUrl + 'images/projects/';
 
+export interface IAppConfig {
+    projects: ProjectObject[],
+    links: Record<string, []>,
+    pages: Record<string, unknown>,
+    settings: Record<string, unknown>,
+    loadingState: string
+}
+
+const appState: IAppConfig = {
+    projects: [],
+    links: {},
+    pages: {},
+    settings: {},
+    loadingState: ""
+}
 const appConfig = createModel({
-    state: {
-        projects: [],
-        links: {},
-        pages: {},
-        settings: {},
-        loadingState: ""
-    },
+    state: appState,
     reducers: {
-        startToLoad: (state, payload) => {
+        startToLoad: (state: IAppConfig) => {
             return { ...state, loadingState: 'pending' }
         },
-        updateConfig: (old: any, config: any) => {
-            let { settings, projects, links, pages } = config;
+        updateConfig: (old: IAppConfig, payload: IAppConfig) => {
+            const { settings, projects, links, pages } = payload;
             projects.forEach((object: ProjectObject) => {
                 // object.id = uuid.v4();
                 object.cover = object.cover ? baseUrl + object.cover : '';

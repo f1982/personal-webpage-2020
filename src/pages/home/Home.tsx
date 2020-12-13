@@ -66,30 +66,28 @@ const Home = (props: any) => {
         // setReady(true);
     }, [syncHome]);
     console.log(props.pageContents);
-    return (
-        <>
-            <Helmet>
-                <title>Homepage</title>
-                <meta name="description" content="This page is to give your a overall view of Andy's current states." />
-            </Helmet>
-            <BannerBackground>
-                <BannerWrapper>
-                    <HeyThere />
-                    <FocusingFrame>
-                        <FocusingBox />
-                    </FocusingFrame>
-                </BannerWrapper>
-            </BannerBackground>
-            <SectionNarrow>
-                <DoAndLike whatIDo={props.pageContents['what_i_do']} whatILike={props.pageContents['who_is_andy']} />
-            </SectionNarrow>
-            <SectionNarrow>
-                <HighlightProject projects={props.projects} moreProjectCallback={() => { }} />
-            </SectionNarrow>
+    return <React.Fragment>
+        <Helmet>
+            <title>Homepage</title>
+            <meta name="description" content="This page is to give your a overall view of Andy's current states." />
+        </Helmet>
+        <BannerBackground>
+            <BannerWrapper>
+                <HeyThere />
+                <FocusingFrame>
+                    <FocusingBox />
+                </FocusingFrame>
+            </BannerWrapper>
+        </BannerBackground>
+        <SectionNarrow>
+            <DoAndLike whatIDo={props.pageContents['what_i_do']} whatILike={props.pageContents['who_is_andy']} />
+        </SectionNarrow>
+        <SectionNarrow>
+            <HighlightProject projects={props.projects} />
+        </SectionNarrow>
 
-            <Links linkData={props.sns} iconColor='#EFC854' category='all' />
-        </>
-    );
+        <Links linkData={props.sns} iconColor='#EFC854' category='all' />
+    </React.Fragment>
 };
 
 export default Home;

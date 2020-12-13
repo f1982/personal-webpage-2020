@@ -3,9 +3,9 @@ import logger from 'redux-logger';
 import * as models from './models/';
 
 const stores = init({
-    models, redux: {
-        middlewares: [logger]
-    }
+  models, redux: {
+    middlewares: [logger]
+  }
 });
 
 export default stores;

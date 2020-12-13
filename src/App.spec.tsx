@@ -5,24 +5,24 @@ import AppView from './AppView';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 it('test if show welcome page by default', () => {
-  const history = createMemoryHistory();
-  const { getByText } = render(
-    <Router history={history}>
-      <AppView />
-    </Router>
-  );
+    const history = createMemoryHistory();
+    const { getByText } = render(
+        <Router history={history}>
+            <AppView />
+        </Router>
+    );
 
-  //   expect(screen.getByText(/Welcome to my space/i)).toBeInTheDocument();
+    //   expect(screen.getByText(/Welcome to my space/i)).toBeInTheDocument();
 
-  const greeting = getByText("Hey! I'm Andy");
-  //   expect(greeting).toBeInTheDocument();
-  //   expect(greeting.textContent).toEqual("Hey! I'm Andy");
+    const greeting = getByText("Hey! I'm Andy");
+    //   expect(greeting).toBeInTheDocument();
+    //   expect(greeting.textContent).toEqual("Hey! I'm Andy");
 
-  //   const button = getByText('ENTER');
-  //   fireEvent.click(button);
+    //   const button = getByText('ENTER');
+    //   fireEvent.click(button);
 
-  //   const hi = getByText('Hi there,');
-  //   expect(hi.textContent).toEqual('Hi there,');
+    //   const hi = getByText('Hi there,');
+    //   expect(hi.textContent).toEqual('Hi there,');
 });
 
 // it('test if show welcome page by default', () => {
