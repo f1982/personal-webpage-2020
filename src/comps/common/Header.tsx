@@ -1,20 +1,20 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { FaBars, FaWindowClose } from 'react-icons/fa';
-import ResponsiveMenuBar, { SmallMenuBar } from '../MenuBar';
-import { SettingContext } from '../../Settings';
+import React, { useContext } from 'react'
+import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
+import { FaBars, FaWindowClose } from 'react-icons/fa'
+import ResponsiveMenuBar, { SmallMenuBar } from '../MenuBar'
+import { SettingContext } from '../../Settings'
 
 const Wrapper = styled.header`
   width: 100%;
   z-index: 99;
   background-color: #fff;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.09);
-`;
+`
 
 const Inner = styled.div<{ minimumWidth: number }>`
   width: 100%;
-  max-width: ${(props) => props.minimumWidth}px;
+  max-width: ${props => props.minimumWidth}px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -22,25 +22,25 @@ const Inner = styled.div<{ minimumWidth: number }>`
   @media screen and (max-width: 768px) {
     padding: 0.5rem 1rem;
   }
-`;
+`
 
 const Spacer = styled.div`
   flex: 1;
-`;
+`
 
 const LogoImg = styled.img`
   vertical-align: middle;
   @media screen and (max-width: 768px) {
     height: 48px;
   }
-`;
+`
 
 interface IProps {
-  routes: any[];
+  routes: any[]
 }
 
 const Header: React.FC<IProps> = ({ routes }: IProps) => {
-  const settingContext = useContext(SettingContext);
+  const settingContext = useContext(SettingContext)
   return (
     <>
       <Wrapper>
@@ -59,7 +59,7 @@ const Header: React.FC<IProps> = ({ routes }: IProps) => {
         </Inner>
       </Wrapper>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

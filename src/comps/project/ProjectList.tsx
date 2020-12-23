@@ -12,9 +12,6 @@ const Wrapper = styled.section`
 `
 
 const ProjectsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-
   display: grid;
   grid-gap: 32px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -22,6 +19,7 @@ const ProjectsContainer = styled.div`
 const ProjectButton = styled.button`
   background-color: transparent;
   border: none;
+
   &:focus {
     outline: 0;
   }

@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-const ButtonWidth = 32;
-const ButtonHeight = 8;
-const ButtonSize = 32;
+const ButtonWidth = 32
+const ButtonHeight = 8
+const ButtonSize = 32
 
 const CloseButtonWrapper = styled.a`
   height: ${ButtonSize}px;
@@ -37,10 +37,10 @@ const CloseButtonWrapper = styled.a`
       transform: rotate(-180deg);
     }
   }
-`;
+`
 
 const ProjectCloseButton = () => {
-  return <CloseButtonWrapper role='close-button' />;
-};
+  return <CloseButtonWrapper role='close-button' />
+}
 
-export default ProjectCloseButton;
+export default ProjectCloseButton

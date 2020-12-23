@@ -10,12 +10,14 @@ const WrapperBase = styled.time`
   font-weight: 900;
   color: #30605b;
   position: relative;
+
   &:before {
     content: '';
     width: 0px;
     height: 0px;
     position: absolute;
   }
+
   &:hover {
     color: #666;
   }

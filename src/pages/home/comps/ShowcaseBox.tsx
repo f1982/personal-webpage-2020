@@ -30,7 +30,7 @@ const VideoPlayer = styled(ReactPlayer)`
 const mainImageURL =
   process.env.PUBLIC_URL + 'static/images/home_showcase_base.jpg'
 // const showIndex: number = 0;
-const ShowcaseBox = (props: any) => {
+const ShowcaseBox = () => {
   const [playIndex] = useState(1)
   // setPlayIndex(1);
   return (

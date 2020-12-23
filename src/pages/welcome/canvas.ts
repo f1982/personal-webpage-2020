@@ -34,7 +34,7 @@ class WelcomeAnimation {
   }
 
   private draw() {
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height); // clear canvas
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height) // clear canvas
     // console.log('this.canvas.width, this.canvas.height', this.canvas.width, this.canvas.height);
 
     for (let i = 0; i < 5; i++) {
@@ -51,7 +51,7 @@ class WelcomeAnimation {
 }
 
 const getRandomFloat = (min: number, max: number) => {
-  return Math.random() * (max - min) + min;
+  return Math.random() * (max - min) + min
 }
 
 const getRandomColor = () => {
@@ -179,7 +179,7 @@ class ParticleCircle {
   }
 
   public clear() {
-    window.requestAnimationFrame(() => { })
+    window.requestAnimationFrame(() => {})
     this.particles = []
   }
 

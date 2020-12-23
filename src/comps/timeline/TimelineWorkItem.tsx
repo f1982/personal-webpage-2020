@@ -13,8 +13,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+
   /* justify-content: center; */
   align-items: center;
+
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }

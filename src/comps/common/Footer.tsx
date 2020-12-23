@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import { Links } from '../link';
-import { Popup } from '../Popup';
+import React, { useState } from 'react'
+import styled, { css } from 'styled-components'
+import { Links } from '../link'
+import { Popup } from '../Popup'
 
-const IconGoUp = process.env.PUBLIC_URL + 'static/images/icon-go-top.png';
-const IconScan = process.env.PUBLIC_URL + 'static/images/icon-phone-scan.png';
-var QRCode = require('qrcode.react');
+const IconGoUp = process.env.PUBLIC_URL + 'static/images/icon-go-top.png'
+const IconScan = process.env.PUBLIC_URL + 'static/images/icon-phone-scan.png'
+var QRCode = require('qrcode.react')
 const Wrapper = styled.div`
   padding-top: 1rem;
-`;
+`
 
 const Inner = styled.div`
   width: 100%;
   max-width: 970px;
   margin: 0 auto;
-`;
+`
 
 const BottomRow = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const BottomRow = styled.div`
     flex-direction: column-reverse;
     text-align: center;
   }
-`;
+`
 
 const FooterButtonBase = css`
   display: inline-block;
@@ -39,17 +39,17 @@ const FooterButtonBase = css`
   &:hover {
     background-position-y: 10px;
   }
-`;
+`
 
 const ScanContinueButton = styled.a`
   ${FooterButtonBase}
   background-image: url('${IconScan}');
-`;
+`
 
 const BackToTopButton = styled.a`
   ${FooterButtonBase}
   background-image: url('${IconGoUp}');
-`;
+`
 
 const LinkData = [
   {
@@ -82,48 +82,48 @@ const LinkData = [
     tag: null,
     hidden: 0
   }
-];
+]
 
 const getCurrentURL = () => {
-  return window.location.href;
-};
+  return window.location.href
+}
 
 const underLinkHandler = (evt: any) => {
   // console.log('evt', evt.target.id);
-};
+}
 
 const footerLinks = () => {
   return (
     <small style={{ color: `#ccc` }}>
       <span
         id='log-btn'
-        onClick={(evt) => {
-          underLinkHandler(evt);
+        onClick={evt => {
+          underLinkHandler(evt)
         }}>
         Logs
       </span>{' '}
       |{' '}
       <span
         id='links-btn'
-        onClick={(evt) => {
-          underLinkHandler(evt);
+        onClick={evt => {
+          underLinkHandler(evt)
         }}>
         Links
       </span>{' '}
       |{' '}
       <span
         id='statement-btn'
-        onClick={(evt) => {
-          underLinkHandler(evt);
+        onClick={evt => {
+          underLinkHandler(evt)
         }}>
         Statement
       </span>
     </small>
-  );
-};
+  )
+}
 
 const Footer = () => {
-  const [showQRCode, setShowQRCode] = useState(false);
+  const [showQRCode, setShowQRCode] = useState(false)
 
   return (
     <Wrapper>
@@ -133,7 +133,7 @@ const Footer = () => {
           containerWidth='300px'
           containerHeight='420px'
           closeHandler={() => {
-            setShowQRCode(false);
+            setShowQRCode(false)
           }}>
           <div
             style={{
@@ -144,7 +144,9 @@ const Footer = () => {
               height: `100%`,
               padding: `1rem`
             }}>
-            {process.env.NODE_ENV !== 'test' ? <QRCode value={getCurrentURL()} /> : null}
+            {process.env.NODE_ENV !== 'test' ? (
+              <QRCode value={getCurrentURL()} />
+            ) : null}
             <div style={{ textAlign: `center` }}>
               <p>
                 <span role='img' aria-label='device'>
@@ -168,12 +170,12 @@ const Footer = () => {
           }}>
           <ScanContinueButton
             onClick={() => {
-              setShowQRCode(true);
+              setShowQRCode(true)
             }}></ScanContinueButton>
 
           <BackToTopButton
             onClick={() => {
-              window.scrollTo(0, 0);
+              window.scrollTo(0, 0)
             }}
             style={{ textAlign: `right` }}></BackToTopButton>
         </div>
@@ -190,19 +192,28 @@ const Footer = () => {
       <Inner style={{ padding: `3rem 0.5rem` }}>
         <BottomRow>
           <div>
-            <p style={{ margin: `0.5rem auto` }}>Have a mind that is open to everything and attached to nothing</p>
+            <p style={{ margin: `0.5rem auto` }}>
+              Have a mind that is open to everything and attached to nothing
+            </p>
             {footerLinks()}
           </div>
           <div>
-            <Links linkData={LinkData} iconColor='#ccc' iconSize={24} category='all' />
+            <Links
+              linkData={LinkData}
+              iconColor='#ccc'
+              iconSize={24}
+              category='all'
+            />
           </div>
         </BottomRow>
         <div style={{ textAlign: 'center', paddingTop: '1rem' }}>
-          <small style={{ color: `#ccc` }}>Copyright @2020 f1982.com Design by Andy</small>
+          <small style={{ color: `#ccc` }}>
+            Copyright @2020 f1982.com Design by Andy
+          </small>
         </div>
       </Inner>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

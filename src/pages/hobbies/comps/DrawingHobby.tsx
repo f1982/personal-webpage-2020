@@ -67,8 +67,6 @@ const Wrapper = styled.div`
     h3 {
       color: #fff;
       color: #333;
-      @media screen and (max-width: 768px) {
-      }
     }
   }
   h2 {
@@ -101,25 +99,9 @@ const Wrapper = styled.div`
     text-align: center;
   }
 `
-
+let io: IntersectionObserver | null = null
 const DrawingHobby = () => {
   const [node, setNode] = useState<HTMLDivElement>()
-  // Declare intersection observer
-  const io = new IntersectionObserver(
-    (entries: any[]) => {
-      entries.forEach(entry => {
-        const { intersectionRatio, target } = entry
-        if (intersectionRatio > 0.25) {
-          target.classList.add('is-visible')
-        } else {
-          target.classList.remove('is-visible')
-        }
-      })
-    },
-    {
-      threshold: 0.25
-    }
-  )
 
   const containerRef = useCallback(node => {
     setNode(node)
@@ -127,6 +109,22 @@ const DrawingHobby = () => {
 
   useEffect(() => {
     if (node) {
+      // Declare intersection observer
+      io = new IntersectionObserver(
+        (entries: any[]) => {
+          entries.forEach(entry => {
+            const { intersectionRatio, target } = entry
+            if (intersectionRatio > 0.25) {
+              target.classList.add('is-visible')
+            } else {
+              target.classList.remove('is-visible')
+            }
+          })
+        },
+        {
+          threshold: 0.25
+        }
+      )
       // Setting of every child element
       // Get all children element
       const sectionChildren = node.children
@@ -141,11 +139,9 @@ const DrawingHobby = () => {
     }
     return () => {
       // unobserve
-      if (node) {
-        io.unobserve(node)
-      }
+      node && io && io.unobserve(node)
     }
-  }, [node, io])
+  }, [node])
 
   return (
     <Wrapper ref={containerRef}>

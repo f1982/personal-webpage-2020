@@ -10,7 +10,8 @@ const TSItem = styled.span`
   border-radius: 0.5rem;
   line-height: 1rem;
   list-style-type: none;
-  :hover {
+
+  &:hover {
     background: #555;
   }
 `

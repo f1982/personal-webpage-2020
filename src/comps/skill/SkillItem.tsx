@@ -6,7 +6,7 @@ const Wrapper = styled(animated.div)`
   width: 8rem;
   height: 8rem;
   display: inline-block;
-  border: 2px solid #ffcc00;
+  border: 2px solid #fc0;
   margin: 0 0.5rem;
   padding: 0.1rem;
   background-color: #fff;
@@ -16,6 +16,7 @@ const Wrapper = styled(animated.div)`
   line-height: 8rem;
   text-align: center;
   opacity: 0;
+
   &:hover {
     background-color: #eee;
   }

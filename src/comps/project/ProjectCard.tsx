@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   flex-basis: 400px;
   flex-grow: 1;
   min-width: 400px;
-  /* box-sizing: border-box; */
   transition: 0.3s;
   &:hover {
     border-radius: 2rem;

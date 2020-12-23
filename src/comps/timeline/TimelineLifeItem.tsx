@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { TimelineLifeObject } from '../../types/interfaces'
 import ProgressiveImage from '../ProgressiveImage/ProgressiveImage'
-
+import TimelineStarter from '../../assets/images/timeline-starter.png'
+import TimelineCurrent from '../../assets/images/timeline-current.png'
 const LeftWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -87,35 +88,41 @@ interface LifeItemProp {
   itemData?: TimelineLifeObject
 }
 
-const Upper = () => {
+const Upper = styled.div`
+  height: 48px;
+  background-repeat: no-repeat;
+  background-position-x: '50%';
+  background-image: url(${TimelineStarter});
+`
+/* const Upper = () => {
   return (
     <div
       style={{
         height: `48px`,
         backgroundRepeat: `no-repeat`,
         backgroundPositionX: '50%',
-        backgroundImage: `url('${
-          process.env.PUBLIC_URL + 'static/images/timeline-current.png'
-        }')`
-      }}>
-      {/* <img src={TimelineCurrent} /> */}
-    </div>
-  )
-}
-
-const Lower = () => {
-  return (
-    <div
-      style={{
-        height: `88px`,
-        backgroundRepeat: `no-repeat`,
-        backgroundPositionX: '50%',
-        backgroundImage: `url('${
-          process.env.PUBLIC_URL + 'static/images/timeline-starter.png'
-        }')`
+        backgroundImage: `url('${TimelineStarter}')`
       }}></div>
   )
-}
+} */
+
+const Lower = styled.div`
+  height: 88px;
+  background-repeat: no-repeat;
+  background-position-x: '50%';
+  background-image: url(${TimelineCurrent});
+`
+// const Lower = () => {
+//   return (
+//     <div
+//       style={{
+//         height: `88px`,
+//         backgroundRepeat: `no-repeat`,
+//         backgroundPositionX: '50%',
+//         backgroundImage: `url('${TimelineCurrent}')`
+//       }}></div>
+//   )
+// }
 
 const ImageContainer = styled.div`
   display: flex;
@@ -128,7 +135,6 @@ const ImageContainer = styled.div`
 `
 
 const TimelineItem = (props: LifeItemProp) => {
-  console.log('props', props)
   const { dir, itemData } = props
   const {
     start,

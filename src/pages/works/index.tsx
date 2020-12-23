@@ -14,8 +14,8 @@ const mapStatesToProps = (rootState: any) => {
   }
 }
 
-const mapReducersToProps = (dispatch: any) => {
-  return {}
-}
+// const mapReducersToProps = (dispatch: any) => {
+//   return {}
+// }
 
-export default connect(mapStatesToProps, mapReducersToProps)(Projects)
+export default connect(mapStatesToProps)(Projects)

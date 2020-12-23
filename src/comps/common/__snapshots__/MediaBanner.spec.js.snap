@@ -8,14 +8,13 @@ exports[`only with a title  1`] = `
 }
 
 .c1 {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   top: 0;
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: 50%;
-  position: relative;
   -webkit-transition: all 2s cubic-bezier(0.25,0.46,0.45,0.94);
   transition: all 2s cubic-bezier(0.25,0.46,0.45,0.94);
 }
@@ -50,7 +49,6 @@ exports[`only with a title  1`] = `
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  width: 100%;
   max-width: 970px;
   text-align: left;
   padding: 1.5rem;
@@ -101,14 +99,13 @@ exports[`with video URL  1`] = `
 }
 
 .c1 {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   top: 0;
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: 50%;
-  position: relative;
   -webkit-transition: all 2s cubic-bezier(0.25,0.46,0.45,0.94);
   transition: all 2s cubic-bezier(0.25,0.46,0.45,0.94);
 }
@@ -143,7 +140,6 @@ exports[`with video URL  1`] = `
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  width: 100%;
   max-width: 970px;
   text-align: left;
   padding: 1.5rem;

@@ -68,6 +68,10 @@
         "prettier": "2.1.2",
         "react-scripts": "^3.4.4",
         "react-test-renderer": "^16.9.0",
+        "stylelint": "13.8.0",
+        "stylelint-config-recommended": "3.0.0",
+        "stylelint-config-standard": "20.0.0",
+        "stylelint-config-styled-components": "0.1.1",
         "typescript": "^3.9.7"
     },
     "scripts": {
@@ -77,6 +81,7 @@
         "test:no-watch": "react-scripts test --watchAll=false",
         "eject": "react-scripts eject",
         "eslint:check": "eslint src --ext .js,.jsx,.ts,.tsx",
+        "stylelint": "stylelint 'src/**/*.tsx'",
         "lint": "./node_modules/.bin/eslint",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
         "release": "standard-version"

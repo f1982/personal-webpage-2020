@@ -1,3 +1,4 @@
+# 这里的配置会被 Eslint 配置里的 prettier 的设置读取,并影响到 eslint 的 formatter
 # printWidth: 120
 tabWidth: 2
 useTabs: false

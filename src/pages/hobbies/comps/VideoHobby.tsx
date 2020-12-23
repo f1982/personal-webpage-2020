@@ -39,8 +39,6 @@ const Wrapper = styled.div`
     width: 100%;
     max-width: 430px;
     margin: 0 auto;
-    &:hover {
-    }
   }
 
   p {

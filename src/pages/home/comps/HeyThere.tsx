@@ -37,13 +37,13 @@ const Cao = styled.i`
   }
 `
 
-const HeyThere = (props: any) => {
+const HeyThere = () => {
   // const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
   return (
     <Wrapper>
       <div>Hi there,</div>
       <IM>
-        <i>I'M ANDY</i>
+        <i>I&apos;M ANDY</i>
         <Cao> CAO</Cao>
       </IM>
       <small style={{ margin: `0 0 0.75rem 0` }}>Software Developer</small>
