@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { useSpring, animated } from "react-spring";
+import React from 'react'
+import styled from 'styled-components'
+import { useSpring, animated } from 'react-spring'
 
 const Wrapper = styled(animated.div)`
   width: 8rem;
@@ -19,7 +19,7 @@ const Wrapper = styled(animated.div)`
   &:hover {
     background-color: #eee;
   }
-`;
+`
 
 const ActiveBorder = styled(animated.div)`
   position: relative;
@@ -30,14 +30,14 @@ const ActiveBorder = styled(animated.div)`
   background-color: #39b4cc;
   background-image: linear-gradient(180deg, transparent 50%, #a2ecfb 50%),
     linear-gradient(50deg, #a2ecfb 50%, transparent 50%);
-`;
-const Circle = styled(animated.div)``;
-export const TitleSpan = styled.span``;
-const LevelSpan = styled.span``;
+`
+const Circle = styled(animated.div)``
+export const TitleSpan = styled.span``
+const LevelSpan = styled.span``
 
 interface SkillItemProp {
-  title: string;
-  level: number;
+  title: string
+  level: number
 }
 
 const SkillItem = (skillProps: SkillItemProp) => {
@@ -45,21 +45,20 @@ const SkillItem = (skillProps: SkillItemProp) => {
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 250 }
-  }));
+  }))
 
   const mouseOverHandler = (event: React.MouseEvent) => {
-    set({ opacity: 0 });
-  };
+    set({ opacity: 0 })
+  }
   const mouseOutHandler = (event: React.MouseEvent) => {
-    set({ opacity: 1 });
-  };
+    set({ opacity: 1 })
+  }
 
   return (
     <Wrapper
       style={props}
       onMouseOver={mouseOverHandler}
-      onMouseOut={mouseOutHandler}
-    >
+      onMouseOut={mouseOutHandler}>
       <ActiveBorder>
         <Circle>
           <TitleSpan id='title'>{skillProps.title}</TitleSpan>
@@ -67,8 +66,8 @@ const SkillItem = (skillProps: SkillItemProp) => {
         </Circle>
       </ActiveBorder>
     </Wrapper>
-  );
-};
+  )
+}
 
-export { SkillItem };
+export { SkillItem }
 // export default SkillItem;

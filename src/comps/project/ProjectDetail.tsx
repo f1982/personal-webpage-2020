@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FaCalendarTimes } from 'react-icons/fa';
-import { ProjectObject } from '../../types/interfaces';
-import { TechnologyStackItem } from './TechnologyStack';
-import { ImageSlide } from './ImageSlide';
+import React from 'react'
+import styled from 'styled-components'
+import { FaCalendarTimes } from 'react-icons/fa'
+import { ProjectObject } from '../../types/interfaces'
+import { TechnologyStackItem } from './TechnologyStack'
+import { ImageSlide } from './ImageSlide'
 
 // const WechatWebsiteURL = 'https://www.wechat.com/';
 // const HowToScanQRCode =
@@ -22,21 +22,16 @@ import { ImageSlide } from './ImageSlide';
 // `;
 
 const DateRow = styled.div`
-    font-family: Menlo, Monaco, monospace, 'Courier New';
-`;
+  font-family: Menlo, Monaco, monospace, 'Courier New';
+`
 // const QuestionMarkIcon = styled(FaQuestionCircle)`
 //     vertical-align: middle;
 //     margin-left: 4px;
 // `;
 
 const Images = styled(ImageSlide)`
-    margin-top: 56.7%;
-    /* margin-bottom: 1rem; */
-`;
-
-interface WechatQRCodeType {
-    image: string;
-}
+  margin-top: 56.7%;
+`
 
 // const WechatQRCode = (props: WechatQRCodeType) => {
 //     let html = (
@@ -60,48 +55,48 @@ interface WechatQRCodeType {
 // };
 
 const Wrapper = styled.div`
-    text-align: left;
-`;
+  text-align: left;
+`
 
 const StackRow = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1rem 0;
-    span {
-        margin-right: 5px;
-        margin-bottom: 5px;
-    }
-`;
-
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  span {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+`
 interface ProjectDetailProp {
-    itemData: ProjectObject;
+  itemData: ProjectObject
 }
 
 const ProjectDetail = (props: ProjectDetailProp) => {
-    const { itemData } = props;
-    if (!itemData) {
-        return <Wrapper>Data Error</Wrapper>;
-    }
+  const { itemData } = props
+  if (!itemData) {
+    return <Wrapper>Data Error</Wrapper>
+  }
 
-    return (
-        <Wrapper>
-            <h4>{itemData.title}</h4>
-            <DateRow>
-                <FaCalendarTimes /> <span>{itemData.start}</span> - <span>{itemData.end}</span>
-            </DateRow>
-            <StackRow>
-                {itemData.tech.split(',').map((item, index) => {
-                    return <TechnologyStackItem key={index} technology={item} />;
-                })}
-            </StackRow>
-            <p>
-                {itemData.description}
-                <br />
-                {itemData.responsibility}
-            </p>
+  return (
+    <Wrapper>
+      <h4>{itemData.title}</h4>
+      <DateRow>
+        <FaCalendarTimes />
+        <span>{itemData.start}</span> - <span>{itemData.end}</span>
+      </DateRow>
+      <StackRow>
+        {itemData.tech.split(',').map((item, index) => {
+          return <TechnologyStackItem key={index} technology={item} />
+        })}
+      </StackRow>
+      <p>
+        {itemData.description}
+        <br />
+        {itemData.responsibility}
+      </p>
 
-            <Images width='100%' height='400px' images={itemData.images} />
-            {/* {itemData.link ? (
+      <Images width='100%' height='400px' images={itemData.images} />
+      {/* {itemData.link ? (
                 <div style={{ textAlign: `center`, marginTop: `1.5rem` }}>
                     <SingleButton
                         callback={() => {
@@ -111,10 +106,10 @@ const ProjectDetail = (props: ProjectDetailProp) => {
                     </SingleButton>
                 </div>
             ) : null} */}
-            {/* Wechat QR Code */}
-            {/* {itemData.platform === 'wechat' && itemData.qrcode ? <WechatQRCode image={itemData.qrcode} /> : <></>} */}
-        </Wrapper>
-    );
-};
+      {/* Wechat QR Code */}
+      {/* {itemData.platform === 'wechat' && itemData.qrcode ? <WechatQRCode image={itemData.qrcode} /> : <></>} */}
+    </Wrapper>
+  )
+}
 
-export { ProjectDetail };
+export { ProjectDetail }

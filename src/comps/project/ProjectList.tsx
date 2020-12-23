@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import styled from 'styled-components';
-import { Popup } from '../Popup';
-import { ProjectObject } from '../../types/interfaces';
-import ProjectItem from './ProjectCard';
-import { ProjectDetail } from './ProjectDetail';
-import { ProjectCloseButton } from '../Button';
+import React, { useState, useEffect, useCallback } from 'react'
+import styled from 'styled-components'
+import { Popup } from '../Popup'
+import { ProjectObject } from '../../types/interfaces'
+import ProjectItem from './ProjectCard'
+import { ProjectDetail } from './ProjectDetail'
+import { ProjectCloseButton } from '../Button'
 
 const Wrapper = styled.section`
   width: 100%;
   margin: 1.5rem auto;
-`;
+`
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -18,64 +18,73 @@ const ProjectsContainer = styled.div`
   display: grid;
   grid-gap: 32px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-`;
+`
 const ProjectButton = styled.button`
   background-color: transparent;
   border: none;
   &:focus {
     outline: 0;
   }
-`;
+`
 
 const getPopupContainerWidth = () => {
   if (window.innerWidth < 768) {
-    return '100%';
+    return '100%'
   } else {
-    return '60%';
+    return '60%'
   }
-};
+}
 
 const getPopupContainerHeight = () => {
   if (window.innerWidth < 768) {
-    return '96%';
+    return '96%'
   } else {
-    return '80%';
+    return '80%'
   }
-};
-
-interface PropsType {
-  itemData: any[];
-  eventHandler?: Function | null;
-  type?: string;
-  top?: number;
 }
 
-const ProjectList = ({ itemData, eventHandler = null, type = 'all', top = 0 }: PropsType) => {
-  const [selectedProject, setSelectedProject] = useState<ProjectObject | null>();
-  const [projectData, setProjectData] = useState<ProjectObject[]>([]);
+interface PropsType {
+  itemData: any[]
+  eventHandler?: Function | null
+  type?: string
+  top?: number
+}
 
-  //filter the array with type
+const ProjectList = ({
+  itemData,
+  eventHandler = null,
+  type = 'all',
+  top = 0
+}: PropsType) => {
+  const [selectedProject, setSelectedProject] = useState<ProjectObject | null>()
+  const [projectData, setProjectData] = useState<ProjectObject[]>([])
+
+  // filter the array with type
   useEffect(() => {
-    let filtered: ProjectObject[];
+    let filtered: ProjectObject[]
     if (type !== '' && type !== 'all') {
-      filtered = itemData.filter((item: ProjectObject) => item.type === type && item.state === 'release');
+      filtered = itemData.filter(
+        (item: ProjectObject) => item.type === type && item.state === 'release'
+      )
     } else {
-      filtered = itemData;
+      filtered = itemData
     }
     if (top > 0) {
-      filtered = filtered.slice(0, top);
+      filtered = filtered.slice(0, top)
     }
-    setProjectData(filtered);
-  }, [itemData, type, top]);
+    setProjectData(filtered)
+  }, [itemData, type, top])
 
   //   useEffect(() => {
   //     setSelectedProject(projectData[0]);
   //   }, [projectData]);
 
   const handleItemClick = (id: string) => {
-    setSelectedProject(projectData.find((selectedItem: ProjectObject) => selectedItem.id === id));
-    eventHandler && eventHandler('SelectProject');
-  };
+    setSelectedProject(
+      projectData.find((selectedItem: ProjectObject) => selectedItem.id === id)
+    )
+    eventHandler && eventHandler('SelectProject')
+  }
   /**
    * Close popup panel
    *
@@ -83,11 +92,11 @@ const ProjectList = ({ itemData, eventHandler = null, type = 'all', top = 0 }: P
    */
   const closePopupHandler = useCallback(
     (event: React.MouseEvent) => {
-      setSelectedProject(null);
-      eventHandler && eventHandler('CloseProject');
+      setSelectedProject(null)
+      eventHandler && eventHandler('CloseProject')
     },
     [setSelectedProject, eventHandler]
-  );
+  )
 
   return (
     <Wrapper>
@@ -98,7 +107,7 @@ const ProjectList = ({ itemData, eventHandler = null, type = 'all', top = 0 }: P
               title={'Show detail of project ' + item.title}
               key={item.id}
               onClick={() => {
-                handleItemClick(item.id);
+                handleItemClick(item.id)
               }}>
               <ProjectItem
                 title={item.title}
@@ -107,7 +116,7 @@ const ProjectList = ({ itemData, eventHandler = null, type = 'all', top = 0 }: P
                 description={item.description}
               />
             </ProjectButton>
-          );
+          )
         })}
       </ProjectsContainer>
       {selectedProject ? (
@@ -122,7 +131,7 @@ const ProjectList = ({ itemData, eventHandler = null, type = 'all', top = 0 }: P
         </Popup>
       ) : null}
     </Wrapper>
-  );
-};
+  )
+}
 
-export default ProjectList;
+export default ProjectList

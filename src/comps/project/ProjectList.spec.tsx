@@ -1,7 +1,14 @@
-import React from 'react';
-import { fireEvent, getAllByRole, getByRole, getByTestId, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import ProjectList from './index';
+import React from 'react'
+import {
+  fireEvent,
+  getAllByRole,
+  getByRole,
+  getByTestId,
+  render,
+  screen
+} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import ProjectList from './index'
 
 describe('test project list component', () => {
   const data = JSON.parse(`[
@@ -69,22 +76,26 @@ describe('test project list component', () => {
           "quote": "It's a very good game"
         }
       ]
-      `);
+      `)
 
   //   console.log(data);
   test('should display properly', () => {
-    const { getByText, getAllByRole, getAllByTitle } = render(<ProjectList itemData={data} />);
-    expect(getByText('Cyber Vertex News Portal')).toBeInTheDocument();
-    expect(getByText('CCTV.com')).toBeInTheDocument();
-    expect(getByText('QDD')).toBeInTheDocument();
+    const { getByText, getAllByRole, getAllByTitle } = render(
+      <ProjectList itemData={data} />
+    )
+    expect(getByText('Cyber Vertex News Portal')).toBeInTheDocument()
+    expect(getByText('CCTV.com')).toBeInTheDocument()
+    expect(getByText('QDD')).toBeInTheDocument()
 
-    expect(getAllByTitle(/Show detail of project/i).length).toBe(3);
-  });
+    expect(getAllByTitle(/Show detail of project/i).length).toBe(3)
+  })
 
   test('should callback event work', () => {
-    const eventCallback = jest.fn();
-    const { getAllByTitle } = render(<ProjectList itemData={data} eventHandler={eventCallback} />);
-    fireEvent.click(getAllByTitle(/Show detail of project/i)[0]);
-    expect(eventCallback).toBeCalledTimes(1);
-  });
-});
+    const eventCallback = jest.fn()
+    const { getAllByTitle } = render(
+      <ProjectList itemData={data} eventHandler={eventCallback} />
+    )
+    fireEvent.click(getAllByTitle(/Show detail of project/i)[0])
+    expect(eventCallback).toBeCalledTimes(1)
+  })
+})

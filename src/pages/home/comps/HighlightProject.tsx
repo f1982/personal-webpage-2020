@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import { SingleButton } from '../../../comps/Button';
-import Projects from '../../../comps/project';
-import { Link } from 'react-router-dom';
-import ReactGA from 'react-ga';
-import loglevel from '../../../utils/loglevel-middleware';
+import React from 'react'
+import styled from 'styled-components'
+import { SingleButton } from '../../../comps/Button'
+import Projects from '../../../comps/project'
+import { Link } from 'react-router-dom'
+import ReactGA from 'react-ga'
+import loglevel from '../../../utils/loglevel-middleware'
 
 const Wrapper = styled.div`
   margin: 1rem auto;
   text-align: center;
-`;
+`
 const Intro = styled.div`
   margin: 1.5rem auto;
   width: 50%;
@@ -17,11 +17,11 @@ const Intro = styled.div`
   @media screen and (max-width: 768px) {
     width: 90%;
   }
-`;
+`
 
 export interface HighlightProjectProp {
-  moreProjectCallback?: Function;
-  projects: [];
+  moreProjectCallback?: Function
+  projects: []
 }
 const HighlightProjects = (props: any) => {
   return (
@@ -36,12 +36,12 @@ const HighlightProjects = (props: any) => {
         type='coding'
         top={2}
         eventHandler={(projectName: string) => {
-          loglevel.info('project detail event handler', projectName);
+          loglevel.info('project detail event handler', projectName)
           ReactGA.event({
             category: 'ViewContent',
             action: 'View Project',
             label: projectName
-          });
+          })
         }}></Projects>
       <div style={{ marginTop: `3rem` }}>
         <Link to='works'>
@@ -49,6 +49,6 @@ const HighlightProjects = (props: any) => {
         </Link>
       </div>
     </Wrapper>
-  );
-};
-export default HighlightProjects;
+  )
+}
+export default HighlightProjects

@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import Helmet from 'react-helmet';
-import { SingleButton } from '../../comps/Button';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import styled from 'styled-components'
+import Helmet from 'react-helmet'
+import { SingleButton } from '../../comps/Button'
+import { Link } from 'react-router-dom'
 
 const Frame = styled.div`
   width: 100%;
@@ -11,9 +11,9 @@ const Frame = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
+`
 
-export default () => {
+const PageNotFound = () => {
   return (
     <Frame>
       <Helmet titleTemplate='%s - 404, Page not found.'>
@@ -26,5 +26,7 @@ export default () => {
         <SingleButton id='enter-button'>Home</SingleButton>
       </Link>
     </Frame>
-  );
-};
+  )
+}
+
+export default PageNotFound

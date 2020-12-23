@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
 export const SettingContext = React.createContext({
-    contentWidth: 0,
-    smallDeviceWidth: 0
-});
+  contentWidth: 0,
+  smallDeviceWidth: 0
+})

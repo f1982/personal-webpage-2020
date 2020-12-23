@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { HashRouter as Router, Route, Switch, Redirect, useLocation } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+  useLocation
+} from 'react-router-dom'
 import ReactGA from 'react-ga'
 import routes from './router'
 import Layout from './layouts/default'
@@ -14,7 +20,7 @@ import ClosurePage from './pages/closure/Closure'
 
 // initialize Google Analytic
 ReactGA.initialize('UA-171033058-1', {
-  testMode: process.env.NODE_ENV === 'test',
+  testMode: process.env.NODE_ENV === 'test'
 })
 
 const history = require('history').createBrowserHistory()
@@ -49,7 +55,7 @@ const AppView: React.FC<IProps> = ({ syncAppConfig, loadedState }) => {
       {websiteClosed ? (
         <ClosurePage />
       ) : (
-        <>
+        <React.Fragment>
           <Helmet titleTemplate={pageTitleTemplate}>
             <meta
               name='description'
@@ -61,7 +67,7 @@ const AppView: React.FC<IProps> = ({ syncAppConfig, loadedState }) => {
               <SettingContext.Provider
                 value={{
                   contentWidth: 950,
-                  smallDeviceWidth: 768,
+                  smallDeviceWidth: 768
                 }}>
                 <Switch>
                   <Route exact path='/welcome' component={Welcome} />
@@ -69,10 +75,17 @@ const AppView: React.FC<IProps> = ({ syncAppConfig, loadedState }) => {
                   <Route exact path='/404' component={PageNotFound} />
 
                   <Route>
-                    <Layout header={() => <Header routes={routes} />} footer={Footer}>
+                    <Layout
+                      header={() => <Header routes={routes} />}
+                      footer={Footer}>
                       <Switch>
                         {routes.map(({ path, exact, component }) => (
-                          <Route key={path} path={path} exact={exact} component={component} />
+                          <Route
+                            key={path}
+                            path={path}
+                            exact={exact}
+                            component={component}
+                          />
                         ))}
                         <Redirect to='/404' />
                       </Switch>
@@ -85,7 +98,7 @@ const AppView: React.FC<IProps> = ({ syncAppConfig, loadedState }) => {
               <LocationDisplay />
             </Router>
           ) : null}
-        </>
+        </React.Fragment>
       )}
     </>
   )

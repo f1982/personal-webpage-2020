@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const TSItem = styled.span`
   font-family: Menlo, Monaco, monospace, 'Courier New';
@@ -13,10 +13,10 @@ const TSItem = styled.span`
   :hover {
     background: #555;
   }
-`;
+`
 
 interface TechnologyStackItemProp {
-  technology: string;
+  technology: string
 }
 
 const TechnologyStackItem = ({ technology }: TechnologyStackItemProp) => {
@@ -24,7 +24,7 @@ const TechnologyStackItem = ({ technology }: TechnologyStackItemProp) => {
     <TSItem>
       <small>{technology}</small>
     </TSItem>
-  );
-};
+  )
+}
 
-export { TechnologyStackItem };
+export { TechnologyStackItem }

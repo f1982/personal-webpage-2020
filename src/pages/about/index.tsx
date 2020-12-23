@@ -1,14 +1,14 @@
-import { connect } from 'react-redux';
-import About from './About';
+import { connect } from 'react-redux'
+import About from './About'
 
 const mapStatesToProps = (rootState: any) => {
-    const { loadedState, timelines, sections } = rootState.about;
-    return {
-        loadedState: loadedState,
-        sections: sections,
-        timelines: timelines
-    };
-};
+  const { loadedState, timelines, sections } = rootState.about
+  return {
+    loadedState: loadedState,
+    sections: sections,
+    timelines: timelines
+  }
+}
 
 /**
  * Map dispath to props
@@ -16,7 +16,7 @@ const mapStatesToProps = (rootState: any) => {
  * @param dispatch
  */
 const mapDispatchToProps = (dispatch: any) => ({
-    syncInfo: dispatch.about.syncInfo
-});
+  syncInfo: dispatch.about.syncInfo
+})
 
-export default connect(mapStatesToProps, mapDispatchToProps)(About);
+export default connect(mapStatesToProps, mapDispatchToProps)(About)

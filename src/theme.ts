@@ -1,14 +1,14 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 interface DefaultTheme {
-  baseLine: 1.5;
-  borderRadius: string;
-  shadow: string;
+  baseLine: 1.5
+  borderRadius: string
+  shadow: string
 
   colors: {
-    main: string;
-    secondary: string;
-  };
+    main: string
+    secondary: string
+  }
 }
 
 const myTheme: DefaultTheme = {
@@ -19,10 +19,11 @@ const myTheme: DefaultTheme = {
     main: 'cyan',
     secondary: 'magenta'
   }
-};
+}
 
-//Load this font at html template
-const PrimaryFonts = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto'
+// Load this font at html template
+const PrimaryFonts =
+  '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto'
 
 const GlobalStyle = createGlobalStyle`
   :root{
@@ -73,7 +74,7 @@ const GlobalStyle = createGlobalStyle`
   h5 {
     font-size: 1.333rem;
   }
-  a ,a:link ,a:active ,a:visited { 
+  a ,a:link ,a:active ,a:visited {
     color: #333;
     text-decoration: none;
   }
@@ -93,13 +94,13 @@ const GlobalStyle = createGlobalStyle`
     background-size: 100% 15%;
     background-position: 0 70%;
   }
-  small, 
+  small,
     .text_small {font-size: 0.75rem;}
     .empty-line {line-height: 2rem;}
 
   .react-icons {
     vertical-align: middle;
   }
-`;
+`
 
-export { myTheme, GlobalStyle };
+export { myTheme, GlobalStyle }

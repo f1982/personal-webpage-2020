@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Provider } from 'react-redux';
-import store from './store/';
+import * as React from 'react'
+import { Provider } from 'react-redux'
+import store from './store/'
 
 const StoreProvider = (props: any) => {
-    return <Provider store={store}>{props.children}</Provider>;
-};
+  return <Provider store={store}>{props.children}</Provider>
+}
 
-export default StoreProvider;
+export default StoreProvider

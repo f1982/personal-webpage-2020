@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import ProgressiveImage from '../ProgressiveImage/ProgressiveImage';
+import React from 'react'
+import styled from 'styled-components'
+import ProgressiveImage from '../ProgressiveImage/ProgressiveImage'
 
 const Wrapper = styled.div`
   display: inline-flex;
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     border-radius: 2rem;
     box-shadow: 0px 10px 10px 2px rgba(0, 0, 0, 0.1);
   }
-`;
+`
 
 const CardImage = styled.div`
   flex-grow: 1;
@@ -32,7 +32,7 @@ const CardImage = styled.div`
     right: 20px;
     background-color: #8ddaf4;
   }
-`;
+`
 
 const CardContent = styled.div`
   margin: 0.5rem 1rem;
@@ -60,13 +60,13 @@ const CardContent = styled.div`
     padding: 0 5px;
     background-color: #fff;
   }
-`;
+`
 
 export interface ProjectItemProp {
-  title: string;
-  cover: string;
-  description: string;
-  platform?: string;
+  title: string
+  cover: string
+  description: string
+  platform?: string
 }
 
 /**
@@ -74,7 +74,12 @@ export interface ProjectItemProp {
  *
  * @param props
  */
-const ProjectItem = ({ title, cover, description, platform = '' }: ProjectItemProp) => {
+const ProjectItem = ({
+  title,
+  cover,
+  description,
+  platform = ''
+}: ProjectItemProp) => {
   return (
     <Wrapper role='frame'>
       <CardImage>
@@ -86,7 +91,7 @@ const ProjectItem = ({ title, cover, description, platform = '' }: ProjectItemPr
         <p>{description}</p>
       </CardContent>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default ProjectItem;
+export default ProjectItem

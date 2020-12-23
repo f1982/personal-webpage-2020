@@ -1,5 +1,5 @@
-import { connect } from 'react-redux';
-import Projects from './Projects';
+import { connect } from 'react-redux'
+import Projects from './Projects'
 
 /**
  *  从 RootState 里提取出来这个 Component 需要用的变量
@@ -8,14 +8,14 @@ import Projects from './Projects';
  * @param rootState
  */
 const mapStatesToProps = (rootState: any) => {
-    return {
-        total: rootState.appConfig.projects.length,
-        projects: rootState.appConfig.projects
-    };
-};
+  return {
+    total: rootState.appConfig.projects.length,
+    projects: rootState.appConfig.projects
+  }
+}
 
 const mapReducersToProps = (dispatch: any) => {
-    return {};
-};
+  return {}
+}
 
-export default connect(mapStatesToProps, mapReducersToProps)(Projects);
+export default connect(mapStatesToProps, mapReducersToProps)(Projects)

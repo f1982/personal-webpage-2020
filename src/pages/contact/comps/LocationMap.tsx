@@ -7,12 +7,6 @@ const MapFlag = (props: any) => {
   return <span style={{ fontSize: `2rem` }}>{props.text}</span>
 }
 
-interface MapPropType {
-  center: Coords
-  zoom: Number
-  greatPlaceCoords: Coords
-}
-
 const defaultCenter: Coords = { lat: -36.802647, lng: 174.735249 }
 const CurrentMap = () => {
   return (

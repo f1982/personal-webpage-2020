@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { SingleButton } from '../../comps/Button';
-import { ParticleCircle } from './canvas';
-import Helmet from 'react-helmet';
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import { SingleButton } from '../../comps/Button'
+import { ParticleCircle } from './canvas'
+import Helmet from 'react-helmet'
 
 const Wrapper = styled.div`
   position: relative;
-`;
+`
 
 const Centered = styled.div`
   width: 720px;
@@ -39,46 +39,46 @@ const Centered = styled.div`
       font-size: 2.25rem;
     }
   }
-`;
+`
 
 const WelcomeButton = styled(SingleButton)`
   margin: 1.5rem;
-`;
+`
 
 const WelcomeCanvas = styled.canvas`
   background-color: #fff;
   width: 100%;
   height: 100vh;
-`;
+`
 
 function resizeCanvas(canvas: HTMLCanvasElement) {
-  const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
 }
 
 const Welcome = () => {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'test') {
-      const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
-      const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
-      const welcome = new ParticleCircle(canvas, ctx);
-      welcome.init();
-      resizeCanvas(canvas);
+      const canvas = document.getElementById('canvas') as HTMLCanvasElement
+      const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
+      const welcome = new ParticleCircle(canvas, ctx)
+      welcome.init()
+      resizeCanvas(canvas)
       window.onresize = () => {
-        resizeCanvas(canvas);
-        welcome.clear();
-        welcome.init();
-      };
+        resizeCanvas(canvas)
+        welcome.clear()
+        welcome.init()
+      }
     }
 
     return () => {
       if (process.env.NODE_ENV !== 'test') {
-        window.onresize = null;
+        window.onresize = null
       }
-    };
-  }, []);
+    }
+  }, [])
 
   return (
     <Wrapper id='bg'>
@@ -87,7 +87,7 @@ const Welcome = () => {
         <meta name='description' content="Welcome to Andy's space" />
       </Helmet>
       <Centered>
-        <h3>Hey! I'm Andy</h3>
+        <h3>Hey! I&apos;m Andy</h3>
         <p>Welcome to my space</p>
         <Link to='/home'>
           <WelcomeButton id='enter-button'>ENTER</WelcomeButton>
@@ -95,7 +95,7 @@ const Welcome = () => {
       </Centered>
       <WelcomeCanvas id='canvas' />
     </Wrapper>
-  );
-};
+  )
+}
 
-export default Welcome;
+export default Welcome
