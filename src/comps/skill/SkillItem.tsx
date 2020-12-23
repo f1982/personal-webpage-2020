@@ -48,10 +48,10 @@ const SkillItem = (skillProps: SkillItemProp) => {
     config: { duration: 250 }
   }))
 
-  const mouseOverHandler = (event: React.MouseEvent) => {
+  const mouseOverHandler = () => {
     set({ opacity: 0 })
   }
-  const mouseOutHandler = (event: React.MouseEvent) => {
+  const mouseOutHandler = () => {
     set({ opacity: 1 })
   }
 

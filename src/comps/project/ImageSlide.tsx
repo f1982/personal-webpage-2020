@@ -56,13 +56,13 @@ interface ImageSlideProp {
 const ImageSlide = (props: ImageSlideProp) => {
   const [current, setCurrent] = React.useState<number>(0)
 
-  const goNext = (evt: React.MouseEvent | React.TouchEvent) => {
+  const goNext = () => {
     if (current < props.images.length - 1) {
       setCurrent(current + 1)
     }
   }
 
-  const goPrevious = (evt: React.MouseEvent | React.TouchEvent) => {
+  const goPrevious = () => {
     // console.log('goPrevious');
     if (current > 0) {
       setCurrent(current - 1)
