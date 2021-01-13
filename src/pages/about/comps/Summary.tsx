@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Content = styled.div`
   width: 100%;
-  max-width: var(--content-max-width);
+  max-width: 970px;
   margin: 0 auto;
   padding: 1rem;
   text-align: center;

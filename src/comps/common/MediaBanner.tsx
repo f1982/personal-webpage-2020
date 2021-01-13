@@ -87,7 +87,7 @@ const MediaBanner = (props: MediaBannerProps) => {
   // 2. it's set video url
   // 3. show time more than 3s
   useEffect(() => {
-    let counter: number = 0
+    let counter: any = null
     if (videoURL) {
       counter = setTimeout(() => {
         setShowMediaType('video')

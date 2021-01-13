@@ -51,20 +51,13 @@ const Menu = (props: MenuProps) => {
   useEffect(() => {
     setMenuData(props.data || [])
     return () => {}
-  }, [])
-  const myFunction = (event: React.MouseEvent) => {}
+  }, [props.data])
 
-  const hasData = () => {
-    return menuData != undefined && menuData != null
-  }
-
-  const buttonHandler = (e: React.MouseEvent) => {
-    console.log('menu item click')
-  }
+  const buttonHandler = () => {}
 
   return (
     <Wrapper>
-      {menuData.length > 0 &&
+      {!!menuData &&
         menuData.map(item => {
           return (
             <MenuItem key={item.name}>

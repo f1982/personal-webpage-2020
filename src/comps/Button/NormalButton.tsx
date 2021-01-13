@@ -9,17 +9,17 @@ const InnterButton = styled.button`
   color: #fff;
   border: 2px solid #fff;
   font-size: 1rem;
-  background-color: #efc854;
+  background-color: ${({ theme }) => theme.palette.secondary.main || '#ffcc00'};
   border-radius: 0.75rem;
   transition: all 0.3s ease 0s;
   overflow: hidden;
   cursor: pointer;
   position: relative;
   &:hover {
-    box-shadow: 0px 8px 10px rgba(226, 142, 1, 0.5);
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.397);
     color: #fff;
     transform: translateY(1px);
-    background-color: #ffcc00;
+    background-color: ${({ theme }) => theme.palette.primary.main};
     &:before {
       content: '';
       pointer-events: none;

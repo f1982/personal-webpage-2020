@@ -56,9 +56,9 @@ const Projects: React.FC<IProps> = ({ projects }) => {
         <TitleImage imageURL={imageURL} videoURL={videoURL} />
       </SectionWide>
       <div style={{ textAlign: `center`, marginTop: `3rem` }}>
-        <h3>Projects</h3>
+        <h1>Projects</h1>
         <p>
-          This is part of the project I participated in, and there are some \
+          This is part of the project I participated in, and there are some
           projects that I have not organized and listed.
         </p>
       </div>

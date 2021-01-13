@@ -1,7 +1,7 @@
 import React from 'react'
 import { createMemoryHistory } from 'history'
 import { Router } from 'react-router-dom'
-import AppView from './AppView'
+import { AppView } from './App'
 
 import { render } from '@testing-library/react'
 it('test if show welcome page by default', () => {

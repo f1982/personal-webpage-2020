@@ -7,7 +7,6 @@ const Wrapper = styled.a`
   border: 1px solid #fff;
   border-radius: 30%;
   text-decoration: none;
-  background-color: #fff;
 
   transition: border 0.3s, border-radius 0.3s;
   will-change: transform;

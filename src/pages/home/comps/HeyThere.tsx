@@ -17,6 +17,8 @@ const Wrapper = styled.div`
 const IM = styled.h1`
   font-size: 4.3rem;
   line-height: 4rem;
+  font-family: ${props => props.theme.typography.h1.fontFamily};
+
   @media screen and (max-width: 768px) {
     font-size: 3rem;
     line-height: 1rem;

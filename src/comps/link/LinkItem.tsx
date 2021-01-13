@@ -5,7 +5,6 @@ const Wrapper = styled.a`
   border: 2px solid #ffcc00;
   margin: 0 0.5rem;
   padding: 0.1rem;
-  background-color: ${props => props.theme.colors.secondary};
   border-radius: 0.5rem;
   text-decoration: none;
   &:hover {

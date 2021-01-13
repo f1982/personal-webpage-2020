@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, useRouteMatch, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import '../assets/styles/test.css'
 
 const Wrapper = styled.div`

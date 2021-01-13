@@ -9,6 +9,7 @@ import { SectionNarrow } from '../../layouts/default'
 import HeyThere from './comps/HeyThere'
 
 const RectangleAngle = -30 - Math.random() * 20 + 'deg'
+
 const BannerBackground = styled.div`
   width: 100%;
   overflow: hidden;
@@ -17,7 +18,7 @@ const BannerBackground = styled.div`
     content: '';
     position: absolute;
     z-index: -10;
-    background-color: #efc800;
+    background-color: ${({ theme }) => theme.palette.primary.main || '#ffcc00'};
     top: 30%;
     left: -30%;
     width: 150%;
@@ -66,7 +67,7 @@ const Home = (props: any) => {
   }, [syncHome])
 
   return (
-    <React.Fragment>
+    <>
       <Helmet>
         <title>Homepage</title>
         <meta
@@ -94,7 +95,7 @@ const Home = (props: any) => {
       </SectionNarrow>
 
       <Links linkData={props.sns} iconColor='#EFC854' category='all' />
-    </React.Fragment>
+    </>
   )
 }
 

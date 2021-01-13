@@ -1,7 +1,3 @@
-:root {
-    --screen-small-width: 768;
-}
-
 .menuContainer {
     width: auto;
     display: flex;

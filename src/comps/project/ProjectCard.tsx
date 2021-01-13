@@ -21,15 +21,15 @@ const CardImage = styled.div`
   flex-basis: 160px;
   margin: 1rem 1rem;
   position: relative;
-  > span {
+  > pre {
     position: absolute;
     padding: 1px 10px;
     color: #fff;
     font-weight: bold;
     border-radius: 10px;
-    top: -10px;
+    top: 0px;
     right: 20px;
-    background-color: #8ddaf4;
+    background-color: ${props => props.theme.palette.primary.main};
   }
 `
 
@@ -38,7 +38,7 @@ const CardContent = styled.div`
   flex-shrink: 1;
   flex-grow: 1;
   flex-basis: 60%;
-  h5 {
+  h2 {
     text-align: left;
     margin: 0.5rem 0;
   }
@@ -83,10 +83,10 @@ const ProjectItem = ({
     <Wrapper role='frame'>
       <CardImage>
         <ProgressiveImage width='100%' height='254px' src={cover} alt={title} />
-        {platform ? <span>{platform}</span> : null}
+        {platform ? <pre>{platform}</pre> : null}
       </CardImage>
       <CardContent>
-        <h5>{title}</h5>
+        <h2>{title}</h2>
         <p>{description}</p>
       </CardContent>
     </Wrapper>

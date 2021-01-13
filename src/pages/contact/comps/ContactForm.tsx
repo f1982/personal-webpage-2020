@@ -1,10 +1,16 @@
-import { InjectedFormikProps, withFormik, ErrorMessage } from 'formik'
+import {
+  InjectedFormikProps,
+  withFormik,
+  ErrorMessage,
+  useFormikContext
+} from 'formik'
 import styled from 'styled-components'
 import * as React from 'react'
 import * as Yup from 'yup'
 import { useState } from 'react'
 import { SingleButton } from '../../../comps/Button'
-
+import { Prompt } from 'react-router'
+import RouteLeavingGuard from '../../../comps/Popup/RouteLeavingGuard'
 const FMForm = styled.form`
   width: 100%;
   padding: 1rem;
@@ -87,9 +93,55 @@ interface FormProps {
   content?: string
 }
 
-const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (
-  props: any
-) => {
+interface PromptIfDirtyProp {
+  history: any
+}
+const PromptIfDirty = () => {
+  const formik = useFormikContext()
+  return (
+    <Prompt
+      when={formik.dirty && formik.submitCount === 0}
+      message='Are you sure you want to leave? You have with unsaved changes.'
+    />
+  )
+}
+
+const PromptIfDirty2 = ()=>{
+  const formik = useFormikContext()
+  console.log('formik.submitCount', formik.submitCount);
+  console.log('formik.dirty', formik.dirty);
+  
+  return (
+    <RouteLeavingGuard
+    // When should shouldBlockNavigation be invoked,
+    // simply passing a boolean
+    // (same as "when" prop of Prompt of React-Router)
+    when={formik.dirty && formik.submitCount === 0}
+    // Navigate function
+    navigate={path => {console.log('path:',path)}}
+    // Use as "message" prop of Prompt of React-Router
+    shouldBlockNavigation={location => {
+      console.log('location', location);
+      // This case it blocks the navigation when:
+      // 1. the login form is dirty, and
+      // 2. the user is going to 'sign-up' scene.
+      //    (Just an example, in real case you might
+      //     need to block all location regarding this case)
+      if (formik.dirty) {
+        if (location.pathname === '/resume') {
+          return true
+        }
+      }
+      return false
+    }}
+  />
+  )
+}
+
+const InnerForm: React.FunctionComponent<InjectedFormikProps<
+  FormProps,
+  FormValues
+>> = (props: any) => {
   const [submitted, setSubmitted] = useState(false)
 
   // console.log(props.form.status);
@@ -97,6 +149,7 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (
     <>
       {submitted === false ? (
         <FMForm onSubmit={props.handleSubmit}>
+          <PromptIfDirty2 />
           <FMLabel htmlFor='firstName'>Your Name</FMLabel>
           <FMInputWrapperHalf>
             <FMInput
@@ -148,8 +201,9 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (
     </>
   )
 }
-
+// hyper function map props and schema to form
 const UserSearchForm = withFormik<FormProps, FormValues>({
+  // inital values
   mapPropsToValues: () => ({
     firstName: '',
     lastName: '',
@@ -157,6 +211,7 @@ const UserSearchForm = withFormik<FormProps, FormValues>({
     subject: '',
     content: ''
   }),
+  // schema
   validationSchema: Yup.object().shape({
     firstName: Yup.string()
       .max(16, 'Please input 16 characters or less')

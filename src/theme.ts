@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import styledNormalize from 'styled-normalize'
 
 interface DefaultTheme {
   baseLine: 1.5
@@ -26,15 +27,13 @@ const PrimaryFonts =
   '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto'
 
 const GlobalStyle = createGlobalStyle`
+  ${styledNormalize}
+
   :root{
     --content-max-width: 900px;
     --mobile-screen-width: 768px;
   }
-  * {
-    box-sizing:border-box;
-    padding:0;
-    margin: 0;
-  }
+
   html {
     font-size: 16px;
   }

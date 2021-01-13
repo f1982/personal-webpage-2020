@@ -14,7 +14,6 @@ const MenuBarItemBase = css`
   height: 186px;
   box-sizing: border-box;
   text-align: center;
-  /* background-color: #fff; */
   transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
 
   @media screen and (max-width: 768px) {
@@ -42,7 +41,7 @@ const MenuBarItemBase = css`
     transform: translateX(-50%);
     left: 50%;
     bottom: 17.7%;
-    color: #5c636d;
+    color: ${props => props.theme.typography.color.main};
     text-transform: uppercase;
     transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
     opacity: 1;
@@ -57,16 +56,17 @@ const MenuBarItemBase = css`
   &:link,
   :visited {
     background-color: inherit;
+    color: ${props => props.theme.typography.color.main};
   }
   &:hover {
-    background-color: #74ddf7;
+    background-color: ${props => props.theme.palette.secondary.main};
     span {
       opacity: 1;
       bottom: 17.7%;
     }
     &::before {
       content: attr(data-text);
-      background-color: #5c636d;
+      background-color: #5c636d; //color of text shadow
       opacity: 0;
       bottom: 0;
     }
@@ -84,7 +84,7 @@ export const MenuBar: any = styled('nav')`
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  background-color: #fff;
+  background-color: inherit;
   transition: 0.3s cubic-bezier(0.5, -1, 0.5, 2);
 
   > * {
@@ -173,20 +173,15 @@ const SmallMenuBarItem = styled(NavLink)`
 
 interface SmallMenuBarProps {
   routes: any[]
-  smallDeviceWidth: number
+  smallDeviceWidth?: number
   toggleOpenIcon?: React.ReactNode
   toggleCloseIcon?: React.ReactNode
 }
 
-const SmallMenuBar = ({
-  routes,
-  smallDeviceWidth = 768,
-  toggleCloseIcon = null,
-  toggleOpenIcon = null
-}: SmallMenuBarProps) => {
+const SmallMenuBar = ({ routes }: SmallMenuBarProps) => {
   const [isShowing, setisShowing] = useState(false)
 
-  const toggle = (evt: any) => {
+  const toggle = () => {
     setisShowing(!isShowing)
     if (isShowing) {
       document.body.style.overflow = 'unset'

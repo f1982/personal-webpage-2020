@@ -1,12 +1,4 @@
 {
-  // 于指定环境，每个环境都有自己预定义的全局变量，可以同时指定多个环境，不矛盾。
-  // 如console属性只有在browser环境下才会存在，
-  // 如果不设置支持browser，那么可能会console is undefined。
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
-  },
   //extends 属性值可以是一个字符串或字符串数组，数组中每个配置项继承它前面的配置，
   //可以对继承的规则进行修改、覆盖和拓展。比如我们的 extends 就继承了 Airbnb 的配置规则。
   "extends": [
@@ -35,6 +27,14 @@
     "react": {
       "version": "detect"
     }
+  },
+  // 于指定环境，每个环境都有自己预定义的全局变量，可以同时指定多个环境，不矛盾。
+  // 如 console 属性只有在 browser 环境下才会存在，
+  // 如果不设置支持browser，那么可能会console is undefined。
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
   },
   "rules": {
     "react-hooks/rules-of-hooks": "error",

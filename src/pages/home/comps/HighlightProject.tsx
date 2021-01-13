@@ -26,7 +26,7 @@ export interface HighlightProjectProp {
 const HighlightProjects = (props: any) => {
   return (
     <Wrapper>
-      <h3>Projects</h3>
+      <h2>Projects</h2>
       <Intro>
         <p>Here are some projects that I have done recently.</p>
       </Intro>

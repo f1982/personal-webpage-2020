@@ -4,13 +4,13 @@ import { SectionWide } from '../../layouts/default'
 import TitleImage from '../../comps/common/MediaBanner'
 import Map from './comps/LocationMap'
 import Helmet from 'react-helmet'
-
+import ContactForm from './comps/ContactForm'
 const imageURL =
   process.env.PUBLIC_URL + 'static/images/contact-title-image.jpg'
 
 const SectionContent = styled.section`
   width: 100%;
-  max-width: var(--content-max-width);
+  max-width: 970px;
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
@@ -37,7 +37,11 @@ const Contact = (props: any) => {
       </SectionWide>
       <div style={{ marginTop: `3rem` }} />
       <SectionContent>
+        <ContactForm />
+      </SectionContent>
+      <SectionContent>
         <h3>Contact</h3>
+        
         <p>
           Currently, I am living in Auckland, New Zealand, If you want contact
           me, feel free to send a email to me. My email address is{' '}
@@ -95,9 +99,7 @@ const Contact = (props: any) => {
       <SectionContent>
         <Map />
       </SectionContent>
-      {/* <SectionContent>
-                    <ContactForm />
-                </SectionContent> */}
+      
     </>
   )
 }

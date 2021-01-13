@@ -37,7 +37,7 @@ const HorizatalItem = styled.div`
 
 const AvatarImg = styled.img``
 
-const HighlightFont = styled.h3`
+const HighlightFont = styled.h2`
   display: inline-block;
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;

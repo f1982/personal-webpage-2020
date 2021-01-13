@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 import { LinkObject } from '../../types/interfaces'
 import { IconContext } from 'react-icons'
 import LinkItemSimple from './LinkItemSimple'
@@ -50,11 +50,14 @@ const Links = ({
   category = '',
   padding = '0.5rem'
 }: LinksProp) => {
+  const theme = useContext(ThemeContext)
+  // console.log('theme', theme)
+
   return (
     <LinkContainer>
       <IconContext.Provider
         value={{
-          color: iconColor,
+          color: theme.palette.primary.main,
           size: String(iconSize),
           style: { verticalAlign: 'middle' }
         }}>

@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { FaBars, FaWindowClose } from 'react-icons/fa'
 import ResponsiveMenuBar, { SmallMenuBar } from '../MenuBar'
-import { SettingContext } from '../../Settings'
 
 const Wrapper = styled.header`
   width: 100%;
@@ -12,9 +11,9 @@ const Wrapper = styled.header`
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.09);
 `
 
-const Inner = styled.div<{ minimumWidth: number }>`
+const Inner = styled.div`
   width: 100%;
-  max-width: ${props => props.minimumWidth}px;
+  max-width: 950px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -40,11 +39,10 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = ({ routes }: IProps) => {
-  const settingContext = useContext(SettingContext)
   return (
     <>
       <Wrapper>
-        <Inner minimumWidth={settingContext.contentWidth}>
+        <Inner>
           <NavLink to='/home'>
             <LogoImg src={process.env.PUBLIC_URL + 'static/images/logo.png'} />
           </NavLink>

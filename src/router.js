@@ -31,13 +31,14 @@ const routes = [
     path: '/contact',
     exact: true,
     component: require('./pages/contact/').default
+  },
+  {
+    title: 'Resume',
+    path: '/resume',
+    exact: true,
+    mark: '🔥',
+    component: require('./pages/resume/').default
   }
-  //     title: 'Resume',
-  //     path: '/resume',
-  // exact: true,
-  //     mark: '🔥',
-  //     component: require('./resume/').default
-  // }
 ]
 
 export default routes
