@@ -1,5 +1,38 @@
 import { DefaultTheme } from 'styled-components'
 
+interface Theme extends DefaultTheme {
+  palette: {
+    common: {
+      background: string
+      foreground: string
+    }
+    primary: {
+      main: string
+      contrastText: string
+    }
+    secondary: {
+      main: string
+      contrastText: string
+    }
+    info: {
+      main: string
+      contrastText: string
+    }
+    warnning: {
+      main: string
+      contrastText: string
+    }
+    error: {
+      main: string
+      contrastText: string
+    }
+    success: {
+      main: string
+      contrastText: string
+    }
+  }
+}
+
 const palette = {
   common: {
     background: '#fff',
@@ -31,9 +64,9 @@ const palette = {
   }
 }
 
-const shadows = {
-  panel: '0 19px 38px rgba(0, 0, 0, 0.30),0 15px 12px rgba(0, 0, 0, 0.22);'
-}
+// const shadows = {
+//   panel: '0 19px 38px rgba(0, 0, 0, 0.30),0 15px 12px rgba(0, 0, 0, 0.22);'
+// }
 
 const typography = {
   fontFamily: [
@@ -58,10 +91,10 @@ typography.h1 = {
   fontStyle: 'italic'
 }
 
-const theme: DefaultTheme = {
-  palette,
-  shadows,
-  typography
+const theme: Theme = {
+  palette
+  // shadows,
+  // typography
 }
 
 export default theme

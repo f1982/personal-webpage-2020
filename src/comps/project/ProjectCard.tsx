@@ -29,7 +29,7 @@ const CardImage = styled.div`
     border-radius: 10px;
     top: 0px;
     right: 20px;
-    background-color: ${props => props.theme.palette.primary.main};
+    background-color: ${props => props.theme.palette.primary.main || '#ffcc00'};
   }
 `
 

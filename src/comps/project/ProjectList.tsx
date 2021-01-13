@@ -88,13 +88,10 @@ const ProjectList = ({
    *
    * @param event
    */
-  const closePopupHandler = useCallback(
-    (event: React.MouseEvent) => {
-      setSelectedProject(null)
-      eventHandler && eventHandler('CloseProject')
-    },
-    [setSelectedProject, eventHandler]
-  )
+  const closePopupHandler = useCallback(() => {
+    setSelectedProject(null)
+    eventHandler && eventHandler('CloseProject')
+  }, [setSelectedProject, eventHandler])
 
   return (
     <Wrapper>

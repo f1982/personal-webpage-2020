@@ -41,7 +41,7 @@ const MenuBarItemBase = css`
     transform: translateX(-50%);
     left: 50%;
     bottom: 17.7%;
-    color: ${props => props.theme.typography.color.main};
+    color: ${props => props.theme.palette.primary.contrastText || '#ffcc00'};
     text-transform: uppercase;
     transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
     opacity: 1;
@@ -56,10 +56,11 @@ const MenuBarItemBase = css`
   &:link,
   :visited {
     background-color: inherit;
-    color: ${props => props.theme.typography.color.main};
+    color: ${props => props.theme.palette.primary.contrastText || '#ffcc00'};
   }
   &:hover {
-    background-color: ${props => props.theme.palette.secondary.main};
+    background-color: ${props =>
+      props.theme.palette.secondary.main || '#ffcc00'};
     span {
       opacity: 1;
       bottom: 17.7%;
