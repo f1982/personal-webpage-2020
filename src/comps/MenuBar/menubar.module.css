@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    background-color: #fff;
+    background-color: rgb(129, 129, 129);
 
     transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
     opacity: 1;
@@ -25,7 +25,7 @@
 }
 
 .activeNavLink::before {
-    color: #fff;
+    color: rgb(216, 216, 216);
 }
 
 .activeNavLink span {
@@ -34,7 +34,7 @@
 
 .activeSmallNavLink {
     font-size: 1.5rem;
-    color: #fff;
+    color: rgb(224, 224, 224);
     /* background-color: #74ddf7; */
     font-weight: bold;
     padding: 1rem;

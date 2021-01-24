@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { SingleButton } from '../../../comps/Button'
 import _ from 'lodash'
-
+import HobbyHobbyImage from '../../../assets/images/video-hobby-cover.png'
 const Wrapper = styled.div`
   display: grid;
   width: 100%;
@@ -115,10 +115,7 @@ const VideoHobby = () => {
 
   return (
     <Wrapper ref={containerRef}>
-      <img
-        src={process.env.PUBLIC_URL + 'static/images/video-hobby-cover.png'}
-        alt='Andy RC Hobby'
-      />
+      <img src={HobbyHobbyImage} alt='Andy RC Hobby' />
       <TitleContainer>
         <h3>Video Making</h3>
       </TitleContainer>

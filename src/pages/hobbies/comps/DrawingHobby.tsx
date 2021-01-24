@@ -74,7 +74,7 @@ const Wrapper = styled.div`
     width: 100%;
     grid-column: 2 / span 5;
     grid-row: 2 / span 1;
-    color: #f8e71c;
+    color: ${props => props.theme.palette.primary.main || '#000'};
     font-family: 'Impact';
     font-size: 8rem;
     text-align: center;

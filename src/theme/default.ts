@@ -40,7 +40,7 @@ const palette = {
   },
   primary: {
     main: ' #efc8ee',
-    contrastText: '#000'
+    contrastText: '#666'
   },
   secondary: {
     main: '#74ddf7',

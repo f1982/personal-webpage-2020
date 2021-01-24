@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+
 import { SingleButton } from '../../../comps/Button'
+
 const Wrapper = styled.div`
   display: flex;
   flex-flow: column;
@@ -17,7 +19,6 @@ const Wrapper = styled.div`
 const IM = styled.h1`
   font-size: 4.3rem;
   line-height: 4rem;
-  font-family: ${props => props.theme.typography.h1.fontFamily};
 
   @media screen and (max-width: 768px) {
     font-size: 3rem;
@@ -38,6 +39,10 @@ const Cao = styled.i`
     bottom: 0;
   }
 `
+const JobTitle = styled.h2`
+  font-size: 1rem;
+  margin: 0 0 0.75rem 0;
+`
 
 const HeyThere = () => {
   // const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
@@ -48,7 +53,7 @@ const HeyThere = () => {
         <i>I&apos;M ANDY</i>
         <Cao> CAO</Cao>
       </IM>
-      <small style={{ margin: `0 0 0.75rem 0` }}>Software Developer</small>
+      <JobTitle>Software Developer</JobTitle>
       <Link to='/contact'>
         <SingleButton>Contact</SingleButton>
       </Link>

@@ -162,7 +162,7 @@ const MobileMenuBar = styled.div`
 const SmallMenuBarItem = styled(NavLink)`
   padding: 1rem;
   display: block;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #f0f0f0;
   &:hover {
     color: #ccc;
   }
@@ -192,7 +192,7 @@ const SmallMenuBar = ({ routes }: SmallMenuBarProps) => {
   }
   return (
     <div data-testid='smallMenubar'>
-      <ToggleButton onClick={toggle}>
+      <ToggleButton onClick={toggle} style={{ marginRight: '2rem' }}>
         <FaBars
           size={SmallMenuBarIconSize}
           style={{ verticalAlign: `middle` }}
@@ -202,7 +202,7 @@ const SmallMenuBar = ({ routes }: SmallMenuBarProps) => {
         <div style={{ textAlign: `right`, padding: `1rem` }}>
           <FaTimes size={SmallMenuBarIconSize} onClick={toggle} />
         </div>
-        <div style={{ paddingLeft: `1rem` }}>
+        <div style={{ padding: `0 1rem` }}>
           {routes.map((route, index) => {
             return (
               <SmallMenuBarItem

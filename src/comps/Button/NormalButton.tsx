@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.span``
 const BubbleColor = '#fff'
 const InnterButton = styled.button`
   padding: 0.75rem 2rem;
@@ -9,7 +8,8 @@ const InnterButton = styled.button`
   color: #fff;
   border: 2px solid #fff;
   font-size: 1rem;
-  background-color: ${({ theme }) => theme.palette.secondary.main || '#ffcc00'};
+  background-color: ${({ theme }) =>
+    theme?.palette?.secondary?.main || '#ffcc00'};
   border-radius: 0.75rem;
   transition: all 0.3s ease 0s;
   overflow: hidden;
@@ -19,7 +19,8 @@ const InnterButton = styled.button`
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.397);
     color: #fff;
     transform: translateY(1px);
-    background-color: ${({ theme }) => theme.palette.primary.main};
+    background-color: ${({ theme }) =>
+      theme?.palette?.primary?.main || '#85ff4d'};
     &:before {
       content: '';
       pointer-events: none;
@@ -71,20 +72,18 @@ const InnterButton = styled.button`
 
 interface ButtonProp {
   id?: string
-  children: string
+  children?: string
   callback?: Function
 }
-const SingleButton = (props: ButtonProp) => {
+const NormalButton = (props: ButtonProp) => {
   return (
-    <Wrapper>
-      <InnterButton
-        onClick={() => {
-          void (props.callback ? props.callback() : null)
-        }}>
-        {props.children}
-      </InnterButton>
-    </Wrapper>
+    <InnterButton
+      onClick={() => {
+        props.callback && props.callback()
+      }}>
+      {props.children}
+    </InnterButton>
   )
 }
 
-export default SingleButton
+export default NormalButton

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import RCTransmitter from './../../../assets/images/rc-transmiter.png'
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
@@ -79,9 +80,7 @@ const DoAndLike = (props: PropsType) => {
           <WhatIDoParagraph>{props.whatILike}</WhatIDoParagraph>
         </HorizatalItem>
         <HorizatalItem style={{ textAlign: `left`, paddingLeft: `2rem` }}>
-          <AvatarImg
-            src={process.env.PUBLIC_URL + 'static/images/rc-transmiter.png'}
-          />
+          <AvatarImg src={RCTransmitter} />
         </HorizatalItem>
       </HorizatalContainer>
     </Wrapper>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { FaBars, FaWindowClose } from 'react-icons/fa'
 import ResponsiveMenuBar, { SmallMenuBar } from '../MenuBar'
-
+import Logo from '../../assets/images/logo.png'
 const Wrapper = styled.header`
   width: 100%;
   z-index: 99;
@@ -44,7 +44,7 @@ const Header: React.FC<IProps> = ({ routes }: IProps) => {
       <Wrapper>
         <Inner>
           <NavLink to='/home'>
-            <LogoImg src={process.env.PUBLIC_URL + 'static/images/logo.png'} />
+            <LogoImg src={Logo} />
           </NavLink>
           <Spacer />
           <ResponsiveMenuBar

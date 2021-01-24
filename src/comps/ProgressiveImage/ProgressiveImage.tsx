@@ -38,14 +38,14 @@ const ProgressiveImage = (props: IProgressSiveImageProps) => {
         onError={handleImageErrored}
       />
       <div className={styles.overlayer}>
-        {loadingState === 'loading' ? (
+        {loadingState === 'loading' && (
           <div className={styles.ldsEllipsis}>
             <div></div>
             <div></div>
             <div></div>
             <div></div>
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   )

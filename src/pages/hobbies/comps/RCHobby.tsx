@@ -70,6 +70,10 @@ const Wrapper = styled.div`
   }
 `
 
+const HobbyTitle = styled.h2`
+  color: ${props => props.theme.palette.primary.contrastText || '#000'};
+`
+
 let io: IntersectionObserver | null = null
 const RCHobby = () => {
   const [node, setNode] = useState<HTMLDivElement>()
@@ -123,7 +127,7 @@ const RCHobby = () => {
         alt='RC Hobby'
       />
       <div id='hobby-title'>
-        <h3>RC Hobby</h3>
+        <HobbyTitle>RC Hobby</HobbyTitle>
       </div>
       <p>
         Making RC aeroplane was one of my dream in my childhood. When I was in
