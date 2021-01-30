@@ -31,6 +31,10 @@ interface Theme extends DefaultTheme {
       contrastText: string
     }
   }
+  shadows: {
+    panel: string
+    card: string
+  }
 }
 
 const palette = {
@@ -64,9 +68,10 @@ const palette = {
   }
 }
 
-// const shadows = {
-//   panel: '0 19px 38px rgba(0, 0, 0, 0.30),0 15px 12px rgba(0, 0, 0, 0.22);'
-// }
+const shadows = {
+  panel: '0 19px 38px rgba(0, 0, 0, 0.30),0 15px 12px rgba(0, 0, 0, 0.22)',
+  card: '0px 10px 10px 2px rgba(100, 100, 0, 0.4)'
+}
 
 const typography = {
   fontFamily: [
@@ -92,8 +97,8 @@ typography.h1 = {
 }
 
 const theme: Theme = {
-  palette
-  // shadows,
+  palette,
+  shadows
   // typography
 }
 

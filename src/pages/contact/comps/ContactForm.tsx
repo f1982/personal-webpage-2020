@@ -106,35 +106,37 @@ const PromptIfDirty = () => {
   )
 }
 
-const PromptIfDirty2 = ()=>{
+const PromptIfDirty2 = () => {
   const formik = useFormikContext()
-  console.log('formik.submitCount', formik.submitCount);
-  console.log('formik.dirty', formik.dirty);
-  
+  // console.log('formik.submitCount', formik.submitCount)
+  // console.log('formik.dirty', formik.dirty)
+
   return (
     <RouteLeavingGuard
-    // When should shouldBlockNavigation be invoked,
-    // simply passing a boolean
-    // (same as "when" prop of Prompt of React-Router)
-    when={formik.dirty && formik.submitCount === 0}
-    // Navigate function
-    navigate={path => {console.log('path:',path)}}
-    // Use as "message" prop of Prompt of React-Router
-    shouldBlockNavigation={location => {
-      console.log('location', location);
-      // This case it blocks the navigation when:
-      // 1. the login form is dirty, and
-      // 2. the user is going to 'sign-up' scene.
-      //    (Just an example, in real case you might
-      //     need to block all location regarding this case)
-      if (formik.dirty) {
-        if (location.pathname === '/resume') {
-          return true
+      // When should shouldBlockNavigation be invoked,
+      // simply passing a boolean
+      // (same as "when" prop of Prompt of React-Router)
+      when={formik.dirty && formik.submitCount === 0}
+      // Navigate function
+      navigate={path => {
+        console.log('path:', path)
+      }}
+      // Use as "message" prop of Prompt of React-Router
+      shouldBlockNavigation={location => {
+        console.log('location', location)
+        // This case it blocks the navigation when:
+        // 1. the login form is dirty, and
+        // 2. the user is going to 'sign-up' scene.
+        //    (Just an example, in real case you might
+        //     need to block all location regarding this case)
+        if (formik.dirty) {
+          if (location.pathname === '/resume') {
+            return true
+          }
         }
-      }
-      return false
-    }}
-  />
+        return false
+      }}
+    />
   )
 }
 

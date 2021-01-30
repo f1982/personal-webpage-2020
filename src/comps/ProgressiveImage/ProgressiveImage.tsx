@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './pi.module.css'
 
 interface IProgressSiveImageProps {
-  src: string
+  src?: string
   width?: string
   height?: string
   radius?: string

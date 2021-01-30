@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ComponentProps } from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
 import ProgressiveImage from './ProgressiveImage'
@@ -11,7 +11,9 @@ export default {
   }
 } as Meta
 
-const Template: Story = args => <ProgressiveImage {...args}></ProgressiveImage>
+const Template: Story<ComponentProps<typeof ProgressiveImage>> = args => (
+  <ProgressiveImage {...args}></ProgressiveImage>
+)
 
 export const Primary = Template.bind({})
 Primary.args = {

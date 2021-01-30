@@ -16,7 +16,6 @@ import Header from './comps/common/Header'
 import Footer from './comps/common/Footer'
 import Welcome from './pages/welcome'
 import PageNotFound from './pages/404'
-import { SettingContext } from './Settings'
 import ClosurePage from './pages/closure/Closure'
 // import log from './utils/loglevel-middleware'
 
