@@ -11,12 +11,12 @@ import {
 } from 'react-router-dom'
 import ReactGA from 'react-ga'
 import routes from './router'
-import Layout from './layouts/default'
-import Header from './comps/common/Header'
-import Footer from './comps/common/Footer'
-import Welcome from './pages/welcome'
-import PageNotFound from './pages/404'
-import ClosurePage from './pages/closure/Closure'
+import Layout from '../layouts/default'
+import Header from '../comps/common/Header'
+import Footer from '../comps/common/Footer'
+import Welcome from './welcome'
+import PageNotFound from './404'
+import ClosurePage from './closure/Closure'
 // import log from './utils/loglevel-middleware'
 
 // initialize Google Analytic

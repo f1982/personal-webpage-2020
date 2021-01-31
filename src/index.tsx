@@ -5,9 +5,9 @@ import GlobalStyle from './theme/GlobalStyles'
 import theme from './theme/default'
 import { ThemeProvider } from 'styled-components'
 import { MuiThemeProvider } from '@material-ui/core/styles'
-import App from './App'
+import App from './pages/App'
 
-import StoreProvider from './store'
+import StoreProvider from './StoreProvider'
 
 const render = () => {
   ReactDOM.render(

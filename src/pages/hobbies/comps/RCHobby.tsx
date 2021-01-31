@@ -73,10 +73,6 @@ const Wrapper = styled.div`
   }
 `
 
-const HobbyTitle = styled.h2`
-  color: ${props => props.theme.palette.primary.contrastText || '#000'};
-`
-
 let io: IntersectionObserver | null = null
 const RCHobby = () => {
   const [node, setNode] = useState<HTMLDivElement>()
