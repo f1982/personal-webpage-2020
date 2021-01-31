@@ -1,11 +1,14 @@
 import React from 'react'
-import TitleImage from '../../comps/common/MediaBanner'
 import Helmet from 'react-helmet'
-import '../../assets/styles/glitch.scss'
 import { Switch, Route } from 'react-router-dom'
+
+import TitleImage from '../../comps/common/MediaBanner'
 import VideoHobby from './comps/VideoHobby'
 import RCHobby from './comps/RCHobby'
 import DrawingHobby from './comps/DrawingHobby'
+
+import '../../assets/styles/glitch.scss'
+import BannerImage from '../../assets/images/banner-fpv.jpg'
 
 const Hobbies = () => {
   return (
@@ -19,9 +22,7 @@ const Hobbies = () => {
       </Helmet>
       <Switch>
         <Route>
-          <TitleImage
-            imageURL={process.env.PUBLIC_URL + 'static/images/banner-fpv.jpg'}
-          />
+          <TitleImage imageURL={BannerImage} />
           <RCHobby />
           <DrawingHobby />
           <VideoHobby />

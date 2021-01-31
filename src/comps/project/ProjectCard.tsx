@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Typegraphy from '@material-ui/core/Typography'
+
 import ProgressiveImage from '../ProgressiveImage/ProgressiveImage'
 
 const Wrapper = styled.div`
@@ -10,7 +12,7 @@ const Wrapper = styled.div`
   min-width: 400px;
   transition: 0.3s;
   &:hover {
-    border-radius: 2rem;
+    border-radius: ${props => props.theme.shape.borderRadius || '0'}px;
     box-shadow: ${props =>
       props.theme.shadows.card || '0px 10px 10px 2px rgba(100, 0, 0, 0.4)'};
   }
@@ -27,7 +29,7 @@ const CardImage = styled.div`
     padding: 1px 10px;
     color: #fff;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: ${props => props.theme.shape.borderRadius || '0'}px;
     top: 0px;
     right: 20px;
     background-color: ${props => props.theme.palette.primary.main || '#ffcc00'};
@@ -39,10 +41,6 @@ const CardContent = styled.div`
   flex-shrink: 1;
   flex-grow: 1;
   flex-basis: 60%;
-  h2 {
-    text-align: left;
-    margin: 0.5rem 0;
-  }
   p {
     font-size: 1rem;
     text-align: left;
@@ -87,8 +85,10 @@ const ProjectItem = ({
         {platform ? <pre>{platform}</pre> : null}
       </CardImage>
       <CardContent>
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <Typegraphy component='h5' variant='h5'>
+          {title}
+        </Typegraphy>
+        <Typegraphy>{description}</Typegraphy>
       </CardContent>
     </Wrapper>
   )

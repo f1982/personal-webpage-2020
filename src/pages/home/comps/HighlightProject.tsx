@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SingleButton } from '../../../comps/Button'
-import Projects from '../../../comps/project'
+import Typegraphy from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import ReactGA from 'react-ga'
+
+import { SingleButton } from '../../../comps/Button'
+import Projects from '../../../comps/project'
 import loglevel from '../../../utils/loglevel-middleware'
 
 const Wrapper = styled.div`
@@ -26,9 +28,11 @@ export interface HighlightProjectProp {
 const HighlightProjects = (props: any) => {
   return (
     <Wrapper>
-      <h2>Projects</h2>
+      <Typegraphy variant='h2'>Projects</Typegraphy>
       <Intro>
-        <p>Here are some projects that I have done recently.</p>
+        <Typegraphy>
+          Here are some projects that I have done recently.
+        </Typegraphy>
       </Intro>
 
       <Projects

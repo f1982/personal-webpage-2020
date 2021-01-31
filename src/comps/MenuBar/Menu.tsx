@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import Typegraphy from '@material-ui/core/Typography'
+
 import { MenuItemObject } from '../../types/interfaces'
 
 export interface MenuProps {
@@ -62,9 +64,13 @@ const Menu = (props: MenuProps) => {
           return (
             <MenuItem key={item.name}>
               {item.link ? (
-                <MenuItemA href={item.link}>{item.name}</MenuItemA>
+                <MenuItemA href={item.link}>
+                  <Typegraphy>{item.name}</Typegraphy>
+                </MenuItemA>
               ) : (
-                <MenuItemA onClick={buttonHandler}>{item.name}</MenuItemA>
+                <MenuItemA onClick={buttonHandler}>
+                  <Typegraphy>{item.name}</Typegraphy>
+                </MenuItemA>
               )}
             </MenuItem>
           )

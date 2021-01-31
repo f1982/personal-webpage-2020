@@ -4,11 +4,10 @@ import styledNormalize from 'styled-normalize'
 const GlobalStyle = createGlobalStyle`
 
   ${styledNormalize}
-  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital@0;1&display=swap');
-  body {
-    font-family: 'Titillium Web', sans-serif;
-    color: #666
-  }
+
+  /* body {
+    font-family: 'Montserrat', sans-serif;
+  } */
 
   p a {
     background: linear-gradient(#efc854, #efc854) no-repeat;

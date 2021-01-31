@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
+import Typegraphy from '@material-ui/core/Typography'
+
 import { Links } from '../link'
 import { Popup } from '../Popup'
 
-const IconGoUp = process.env.PUBLIC_URL + 'static/images/icon-go-top.png'
-const IconScan = process.env.PUBLIC_URL + 'static/images/icon-phone-scan.png'
+import IconGoTop from '../../assets/images/icon-go-top.png'
+import IconScanQRCode from '../../assets/images/icon-phone-scan.png'
+
 var QRCode = require('qrcode.react')
+
 const Wrapper = styled.div`
   padding-top: 1rem;
 `
@@ -33,7 +37,7 @@ const FooterButtonBase = css`
   background-size: 100% auto;
   background-position-y: 35px;
   background-repeat: no-repeat;
-  background-image: url('${IconScan}');
+  background-image: url('');
   transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   &:hover {
@@ -43,12 +47,12 @@ const FooterButtonBase = css`
 
 const ScanContinueButton = styled.a`
   ${FooterButtonBase}
-  background-image: url('${IconScan}');
+  background-image: url('${IconScanQRCode}');
 `
 
 const BackToTopButton = styled.a`
   ${FooterButtonBase}
-  background-image: url('${IconGoUp}');
+  background-image: url('${IconGoTop}');
 `
 
 const LinkData = [
@@ -94,7 +98,7 @@ const underLinkHandler = (evt: any) => {
 
 const footerLinks = () => {
   return (
-    <small style={{ color: `#ccc` }}>
+    <Typegraphy>
       <span
         id='log-btn'
         onClick={evt => {
@@ -118,7 +122,7 @@ const footerLinks = () => {
         }}>
         Statement
       </span>
-    </small>
+    </Typegraphy>
   )
 }
 
@@ -148,14 +152,14 @@ const Footer = () => {
               <QRCode value={getCurrentURL()} />
             ) : null}
             <div style={{ textAlign: `center` }}>
-              <p>
+              <Typegraphy>
                 <span role='img' aria-label='device'>
                   📱
                 </span>
                 Scan this QR code
                 <br />
                 You can continue to 👀browse on other devices
-              </p>
+              </Typegraphy>
             </div>
           </div>
         </Popup>
@@ -192,9 +196,9 @@ const Footer = () => {
       <Inner style={{ padding: `3rem 0.5rem` }}>
         <BottomRow>
           <div>
-            <p style={{ margin: `0.5rem auto` }}>
+            <Typegraphy style={{ margin: `0.5rem auto` }}>
               Have a mind that is open to everything and attached to nothing
-            </p>
+            </Typegraphy>
             {footerLinks()}
           </div>
           <div>
@@ -207,9 +211,9 @@ const Footer = () => {
           </div>
         </BottomRow>
         <div style={{ textAlign: 'center', paddingTop: '1rem' }}>
-          <small style={{ color: `#ccc` }}>
+          <Typegraphy variant='subtitle1'>
             Copyright @2020 f1982.com Design by Andy
-          </small>
+          </Typegraphy>
         </div>
       </Inner>
     </Wrapper>

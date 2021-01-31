@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
-import { SingleButton } from '../../../comps/Button'
+import Typegraphy from '@material-ui/core/Typography'
 import _ from 'lodash'
+
+import { SingleButton } from '../../../comps/Button'
+
+import DrawingHobbyImage from '../../../assets/images/hobby-drawing-cover.jpg'
 
 const TriangleShape = styled.div`
   position: absolute;
@@ -69,23 +73,6 @@ const Wrapper = styled.div`
       color: #333;
     }
   }
-  h2 {
-    position: absolute;
-    width: 100%;
-    grid-column: 2 / span 5;
-    grid-row: 2 / span 1;
-    color: ${props => props.theme.palette.primary.main || '#000'};
-    font-family: 'Impact';
-    font-size: 8rem;
-    text-align: center;
-    z-index: 9;
-    font-style: normal;
-    letter-spacing: 1rem;
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
-  }
-
   p {
     margin: 1rem auto;
     grid-column: 1 / span 7;
@@ -97,6 +84,21 @@ const Wrapper = styled.div`
     grid-column: 3 / span 3;
     grid-row: 6 / span 1;
     text-align: center;
+  }
+`
+
+const BackgroundText = styled(Typegraphy)`
+  position: absolute;
+  width: 100%;
+  grid-column: 2 / span 5;
+  grid-row: 2 / span 1;
+  color: ${props => props.theme.palette.primary.main || '#ff0000'};
+  font-size: 18rem;
+  text-align: center;
+  z-index: 9;
+  letter-spacing: 1rem;
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `
 let io: IntersectionObserver | null = null
@@ -146,22 +148,19 @@ const DrawingHobby = () => {
   return (
     <Wrapper ref={containerRef}>
       <TriangleShape id='cover'>
-        <img
-          src={process.env.PUBLIC_URL + 'static/images/hobby-drawing-cover.jpg'}
-          alt='Drawing Hobby'
-        />
+        <img src={DrawingHobbyImage} alt='Drawing Hobby' />
       </TriangleShape>
       <div id='hobby-title'>
-        <h3>DRAWING</h3>
+        <Typegraphy variant='h3'>DRAWING</Typegraphy>
       </div>
-      <h2>DRAWING</h2>
-      <p>
+      <BackgroundText>DRAWING</BackgroundText>
+      <Typegraphy>
         I feel that drawing is an easy way to express your ideas and also an
         efficient way to communicate with others. When I first time decided to
         draw something seriously was that when I saw the famous cartoon series
         of the Dragon Balls which created by Toriyama Akira. I keep this hobby
         as a tool to record some ideas or an approach for design.
-      </p>
+      </Typegraphy>
       <div id='links'>
         <a
           href='https://photos.app.goo.gl/9GZrmEyXhCBReKGP6'

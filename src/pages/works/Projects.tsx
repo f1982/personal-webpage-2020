@@ -1,12 +1,18 @@
 import React from 'react'
-import TitleImage from '../../comps/common/MediaBanner'
-import ProjectListGrid from '../../comps/project'
 import { Helmet } from 'react-helmet'
 import { Switch, Route, useRouteMatch, useParams } from 'react-router-dom'
-import { SectionWide, SectionNarrow } from '../../layouts/default'
 import ReactGA from 'react-ga'
+import Typegraphy from '@material-ui/core/Typography'
+
+import { SectionWide, SectionNarrow } from '../../layouts/default'
+import ProjectListGrid from '../../comps/project'
+import TitleImage from '../../comps/common/MediaBanner'
 import { ProjectObject } from '../../types/interfaces'
 // import loglevel from '../../utils/loglevel-middleware'
+
+import ImageBanner from '../../assets/images/image-banner-projects.jpg'
+const videoURL = process.env.PUBLIC_URL + 'static/videos/coding.mp4'
+
 const ProjectCategory = (props: any) => {
   let { category } = useParams<{ category: string }>()
   if (!category) {
@@ -27,22 +33,12 @@ const ProjectCategory = (props: any) => {
   )
 }
 
-const imageURL =
-  process.env.PUBLIC_URL + 'static/images/image-banner-projects.jpg'
-const videoURL = process.env.PUBLIC_URL + 'static/videos/coding.mp4'
-
 interface IProps {
   projects: ProjectObject[]
 }
 
 const Projects: React.FC<IProps> = ({ projects }) => {
   const match = useRouteMatch()
-  // const submenuItems = [
-  //     { id: 1, url: `${match.url}/all`, title: 'all', active: true },
-  //     { id: 2, url: `${match.url}/app`, title: 'app' },
-  //     { id: 3, url: `${match.url}/game`, title: 'game' }
-  // ]
-
   return (
     <>
       <Helmet>
@@ -53,14 +49,16 @@ const Projects: React.FC<IProps> = ({ projects }) => {
         />
       </Helmet>
       <SectionWide>
-        <TitleImage imageURL={imageURL} videoURL={videoURL} />
+        <TitleImage imageURL={ImageBanner} videoURL={videoURL} />
       </SectionWide>
       <div style={{ textAlign: `center`, marginTop: `3rem` }}>
-        <h1>Projects</h1>
-        <p>
+        <Typegraphy variant='h3' component='h1'>
+          Projects
+        </Typegraphy>
+        <Typegraphy>
           This is part of the project I participated in, and there are some
           projects that I have not organized and listed.
-        </p>
+        </Typegraphy>
       </div>
       <SectionNarrow>
         <Switch>

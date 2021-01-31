@@ -1,28 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import GlobalStyle from './styles/GlobalStyles'
+import GlobalStyle from './theme/GlobalStyles'
 import theme from './theme/default'
 import { ThemeProvider } from 'styled-components'
-import { SettingContext } from './Settings'
+import { MuiThemeProvider } from '@material-ui/core/styles'
 import App from './App'
 
 import StoreProvider from './store'
 
 const render = () => {
   ReactDOM.render(
-    <ThemeProvider theme={theme}>
-      <SettingContext.Provider
-        value={{
-          contentWidth: 950,
-          smallDeviceWidth: 768
-        }}>
+    <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <StoreProvider>
           <App />
           <GlobalStyle />
         </StoreProvider>
-      </SettingContext.Provider>
-    </ThemeProvider>,
+      </ThemeProvider>
+    </MuiThemeProvider>,
     document.getElementById('root') as HTMLElement
   )
 }

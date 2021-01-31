@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import ProjectCloseButton from './CloseButton'
 
 export default {
-  title: 'Example/ProjectCloseButton',
+  title: 'UI/ProjectCloseButton',
   component: ProjectCloseButton,
   argTypes: {
     backgroundColor: { control: 'color' }

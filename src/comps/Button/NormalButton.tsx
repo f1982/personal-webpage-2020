@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button, { ButtonProps } from '@material-ui/core/Button'
 
 const BubbleColor = '#fff'
-const InnterButton = styled.button`
+const InnterButton = styled(Button)`
   padding: 0.75rem 2rem;
   font-weight: bold;
   color: #fff;
@@ -16,8 +17,6 @@ const InnterButton = styled.button`
   cursor: pointer;
   position: relative;
   &:hover {
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.397);
-    color: #fff;
     transform: translateY(1px);
     background-color: ${({ theme }) =>
       theme?.palette?.primary?.main || '#85ff4d'};
@@ -70,14 +69,17 @@ const InnterButton = styled.button`
   }
 `
 
-interface ButtonProp {
+interface NormalButtonProps extends ButtonProps {
   id?: string
   children?: string
   callback?: Function
 }
-const NormalButton = (props: ButtonProp) => {
+const NormalButton = (props: NormalButtonProps) => {
   return (
     <InnterButton
+      variant='contained'
+      color='primary'
+      {...props}
       onClick={() => {
         props.callback && props.callback()
       }}>

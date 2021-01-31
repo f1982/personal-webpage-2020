@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import Typegraphy from '@material-ui/core/Typography'
+
+import ImgAndyBack from '../../../assets/images/about-andy-back.jpg'
+import ImgAndyMBP from '../../../assets/images/about-computer.jpg'
+import ImgAndyFamily from '../../../assets/images/about-andy-family.jpg'
 
 const Content = styled.div`
   width: 100%;
@@ -35,26 +40,19 @@ const Summary = (props: SummaryProps) => {
 
   return (
     <Content>
-      <h3>Who's Andy</h3>
-      <p>{who_is_andy}</p>
-      <img
-        src={process.env.PUBLIC_URL + 'static/images/about-andy-back.jpg'}
-        alt='I was on the beach'
-      />
+      <Typegraphy variant='h3'>Who's Andy</Typegraphy>
+      <Typegraphy>{who_is_andy}</Typegraphy>
+      <img src={ImgAndyBack} alt='I was on the beach' />
       <Spacer />
-      <h3>What I do?</h3>
-      <p>{what_i_do}</p>
-      <img
-        src={process.env.PUBLIC_URL + 'static/images/about-computer.jpg'}
-        alt='My Computer'
-      />
+      <Typegraphy variant='h3'>What I do?</Typegraphy>
+      <Typegraphy>{what_i_do}</Typegraphy>
+      <img src={ImgAndyMBP} alt='My Computer' />
       <Spacer />
-      <h3>Family</h3>
-      <p>{String(family).replace('$AGE_OF_ZOE$', getYears(2016).toString())}</p>
-      <img
-        src={process.env.PUBLIC_URL + 'static/images/about-andy-family.jpg'}
-        alt='Introduce my family'
-      />
+      <Typegraphy variant='h3'>Family</Typegraphy>
+      <Typegraphy>
+        {String(family).replace('$AGE_OF_ZOE$', getYears(2016).toString())}
+      </Typegraphy>
+      <img src={ImgAndyFamily} alt='Introduce my family' />
       <div style={{ margin: `2rem auto` }}></div>
     </Content>
   )

@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionWide } from '../../layouts/default'
-import TitleImage from '../../comps/common/MediaBanner'
-import Map from './comps/LocationMap'
 import Helmet from 'react-helmet'
+import Typegraphy from '@material-ui/core/Typography'
+
+import TitleImage from '../../comps/common/MediaBanner'
+import { SectionWide } from '../../layouts/default'
+import Map from './comps/LocationMap'
 import ContactForm from './comps/ContactForm'
-const imageURL =
-  process.env.PUBLIC_URL + 'static/images/contact-title-image.jpg'
+
+import ImageContact from '../../assets/images/contact-title-image.jpg'
 
 const SectionContent = styled.section`
   width: 100%;
@@ -24,7 +26,7 @@ const SectionContent = styled.section`
 
 const Contact = (props: any) => {
   return (
-    <>
+    <div>
       <Helmet>
         <title>Contact</title>
         <meta
@@ -33,16 +35,12 @@ const Contact = (props: any) => {
         />
       </Helmet>
       <SectionWide>
-        <TitleImage imageURL={imageURL} />
+        <TitleImage imageURL={ImageContact} />
       </SectionWide>
       <div style={{ marginTop: `3rem` }} />
       <SectionContent>
-        <ContactForm />
-      </SectionContent>
-      <SectionContent>
-        <h3>Contact</h3>
-        
-        <p>
+        <Typegraphy variant='h2'>Contact</Typegraphy>
+        <Typegraphy>
           Currently, I am living in Auckland, New Zealand, If you want contact
           me, feel free to send a email to me. My email address is{' '}
           <a
@@ -51,8 +49,8 @@ const Contact = (props: any) => {
             href='https://drive.google.com/file/d/1X7czXZn03TirgH98BA5kN1f_ZYOlNha1/view?usp=sharing'>
             here
           </a>
-        </p>
-        <p>
+        </Typegraphy>
+        <Typegraphy>
           If you want to hire a software energeer, you can get my CV{' '}
           <a
             target='_blank'
@@ -67,8 +65,8 @@ const Contact = (props: any) => {
             href='https://www.linkedin.com/in/andyisme/'>
             Linkin
           </a>
-        </p>
-        <p>
+        </Typegraphy>
+        <Typegraphy>
           If you would like to get more updates about me, you can follow me via
           social networks. Such as
           <a
@@ -93,14 +91,15 @@ const Contact = (props: any) => {
             subscribe
           </a>
           .
-        </p>
+        </Typegraphy>
       </SectionContent>
-
       <SectionContent>
         <Map />
       </SectionContent>
-      
-    </>
+      {/* <SectionContent>
+        <ContactForm />
+      </SectionContent> */}
+    </div>
   )
 }
 

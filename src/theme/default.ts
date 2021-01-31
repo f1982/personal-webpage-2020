@@ -1,105 +1,85 @@
-import { DefaultTheme } from 'styled-components'
+import createMuiTheme, {
+  ThemeOptions
+} from '@material-ui/core/styles/createMuiTheme'
 
-interface Theme extends DefaultTheme {
+export const themeOptions: ThemeOptions = {
   palette: {
-    common: {
-      background: string
-      foreground: string
-    }
+    type: 'light',
     primary: {
-      main: string
-      contrastText: string
-    }
+      main: '#ffc400'
+    },
     secondary: {
-      main: string
-      contrastText: string
-    }
-    info: {
-      main: string
-      contrastText: string
-    }
-    warnning: {
-      main: string
-      contrastText: string
-    }
-    error: {
-      main: string
-      contrastText: string
-    }
+      main: '#00f1f1'
+    },
     success: {
-      main: string
-      contrastText: string
+      main: '#c6ff00'
+    },
+    error: {
+      main: '#ff0000'
+    },
+    background: {
+      default: '#f1f1f1',
+      paper: '#f1f1f1'
+    },
+    text: {
+      primary: 'rgba(0,0,0,0.93)'
+    },
+    warning: {
+      main: '#ff6d00'
+    },
+    info: {
+      main: '#ea80fc'
     }
+  },
+  typography: {
+    fontFamily: [
+      'Montserrat',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"'
+    ].join(','),
+    button: {
+      fontSize: '1.2rem'
+    },
+    h1: {
+      fontSize: '5.4rem'
+    },
+    h2: {
+      fontSize: '3.6rem'
+    },
+    h3: {
+      fontSize: '2.7rem'
+    },
+    h4: {
+      fontSize: '2.1rem'
+    },
+    h5: {
+      textAlign: 'left',
+      fontSize: '1.5rem'
+    },
+    h6: {
+      fontSize: '1.2rem'
+    },
+    subtitle1: {
+      fontSize: '0.9rem'
+    },
+    subtitle2: {
+      fontSize: '0.8rem'
+    },
+    caption: {
+      fontSize: '0.6rem'
+    }
+  },
+  spacing: 8,
+  shape: {
+    borderRadius: 30
   }
-  shadows: {
-    panel: string
-    card: string
-  }
 }
 
-const palette = {
-  common: {
-    background: '#fff',
-    foreground: '#666'
-  },
-  primary: {
-    main: ' #efc8ee',
-    contrastText: '#666'
-  },
-  secondary: {
-    main: '#74ddf7',
-    contrastText: '#000'
-  },
-  info: {
-    main: '#64b5f6',
-    contrastText: '#000'
-  },
-  warnning: {
-    main: '#64b5f6',
-    contrastText: '#000'
-  },
-  error: {
-    main: '#e57373',
-    contrastText: '#000'
-  },
-  success: {
-    main: '#81c784',
-    contrastText: '#000'
-  }
-}
-
-const shadows = {
-  panel: '0 19px 38px rgba(0, 0, 0, 0.30),0 15px 12px rgba(0, 0, 0, 0.22)',
-  card: '0px 10px 10px 2px rgba(100, 100, 0, 0.4)'
-}
-
-const typography = {
-  fontFamily: [
-    '-apple-system',
-    'system-ui',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'Roboto'
-  ].join(','),
-  color: {
-    main: '#5c636d'
-  },
-  h1: {},
-  h2: {},
-  h3: {},
-  h4: {}
-}
-
-typography.h1 = {
-  fontFamily: typography.fontFamily,
-  fontSize: '4.209rem',
-  fontStyle: 'italic'
-}
-
-const theme: Theme = {
-  palette,
-  shadows
-  // typography
-}
-
-export default theme
+export default createMuiTheme(themeOptions)

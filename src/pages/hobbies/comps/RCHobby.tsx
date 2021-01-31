@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { SingleButton } from '../../../comps/Button'
 import _ from 'lodash'
+import Typegraphy from '@material-ui/core/Typography'
+
+import { SingleButton } from '../../../comps/Button'
+import RCHobbyImage from '../../../assets/images/hobby-rc-cover.jpg'
 
 const Wrapper = styled.div`
   $randomNumber: random(5);
@@ -122,14 +125,13 @@ const RCHobby = () => {
 
   return (
     <Wrapper ref={containerRef}>
-      <img
-        src={process.env.PUBLIC_URL + 'static/images/hobby-rc-cover.jpg'}
-        alt='RC Hobby'
-      />
+      <img src={RCHobbyImage} alt='RC Hobby' />
       <div id='hobby-title'>
-        <HobbyTitle>RC Hobby</HobbyTitle>
+        <Typegraphy variant='h3' component='h2'>
+          RC Hobby
+        </Typegraphy>
       </div>
-      <p>
+      <Typegraphy>
         Making RC aeroplane was one of my dream in my childhood. When I was in
         primary school I have seen some magazines that introduced how to make RC
         aeroplane, I was shocked by the content and started to absorb the
@@ -138,7 +140,7 @@ const RCHobby = () => {
         components I need. Thanks for the Internet development and I can quickly
         find the groups and tutorials which let me enjoy to make or even design
         aircraft by myself.
-      </p>
+      </Typegraphy>
       <div id='links'>
         <a
           href='https://photos.app.goo.gl/huWtqV1XxnSan39P7'

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 
 import { SingleButton } from '../../../comps/Button'
@@ -16,46 +17,39 @@ const Wrapper = styled.div`
     padding: 0 0.5rem;
   }
 `
-const IM = styled.h1`
+const IM = styled.i`
   font-size: 4.3rem;
-  line-height: 4rem;
-
+  line-height: -5rem;
   @media screen and (max-width: 768px) {
     font-size: 3rem;
-    line-height: 1rem;
+    /* line-height: 1rem; */
   }
-`
-const Cao = styled.i`
   position: relative;
   ::after {
     content: '[ch ow]';
     font-size: 0.75rem;
-    line-height: 1.5rem;
+    /* line-height: 1.5rem; */
     letter-spacing: 2px;
     color: #fff;
     position: absolute;
-    text-shadow: 0px 0px 1px #333;
+    text-shadow: 0px 0px 1px #000;
     right: 0;
     bottom: 0;
   }
 `
-const JobTitle = styled.h2`
-  font-size: 1rem;
-  margin: 0 0 0.75rem 0;
-`
 
 const HeyThere = () => {
-  // const hiImageURL = process.env.PUBLIC_URL + 'static/images/hi.png';
   return (
     <Wrapper>
-      <div>Hi there,</div>
-      <IM>
-        <i>I&apos;M ANDY</i>
-        <Cao> CAO</Cao>
-      </IM>
-      <JobTitle>Software Developer</JobTitle>
+      <Typography variant='body1'>Hi there,</Typography>
+
+      <Typography variant='h1'>
+        <IM>I&apos;M ANDY CAO</IM>
+      </Typography>
+
+      <Typography variant='body1'>Software Developer</Typography>
       <Link to='/contact'>
-        <SingleButton>Contact</SingleButton>
+        <SingleButton color='primary'>Contact</SingleButton>
       </Link>
     </Wrapper>
   )

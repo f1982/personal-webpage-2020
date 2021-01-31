@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import Typography from '@material-ui/core/Typography'
 
 import RCTransmitter from './../../../assets/images/rc-transmiter.png'
+import AndyAvatar from './../../../assets/images/avatar-pixel.jpg'
+
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
@@ -38,21 +41,6 @@ const HorizatalItem = styled.div`
 
 const AvatarImg = styled.img``
 
-const HighlightFont = styled.h2`
-  display: inline-block;
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-    line-height: 1rem;
-  }
-`
-
-const WhatIDoParagraph = styled.p`
-  text-align: right;
-  @media screen and (max-width: 768px) {
-    text-align: justify;
-  }
-`
-
 interface PropsType {
   whatIDo: string
   whatILike: string
@@ -62,22 +50,20 @@ const DoAndLike = (props: PropsType) => {
   return (
     <Wrapper>
       <div style={{ textAlign: `center`, marginBottom: `2rem` }}>
-        <HighlightFont>Love to explore and create</HighlightFont>
+        <Typography variant='h2'>Love to explore and create</Typography>
       </div>
       <HorizatalContainer>
         <HorizatalItem style={{ textAlign: `right`, paddingRight: `2rem` }}>
-          <UserAvatar
-            src={process.env.PUBLIC_URL + 'static/images/avatar-pixel.jpg'}
-          />
+          <UserAvatar src={AndyAvatar} />
         </HorizatalItem>
         <HorizatalItem>
-          <p>{props.whatIDo}</p>
+          <Typography variant='body1'>{props.whatIDo}</Typography>
         </HorizatalItem>
       </HorizatalContainer>
 
       <HorizatalContainer>
         <HorizatalItem>
-          <WhatIDoParagraph>{props.whatILike}</WhatIDoParagraph>
+          <Typography variant='body1'>{props.whatILike}</Typography>
         </HorizatalItem>
         <HorizatalItem style={{ textAlign: `left`, paddingLeft: `2rem` }}>
           <AvatarImg src={RCTransmitter} />

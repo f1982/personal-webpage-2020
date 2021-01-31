@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import menuStyles from './menubar.module.css'
+import Typegraphy from '@material-ui/core/Typography'
 import { NavLink } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
+
+import menuStyles from './menubar.module.css'
 
 // base button style
 const MenuBarItemBase = css`
@@ -37,6 +39,7 @@ const MenuBarItemBase = css`
   /* Normally show this, before user hover */
   &::before {
     content: attr(data-text);
+    font-family: ${props => props.theme.typography.fontFamily};
     position: absolute;
     transform: translateX(-50%);
     left: 50%;
@@ -130,7 +133,9 @@ const ResponsiveMenuBar = (
             exact={route.exact}
             to={route.path}
             activeClassName={menuStyles.activeNavLink}>
-            <span>{route.title}</span>
+            <Typegraphy variant='button'>
+              <span>{route.title}</span>
+            </Typegraphy>
           </MenuBarItem>
         )
       })}
@@ -210,7 +215,7 @@ const SmallMenuBar = ({ routes }: SmallMenuBarProps) => {
                 to={route.path}
                 onClick={toggle}
                 activeClassName={menuStyles.activeSmallNavLink}>
-                {route.title}
+                <Typegraphy variant='button'>{route.title}</Typegraphy>
               </SmallMenuBarItem>
             )
           })}

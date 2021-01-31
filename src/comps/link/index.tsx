@@ -50,14 +50,12 @@ const Links = ({
   category = '',
   padding = '0.5rem'
 }: LinksProp) => {
-  const theme = useContext(ThemeContext)
-  // console.log('theme', theme)
 
   return (
     <LinkContainer>
       <IconContext.Provider
         value={{
-          color: theme.palette.primary.main,
+          color: '#ffcc00',
           size: String(iconSize),
           style: { verticalAlign: 'middle' }
         }}>

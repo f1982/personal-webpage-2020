@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import GoTopButton from './GoTopButton'
 
 export default {
-  title: 'Example/GoTopButton(unused)',
+  title: 'UI/GoTopButton(unused)',
   component: GoTopButton,
   argTypes: {
     backgroundColor: { control: 'color' }

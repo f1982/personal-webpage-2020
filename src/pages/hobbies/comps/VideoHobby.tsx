@@ -1,8 +1,11 @@
 import React, { useEffect, useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { SingleButton } from '../../../comps/Button'
 import _ from 'lodash'
-import HobbyHobbyImage from '../../../assets/images/video-hobby-cover.png'
+import Typegraphy from '@material-ui/core/Typography'
+
+import { SingleButton } from '../../../comps/Button'
+import HobbyCover from '../../../assets/images/video-hobby-cover.png'
+
 const Wrapper = styled.div`
   display: grid;
   width: 100%;
@@ -115,17 +118,19 @@ const VideoHobby = () => {
 
   return (
     <Wrapper ref={containerRef}>
-      <img src={HobbyHobbyImage} alt='Andy RC Hobby' />
+      <img src={HobbyCover} alt='Andy Video Hobby' />
       <TitleContainer>
-        <h3>Video Making</h3>
+        <Typegraphy variant='h3' component='h2'>
+          Video Making
+        </Typegraphy>
       </TitleContainer>
-      <p>
+      <Typegraphy>
         I don’t think human’s memory is very stable and accurate. Sometimes,
         when we recall the things that happened before we can only remember the
         blurred pictures. I consider video as an external memory for very
         precise and detailed information. Especially when I have my child, I try
         to record all the key memories.
-      </p>
+      </Typegraphy>
       <Links>
         <a
           href='http://tiny.cc/9owsqz'

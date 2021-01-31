@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react'
-// import styled from 'styled-components';
 import { useRouteMatch, Switch, Route, useHistory } from 'react-router-dom'
+import Typegraphy from '@material-ui/core/Typography'
 import { Helmet } from 'react-helmet'
+
 import ImageBanner from '../../comps/common/MediaBanner'
 import { Experience } from '../../comps/timeline/TimelineWork'
 import TimelineLife from '../../comps/timeline/TimelineLife'
 import Summary from './comps/Summary'
 import { SectionNarrow } from '../../layouts/default'
+
+import ImageAndyOnBeach from '../../assets/images/andy-on-beach.jpg'
+
+const videoURL = process.env.PUBLIC_URL + 'static/videos/desk.mp4'
 
 const About = (props: any) => {
   const history = useHistory()
@@ -16,24 +21,14 @@ const About = (props: any) => {
     syncInfo()
   }, [syncInfo])
 
-  // const submenuItems = [
-  //     { id: 'intro', url: `${match.url}/intro`, title: 'Introduction', active: true },
-  //     { id: 'work', url: `${match.url}/work`, title: 'Work Experience' },
-  //     { id: 'life', url: `${match.url}/life`, title: 'Life Experience' },
-  //     { id: 'skill', url: `${match.url}/skill`, title: 'Skills' }
-  // ];
-  const imageURL = process.env.PUBLIC_URL + 'static/images/andy-at-beach.jpg'
-  const videoURL = process.env.PUBLIC_URL + 'static/videos/desk.mp4'
-
   return (
     <>
       <Helmet>
         <title>About</title>
         <meta name='description' content='There are something about me' />
       </Helmet>
-      {/* <p>test:{console.log("props.sections: ", props.sections)}</p>
-            <p>test:{props.sections.who_is_andy}</p> */}
-      <ImageBanner imageURL={imageURL} videoURL={videoURL} />
+      <ImageBanner imageURL={ImageAndyOnBeach} videoURL={videoURL} />
+
       <div style={{ marginTop: `3rem` }} />
       <Switch>
         <Route path={`${match.path}/work`}>
@@ -51,7 +46,7 @@ const About = (props: any) => {
           </SectionNarrow>
         </Route>
         <Route path={`${match.path}/skill`}>
-          <h1>Skills</h1>
+          <Typegraphy variant='h1'>Skills</Typegraphy>
         </Route>
         <Route path={`${match.path}/intro`}>intro</Route>
         <Route>
@@ -61,7 +56,7 @@ const About = (props: any) => {
       {props.loadedState === 'loaded' ? (
         <></>
       ) : (
-        <p style={{ textAlign: 'center' }}>loading</p>
+        <Typegraphy>loading</Typegraphy>
       )}
     </>
   )
