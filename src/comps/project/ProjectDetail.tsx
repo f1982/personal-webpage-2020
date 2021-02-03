@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FaCalendarTimes } from 'react-icons/fa'
+import Typegraphy from '@material-ui/core/Typography'
+
 import { ProjectObject } from '../../types/interfaces'
 import { TechnologyStackItem } from './TechnologyStack'
 import { ImageSlide } from './ImageSlide'
@@ -21,9 +23,7 @@ import { ImageSlide } from './ImageSlide'
 //     height: 240px;
 // `;
 
-const DateRow = styled.div`
-  font-family: Menlo, Monaco, monospace, 'Courier New';
-`
+const DateRow = styled.div``
 // const QuestionMarkIcon = styled(FaQuestionCircle)`
 //     vertical-align: middle;
 //     margin-left: 4px;
@@ -56,6 +56,7 @@ const Images = styled(ImageSlide)`
 
 const Wrapper = styled.div`
   text-align: left;
+  padding: 2rem;
 `
 
 const StackRow = styled.div`
@@ -68,7 +69,7 @@ const StackRow = styled.div`
   }
 `
 interface ProjectDetailProp {
-  itemData: ProjectObject
+  itemData: ProjectObject | null | undefined
 }
 
 const ProjectDetail = (props: ProjectDetailProp) => {
@@ -79,21 +80,23 @@ const ProjectDetail = (props: ProjectDetailProp) => {
 
   return (
     <Wrapper>
-      <h4>{itemData.title}</h4>
+      <Typegraphy variant='h2'>{itemData.title}</Typegraphy>
       <DateRow>
         <FaCalendarTimes />
-        <span>{itemData.start}</span> - <span>{itemData.end}</span>
+        <Typegraphy variant='body1' component='span'>
+          {itemData.start} - {itemData.end}
+        </Typegraphy>
       </DateRow>
       <StackRow>
         {itemData.tech.split(',').map((item, index) => {
           return <TechnologyStackItem key={index} technology={item} />
         })}
       </StackRow>
-      <p>
+      <Typegraphy variant='body1'>
         {itemData.description}
         <br />
         {itemData.responsibility}
-      </p>
+      </Typegraphy>
 
       <Images width='100%' height='400px' images={itemData.images} />
       {/* {itemData.link ? (

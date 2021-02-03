@@ -44,7 +44,7 @@ const MenuBarItemBase = css`
     transform: translateX(-50%);
     left: 50%;
     bottom: 17.7%;
-    color: ${props => props.theme.palette.primary.contrastText || '#ffcc00'};
+    /* color: ${props => props.theme.palette.primary.contrastText || '#ffcc00'}; */
     text-transform: uppercase;
     transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
     opacity: 1;
@@ -70,7 +70,8 @@ const MenuBarItemBase = css`
     }
     &::before {
       content: attr(data-text);
-      background-color: #5c636d; //color of text shadow
+      background-color: ${props =>
+        props.theme.palette.divider}; //color of text shadow
       opacity: 0;
       bottom: 0;
     }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { SingleButton } from '../../comps/Button'
 import { ParticleCircle } from './canvas'
 import Helmet from 'react-helmet'
+import { Typography } from '@material-ui/core'
 
 const Wrapper = styled.div`
   position: relative;
@@ -20,14 +21,11 @@ const Centered = styled.div`
   & h3 {
     letter-spacing: 1rem;
     text-transform: uppercase;
-    background-color: #fff;
     width: max-content;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
   & p {
-    background-color: #fff;
-    color: #666;
     width: max-content;
     margin: 1.5rem auto;
     padding: 0.1rem 1rem;
@@ -46,7 +44,6 @@ const WelcomeButton = styled(SingleButton)`
 `
 
 const WelcomeCanvas = styled.canvas`
-  background-color: #fff;
   width: 100%;
   height: 100vh;
 `
@@ -87,8 +84,10 @@ const Welcome = () => {
         <meta name='description' content="Welcome to Andy's space" />
       </Helmet>
       <Centered>
-        <h3>Hey! I&apos;m Andy</h3>
-        <p>Welcome to my space</p>
+        <Typography variant='h2' component='h1'>
+          Hey! I&apos;m Andy
+        </Typography>
+        <Typography>Welcome to my space</Typography>
         <Link to='/home'>
           <WelcomeButton id='enter-button'>ENTER</WelcomeButton>
         </Link>

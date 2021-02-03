@@ -5,6 +5,8 @@ import { ProjectObject } from '../../types/interfaces'
 import ProjectItem from './ProjectCard'
 import { ProjectDetail } from './ProjectDetail'
 import { ProjectCloseButton } from '../Button'
+import { Dialog, Slide } from '@material-ui/core'
+import { TransitionProps } from '@material-ui/core/transitions'
 
 const Wrapper = styled.section`
   width: 100%;
@@ -24,6 +26,13 @@ const ProjectButton = styled.button`
     outline: 0;
   }
 `
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & { children?: React.ReactElement },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction='up' ref={ref} {...props} />
+})
 
 const getPopupContainerWidth = () => {
   if (window.innerWidth < 768) {
@@ -114,7 +123,16 @@ const ProjectList = ({
           )
         })}
       </ProjectsContainer>
-      {selectedProject ? (
+      <Dialog
+        fullWidth
+        maxWidth='lg'
+        open={!!selectedProject}
+        onClose={closePopupHandler}
+        TransitionComponent={Transition}>
+        <ProjectDetail itemData={selectedProject} />
+      </Dialog>
+
+      {/* {selectedProject ? (
         <Popup
           data-testid='popup-win'
           id={selectedProject.id}
@@ -124,7 +142,7 @@ const ProjectList = ({
           closeHandler={closePopupHandler}>
           <ProjectDetail itemData={selectedProject} />
         </Popup>
-      ) : null}
+      ) : null} */}
     </Wrapper>
   )
 }

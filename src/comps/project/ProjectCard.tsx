@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import Typegraphy from '@material-ui/core/Typography'
 
 import ProgressiveImage from '../ProgressiveImage/ProgressiveImage'
+import { Card } from '@material-ui/core'
 
-const Wrapper = styled.div`
+const Wrapper = styled(Card)`
   display: inline-flex;
   flex-wrap: wrap;
   flex-basis: 400px;
@@ -27,7 +28,6 @@ const CardImage = styled.div`
   > pre {
     position: absolute;
     padding: 1px 10px;
-    color: #fff;
     font-weight: bold;
     border-radius: ${props => props.theme.shape.borderRadius || '0'}px;
     top: 0px;
@@ -42,10 +42,8 @@ const CardContent = styled.div`
   flex-grow: 1;
   flex-basis: 60%;
   p {
-    font-size: 1rem;
     text-align: left;
     position: relative;
-    line-height: 1.5em;
     /* 高度为需要显示的行数*行高，比如这里我们显示两行，则为3 */
     height: 3em;
     overflow: hidden;
@@ -56,7 +54,6 @@ const CardContent = styled.div`
     bottom: 0;
     right: 0;
     padding: 0 5px;
-    background-color: #fff;
   }
 `
 
@@ -88,7 +85,7 @@ const ProjectItem = ({
         <Typegraphy component='h5' variant='h5'>
           {title}
         </Typegraphy>
-        <Typegraphy>{description}</Typegraphy>
+        <Typegraphy variant='body1'>{description}</Typegraphy>
       </CardContent>
     </Wrapper>
   )

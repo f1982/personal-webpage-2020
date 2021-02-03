@@ -1,25 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import GlobalStyle from './theme/GlobalStyles'
-import theme from './theme/default'
-import { ThemeProvider } from 'styled-components'
-import { MuiThemeProvider } from '@material-ui/core/styles'
+import Providers from './Providers'
 import App from './pages/App'
-
-import StoreProvider from './StoreProvider'
 
 const render = () => {
   ReactDOM.render(
-    <MuiThemeProvider theme={theme}>
-      <ThemeProvider theme={theme}>
-        <StoreProvider>
-          <App />
-          <GlobalStyle />
-        </StoreProvider>
-      </ThemeProvider>
-    </MuiThemeProvider>,
-    document.getElementById('root') as HTMLElement
+    <Providers>
+      <App />
+    </Providers>,
+    document.getElementById('root')
   )
 }
 

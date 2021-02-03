@@ -1,11 +1,11 @@
 
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import defaultTheme from '../src/theme/default'
+import {lightTheme} from '../src/theme/Theme'
 
 export const decorators = [
   (Story)=>(
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={lightTheme}>
       <Story />
     </ThemeProvider>
   )

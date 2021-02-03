@@ -7,7 +7,6 @@ import Logo from '../../assets/images/logo.png'
 const Wrapper = styled.header`
   width: 100%;
   z-index: 99;
-  background-color: #fff;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.09);
 `
 

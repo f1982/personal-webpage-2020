@@ -9,6 +9,7 @@ import {
   Redirect,
   useLocation
 } from 'react-router-dom'
+import { Paper } from '@material-ui/core'
 import ReactGA from 'react-ga'
 import routes from './router'
 import Layout from '../layouts/default'
@@ -61,7 +62,7 @@ const AppView: React.FC<IProps> = ({ syncAppConfig, loadedState }) => {
       {websiteClosed ? (
         <ClosurePage />
       ) : (
-        <React.Fragment>
+        <Paper>
           {loadedState === 'loaded' ? (
             <Router>
               <Switch>
@@ -89,7 +90,7 @@ const AppView: React.FC<IProps> = ({ syncAppConfig, loadedState }) => {
               {/* <LocationDisplay /> */}
             </Router>
           ) : null}
-        </React.Fragment>
+        </Paper>
       )}
     </>
   )
