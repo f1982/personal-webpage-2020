@@ -1,12 +1,12 @@
 import React from 'react'
-import { render, waitFor } from '@testing-library/react'
+import { fireEvent, getByTestId, render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { MyForm } from './SimpleForm'
 
 test('rendering and submitting a basic Formik form', async () => {
   const handleSubmit = jest.fn()
-  const { getByLabelText, getByRole } = render(
+  const { getByLabelText, getByRole, getByTestId } = render(
     <MyForm onSubmit={handleSubmit} />
   )
 
@@ -14,10 +14,10 @@ test('rendering and submitting a basic Formik form', async () => {
   userEvent.type(getByLabelText(/last name/i), 'Dee')
   userEvent.type(getByLabelText(/email/i), 'john.dee@someemail.com')
 
-  userEvent.click(getByRole('button', { name: /submit/i }))
+  // userEvent.click(getByRole('button', { name: /Submit/i }))
+  fireEvent.submit(getByTestId('form'))
 
-  await waitFor(() =>
-    // waitFor(() =>
+  waitFor(() =>
     expect(handleSubmit).toHaveBeenCalledWith({
       email: 'john.dee@someemail.com',
       firstName: 'John',
