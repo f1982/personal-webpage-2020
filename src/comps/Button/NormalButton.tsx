@@ -3,14 +3,13 @@ import styled from 'styled-components'
 import Button, { ButtonProps } from '@material-ui/core/Button'
 
 const BubbleColor = '#fff'
-const InnterButton = styled(Button)`
+const InnerButton = styled(Button)`
   padding: 0.75rem 2rem;
   font-weight: bold;
   color: #fff;
   border: 2px solid #fff;
   font-size: 1rem;
-  background-color: ${({ theme }) =>
-    theme?.palette?.secondary?.main || '#ffcc00'};
+  background-color: ${({ theme }) => theme?.palette?.secondary?.main};
   border-radius: 0.75rem;
   transition: all 0.3s ease 0s;
   overflow: hidden;
@@ -18,8 +17,7 @@ const InnterButton = styled(Button)`
   position: relative;
   &:hover {
     transform: translateY(1px);
-    background-color: ${({ theme }) =>
-      theme?.palette?.primary?.main || '#85ff4d'};
+    background-color: ${({ theme }) => theme?.palette?.primary?.main};
     &:before {
       content: '';
       pointer-events: none;
@@ -76,7 +74,7 @@ interface NormalButtonProps extends ButtonProps {
 }
 const NormalButton = (props: NormalButtonProps) => {
   return (
-    <InnterButton
+    <InnerButton
       variant='contained'
       color='primary'
       {...props}
@@ -84,7 +82,7 @@ const NormalButton = (props: NormalButtonProps) => {
         props.callback && props.callback()
       }}>
       {props.children}
-    </InnterButton>
+    </InnerButton>
   )
 }
 

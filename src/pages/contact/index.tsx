@@ -6,7 +6,7 @@ import Typegraphy from '@material-ui/core/Typography'
 import TitleImage from '../../comps/common/MediaBanner'
 import { SectionWide } from '../../layouts/default'
 import Map from './comps/LocationMap'
-
+import { ContactForm } from './comps/ContactForm'
 import ImageContact from '../../assets/images/contact-title-image.jpg'
 
 const SectionContent = styled.section`
@@ -95,9 +95,9 @@ const Contact = (props: any) => {
       <SectionContent>
         <Map />
       </SectionContent>
-      {/* <SectionContent>
-        <ContactForm />
-      </SectionContent> */}
+      <SectionContent>
+        <ContactForm onSubmit={() => {}} />
+      </SectionContent>
     </div>
   )
 }
